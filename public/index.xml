@@ -26,16 +26,6 @@ Gauss-Jordan Elimination  확장행렬을 기약행사다리꼴(RREF, reduced ro
       </item>
       
       <item>
-        <title>Test Rmd</title>
-        <link>https://jiwooblog.netlify.app/posts/r/test/</link>
-        <pubDate>Thu, 07 Jan 2021 10:08:56 +0900</pubDate>
-        
-        <guid>https://jiwooblog.netlify.app/posts/r/test/</guid>
-        <description>Test SUCCESS??R MarkdownThis is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.
-When you click the Knit button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:</description>
-      </item>
-      
-      <item>
         <title>수강과목</title>
         <link>https://jiwooblog.netlify.app/posts/yonsei/psychology/lecture/</link>
         <pubDate>Tue, 28 Jan 2020 10:08:56 +0900</pubDate>
@@ -62,6 +52,27 @@ When you click the Knit button a document will be generated that includes both c
         <description>NH투자증권 Y&amp;amp;Z세대 투자자 프로파일링 본 대회는 NH투자증권에서 주최한 대회로, 2020년 급격하게 늘어난 20~30대 투자자들에 대한 분석을 하고 이를 시각화하는 것이 주목적이었다.
 코드가 상당히 복잡한 관계로 Dacon에 코드공유한 링크와 이미지 일부를 올리는 것으로 포스팅을 대체하고자 한다.
 Dacon 코드 공유 Factor Analysis Word Cloud_국내 Word Cloud_해외 Cluster Polygon Cluster Characteristics Idea Table Idea Sample Domain Knowledge 1. 해외주식 소수점 거래  현재 신한금융투자, 한국투자증권에서 실현 중 의결권, 배당권을 빼고 소수점 거래 가능! (ex.</description>
+      </item>
+      
+      <item>
+        <title>Lecture 02_TEST</title>
+        <link>https://jiwooblog.netlify.app/posts/statistics/linearalgebra/l02/</link>
+        <pubDate>Thu, 07 Jan 2021 10:08:56 +0900</pubDate>
+        
+        <guid>https://jiwooblog.netlify.app/posts/statistics/linearalgebra/l02/</guid>
+        <description>Vector Space덧셈에 닫혀있다.스칼라배에 닫혀있다.Subspace벡터공간 \(V_n\) 의 부분 집합 \(W_n\)이 벡터공간이면, \(W_n\)을 \(V_n\)의 부분공간이라고 한다. 즉, \(W_n\)이 부분공간이려면, 덧셈과 스칼라배에 닫혀있으면 된다.
+Gauss-Jordan Elimination확장행렬을 기약행사다리꼴(RREF, reduced row echelon form)로 바꾸는 알고리즘가우스조던 소거법 = 가감법 + 대입법## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 26.00 ## Median :15.0 Median : 36.00 ## Mean :15.</description>
+      </item>
+      
+      <item>
+        <title>RRRR</title>
+        <link>https://jiwooblog.netlify.app/posts/r/test/</link>
+        <pubDate>Fri, 28 Feb 2020 10:08:56 +0900</pubDate>
+        
+        <guid>https://jiwooblog.netlify.app/posts/r/test/</guid>
+        <description>Test SUCCESS??\(\vec{a}\)
+R MarkdownThis is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.
+When you click the Knit button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:</description>
       </item>
       
       <item>

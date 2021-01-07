@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Lecture 01 – JW Blog</title>
+    <title>Lecture 02_TEST – JW Blog</title>
     
 
 
@@ -1079,7 +1079,7 @@
 
 
 <meta property="og:site_name" content="JW Blog">
-<meta property="og:title" content="Lecture 01">
+<meta property="og:title" content="Lecture 02_TEST">
 <meta property="og:url" content="https://jiwooblog.netlify.app/posts/statistics/linearalgebra/l02/">
 <meta property="og:type" content="article">
 
@@ -1110,7 +1110,7 @@
   {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "headline": "Lecture 01",
+    "headline": "Lecture 02_TEST",
     "datePublished": "2021-01-07T10:08:56+09:00",
     "dateModified": "2021-01-07T10:08:56+09:00",
     "url" : "https://jiwooblog.netlify.app/posts/statistics/linearalgebra/l02/",
@@ -1163,7 +1163,7 @@
     <div class="menu">
   <h6 class="menu__label">
     
-      Lecture 01
+      Lecture 02_TEST
     
   </h6>
   <ul>
@@ -1369,27 +1369,12 @@
   
   
   
-  <li class="menu__title--collapse active" data-depth="0" data-permalink="https://jiwooblog.netlify.app/posts/r/">
-    <span class="menu__title--collapse-text">
-      R
-    </span>
-    <span class="menu__title--icon down">
-      
-        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"><path fill="currentColor" d="M9.29 15.88L13.17 12 9.29 8.12c-.39-.39-.39-1.02 0-1.41.39-.39 1.02-.39 1.41 0l4.59 4.59c.39.39.39 1.02 0 1.41L10.7 17.3c-.39.39-1.02.39-1.41 0-.38-.39-.39-1.03 0-1.42z"/></svg>
-      
-    </span>
+  
+  
+  <li class="active">
+    <a href="https://jiwooblog.netlify.app/posts/r/"
+      class="menu__title active">R</a>
   </li>
-  <ul class="menu__list active" data-data=/r/ data-link=https://jiwooblog.netlify.app/posts/statistics/linearalgebra/l02/>
-    
-      
-        
-        
-        <li>
-          <a href="https://jiwooblog.netlify.app/posts/r/test/" class="menu__title " data-depth="0">Test Rmd</a>
-        </li>
-      
-    
-  </ul>
   
 
     
@@ -1756,7 +1741,7 @@
   <div class="header__wrapper bgcolor__header">
     <div class="divider">
       <div class="lmr">
-        <h2 class="title">Lecture 01</h2>
+        <h2 class="title">Lecture 02_TEST</h2>
       </div>
     </div>
   </div>
@@ -1808,7 +1793,7 @@
   
   <li  class="is-active" >
     
-      <span>Lecture 01</span>
+      <span>Lecture 02_TEST</span>
     
   </li>
   
@@ -1850,7 +1835,7 @@
         <div class="menu">
   <h6 class="menu__label">
     
-      Lecture 01
+      Lecture 02_TEST
     
   </h6>
   <ul>
@@ -2056,27 +2041,12 @@
   
   
   
-  <li class="menu__title--collapse active" data-depth="0" data-permalink="https://jiwooblog.netlify.app/posts/r/">
-    <span class="menu__title--collapse-text">
-      R
-    </span>
-    <span class="menu__title--icon down">
-      
-        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"><path fill="currentColor" d="M9.29 15.88L13.17 12 9.29 8.12c-.39-.39-.39-1.02 0-1.41.39-.39 1.02-.39 1.41 0l4.59 4.59c.39.39.39 1.02 0 1.41L10.7 17.3c-.39.39-1.02.39-1.41 0-.38-.39-.39-1.03 0-1.42z"/></svg>
-      
-    </span>
+  
+  
+  <li class="active">
+    <a href="https://jiwooblog.netlify.app/posts/r/"
+      class="menu__title active">R</a>
   </li>
-  <ul class="menu__list active" data-data=/r/ data-link=https://jiwooblog.netlify.app/posts/statistics/linearalgebra/l02/>
-    
-      
-        
-        
-        <li>
-          <a href="https://jiwooblog.netlify.app/posts/r/test/" class="menu__title " data-depth="0">Test Rmd</a>
-        </li>
-      
-    
-  </ul>
   
 
     
@@ -2152,42 +2122,43 @@
 <li>확장행렬을 기약행사다리꼴(RREF, reduced row echelon form)로 바꾸는 알고리즘</li>
 <li>가우스조던 소거법 = 가감법 + 대입법</li>
 </ul>
-</div>
-<div id="선형사상의-특징" class="section level1">
-<h1>선형사상의 특징</h1>
-<ol style="list-style-type: decimal">
-<li>가산성 <span class="math inline">\(f(x+y) = f(x) + f(y)\)</span></li>
-<li>동차성 <span class="math inline">\(f(ax) = af(x)\)</span></li>
-</ol>
-</div>
-<div id="lu-decomposition" class="section level1">
-<h1>LU Decomposition</h1>
-<p><span class="math inline">\(E_{k}...E_{2}E_{1}A = U\)</span> <br>
--&gt; <span class="math inline">\(A = E_{1}^{-1}E_{2}^{-1}...E_{k}^{-1}U\)</span> <br>
-* 여기서 <span class="math inline">\(E_{k}...E_{2}E_{1}\)</span>는 하삼각행렬이며, <span class="math inline">\(E_{1}^{-1}E_{2}^{-1}...E_{k}^{-1}\)</span>도 하삼각행렬이다.<br> <br></p>
-<p>근거(1) 가우스 소거법을 시행할 때 사용되는 모든 기본행렬은 항상 하삼각행렬이다. (단, 행교환 제외) <br>
-근거(2) 하삼각행렬인 기본행렬의 역행렬은 여전히 하삼각행렬이다. <br>
-근거(3) 하삼각행렬 <span class="math inline">\(\times\)</span> 하삼각행렬 = 하삼각행렬 <br></p>
-</div>
-<div id="plu-decomposition" class="section level1">
-<h1>PLU Decomposition</h1>
-<p>행교환이 필요한 경우, 행교환을 미리 해주고 LU 분해하는 법 (P: permutation)</p>
-<p><br></p>
-<hr />
-<div id="용어-정리" class="section level6">
-<h6>용어 정리</h6>
-<ul>
-<li>consistent: 해가 적어도 한 개는 있는 경우</li>
-<li>homogeneous: 동차 (ex. <span class="math inline">\(A\vec{x} = \vec{0}\)</span>: 동차 연립선형방정식)</li>
-</ul>
-<p><br>
-<br></p>
-</div>
+<pre><code>##      speed           dist       
+##  Min.   : 4.0   Min.   :  2.00  
+##  1st Qu.:12.0   1st Qu.: 26.00  
+##  Median :15.0   Median : 36.00  
+##  Mean   :15.4   Mean   : 42.98  
+##  3rd Qu.:19.0   3rd Qu.: 56.00  
+##  Max.   :25.0   Max.   :120.00</code></pre>
+<pre class="r"><code>summary(cars)</code></pre>
+<pre><code>##      speed           dist       
+##  Min.   : 4.0   Min.   :  2.00  
+##  1st Qu.:12.0   1st Qu.: 26.00  
+##  Median :15.0   Median : 36.00  
+##  Mean   :15.4   Mean   : 42.98  
+##  3rd Qu.:19.0   3rd Qu.: 56.00  
+##  Max.   :25.0   Max.   :120.00</code></pre>
+<p><img src="/ko/posts/Statistics/LinearAlgebra/L02_files/figure-html/pressure-1.png" width="672" /></p>
 </div>
 
   </article>
 </div>
       
+<div class="grow"></div>
+<nav class="pagination-single">
+  
+    
+      <a href="https://jiwooblog.netlify.app/posts/statistics/linearalgebra/l01/" title="Lecture 01" class="pagination-single__left">
+        <div class="pagination-single__icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0V0z"/><path fill="currentColor" d="M19 11H7.83l4.88-4.88c.39-.39.39-1.03 0-1.42-.39-.39-1.02-.39-1.41 0l-6.59 6.59c-.39.39-.39 1.02 0 1.41l6.59 6.59c.39.39 1.02.39 1.41 0 .39-.39.39-1.02 0-1.41L7.83 13H19c.55 0 1-.45 1-1s-.45-1-1-1z"/></svg>
+        </div>
+        <div class="pagination-single__right-title">Lecture 01</div>
+      </a>
+    
+    <div class="grow"></div>
+    
+  
+</nav>
+
 
       
     </article>
