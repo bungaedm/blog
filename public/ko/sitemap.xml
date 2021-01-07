@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://jiwooblog.netlify.app/posts/statistics/linearalgebra/l02/</loc>
+    <lastmod>2021-01-07T10:08:56+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jiwooblog.netlify.app/posts/statistics/linearalgebra/</loc>
+    <lastmod>2021-01-07T10:08:56+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jiwooblog.netlify.app/posts/dacon/</loc>
+    <lastmod>2020-02-28T10:08:56+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jiwooblog.netlify.app/posts/yonsei/statistics/</loc>
+    <lastmod>2020-02-28T10:08:56+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jiwooblog.netlify.app/posts/yonsei/</loc>
+    <lastmod>2020-02-28T10:08:56+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jiwooblog.netlify.app/posts/yonsei/psychology/lecture/</loc>
+    <lastmod>2020-01-28T10:08:56+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jiwooblog.netlify.app/posts/yonsei/statistics/lecture/</loc>
+    <lastmod>2020-01-28T10:08:56+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jiwooblog.netlify.app/posts/dacon/nh_yz/</loc>
+    <lastmod>2020-01-02T10:08:56+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jiwooblog.netlify.app/posts/yonsei/psychology/</loc>
+    <lastmod>2020-02-28T10:08:56+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jiwooblog.netlify.app/posts/python/</loc>
+    <lastmod>2020-02-28T10:08:56+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jiwooblog.netlify.app/posts/r/</loc>
+    <lastmod>2020-02-28T10:08:56+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jiwooblog.netlify.app/posts/yonsei/esc/</loc>
+    <lastmod>2020-02-28T10:08:56+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jiwooblog.netlify.app/posts/statistics/</loc>
+    <lastmod>2021-01-07T10:08:56+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jiwooblog.netlify.app/blog/</loc>
+    <lastmod>2021-01-04T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://jiwooblog.netlify.app/en/blog/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="https://jiwooblog.netlify.app/blog/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://jiwooblog.netlify.app/blog/test/</loc>
+    <lastmod>2021-01-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jiwooblog.netlify.app/tags/markdown/</loc>
+    <lastmod>2020-03-11T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://jiwooblog.netlify.app/en/tags/markdown/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="https://jiwooblog.netlify.app/tags/markdown/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://jiwooblog.netlify.app/blog/markdown-syntax/</loc>
+    <lastmod>2020-03-11T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://jiwooblog.netlify.app/en/blog/markdown-syntax/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="https://jiwooblog.netlify.app/blog/markdown-syntax/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://jiwooblog.netlify.app/updates/</loc>
+    <lastmod>2020-01-28T00:08:29+09:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://jiwooblog.netlify.app/en/updates/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="https://jiwooblog.netlify.app/updates/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://jiwooblog.netlify.app/</loc>
+    <lastmod>2020-01-26T04:15:05+09:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://jiwooblog.netlify.app/en/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="https://jiwooblog.netlify.app/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://jiwooblog.netlify.app/posts/</loc>
+    <lastmod>2020-01-11T14:09:21+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jiwooblog.netlify.app/blog/rich-content/</loc>
+    <lastmod>2019-03-10T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://jiwooblog.netlify.app/en/blog/rich-content/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="https://jiwooblog.netlify.app/blog/rich-content/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://jiwooblog.netlify.app/tags/youtube/</loc>
+    <lastmod>2019-03-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jiwooblog.netlify.app/blog/placeholder-text/</loc>
+    <lastmod>2019-03-09T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://jiwooblog.netlify.app/en/blog/placeholder-text/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="https://jiwooblog.netlify.app/blog/placeholder-text/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://jiwooblog.netlify.app/tags/emoji/</loc>
+    <lastmod>2019-03-05T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://jiwooblog.netlify.app/en/tags/emoji/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="https://jiwooblog.netlify.app/tags/emoji/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://jiwooblog.netlify.app/blog/emoji-support/</loc>
+    <lastmod>2019-03-05T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://jiwooblog.netlify.app/en/blog/emoji-support/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="https://jiwooblog.netlify.app/blog/emoji-support/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://jiwooblog.netlify.app/tags/plot/</loc>
+    <lastmod>2015-07-23T21:13:14-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jiwooblog.netlify.app/tags/r-markdown/</loc>
+    <lastmod>2015-07-23T21:13:14-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jiwooblog.netlify.app/tags/regression/</loc>
+    <lastmod>2015-07-23T21:13:14-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jiwooblog.netlify.app/posts/r/test/</loc>
+    <lastmod>2015-07-23T21:13:14-05:00</lastmod>
+  </url>
+  
+</urlset>

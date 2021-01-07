@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Index on JW Blog</title>
+    <link>https://dreamy-panini-d98ad7.netlify.app/docs/</link>
+    <description>Recent content in Index on JW Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ko</language>
+    <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
+    <lastBuildDate>Sat, 11 Jan 2020 14:09:21 +0900</lastBuildDate>
+    
+        <atom:link href="https://dreamy-panini-d98ad7.netlify.app/docs/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    
+      
+      <item>
+        <title>Dacon</title>
+        <link>https://dreamy-panini-d98ad7.netlify.app/docs/dacon/</link>
+        <pubDate>Fri, 28 Feb 2020 10:08:56 +0900</pubDate>
+        
+        <guid>https://dreamy-panini-d98ad7.netlify.app/docs/dacon/</guid>
+        <description>데이콘</description>
+      </item>
+      
+      <item>
+        <title>Yonsei Univ.</title>
+        <link>https://dreamy-panini-d98ad7.netlify.app/docs/yonsei/</link>
+        <pubDate>Fri, 28 Feb 2020 10:08:56 +0900</pubDate>
+        
+        <guid>https://dreamy-panini-d98ad7.netlify.app/docs/yonsei/</guid>
+        <description>Category </description>
+      </item>
+      
+      <item>
+        <title>Python</title>
+        <link>https://dreamy-panini-d98ad7.netlify.app/docs/python/</link>
+        <pubDate>Fri, 28 Feb 2020 10:08:56 +0900</pubDate>
+        
+        <guid>https://dreamy-panini-d98ad7.netlify.app/docs/python/</guid>
+        <description>Python</description>
+      </item>
+      
+      <item>
+        <title>R</title>
+        <link>https://dreamy-panini-d98ad7.netlify.app/docs/r/</link>
+        <pubDate>Fri, 28 Feb 2020 10:08:56 +0900</pubDate>
+        
+        <guid>https://dreamy-panini-d98ad7.netlify.app/docs/r/</guid>
+        <description>R</description>
+      </item>
+      
+    
+  </channel>
+</rss>

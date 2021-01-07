@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Psychology on JW Blog</title>
+    <link>https://dreamy-panini-d98ad7.netlify.app/docs/yonsei/psychology/</link>
+    <description>Recent content in Psychology on JW Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ko</language>
+    <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
+    <lastBuildDate>Fri, 28 Feb 2020 10:08:56 +0900</lastBuildDate>
+    
+        <atom:link href="https://dreamy-panini-d98ad7.netlify.app/docs/yonsei/psychology/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    
+      
+      <item>
+        <title>수강과목</title>
+        <link>https://dreamy-panini-d98ad7.netlify.app/docs/yonsei/psychology/lecture/</link>
+        <pubDate>Tue, 28 Jan 2020 10:08:56 +0900</pubDate>
+        
+        <guid>https://dreamy-panini-d98ad7.netlify.app/docs/yonsei/psychology/lecture/</guid>
+        <description>심리학 수강 과목  심리학개론 충동과자기관리 심리학의 실험연구방법 발달심리학 행복의 과학 언어심리학 이론 및 실습 인지신경과학의 기초 심리통계 학습과 기억의 심리학 UT세미나(실패와 좌절의 심리학) 성격심리학 재능과 기술의 심리학 인지공학심리학 산업심리학  </description>
+      </item>
+      
+    
+  </channel>
+</rss>

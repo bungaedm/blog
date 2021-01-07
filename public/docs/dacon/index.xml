@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Dacon on JW Blog</title>
+    <link>https://dreamy-panini-d98ad7.netlify.app/docs/dacon/</link>
+    <description>Recent content in Dacon on JW Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ko</language>
+    <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
+    <lastBuildDate>Fri, 28 Feb 2020 10:08:56 +0900</lastBuildDate>
+    
+        <atom:link href="https://dreamy-panini-d98ad7.netlify.app/docs/dacon/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    
+      
+      <item>
+        <title>YZ 투자자 프로파일링</title>
+        <link>https://dreamy-panini-d98ad7.netlify.app/docs/dacon/nh_yz/</link>
+        <pubDate>Thu, 02 Jan 2020 10:08:56 +0900</pubDate>
+        
+        <guid>https://dreamy-panini-d98ad7.netlify.app/docs/dacon/nh_yz/</guid>
+        <description>NH투자증권 Y&amp;amp;Z세대 투자자 프로파일링 본 대회는 NH투자증권에서 주최한 대회로, 2020년 급격하게 늘어난 20~30대 투자자들에 대한 분석을 하고 이를 시각화하는 것이 주목적이었다.
+코드 공유 링크
+코드가 상당히 복잡한 관계로 Dacon에 코드공유한 링크를 올리는 것으로 포스팅을 대체하고자 한다.</description>
+      </item>
+      
+    
+  </channel>
+</rss>

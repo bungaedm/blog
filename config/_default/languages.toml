@@ -1,0 +1,11 @@
+[ko]
+  title = "JW Blog"
+  languageName = "한국어"
+  weight = 1
+  contentdir = "content/ko"
+
+[en]
+  title = "ZDoc"
+  languageName = "English"
+  weight = 2
+  contentdir = "content/en"

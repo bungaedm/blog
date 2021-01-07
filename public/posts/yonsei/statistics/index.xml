@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Statistics on JW Blog</title>
+    <link>https://jiwooblog.netlify.app/posts/yonsei/statistics/</link>
+    <description>Recent content in Statistics on JW Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ko</language>
+    <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
+    <lastBuildDate>Fri, 28 Feb 2020 10:08:56 +0900</lastBuildDate>
+    
+        <atom:link href="https://jiwooblog.netlify.app/posts/yonsei/statistics/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    
+      
+      <item>
+        <title>수강과목</title>
+        <link>https://jiwooblog.netlify.app/posts/yonsei/statistics/lecture/</link>
+        <pubDate>Tue, 28 Jan 2020 10:08:56 +0900</pubDate>
+        
+        <guid>https://jiwooblog.netlify.app/posts/yonsei/statistics/lecture/</guid>
+        <description>통계학 수강 과목  통계학입문 미분적분학 통계방법론 선형대수 컴퓨터자료처리 심리통계 데이터사이언스를 위한 확률과정 회귀분석 수리통계학(1) 베이즈통계 수리통계학 (2) 시계열분석 금융리스크관리 실무와 통계학 UT세미나(생물통계학) 범주형자료분석 데이터사이언스입문 데이터마이닝 이론통계학(1) 데이터사이언스(2): 네트워크 자료분석  </description>
+      </item>
+      
+    
+  </channel>
+</rss>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Yonsei Univ. on JW Blog</title>
+    <link>https://jiwooblog.netlify.app/posts/yonsei/</link>
+    <description>Recent content in Yonsei Univ. on JW Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ko</language>
+    <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
+    <lastBuildDate>Fri, 28 Feb 2020 10:08:56 +0900</lastBuildDate>
+    
+        <atom:link href="https://jiwooblog.netlify.app/posts/yonsei/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    
+      
+      <item>
+        <title>Statistics</title>
+        <link>https://jiwooblog.netlify.app/posts/yonsei/statistics/</link>
+        <pubDate>Fri, 28 Feb 2020 10:08:56 +0900</pubDate>
+        
+        <guid>https://jiwooblog.netlify.app/posts/yonsei/statistics/</guid>
+        <description>통계학</description>
+      </item>
+      
+      <item>
+        <title>Psychology</title>
+        <link>https://jiwooblog.netlify.app/posts/yonsei/psychology/</link>
+        <pubDate>Fri, 28 Feb 2020 10:08:56 +0900</pubDate>
+        
+        <guid>https://jiwooblog.netlify.app/posts/yonsei/psychology/</guid>
+        <description>심리학</description>
+      </item>
+      
+      <item>
+        <title>ESC</title>
+        <link>https://jiwooblog.netlify.app/posts/yonsei/esc/</link>
+        <pubDate>Fri, 28 Feb 2020 10:08:56 +0900</pubDate>
+        
+        <guid>https://jiwooblog.netlify.app/posts/yonsei/esc/</guid>
+        <description>ESC 연세대학교 통계학회 2020 Spring: 학술부
+2020 Summer: 총무(임원)
+2020 Fall: 총무(임원)
+2020 Winter: 학술부(예정)
+2020 Spring 머신러닝에 대한 확률적인 이해 교재: PRML(Pattern Recognition and Machine Learning)    주차 세션 주제     1 Ch01 Introduction   2 Ch03 Linear Models for Regression   3 Ch04 Linear Models for Classification   4 Ch07 Sparse Kernel Machines   5 Ch09 Mixture Models and EM   6 CH12 Continuous Latent Variables   7 Ch14 Combining Models   8 Final Project   9 Final Project    2020 Summer 1.</description>
+      </item>
+      
+    
+  </channel>
+</rss>
