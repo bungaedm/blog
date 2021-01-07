@@ -11,6 +11,7 @@ knitr::opts_chunk$set(collapse = TRUE)
 ```
 
 ## Test SUCCESS??
+$\vec{a}$
 
 ## R Markdown
 
