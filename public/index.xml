@@ -25,6 +25,16 @@
       </item>
       
       <item>
+        <title>Test Rmd</title>
+        <link>https://jiwooblog.netlify.app/posts/r/test/</link>
+        <pubDate>Thu, 07 Jan 2021 10:08:56 +0900</pubDate>
+        
+        <guid>https://jiwooblog.netlify.app/posts/r/test/</guid>
+        <description>R MarkdownThis is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.
+When you click the Knit button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:</description>
+      </item>
+      
+      <item>
         <title>수강과목</title>
         <link>https://jiwooblog.netlify.app/posts/yonsei/psychology/lecture/</link>
         <pubDate>Tue, 28 Jan 2020 10:08:56 +0900</pubDate>
@@ -96,16 +106,6 @@ Dacon 코드 공유 Factor Analysis Word Cloud_국내 Word Cloud_해외 Cluster 
         
         <guid>https://jiwooblog.netlify.app/blog/emoji-support/</guid>
         <description>&lt;p&gt;이모지 관련&lt;/p&gt;</description>
-      </item>
-      
-      <item>
-        <title>Test Rmd</title>
-        <link>https://jiwooblog.netlify.app/posts/r/test/</link>
-        <pubDate>Thu, 23 Jul 2015 21:13:14 -0500</pubDate>
-        
-        <guid>https://jiwooblog.netlify.app/posts/r/test/</guid>
-        <description>R MarkdownThis is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.
-When you click the Knit button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:</description>
       </item>
       
     
