@@ -3,7 +3,7 @@ collapsible: false
 date: "2021-01-07T10:08:56+09:00"
 description: Intro
 draft: false
-title: Lecture 02
+title: Lecture 02_TEST
 weight: 2
 ---
 
@@ -18,3 +18,11 @@ weight: 2
 # Gauss-Jordan Elimination
 - 확장행렬을 기약행사다리꼴(RREF, reduced row echelon form)로 바꾸는 알고리즘
 - 가우스조던 소거법 = 가감법 + 대입법
+
+```{r cars, echo=FALSE}
+summary(cars)
+```
+
+```{r}
+summary(cars)
+```
