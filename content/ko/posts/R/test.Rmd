@@ -1,8 +1,8 @@
 ---
-date: "2020-02-28T10:08:56+09:00"
+title: "RRRR"
 description: null
-draft: false
-title: RRRR
+date: '2020-02-28T10:08:56+09:00'
+draft: no
 weight: 2
 ---
 
