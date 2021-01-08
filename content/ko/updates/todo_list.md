@@ -8,6 +8,16 @@ weight: 1
 
 # To Do List
 
+## Posts
+1. 프로젝트들 정리
+    1. Rhino: 수소차 충전소 입지 선정
+    2. 빅콘테스트 NS Shop+
+    3. 
+
+2. R 다양한 기능들 정리
+    1. dpylr: group_by, summarise, mutate, select, filter
+    2. 
+
 ## Updates
 1. 주식 
     1. gitignore나 config.toml ignoreFiles에 추가해두기
