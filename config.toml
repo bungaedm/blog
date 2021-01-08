@@ -11,8 +11,8 @@ timeout = 10000
 enableEmoji = true
 paginate = 13
 rssLimit = 100
-#ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_cache$", "\\.knit\\.md$", "\\.utf8\\.md$"] 
-#publishDir = "docs"
+ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_cache$", "\\.knit\\.md$", "\\.utf8\\.md$"] 
+#publishDir = "docs" #github -> Settings -> Options -> Github pages -> Source를 docs로 바꾸면 github.io로 디자인 가능
 
 googleAnalytics = ""
 
