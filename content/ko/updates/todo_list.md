@@ -8,7 +8,8 @@ weight: 1
 
 # To Do List
 
-## Posts
+## 1. Want to Upload 
+### Posts
 1. 프로젝트들 정리
     1. Rhino: 수소차 충전소 입지 선정
     2. 빅콘테스트 NS Shop+
@@ -18,8 +19,9 @@ weight: 1
 2. R 다양한 기능들 정리
     1. dpylr: group_by, summarise, mutate, select, filter
     2. ggplot2
+    3. plotly
 
-## Updates
+### Updates
 1. 주식 
     1. gitignore나 config.toml ignoreFiles에 추가해두기
     2. 매달 초 기록하기
@@ -27,18 +29,21 @@ weight: 1
     4. 코스피, 코스닥, 나스닥, S&P500, 다우존스, 환율 등의 지표와 지수들을 정리하기
     5. 슈카월드 정리하기(미정)
 
-## Blog
+### Blog
 1. Blogdown으로 블로그 만들기
-    1. blogdown 설치 및 사이트 개설 / github 업로드 방식 (Terminal 사용법)
-    2. 테마 선택하기 / Markdown 문법 기본 소개
-    3. 세부수정하기 1) baseURL
-    4. 세부수정하기 2) (ex. config.toml의 baseURL, 이미지 삽입)
-    5. Comment 기능 추가하기(disqus, gitalk)
-    6. LaTex 수식 리스트 (md와 RMD 구분하기)
-    7. Netlify로 배포하기
+    1. blogdown 설치 및 사이트 개설
+    2. github 업로드 방식 (Terminal 사용법) / 세부 오류 수정(자격증명 관리자-Windows 자격증명)[참고사이트](https://recoveryman.tistory.com/392?category=635733) 
+    3. 테마 선택하기 / Markdown 문법 기본 소개
+    4. 세부수정하기 1) baseURL
+    5. 세부수정하기 2) (ex. config.toml의 baseURL, 이미지 삽입)
+    6. Comment 기능 추가하기(disqus, gitalk)
+    7. LaTex 수식 리스트 (md와 RMD 구분하기)
+    8. Netlify로 배포하기
+<br>
+---
 
-
-
+## 2. Want to Know
+1. Rmd로 plot 그릴 때, data를 어디에 넣어놔야 하는지
 
 <br>
 <br>
