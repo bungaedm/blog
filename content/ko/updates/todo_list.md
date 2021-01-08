@@ -7,12 +7,14 @@ weight: 1
 ---
 
 # To Do List
-카테고리 기준
 
 ## Updates
 1. 주식 
     1. gitignore나 config.toml ignoreFiles에 추가해두기
-    2. 수익률
+    2. 매달 초 기록하기
+    3. 매 매매를 기준으로 계산해보기
+    4. 코스피, 코스닥, 나스닥, S&P500, 다우존스, 환율 등의 지표와 지수들을 정리하기
+    5. 슈카월드 정리하기(미정)
 
 ## Blog
 1. Blogdown으로 블로그 만들기
