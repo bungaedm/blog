@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Bayesian on JW Blog</title>
+    <link>https://jiwooblog.netlify.app/posts/statistics/bayesian/</link>
+    <description>Recent content in Bayesian on JW Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ko</language>
+    <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
+    <lastBuildDate>Fri, 08 Jan 2021 10:08:56 +0900</lastBuildDate>
+    
+        <atom:link href="https://jiwooblog.netlify.app/posts/statistics/bayesian/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    
+      
+      <item>
+        <title>FCB Ch01.</title>
+        <link>https://jiwooblog.netlify.app/posts/statistics/bayesian/fcb01/</link>
+        <pubDate>Thu, 07 Jan 2021 10:08:56 +0900</pubDate>
+        
+        <guid>https://jiwooblog.netlify.app/posts/statistics/bayesian/fcb01/</guid>
+        <description>Chapter 01. Introduction and Examples 본 포스팅은 First Course in Bayesian Statistical Methods를 참고하였다.
+베이지안 추론의 목적 우리는 데이터 획득을 통해, 모집단 특성에 대한 불확실성을 줄여나가고자 한다. 이때, 불확실성 정도의 변화 수준을 계량화하는 것이 베이지안 추론통계의 목적이라고 할 수 있다.
+핵심 개념  prior distribution $p(\theta)$  사전확률 모수에 대해 기존에 갖고 있던 믿음의 정도   sampling model $p(y|\theta)$  일종의 가능도 함수(likelihood) 사전확률이 참이라는 가정 하에, 특정 데이터가 관찰된 확률   posterior distribution $p(\theta|y)$  데이터가 관찰되었을 때, 이를 바탕으로 수정된 모수에 대한 믿음의 정도    Bayes&#39; Rule $$p(\theta|y) = \frac{p(y|\theta)p(\theta)}{\int_{\Theta}p(y|\tilde{\theta})p(\tilde{\theta})d\tilde{\theta}}$$</description>
+      </item>
+      
+    
+  </channel>
+</rss>

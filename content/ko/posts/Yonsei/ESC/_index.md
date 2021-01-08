@@ -98,12 +98,22 @@ NS Shop+편성데이터(NS홈쇼핑) 를 활용하여 방송편성표에 따른
 ---
 
 ### 2020 Winter
-###### 주제: 선형대수학
+#### 1. 겨울방학 세션주제: 선형대수학
 ###### 교재: Finite Dimensional Linear Algebra (Mark S. Gockenbach)
 
-###### 스터디1. 베이지안
+#### 2. 베이즈 스터디
+###### 교재:First course in Bayesian Statistical Methods
+###### 부교재: Bayesian Data Analysis & 기타 사이트
 
-
+| 주차 | 세션 주제 | 과제 |
+| ---- | --------- | ---- |
+| 1    | Full Probability Model의 의미: Likelihood와 Prior <br> (Reading: FCB ch01~02)| BDA 연습문제 + `$\alpha$`|
+| 2    | One-Parameter and Normal Model <br> (Reading: FCB ch03~05) | BDA 연습문제 + 증명문제|
+| 3    | Multivariate Normal Model <br> (Reading: FCB ch07) | FCB 코드 + 증명 문제|
+| 4    | Bayesian Hierarchical Models <br> (Reading: FCB ch08) | BDA 연습문제 + 증명문제|
+| 5    | MCMC and Diagnosis <br> (Reading: FDB ch06, ch10) | FCB 코드 + BDA 연습문제|
+| 6    | Bayesian Linear Regression <br> (Reading: FCB ch09) | FCB 코드 + 실습|
+| 7    | Stan으로 간편하게 베이지안 모델 학습하기 | - |
 
 <br>
 <br>

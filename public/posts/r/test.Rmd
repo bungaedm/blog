@@ -1,31 +1,32 @@
 ---
-title: "RRRR"
-description: null
-date: '2020-02-28T10:08:56+09:00'
-draft: no
+collapsible: false
+date: "2021-01-07T10:08:56+09:00"
+description: Intro
+draft: false
+title: Rmd Test
 weight: 2
 ---
 
-## Test SUCCESS??
-$\vec{a}$
+# Vector Space
+1. 덧셈에 닫혀있다.
+2. 스칼라배에 닫혀있다.
 
-## R Markdown
+# Subspace
+벡터공간 $V_n$ 의 부분 집합 $W_n$이 벡터공간이면, $W_n$을 $V_n$의 부분공간이라고 한다. <br>
+즉, $W_n$이 부분공간이려면, 덧셈과 스칼라배에 닫혀있으면 된다.
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+# Gauss-Jordan Elimination
+- 확장행렬을 기약행사다리꼴(RREF, reduced row echelon form)로 바꾸는 알고리즘
+- 가우스조던 소거법 = 가감법 + 대입법
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
-
-```{r cars}
+```{r cars, echo=FALSE}
 summary(cars)
 ```
 
-## Including Plots
-
-You can also embed plots, for example:
+```{r}
+summary(cars)
+```
 
 ```{r pressure, echo=FALSE}
 plot(pressure)
 ```
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
-
