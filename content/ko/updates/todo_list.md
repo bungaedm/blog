@@ -12,11 +12,12 @@ weight: 1
 1. 프로젝트들 정리
     1. Rhino: 수소차 충전소 입지 선정
     2. 빅콘테스트 NS Shop+
-    3. 
+    3. 심리성향 예측 AI 경진대회
+    4. NLP 논문 따라해보기
 
 2. R 다양한 기능들 정리
     1. dpylr: group_by, summarise, mutate, select, filter
-    2. 
+    2. ggplot2
 
 ## Updates
 1. 주식 
