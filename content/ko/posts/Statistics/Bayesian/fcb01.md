@@ -1,7 +1,7 @@
 ---
 collapsible: false
 date: "2021-01-07T10:08:56+09:00"
-description: Full Probability Model의 의미 / Likelihood and Prior
+description: Introduction and Examples
 draft: false
 title: FCB Ch01.
 weight: 1
@@ -9,6 +9,7 @@ weight: 1
 
 ## Chapter 01. <br> Introduction and Examples
 본 포스팅은 **First Course in Bayesian Statistical Methods**를 참고하였다.
+이번 장을 통해서는 Likelihood and Prior를 살펴보고 Full probability model의 의미를 보는 데에 주목해보쟈.
 
 ### 베이지안 추론의 목적
 우리는 데이터 획득을 통해, 모집단 특성에 대한 불확실성을 줄여나가고자 한다. 이때, 불확실성 정도의 변화 수준을 계량화하는 것이 베이지안 추론통계의 목적이라고 할 수 있다.
