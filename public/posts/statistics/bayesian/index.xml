@@ -32,8 +32,9 @@
         <pubDate>Thu, 07 Jan 2021 10:08:56 +0900</pubDate>
         
         <guid>https://jiwooblog.netlify.app/posts/statistics/bayesian/fcb02/</guid>
-        <description>Chapter 02. Belief, Probability and Exchangeability 본 포스팅은 First Course in Bayesian Statistical Methods를 참고하였다.
-Belief functions and Probabilityies Exchangeability de Finetti&amp;rsquo;s Theorem Conclusion 믿음(Belief)도 확률처럼 이야기할 수 있다. </description>
+        <description>Chapter 02. Belief, Probability and Exchangeability본 포스팅은 First Course in Bayesian Statistical Methods를 참고하였다.이번 장의 목표는 independence와 exchangeability를 이해하는 것이다. 이를 바탕으로 de Finetti’s theorem이 Bayesian에 갖는 의의를 이해한다면, 베이즈 통계를 공부할 준비가 된 것이다.
+Belief functions and Probabilities$Be()$는 belief function이라고 하자. 예를 들어, $Be(F) &amp;gt; Be(G)$는 G보다 F를 더 믿는다고 해석하면 된다. F, G, H를 아래와 같은 각각의 상황이라고 가정해보자.
+F : 좌파 후보자를 투표하는 경우 G : 소득이 하위 10%에 속하는 경우 H : 대도시에 거주하는 경우</description>
       </item>
       
       <item>

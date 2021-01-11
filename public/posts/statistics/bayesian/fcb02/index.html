@@ -2322,15 +2322,83 @@
   
 
   <article class="single__contents" data-dir="ltr">
-    <h2 id="chapter-02-br-belief-probability-and-exchangeability">Chapter 02. <br> Belief, Probability and Exchangeability</h2>
-<p>본 포스팅은 <strong>First Course in Bayesian Statistical Methods</strong>를 참고하였다.</p>
-<h3 id="belief-functions-and-probabilityies">Belief functions and Probabilityies</h3>
-<h3 id="exchangeability">Exchangeability</h3>
-<h3 id="de-finettis-theorem">de Finetti&rsquo;s Theorem</h3>
-<h3 id="conclusion">Conclusion</h3>
-<p style='text-align: center'> 믿음(Belief)도 확률처럼 이야기할 수 있다. </p>
-<br>
-<br>
+    
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+
+
+<div id="chapter-02.-belief-probability-and-exchangeability" class="section level2">
+<h2>Chapter 02. <br> Belief, Probability and Exchangeability</h2>
+<p>본 포스팅은 <strong>First Course in Bayesian Statistical Methods</strong>를 참고하였다.
+이번 장의 목표는 independence와 exchangeability를 이해하는 것이다. 이를 바탕으로 de Finetti’s theorem이 Bayesian에 갖는 의의를 이해한다면, 베이즈 통계를 공부할 준비가 된 것이다.</p>
+<div id="belief-functions-and-probabilities" class="section level3">
+<h3>Belief functions and Probabilities</h3>
+<p><code>$Be()$</code>는 belief function이라고 하자. 예를 들어, <code>$Be(F) &gt; Be(G)$</code>는 G보다 F를 더 믿는다고 해석하면 된다. F, G, H를 아래와 같은 각각의 상황이라고 가정해보자.</p>
+<blockquote>
+<p>F : 좌파 후보자를 투표하는 경우 <br>
+G : 소득이 하위 10%에 속하는 경우 <br>
+H : 대도시에 거주하는 경우</p>
+</blockquote>
+<div id="axioms-of-beliefs" class="section level6">
+<h6>Axioms of beliefs</h6>
+<ol style="list-style-type: decimal">
+<li><code>$Be($</code>not <code>$H|H) \le Be(F|H) \le Be(H|H)$</code></li>
+<li><code>$Be(F $</code> or <code>$G|H) \ge max(Be(F|H), Be(G|H))$</code></li>
+<li><code>$Be(F $</code> and <code>$G|H)$</code> can be drvied from <code>$Be(G|H)$</code> and <code>$Be(F|G $</code> and <code>$H)$</code></li>
+</ol>
+</div>
+<div id="axioms-of-probability" class="section level6">
+<h6>Axioms of probability</h6>
+<ol style="list-style-type: decimal">
+<li><code>$0 = Pr($</code>not <code>$H|H) \le Pr(F|H) \le Pr(H|H) \le = 1$</code></li>
+<li><code>$Pr(F \cup G|H) = Pr(F|H) + Pr(G|H)$</code> if <code>$F \cap G = \emptyset$</code></li>
+<li><code>$Pr(F \cap G|H) = Pr(G|H)Pr(F|g \cap H)$</code></li>
+</ol>
+<p>belief와 probability에 대한 각각의 공리들이 매칭되므로, 우리는 믿음의 정도를 계산할 때 확률함수를 계산하는 것처럼 다뤄도 무방하다고 결론낼 수 있다.</p>
+</div>
+</div>
+<div id="independence" class="section level3">
+<h3>Independence</h3>
+<p>사건 F와 G는 아래와 같은 상황에서 <strong>조건부 독립</strong>(<code>conditional independence</code>)이라고 한다.
+<span class="math display">\[Pr(F \cap G|H) = Pr(F|H)Pr(G|H)\]</span>
+이를 풀어서 해석해보자면, H를 알고 있는 상황에서, 추가적으로 G에 대해서 알게 되는 것은 F에 대한 믿음을 변화시키는 데에 영향이 없다는 것이다.</p>
+</div>
+<div id="exchangeability" class="section level3">
+<h3>Exchangeability</h3>
+<p><code>$Y_1, ..., Y_n$</code>이 있을 때, 이 순서를 어떻게 섞더라도 결합확률은 바꾸지 않을 때 <code>exchangeable</code>하다고 한다. 이는 직관적으로 풀어쓴 것이며, 다시 한 번 수학적 정의로 자세히 써보자면 아래와 같다.
+<br> <br>
+Let <code>$p(y_1, ... y_n)$</code> be the joint density of <code>$Y_1, ..., Y_n$</code>. If <code>$p(y_1, ..., y_n) = p(y_{\pi_1}, ..., y_{\pi_n})$</code> for all permutations <code>$\pi$</code> of {1, …, n}, then <code>$Y_1, ..., Y_n$</code> are exchangeable.</p>
+<p><span class="math display">\[\begin{equation}
+  \left.\begin{aligned}
+  Y_1, ..., Y_n|\theta \text{ i.i.d} \\ 
+  \theta \sim p(\theta)
+\end{aligned}\right\} \Rightarrow Y_1, ... Y_n \text{ are exchangeable}
+\end{equation}\]</span></p>
+</div>
+<div id="de-finettis-theorem" class="section level3">
+<h3>de Finetti’s Theorem</h3>
+<p>만약 <code>$Y_1, ..., Y_n$</code>이 exchangeability를 만족한다면, 아래와 같이 말할 수 있다.</p>
+<p><span class="math display">\[p(y_1, ..., y_n) = \int{\Bigg\{\prod_{1}^{n}p(y_i|\theta)\Bigg\} \:p(\theta)d\theta} \\
+\text{for some parameter} \: \theta\]</span></p>
+<p>이는 확률변수 <code>$Y_1, ..., Y_n$</code>에 대해서 exchangeability를 만족한다면, <code>$p(y_1, ..., y_n)$</code>에 대해 <code>$\theta$</code>라는 parameter를 활용하여 위와 같은 수식으로 나타낼 수 있다는 것이다.</p>
+<p>그렇다면 이게 베이지안에게 어떤 의미를 갖는 것일까? 사전확률분포(prior model)와 가능도함수(sampling model)가 belief model <code>$p(y_1, ..., y_n)$</code>에 의존함을 의미한다. 풀어서 이야기하자면, parameter <code>$\theta$</code>가 확률론자가 주장하는 것처럼 미지의 고정된 값이 아니라, 어떤 분포를 갖는 확률변수로 볼 수 있다는 데에 아주 큰 의의가 있다. (그리고 그것을 우리는 사전확률분포 prior distribution이라고 부른다.)</p>
+<p>그렇기 때문에 <code>$y_1, ..., y_n$</code>이 주어진</p>
+<p>그것은 바로</p>
+</div>
+<div id="주의사항" class="section level3">
+<h3>주의사항</h3>
+<p><strong>Bayes’ rule</strong>은 데이터를 접한 이후, 우리의 믿음이 어떻게 업데이트되는지에 대한 수식이다.
+여기서 헷갈리면 안되는 것이 있다. <strong>Bayes’ rule</strong>은 우리의 믿음이 어때야 하는지(<code>should be</code>)에 대해서 이야기하고 있는 것이 아니라 어떻게 변해야 하는지(<code>should change</code>)에 대해서 이야기하는 것이다.</p>
+</div>
+<div id="conclusion" class="section level3">
+<h3>Conclusion</h3>
+<p style="text-align: center">
+믿음(Belief)도 확률처럼 이야기할 수 있다.
+</p>
+<p><br>
+<br></p>
+</div>
+</div>
+
   </article>
 </div>
       
@@ -2359,6 +2427,27 @@
 
 
       
+  
+    <div id="disqus_thread"></div>
+<script>
+  let disqus_config = function () {
+    
+    
+    
+  };
+  (function () {
+    if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+      document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+      return;
+    }
+    var d = document, s = d.createElement('script'); s.async = true;
+    s.src = 'https://' + 'jiwooblog' + '.disqus.com/embed.js';
+  s.setAttribute('data-timestamp', +new Date());
+  (d.head || d.body).appendChild(s);
+  }) ();
+</script>
+  
+
     </article>
     
     <section id="list-side" class="r" data-dir="ltr">
@@ -2366,18 +2455,7 @@
         <div class="toc">
   <h6 class="toc__label">목차</h6>
   <div class="toc__body">
-    <nav id="TableOfContents">
-  <ul>
-    <li><a href="#chapter-02-br-belief-probability-and-exchangeability">Chapter 02. <br> Belief, Probability and Exchangeability</a>
-      <ul>
-        <li><a href="#belief-functions-and-probabilityies">Belief functions and Probabilityies</a></li>
-        <li><a href="#exchangeability">Exchangeability</a></li>
-        <li><a href="#de-finettis-theorem">de Finetti&rsquo;s Theorem</a></li>
-        <li><a href="#conclusion">Conclusion</a></li>
-      </ul>
-    </li>
-  </ul>
-</nav>
+    
   </div>
 </div>
       
