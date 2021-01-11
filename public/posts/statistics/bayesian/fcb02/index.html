@@ -2379,10 +2379,8 @@ Let <code>$p(y_1, ... y_n)$</code> be the joint density of <code>$Y_1, ..., Y_n$
 <p>만약 <code>$Y_1, ..., Y_n$</code>이 exchangeability를 만족한다면, 아래와 같이 말할 수 있다.</p>
 <p><span class="math display">\[p(y_1, ..., y_n) = \int{\Bigg\{\prod_{1}^{n}p(y_i|\theta)\Bigg\} \:p(\theta)d\theta} \\
 \text{for some parameter} \: \theta\]</span></p>
-<p>이는 확률변수 <code>$Y_1, ..., Y_n$</code>에 대해서 exchangeability를 만족한다면, <code>$p(y_1, ..., y_n)$</code>에 대해 <code>$\theta$</code>라는 parameter를 활용하여 위와 같은 수식으로 나타낼 수 있다는 것이다.</p>
-<p>그렇다면 이게 베이지안에게 어떤 의미를 갖는 것일까? 사전확률분포(prior model)와 가능도함수(sampling model)가 belief model <code>$p(y_1, ..., y_n)$</code>에 의존함을 의미한다. 풀어서 이야기하자면, parameter <code>$\theta$</code>가 확률론자가 주장하는 것처럼 미지의 고정된 값이 아니라, 어떤 분포를 갖는 확률변수로 볼 수 있다는 데에 아주 큰 의의가 있다. (그리고 그것을 우리는 사전확률분포 prior distribution이라고 부른다.)</p>
-<p>그렇기 때문에 <code>$y_1, ..., y_n$</code>이 주어진</p>
-<p>그것은 바로</p>
+<p>이는 확률변수 <code>$Y_1, ..., Y_n$</code>에 대해서 exchangeability를 만족한다면, <code>$p(y_1, ..., y_n)$</code>에 대해 <code>$\theta$</code>라는 parameter를 활용하여 위와 같은 수식으로 나타낼 수 있다는 것이다. <br> <br></p>
+<p>그렇다면 이 정리가 베이지안에게 어떤 의미를 갖는 것일까? 이는 사전확률분포(prior model)와 가능도함수(sampling model)가 belief model <code>$p(y_1, ..., y_n)$</code>에 의존함을 의미한다. 풀어서 이야기하자면, parameter <code>$\theta$</code>가 확률론자가 주장하는 것처럼 미지의 고정된 값이 아니라, 어떤 분포를 갖는 확률변수로 볼 수 있다는 것이다. (그리고 그것을 우리는 사전확률분포 prior distribution이라고 부른다.)</p>
 </div>
 <div id="주의사항" class="section level3">
 <h3>주의사항</h3>
@@ -2392,7 +2390,17 @@ Let <code>$p(y_1, ... y_n)$</code> be the joint density of <code>$Y_1, ..., Y_n$
 <div id="conclusion" class="section level3">
 <h3>Conclusion</h3>
 <p style="text-align: center">
-믿음(Belief)도 확률처럼 이야기할 수 있다.
+믿음(Belief)도 확률(Probability)로써 이야기할 수 있다.
+</p>
+<br>
+<p style="text-align: center">
+paramter <code>$\theta$</code>는 분포를 갖는 확률변수이다.
+</p>
+<p><br></p>
+<hr />
+<br>
+<p style="text-align: center; color:gray">
+혹시 궁금한 점이나 잘못된 내용이 있다면, 댓글로 알려주시면 적극 반영하도록 하겠습니다.
 </p>
 <p><br>
 <br></p>

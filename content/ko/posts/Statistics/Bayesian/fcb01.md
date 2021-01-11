@@ -53,10 +53,11 @@ $$SSR(\beta:\lambda) = \sum_{i=1}^{n}(y_i-\boldsymbol{x_i}^T\boldsymbol{\beta})^
 
 ### Conclusion
 <p style='text-align: center'> "All models are wrong, but some are useful" </p>
-<p style='text-align: center'> - Box and Draper, 1987 </p> 
+<p style='text-align: center'> - Box and Draper, 1987 </p> <br>
 
-
-혹시 내용에 잘못된 내용이 있다면, 
+---
+<br> 
+<p style='text-align: center; color:gray'> 혹시 궁금한 점이나 잘못된 내용이 있다면, 댓글로 알려주시면 적극 반영하도록 하겠습니다. </p>
 
 <br>
 <br>
