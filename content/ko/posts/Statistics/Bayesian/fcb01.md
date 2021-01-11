@@ -56,5 +56,7 @@ $$SSR(\beta:\lambda) = \sum_{i=1}^{n}(y_i-\boldsymbol{x_i}^T\boldsymbol{\beta})^
 <p style='text-align: center'> - Box and Draper, 1987 </p> 
 
 
+혹시 내용에 잘못된 내용이 있다면, 
+
 <br>
 <br>
