@@ -74,8 +74,15 @@ GROUP BY
     teamID
 ORDER BY
     salary DESC;
+    
+-- Left Join, Right Join
+SELECT t1.playerID, COUNT(*)
+FROM People t1
+LEFT JOIN AllstarFull t2 ON t2.playerID = t1.playerID
+GROUP BY 1
+ORDER BY COUNT(*) DESC
+LIMIT 20;
 {{< /highlight >}}
-
 
 <br>
 <br>
