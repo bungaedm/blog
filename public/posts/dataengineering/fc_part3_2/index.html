@@ -2678,8 +2678,173 @@ powershell에서 <code>pip install requests</code> 실행하기</p>
 </tbody>
 </table>
 <h3 id="6-에러-핸들링">6. 에러 핸들링</h3>
-<h3 id="7-페이지네이션-핸들링">7. 페이지네이션 핸들링</h3>
-<p><br> <br></p>
+<h6 id="sysexit0과-sysexit1-차이">sys.exit(0)과 sys.exit(1) 차이</h6>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># 프로그램을 정상적으로 종료시키고 싶을 때</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="c1"># 프로그램을 강제적으로 종료시키고 싶을 때</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><h6 id="status-code-401-409-에러-핸들링">Status Code 401, 409 에러 핸들링</h6>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://api.spotify.com/v1/search&#39;</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">r</span><span class="o">.</span><span class="n">status_code</span> <span class="o">!=</span> <span class="mi">200</span><span class="p">:</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+
+    <span class="c1">## Too many requests</span>
+    <span class="k">if</span> <span class="n">r</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">429</span><span class="p">:</span>
+        <span class="n">retry_after</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">headers</span><span class="p">)[</span><span class="s1">&#39;Retry-After&#39;</span><span class="p">]</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">retry_after</span><span class="p">))</span>
+
+        <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://api.spotify.com/v1/search&#39;</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+
+<span class="c1">## access_token expireed</span>
+<span class="k">elif</span> <span class="n">r</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">401</span><span class="p">:</span>
+    <span class="n">headers</span> <span class="o">=</span> <span class="n">get_headers</span><span class="p">(</span><span class="n">client_id</span><span class="p">,</span> <span class="n">client_secret</span><span class="p">)</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://api.spotify.com/v1/search&#39;</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="c1">#강제종료</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="7-페이지네이션-핸들링">7. 페이지네이션 핸들링</h3>
+<p><a href="https://developer.spotify.com/documentation/web-api/reference/artists/get-artists-albums/" target="_blank">참고사이트</a></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">base64</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="n">client_id</span> <span class="o">=</span> <span class="s1">&#39;8b2afab1206d4d8c8485818b98a8d12e&#39;</span>
+<span class="n">client_secret</span> <span class="o">=</span> <span class="s1">&#39;1dfcd633c62d4837b1ac78d76b251573&#39;</span>
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">headers</span> <span class="o">=</span> <span class="n">get_headers</span><span class="p">(</span><span class="n">client_id</span><span class="p">,</span> <span class="n">client_secret</span><span class="p">)</span>
+
+    <span class="c1"># Get BTS&#39; Albums</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://api.spotify.com/v1/artists/3Nrfpe0tUJi4K4DXYWgMUX/albums&#39;</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+    <span class="n">raw</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+
+    <span class="c1"># total = raw[&#39;total&#39;] # 총 104개가 있음을 확인</span>
+    <span class="c1"># offset = raw[&#39;offset&#39;] # 시작은 0</span>
+    <span class="c1"># limit = raw[&#39;limit&#39;] # 20개씩 뽑겠다.</span>
+    <span class="nb">next</span> <span class="o">=</span> <span class="n">raw</span><span class="p">[</span><span class="s1">&#39;next&#39;</span><span class="p">]</span>
+
+    <span class="n">albums</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">albums</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">raw</span><span class="p">[</span><span class="s1">&#39;items&#39;</span><span class="p">])</span>
+
+    <span class="c1">## 난 200개만 뽑아 오겠다.</span>
+    <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="n">count</span> <span class="o">&lt;</span> <span class="mi">200</span> <span class="ow">and</span> <span class="nb">next</span><span class="p">:</span> <span class="c1"># while next: 라고만 하면 끝까지 가져오게 된다.</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">raw</span><span class="p">[</span><span class="s1">&#39;next&#39;</span><span class="p">],</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+        <span class="n">raw</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+        <span class="nb">next</span> <span class="o">=</span> <span class="n">raw</span><span class="p">[</span><span class="s1">&#39;next&#39;</span><span class="p">]</span>
+        <span class="c1"># print(next) # 맨 마지막에는 none이 나오게 된다. 이에 대해서는 Spotify 페이지를 참고하면 된다.</span>
+        <span class="n">albums</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">raw</span><span class="p">[</span><span class="s1">&#39;items&#39;</span><span class="p">])</span>
+        <span class="n">count</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">albums</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">albums</span><span class="p">))</span>
+
+<span class="k">def</span> <span class="nf">get_headers</span><span class="p">(</span><span class="n">client_id</span><span class="p">,</span> <span class="n">client_secret</span><span class="p">):</span>
+    <span class="n">endpoint</span> <span class="o">=</span> <span class="s1">&#39;https://accounts.spotify.com/api/token&#39;</span>
+    <span class="n">encoded</span> <span class="o">=</span> <span class="n">base64</span><span class="o">.</span><span class="n">b64encode</span><span class="p">(</span><span class="s2">&#34;{}:{}&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">client_id</span><span class="p">,</span> <span class="n">client_secret</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;ascii&#39;</span><span class="p">)</span>
+
+    <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Authorization&#39;</span><span class="p">:</span> <span class="s1">&#39;Basic {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">encoded</span><span class="p">)}</span>
+    <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;grant_type&#39;</span><span class="p">:</span> <span class="s1">&#39;client_credentials&#39;</span><span class="p">}</span>
+
+    <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">endpoint</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+    <span class="n">access_token</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">)[</span><span class="s1">&#39;access_token&#39;</span><span class="p">]</span>
+    <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Authorization&#39;</span><span class="p">:</span> <span class="s2">&#34;Bearer {}&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">access_token</span><span class="p">)}</span>
+
+    <span class="k">return</span> <span class="n">headers</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><br> <br></p>
 <hr />
 
   </article>
@@ -2723,7 +2888,11 @@ powershell에서 <code>pip install requests</code> 실행하기</p>
         <li><a href="#3-python-requests-패키지">3. Python Requests 패키지</a></li>
         <li><a href="#4-api를-통한-데이터-요청">4. API를 통한 데이터 요청</a></li>
         <li><a href="#5-status-code">5. Status Code</a></li>
-        <li><a href="#6-에러-핸들링">6. 에러 핸들링</a></li>
+        <li><a href="#6-에러-핸들링">6. 에러 핸들링</a>
+          <ul>
+            <li></li>
+          </ul>
+        </li>
         <li><a href="#7-페이지네이션-핸들링">7. 페이지네이션 핸들링</a></li>
       </ul>
     </li>

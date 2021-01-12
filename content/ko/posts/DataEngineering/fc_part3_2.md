@@ -122,8 +122,90 @@ if __name__ == '__main__':
 
 ### 6. 에러 핸들링
 
-### 7. 페이지네이션 핸들링
+###### sys.exit(0)과 sys.exit(1) 차이
+```python
+# 프로그램을 정상적으로 종료시키고 싶을 때
+sys.exit(0)
+# 프로그램을 강제적으로 종료시키고 싶을 때
+sys.exit(1)
+```
 
+###### Status Code 401, 409 에러 핸들링
+```python
+r = requests.get('https://api.spotify.com/v1/search', params=params, headers=headers)
+if r.status_code != 200:
+    logging.error(r.text)
+
+    ## Too many requests
+    if r.status_code == 429:
+        retry_after = json.loads(r.headers)['Retry-After']
+        time.sleep(int(retry_after))
+
+        r = requests.get('https://api.spotify.com/v1/search', params=params, headers=headers)
+
+## access_token expireed
+elif r.status_code == 401:
+    headers = get_headers(client_id, client_secret)
+    r = requests.get('https://api.spotify.com/v1/search', params=params, headers=headers)
+
+else:
+    sys.exit(1) #강제종료
+```
+
+### 7. 페이지네이션 핸들링
+[참고사이트](https://developer.spotify.com/documentation/web-api/reference/artists/get-artists-albums/)
+```python
+import sys
+import requests
+import base64
+import json
+import logging
+
+client_id = '8b2afab1206d4d8c8485818b98a8d12e'
+client_secret = '1dfcd633c62d4837b1ac78d76b251573'
+
+def main():
+    headers = get_headers(client_id, client_secret)
+
+    # Get BTS' Albums
+    r = requests.get('https://api.spotify.com/v1/artists/3Nrfpe0tUJi4K4DXYWgMUX/albums', headers=headers)
+    raw = json.loads(r.text)
+
+    # total = raw['total'] # 총 104개가 있음을 확인
+    # offset = raw['offset'] # 시작은 0
+    # limit = raw['limit'] # 20개씩 뽑겠다.
+    next = raw['next']
+
+    albums = []
+    albums.extend(raw['items'])
+
+    ## 난 200개만 뽑아 오겠다.
+    count = 0
+    while count < 200 and next: # while next: 라고만 하면 끝까지 가져오게 된다.
+        r = requests.get(raw['next'], headers=headers)
+        raw = json.loads(r.text)
+        next = raw['next']
+        # print(next) # 맨 마지막에는 none이 나오게 된다. 이에 대해서는 Spotify 페이지를 참고하면 된다.
+        albums.extend(raw['items'])
+        count = len(albums)
+    print(len(albums))
+
+def get_headers(client_id, client_secret):
+    endpoint = 'https://accounts.spotify.com/api/token'
+    encoded = base64.b64encode("{}:{}".format(client_id, client_secret).encode('utf-8')).decode('ascii')
+
+    headers = {'Authorization': 'Basic {}'.format(encoded)}
+    payload = {'grant_type': 'client_credentials'}
+
+    r = requests.post(endpoint, data=payload, headers=headers)
+    access_token = json.loads(r.text)['access_token']
+    headers = {'Authorization': "Bearer {}".format(access_token)}
+
+    return headers
+
+if __name__ == '__main__':
+    main()
+```
 
 <br> <br>
 
