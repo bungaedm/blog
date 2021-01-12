@@ -1,6 +1,6 @@
 ---
 collapsible: false
-date: "2021-01-12T10:08:56+09:00"
+date: "2021-01-11T10:08:56+09:00"
 description: 데이터 엔지니어 기초 다지기
 draft: false
 title: Part 2-1. 기초

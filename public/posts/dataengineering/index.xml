@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Data Engineering on JW Blog</title>
+    <link>https://jiwooblog.netlify.app/posts/dataengineering/</link>
+    <description>Recent content in Data Engineering on JW Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ko</language>
+    <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
+    <lastBuildDate>Mon, 11 Jan 2021 10:08:56 +0900</lastBuildDate>
+    
+        <atom:link href="https://jiwooblog.netlify.app/posts/dataengineering/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    
+      
+      <item>
+        <title>Part 2-1. 기초</title>
+        <link>https://jiwooblog.netlify.app/posts/dataengineering/fc_part2_1/</link>
+        <pubDate>Mon, 11 Jan 2021 10:08:56 +0900</pubDate>
+        
+        <guid>https://jiwooblog.netlify.app/posts/dataengineering/fc_part2_1/</guid>
+        <description>Part 2. 데이터 엔지니어 기초 다지기 본 포스팅은 패스트캠퍼스(FastCampus)의 데이터 엔지니어링 올인원 패키지 Online을 참고하였습니다.
+1. Unix 환경 및 커맨드 cd
+mkdir
+ls
+cp
+./run.sh
+chmod +x run.sh: Permission denied 되었을 때, 권한 부여하기
+run.sh 코드(참고용) #!/bin/bashpython examply.py 1 &amp;gt; example.txtpython examply.py 2 &amp;gt; example.txt*주의사항: python 대신에 python3를 쓰면 Windows에서는 오류가 날 수도 있다.
+2. AWS 기초 및 CLI 세팅 AWS CLI (Command Line Interface) 다운로드
+ IAM에서 사용자 추가하기 Windows Powershell에다가 aws configure 입력하기 액세스 키 ID와 비밀 액세스 키 입력하기  이는 앞으로 shell에서 aws command를 쳐도 가능하게끔 세팅해놓는 것이다.</description>
+      </item>
+      
+      <item>
+        <title>Part 2-2. 기초</title>
+        <link>https://jiwooblog.netlify.app/posts/dataengineering/fc_part2_2/</link>
+        <pubDate>Mon, 11 Jan 2021 10:09:56 +0900</pubDate>
+        
+        <guid>https://jiwooblog.netlify.app/posts/dataengineering/fc_part2_2/</guid>
+        <description>Part 2. 데이터 엔지니어 기초 다지기 본 포스팅은 패스트캠퍼스(FastCampus)의 데이터 엔지니어링 올인원 패키지 Online을 참고하였습니다.
+3. SQLite Studio 다운로드
+데이터 다운로드
+editor 여는 법: Tools &amp;gt; Open SQL Editor (or Alt + E)
+*SQLite과 MySQL을 포함한 다른 프로그램들과 코드가 다른 것들이 사소하게 있을 수 있다.
+SQL 기본 문법 (1) SELECT 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26  SELECT * FROM Salaries LIMIT 10; SELECT * FROM Salaries ORDER BY salary DESC LIMIT 10; SELECT * FROM Salaries WHERE yearID = &amp;#39;2010&amp;#39; AND lgID = &amp;#39;AL&amp;#39; ORDER BY salary DESC LIMIT 20; --SUM, AVG SELECT SUM(salary) FROM Salaries WHERE playerID = &amp;#39;rodrial01&amp;#39;; --Concat, Count, Group By SELECT nameFirst || &amp;#39; &amp;#39; || nameLast AS name FROM People Limit 10; SELECT nameFirst || &amp;#39; &amp;#39; || nameLast AS name FROM People Where playerID = &amp;#39;rodrial01&amp;#39;; SELECT COUNT(DISTINCT(nameFirst || &amp;#39; &amp;#39; || nameLast)) FROM People; SELECT nameFirst || &amp;#39; &amp;#39; || nameLast AS name, COUNT(*) FROM People GROUP BY name HAVING COUNT(*) &amp;gt; 1; SELECT teamID, SUM(Salary) as total_salary FROM Salaries GROUP BY teamID ORDER BY total_salary DESC;   SQL 기본 문법 (2) JOIN 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26  --Join SELECT t2.</description>
+      </item>
+      
+    
+  </channel>
+</rss>
