@@ -3,13 +3,12 @@ collapsible: false
 date: "2021-01-11T10:08:56+09:00"
 description: 데이터 엔지니어 기초 다지기
 draft: false
-title: Part 2-1. 기초
+title: Unix & AWS
 weight: 1
 ---
 
-## Part 2. 데이터 엔지니어 기초 다지기
+## Part 2-1. 데이터 엔지니어 기초 다지기
 본 포스팅은 패스트캠퍼스(FastCampus)의 **데이터 엔지니어링 올인원 패키지 Online**을 참고하였습니다.
-
 
 ### 1. Unix 환경 및 커맨드
 `cd`
