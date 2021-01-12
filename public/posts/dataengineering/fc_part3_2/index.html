@@ -2497,9 +2497,186 @@
 <li>기본적으로 위처럼 코딩을 시작하게 된다.</li>
 </ul>
 <h3 id="3-python-requests-패키지">3. Python Requests 패키지</h3>
-<p><a href="https://requests.readthedocs.io/en/master/api/" target="_blank"><code>requests python library</code></a> &gt; Developer Interface 참고하기</p>
+<p><a href="https://requests.readthedocs.io/en/master/api/" target="_blank"><code>requests python library</code></a> &gt; Developer Interface 참고하기<br />
+powershell에서 <code>pip install requests</code> 실행하기</p>
 <h3 id="4-api를-통한-데이터-요청">4. API를 통한 데이터 요청</h3>
-<h3 id="5-status-code">5. Status Code</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">base64</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="n">client_id</span> <span class="o">=</span> <span class="s1">&#39;8b2afab1206d4d8c8485818b98a8d12e&#39;</span>
+<span class="n">client_secret</span> <span class="o">=</span> <span class="s1">&#39;1dfcd633c62d4837b1ac78d76b251573&#39;</span>
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">headers</span> <span class="o">=</span> <span class="n">get_headers</span><span class="p">(</span><span class="n">client_id</span><span class="p">,</span> <span class="n">client_secret</span><span class="p">)</span>
+    <span class="n">params</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;q&#39;</span><span class="p">:</span> <span class="s1">&#39;BTS&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;artist&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;limit&#39;</span><span class="p">:</span> <span class="mi">5</span>
+    <span class="p">}</span>
+
+    <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://api.spotify.com/v1/search&#39;</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+    <span class="c1"># print(r.status_code) # 200이면 이상 없는 것</span>
+    <span class="c1"># print(r.text)</span>
+    <span class="c1"># sys.exit(0)</span>
+
+<span class="k">def</span> <span class="nf">get_headers</span><span class="p">(</span><span class="n">client_id</span><span class="p">,</span> <span class="n">client_secret</span><span class="p">):</span>
+    <span class="c1"># 1시간만 있으면 expire되기 때문에 추가로 function 하나를 만들어두는 것이다.</span>
+    <span class="n">endpoint</span> <span class="o">=</span> <span class="s1">&#39;https://accounts.spotify.com/api/token&#39;</span>
+    <span class="n">encoded</span> <span class="o">=</span> <span class="n">base64</span><span class="o">.</span><span class="n">b64encode</span><span class="p">(</span><span class="s2">&#34;{}:{}&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">client_id</span><span class="p">,</span> <span class="n">client_secret</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;ascii&#39;</span><span class="p">)</span>
+
+    <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;Authorization&#39;</span><span class="p">:</span> <span class="s1">&#39;Basic {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">encoded</span><span class="p">)</span>
+    <span class="p">}</span>
+
+    <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;grant_type&#39;</span><span class="p">:</span> <span class="s1">&#39;client_credentials&#39;</span>
+    <span class="p">}</span>
+
+    <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">endpoint</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+    <span class="c1"># 중간에 잘 되는지 확인해보는 코드</span>
+    <span class="c1"># print(r.status_code)</span>
+    <span class="c1"># print(r.text)</span>
+    <span class="c1"># print(type(r.text)) #string으로 출력되므로 아래에서 json.loads를 통해 dictionary로 만들어줘야 한다.</span>
+    <span class="c1"># sys.exit(0)</span>
+
+    <span class="n">access_token</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">)[</span><span class="s1">&#39;access_token&#39;</span><span class="p">]</span>
+    <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;Authorization&#39;</span><span class="p">:</span> <span class="s2">&#34;Bearer {}&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">access_token</span><span class="p">)</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">headers</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="5-status-code">5. Status Code</h3>
+<ul>
+<li>Status Code를 알아야 하는 이유: 데이터 엔지니어의 잘못이 아닌, Spotify 서버의 오류 등으로 인한 문제인지 체크할 수 있다.</li>
+<li>Spotify Web API 기준이지만, RFC 2616와 RFC 6585에 의해 일반적으로 통용되는 기준이다.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="left">STATUS CODE</th>
+<th>DESCRIPTION</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">200</td>
+<td><code>OK</code> - The request has succeeded. The client can read the result of the request in the body and the headers of the response.</td>
+</tr>
+<tr>
+<td align="left">201</td>
+<td><code>Created</code> - The request has been fulfilled and resulted in a new resource being created.</td>
+</tr>
+<tr>
+<td align="left">202</td>
+<td><code>Accepted</code> - The request has been accepted for processing, but the processing has not been completed.</td>
+</tr>
+<tr>
+<td align="left">204</td>
+<td><code>No Content</code> - The request has succeeded but returns no message body.</td>
+</tr>
+<tr>
+<td align="left">304</td>
+<td><code>Not Modified.</code> See Conditional requests.</td>
+</tr>
+<tr>
+<td align="left">400</td>
+<td><code>Bad Request</code> - The request could not be understood by the server due to malformed syntax. The message body will contain more information; see Response Schema.</td>
+</tr>
+<tr>
+<td align="left">401</td>
+<td><code>Unauthorized</code> - The request requires user authentication or, if the request included authorization credentials, authorization has been refused for those credentials.</td>
+</tr>
+<tr>
+<td align="left">403</td>
+<td><code>Forbidden</code> - The server understood the request, but is refusing to fulfill it.</td>
+</tr>
+<tr>
+<td align="left">404</td>
+<td><code>Not Found</code> - The requested resource could not be found. This error can be due to a temporary or permanent condition.</td>
+</tr>
+<tr>
+<td align="left">429</td>
+<td><code>Too Many Requests</code> - Rate limiting has been applied.</td>
+</tr>
+<tr>
+<td align="left">500</td>
+<td><code>Internal Server Error.</code> You should never receive this error because our clever coders catch them all … but if you are unlucky enough to get one, please report it to us through a comment at the bottom of this page.</td>
+</tr>
+<tr>
+<td align="left">502</td>
+<td><code>Bad Gateway</code> - The server was acting as a gateway or proxy and received an invalid response from the upstream server.</td>
+</tr>
+<tr>
+<td align="left">503</td>
+<td><code>Service Unavailable</code> - The server is currently unable to handle the request due to a temporary condition which will be alleviated after some delay. You can choose to resend the request again.</td>
+</tr>
+</tbody>
+</table>
 <h3 id="6-에러-핸들링">6. 에러 핸들링</h3>
 <h3 id="7-페이지네이션-핸들링">7. 페이지네이션 핸들링</h3>
 <p><br> <br></p>
