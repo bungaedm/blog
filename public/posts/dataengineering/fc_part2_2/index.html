@@ -2408,10 +2408,12 @@
     <h2 id="part-2-데이터-엔지니어-기초-다지기">Part 2. 데이터 엔지니어 기초 다지기</h2>
 <p>본 포스팅은 패스트캠퍼스(FastCampus)의 <strong>데이터 엔지니어링 올인원 패키지 Online</strong>을 참고하였습니다.</p>
 <h3 id="3-sqlite-studio">3. SQLite Studio</h3>
-<p><a href="https://sqlitestudio.pl/index.rvt" target="_blank">다운로드</a><br />
-<a href="https://baseballdb.lawlesst.net/" target="_blank">데이터 다운로드</a><br />
-editor 여는 법: Tools &gt; Open SQL Editor (or Alt + E)<br />
-*SQLite과 MySQL을 포함한 다른 프로그램들과 코드가 다른 것들이 사소하게 있을 수 있다.</p>
+<p><a href="https://sqlitestudio.pl/index.rvt" target="_blank">SQLite Studio 다운로드</a><br />
+<a href="https://baseballdb.lawlesst.net/" target="_blank">데이터 다운로드</a> <br></p>
+<ul>
+<li>editor 여는 법: Tools &gt; Open SQL Editor (or Alt + E)</li>
+<li><code>SQLite</code>과 <code>MySQL</code>을 포함한 다른 프로그램들과 코드가 다른 것들이 사소하게 있을 수 있다.</li>
+</ul>
 <h4 id="sql-기본-문법-1-select">SQL 기본 문법 (1) SELECT</h4>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -2500,6 +2502,14 @@ editor 여는 법: Tools &gt; Open SQL Editor (or Alt + E)<br />
 </span><span class="lnt">24
 </span><span class="lnt">25
 </span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-SQL" data-lang="SQL"><span class="c1">--Join
@@ -2527,7 +2537,140 @@ editor 여는 법: Tools &gt; Open SQL Editor (or Alt + E)<br />
 <span class="k">GROUP</span> <span class="k">BY</span>
     <span class="n">teamID</span>
 <span class="k">ORDER</span> <span class="k">BY</span>
-    <span class="n">salary</span> <span class="k">DESC</span><span class="p">;</span></code></pre></td></tr></table>
+    <span class="n">salary</span> <span class="k">DESC</span><span class="p">;</span>
+    
+<span class="c1">-- Left Join, Right Join
+</span><span class="c1"></span><span class="k">SELECT</span> <span class="n">t1</span><span class="p">.</span><span class="n">playerID</span><span class="p">,</span> <span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
+<span class="k">FROM</span> <span class="n">People</span> <span class="n">t1</span>
+<span class="k">LEFT</span> <span class="k">JOIN</span> <span class="n">AllstarFull</span> <span class="n">t2</span> <span class="k">ON</span> <span class="n">t2</span><span class="p">.</span><span class="n">playerID</span> <span class="o">=</span> <span class="n">t1</span><span class="p">.</span><span class="n">playerID</span>
+<span class="k">GROUP</span> <span class="k">BY</span> <span class="mi">1</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="k">DESC</span>
+<span class="k">LIMIT</span> <span class="mi">20</span><span class="p">;</span></code></pre></td></tr></table>
+</div>
+</div>
+<h4 id="sql-기본-3-데이터-타입들-및-키-값들-테이블-생성">SQL 기본 (3) 데이터 타입들 및 키 값들, 테이블 생성</h4>
+<p>Primary Key: 빠른 처리, 중복 처리를 위해서 설정하기도 함!<br />
+Foreign Key: 다른 테이블에서 온 칼럼 처리<br />
+Unique: 중복 처리 방지<br />
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-SQL" data-lang="SQL"><span class="c1">-- 데이터베이스 테이블 생성
+</span><span class="c1"></span><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">mytable</span> <span class="p">(</span><span class="n">id</span> <span class="nb">INT</span><span class="p">,</span> <span class="n">name</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">255</span><span class="p">),</span> <span class="n">debut</span> <span class="nb">DATE</span><span class="p">);</span>
+<span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">mytable2</span> <span class="p">(</span><span class="n">id</span> <span class="nb">INTEGER</span> <span class="k">PRIMARY</span> <span class="k">KEY</span> <span class="n">AUTOINCREMENT</span><span class="p">,</span> <span class="n">name</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">255</span><span class="p">),</span> <span class="n">debut</span> <span class="nb">DATE</span><span class="p">);</span>
+<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">mytable2</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">debut</span><span class="p">)</span> <span class="k">VALUES</span> <span class="p">(</span><span class="s1">&#39;jiwoo&#39;</span><span class="p">,</span> <span class="s1">&#39; 2000-09-01&#39;</span><span class="p">);</span>
+<span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">mytable2</span><span class="p">;</span>
+
+<span class="c1">--INSERT
+</span><span class="c1"></span><span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">mytable2</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">debut</span><span class="p">)</span> <span class="k">VALUES</span> <span class="p">(</span><span class="s1">&#39;jiwoo&#39;</span><span class="p">,</span> <span class="s1">&#39;2000-09-05&#39;</span><span class="p">);</span>
+<span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">mytable2</span><span class="p">;</span>
+
+<span class="c1">--Update 
+</span><span class="c1"></span><span class="k">UPDATE</span> <span class="n">mytable2</span>
+<span class="k">SET</span> <span class="n">debut</span> <span class="o">=</span> <span class="s1">&#39;2010-09-01&#39;</span>
+<span class="k">WHERE</span> <span class="n">id</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+
+<span class="c1">--Replace
+</span><span class="c1"></span><span class="k">REPLACE</span> <span class="k">INTO</span> <span class="n">mytable2</span> <span class="p">(</span><span class="n">id</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">debut</span><span class="p">)</span> <span class="k">VALUES</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="s1">&#39;jiwoo2&#39;</span><span class="p">,</span> <span class="s1">&#39;2015-09-01&#39;</span><span class="p">);</span>
+<span class="c1">-- Update는 기존의 값이 없다면 아무런 행동도 하지 않지만, Replace는 기존의 값이 없다면 새로 만들어버린다는 차이점이 있다.
+</span><span class="c1"></span> 
+<span class="c1">--Insert Or Ignore
+</span><span class="c1"></span><span class="k">INSERT</span> <span class="k">OR</span> <span class="k">IGNORE</span> <span class="k">INTO</span> <span class="n">mytable2</span> <span class="p">(</span><span class="n">id</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">debut</span><span class="p">)</span> <span class="k">VALUES</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;jiwoo3&#39;</span><span class="p">,</span> <span class="s1">&#39;2010-09-11&#39;</span><span class="p">);</span>
+<span class="c1">--이미 id가 1인 행이 있을 경우, 그냥 insert into만 하면 &#39;unique constraint failed&#39;가 뜨지만 or ignore을 추가해주면 괜찮다.
+</span><span class="c1"></span>
+<span class="c1">-- Delete, ALter, Drop
+</span><span class="c1">-- 아주아주 신중하게 써야하는 커맨드들이다!
+</span><span class="c1"></span><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">mytable2</span><span class="p">;</span>
+<span class="k">Delete</span> <span class="k">FROM</span> <span class="n">mytable2</span> <span class="k">WHERE</span> <span class="n">id</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>
+
+<span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">mytalbe2</span> <span class="k">RENAME</span> <span class="k">TO</span> <span class="n">players</span><span class="p">;</span>
+<span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">players</span> <span class="k">ADD</span> <span class="k">COLUMN</span> <span class="n">DOB</span> <span class="nb">date</span><span class="p">;</span>
+<span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">players</span><span class="p">;</span>
+
+<span class="k">DROP</span> <span class="k">TABLE</span> <span class="n">mytable</span><span class="p">;</span></code></pre></td></tr></table>
+</div>
+</div></p>
+<h4 id="sql-기본-4-functions">SQL 기본 (4) Functions</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-SQL" data-lang="SQL"><span class="c1">-- Functions(1) 기본처리 및 연산
+</span><span class="c1"></span><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">players</span><span class="p">;</span>
+<span class="k">SELECT</span> <span class="n">SUBSTR</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="k">FROM</span> <span class="n">players</span><span class="p">;</span>
+<span class="k">SELECT</span> <span class="k">UPPER</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="k">FROM</span> <span class="n">players</span><span class="p">;</span>
+<span class="k">SELECT</span> <span class="k">AVG</span><span class="p">(</span><span class="k">LENGTH</span><span class="p">(</span><span class="n">name</span><span class="p">))</span> <span class="k">FROM</span> <span class="n">players</span><span class="p">;</span> <span class="c1">--MAX, AVG, COUNT, SUM
+</span><span class="c1"></span>
+<span class="c1">-- Functions(2) 날짜데이터, Case When
+</span><span class="c1"></span><span class="k">SELECT</span> <span class="k">CURRENT_TIMESTAMP</span><span class="p">;</span> <span class="c1">--UTC기준
+</span><span class="c1"></span><span class="k">SELECT</span> <span class="nb">DATE</span><span class="p">(</span><span class="s1">&#39;NOW&#39;</span><span class="p">);</span>
+<span class="k">SELECT</span> <span class="n">DATETIME</span><span class="p">(</span><span class="k">CURRENT_TIMESTAMP</span><span class="p">,</span> <span class="s1">&#39;+1 DAY&#39;</span><span class="p">);</span>
+
+<span class="k">SELECT</span>
+    <span class="n">id</span><span class="p">,</span>
+    <span class="n">name</span><span class="p">,</span>
+    <span class="k">CASE</span> <span class="k">WHEN</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;jiwoo&#39;</span> <span class="k">THEN</span> <span class="s1">&#39;OK&#39;</span>
+    <span class="k">WHEN</span> <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;jiwoo2&#39;</span> <span class="k">THEN</span> <span class="s1">&#39;OK2&#39;</span>
+    <span class="k">ELSE</span> <span class="s1">&#39;No OK&#39;</span>
+    <span class="k">END</span> <span class="k">AS</span> <span class="n">ok_name</span><span class="p">,</span> <span class="c1">--CASE WHEN부터 여기까지가 variable 하나!
+</span><span class="c1"></span>    <span class="n">debut</span>
+<span class="k">FROM</span> <span class="n">players</span><span class="p">;</span></code></pre></td></tr></table>
 </div>
 </div>
 <br>
@@ -2568,6 +2711,8 @@ editor 여는 법: Tools &gt; Open SQL Editor (or Alt + E)<br />
           <ul>
             <li><a href="#sql-기본-문법-1-select">SQL 기본 문법 (1) SELECT</a></li>
             <li><a href="#sql-기본-문법-2-join">SQL 기본 문법 (2) JOIN</a></li>
+            <li><a href="#sql-기본-3-데이터-타입들-및-키-값들-테이블-생성">SQL 기본 (3) 데이터 타입들 및 키 값들, 테이블 생성</a></li>
+            <li><a href="#sql-기본-4-functions">SQL 기본 (4) Functions</a></li>
           </ul>
         </li>
       </ul>

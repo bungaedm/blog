@@ -20,6 +20,7 @@ weight: 1
     1. dpylr: group_by, summarise, mutate, select, filter
     2. ggplot2
     3. plotly
+    4. highcharter
 
 ### Updates
 1. 주식 
