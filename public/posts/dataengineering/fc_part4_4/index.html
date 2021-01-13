@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>FCB Ch01. – JW Blog</title>
+    <title>SQL 활용 (MySQL) – JW Blog</title>
     
 
 
@@ -30,7 +30,7 @@
     
     var baseurl = JSON.parse("\"https://jiwooblog.netlify.app/\"");
     
-    var permalink = JSON.parse("\"https://jiwooblog.netlify.app/posts/statistics/bayesian/fcb01/\"");
+    var permalink = JSON.parse("\"https://jiwooblog.netlify.app/posts/dataengineering/fc_part4_4/\"");
 
     
     var toggleSidebarElem = document.getElementById("toggle-sidebar");
@@ -1072,21 +1072,21 @@
 <link rel="stylesheet" href="/css/main.min.css">
 
 
-    <meta name="description" content="Introduction and Examples" />
+    <meta name="description" content="데이터의 이해와 데이터베이스" />
 <meta name="keywords" content="">
-<meta name="created" content="2021-01-07T10:08:56&#43;0900">
-<meta name="modified" content="2021-01-07T10:08:56&#43;0900">
+<meta name="created" content="2021-01-13T10:09:56&#43;0900">
+<meta name="modified" content="2021-01-13T10:09:56&#43;0900">
 
 
 <meta property="og:site_name" content="JW Blog">
-<meta property="og:title" content="FCB Ch01.">
-<meta property="og:url" content="https://jiwooblog.netlify.app/posts/statistics/bayesian/fcb01/">
+<meta property="og:title" content="SQL 활용 (MySQL)">
+<meta property="og:url" content="https://jiwooblog.netlify.app/posts/dataengineering/fc_part4_4/">
 <meta property="og:type" content="article">
 
 <meta name="generator" content="Hugo 0.80.0" />
 <meta name="msapplication-TileColor" content="#ffffff">
 <meta name="theme-color" content="#ffffff">
-<link rel="canonical" href="https://jiwooblog.netlify.app/posts/statistics/bayesian/fcb01/">
+<link rel="canonical" href="https://jiwooblog.netlify.app/posts/dataengineering/fc_part4_4/">
 <link rel="manifest" href="/manifest.json">
 
   <link rel="apple-touch-icon" sizes="57x57" href="/favicon/apple-icon-57x57.png">
@@ -1110,11 +1110,11 @@
   {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "headline": "FCB Ch01.",
-    "datePublished": "2021-01-07T10:08:56+09:00",
-    "dateModified": "2021-01-07T10:08:56+09:00",
-    "url" : "https://jiwooblog.netlify.app/posts/statistics/bayesian/fcb01/",
-    "description": "Introduction and Examples",
+    "headline": "SQL 활용 (MySQL)",
+    "datePublished": "2021-01-13T10:09:56+09:00",
+    "dateModified": "2021-01-13T10:09:56+09:00",
+    "url" : "https://jiwooblog.netlify.app/posts/dataengineering/fc_part4_4/",
+    "description": "데이터의 이해와 데이터베이스",
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "https://jiwooblog.netlify.app/"
@@ -1163,7 +1163,7 @@
     <div class="menu">
   <h6 class="menu__label">
     
-      FCB Ch01.
+      SQL 활용 (MySQL)
     
   </h6>
   <ul>
@@ -1193,7 +1193,7 @@
       
     </span>
   </li>
-  <ul class="menu__list " data-data=/dacon/ data-link=https://jiwooblog.netlify.app/posts/statistics/bayesian/fcb01/>
+  <ul class="menu__list " data-data=/dacon/ data-link=https://jiwooblog.netlify.app/posts/dataengineering/fc_part4_4/>
     
       
         
@@ -1231,7 +1231,7 @@
       
     </span>
   </li>
-  <ul class="menu__list " data-data=/yonsei/ data-link=https://jiwooblog.netlify.app/posts/statistics/bayesian/fcb01/>
+  <ul class="menu__list " data-data=/yonsei/ data-link=https://jiwooblog.netlify.app/posts/dataengineering/fc_part4_4/>
     
       
         
@@ -1248,17 +1248,17 @@
   
   
   
-  <li class="menu__title--collapse active" data-depth="1" data-permalink="https://jiwooblog.netlify.app/posts/yonsei/statistics/">
+  <li class="menu__title--collapse " data-depth="1" data-permalink="https://jiwooblog.netlify.app/posts/yonsei/statistics/">
     <span class="menu__title--collapse-text">
       Statistics
     </span>
-    <span class="menu__title--icon down">
+    <span class="menu__title--icon right">
       
         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"><path fill="currentColor" d="M9.29 15.88L13.17 12 9.29 8.12c-.39-.39-.39-1.02 0-1.41.39-.39 1.02-.39 1.41 0l4.59 4.59c.39.39.39 1.02 0 1.41L10.7 17.3c-.39.39-1.02.39-1.41 0-.38-.39-.39-1.03 0-1.42z"/></svg>
       
     </span>
   </li>
-  <ul class="menu__list active" data-data=/statistics/ data-link=https://jiwooblog.netlify.app/posts/statistics/bayesian/fcb01/>
+  <ul class="menu__list " data-data=/statistics/ data-link=https://jiwooblog.netlify.app/posts/dataengineering/fc_part4_4/>
     
       
         
@@ -1298,7 +1298,7 @@
       
     </span>
   </li>
-  <ul class="menu__list " data-data=/psychology/ data-link=https://jiwooblog.netlify.app/posts/statistics/bayesian/fcb01/>
+  <ul class="menu__list " data-data=/psychology/ data-link=https://jiwooblog.netlify.app/posts/dataengineering/fc_part4_4/>
     
       
         
@@ -1349,7 +1349,7 @@
       
     </span>
   </li>
-  <ul class="menu__list " data-data=/python/ data-link=https://jiwooblog.netlify.app/posts/statistics/bayesian/fcb01/>
+  <ul class="menu__list " data-data=/python/ data-link=https://jiwooblog.netlify.app/posts/dataengineering/fc_part4_4/>
     
   </ul>
   
@@ -1369,17 +1369,17 @@
   
   
   
-  <li class="menu__title--collapse " data-depth="0" data-permalink="https://jiwooblog.netlify.app/posts/r/">
+  <li class="menu__title--collapse active" data-depth="0" data-permalink="https://jiwooblog.netlify.app/posts/r/">
     <span class="menu__title--collapse-text">
       R
     </span>
-    <span class="menu__title--icon right">
+    <span class="menu__title--icon down">
       
         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"><path fill="currentColor" d="M9.29 15.88L13.17 12 9.29 8.12c-.39-.39-.39-1.02 0-1.41.39-.39 1.02-.39 1.41 0l4.59 4.59c.39.39.39 1.02 0 1.41L10.7 17.3c-.39.39-1.02.39-1.41 0-.38-.39-.39-1.03 0-1.42z"/></svg>
       
     </span>
   </li>
-  <ul class="menu__list " data-data=/r/ data-link=https://jiwooblog.netlify.app/posts/statistics/bayesian/fcb01/>
+  <ul class="menu__list active" data-data=/r/ data-link=https://jiwooblog.netlify.app/posts/dataengineering/fc_part4_4/>
     
       
         
@@ -1407,17 +1407,17 @@
   
   
   
-  <li class="menu__title--collapse active" data-depth="0" data-permalink="https://jiwooblog.netlify.app/posts/statistics/">
+  <li class="menu__title--collapse " data-depth="0" data-permalink="https://jiwooblog.netlify.app/posts/statistics/">
     <span class="menu__title--collapse-text">
       Statistics
     </span>
-    <span class="menu__title--icon down">
+    <span class="menu__title--icon right">
       
         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"><path fill="currentColor" d="M9.29 15.88L13.17 12 9.29 8.12c-.39-.39-.39-1.02 0-1.41.39-.39 1.02-.39 1.41 0l4.59 4.59c.39.39.39 1.02 0 1.41L10.7 17.3c-.39.39-1.02.39-1.41 0-.38-.39-.39-1.03 0-1.42z"/></svg>
       
     </span>
   </li>
-  <ul class="menu__list active" data-data=/statistics/ data-link=https://jiwooblog.netlify.app/posts/statistics/bayesian/fcb01/>
+  <ul class="menu__list " data-data=/statistics/ data-link=https://jiwooblog.netlify.app/posts/dataengineering/fc_part4_4/>
     
       
         
@@ -1444,7 +1444,7 @@
       
     </span>
   </li>
-  <ul class="menu__list " data-data=/linearalgebra/ data-link=https://jiwooblog.netlify.app/posts/statistics/bayesian/fcb01/>
+  <ul class="menu__list " data-data=/linearalgebra/ data-link=https://jiwooblog.netlify.app/posts/dataengineering/fc_part4_4/>
     
       
         
@@ -1482,23 +1482,23 @@
   
   
   
-  <li class="menu__title--collapse active" data-depth="1" data-permalink="https://jiwooblog.netlify.app/posts/statistics/bayesian/">
+  <li class="menu__title--collapse " data-depth="1" data-permalink="https://jiwooblog.netlify.app/posts/statistics/bayesian/">
     <span class="menu__title--collapse-text">
       Bayesian
     </span>
-    <span class="menu__title--icon down">
+    <span class="menu__title--icon right">
       
         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"><path fill="currentColor" d="M9.29 15.88L13.17 12 9.29 8.12c-.39-.39-.39-1.02 0-1.41.39-.39 1.02-.39 1.41 0l4.59 4.59c.39.39.39 1.02 0 1.41L10.7 17.3c-.39.39-1.02.39-1.41 0-.38-.39-.39-1.03 0-1.42z"/></svg>
       
     </span>
   </li>
-  <ul class="menu__list active" data-data=/bayesian/ data-link=https://jiwooblog.netlify.app/posts/statistics/bayesian/fcb01/>
+  <ul class="menu__list " data-data=/bayesian/ data-link=https://jiwooblog.netlify.app/posts/dataengineering/fc_part4_4/>
     
       
         
         
         <li>
-          <a href="https://jiwooblog.netlify.app/posts/statistics/bayesian/fcb01/" class="menu__title active" data-depth="1">FCB Ch01.</a>
+          <a href="https://jiwooblog.netlify.app/posts/statistics/bayesian/fcb01/" class="menu__title " data-depth="1">FCB Ch01.</a>
         </li>
       
     
@@ -1541,17 +1541,17 @@
   
   
   
-  <li class="menu__title--collapse " data-depth="0" data-permalink="https://jiwooblog.netlify.app/posts/dataengineering/">
+  <li class="menu__title--collapse active" data-depth="0" data-permalink="https://jiwooblog.netlify.app/posts/dataengineering/">
     <span class="menu__title--collapse-text">
       Data Engineering
     </span>
-    <span class="menu__title--icon right">
+    <span class="menu__title--icon down">
       
         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"><path fill="currentColor" d="M9.29 15.88L13.17 12 9.29 8.12c-.39-.39-.39-1.02 0-1.41.39-.39 1.02-.39 1.41 0l4.59 4.59c.39.39.39 1.02 0 1.41L10.7 17.3c-.39.39-1.02.39-1.41 0-.38-.39-.39-1.03 0-1.42z"/></svg>
       
     </span>
   </li>
-  <ul class="menu__list " data-data=/dataengineering/ data-link=https://jiwooblog.netlify.app/posts/statistics/bayesian/fcb01/>
+  <ul class="menu__list active" data-data=/dataengineering/ data-link=https://jiwooblog.netlify.app/posts/dataengineering/fc_part4_4/>
     
       
         
@@ -1613,7 +1613,7 @@
         
         
         <li>
-          <a href="https://jiwooblog.netlify.app/posts/dataengineering/fc_part4_4/" class="menu__title " data-depth="0">SQL 활용 (MySQL)</a>
+          <a href="https://jiwooblog.netlify.app/posts/dataengineering/fc_part4_4/" class="menu__title active" data-depth="0">SQL 활용 (MySQL)</a>
         </li>
       
     
@@ -1835,7 +1835,7 @@
         
           
             
-              <a href="https://jiwooblog.netlify.app/posts/statistics/bayesian/fcb01/" data-lang="ko" class="lang__dropdown--item active">한국어</a>
+              <a href="https://jiwooblog.netlify.app/posts/dataengineering/fc_part4_4/" data-lang="ko" class="lang__dropdown--item active">한국어</a>
             
           
         
@@ -1954,7 +1954,7 @@
   <div class="header__wrapper bgcolor__header">
     <div class="divider">
       <div class="lmr">
-        <h2 class="title">FCB Ch01.</h2>
+        <h2 class="title">SQL 활용 (MySQL)</h2>
       </div>
     </div>
   </div>
@@ -1967,8 +1967,6 @@
   
   <ol>
     
-  
-  
   
   
   
@@ -1992,21 +1990,14 @@
   
   <li >
     
-      <a href="https://jiwooblog.netlify.app/posts/statistics/" class="capitalize">Statistics</a>
-    
-  </li>
-  
-  
-  <li >
-    
-      <a href="https://jiwooblog.netlify.app/posts/statistics/bayesian/" class="capitalize">Bayesian</a>
+      <a href="https://jiwooblog.netlify.app/posts/dataengineering/" class="capitalize">Data Engineering</a>
     
   </li>
   
   
   <li  class="is-active" >
     
-      <span>FCB Ch01.</span>
+      <span>SQL 활용 (MySQL)</span>
     
   </li>
   
@@ -2048,7 +2039,7 @@
         <div class="menu">
   <h6 class="menu__label">
     
-      FCB Ch01.
+      SQL 활용 (MySQL)
     
   </h6>
   <ul>
@@ -2078,7 +2069,7 @@
       
     </span>
   </li>
-  <ul class="menu__list " data-data=/dacon/ data-link=https://jiwooblog.netlify.app/posts/statistics/bayesian/fcb01/>
+  <ul class="menu__list " data-data=/dacon/ data-link=https://jiwooblog.netlify.app/posts/dataengineering/fc_part4_4/>
     
       
         
@@ -2116,7 +2107,7 @@
       
     </span>
   </li>
-  <ul class="menu__list " data-data=/yonsei/ data-link=https://jiwooblog.netlify.app/posts/statistics/bayesian/fcb01/>
+  <ul class="menu__list " data-data=/yonsei/ data-link=https://jiwooblog.netlify.app/posts/dataengineering/fc_part4_4/>
     
       
         
@@ -2133,17 +2124,17 @@
   
   
   
-  <li class="menu__title--collapse active" data-depth="1" data-permalink="https://jiwooblog.netlify.app/posts/yonsei/statistics/">
+  <li class="menu__title--collapse " data-depth="1" data-permalink="https://jiwooblog.netlify.app/posts/yonsei/statistics/">
     <span class="menu__title--collapse-text">
       Statistics
     </span>
-    <span class="menu__title--icon down">
+    <span class="menu__title--icon right">
       
         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"><path fill="currentColor" d="M9.29 15.88L13.17 12 9.29 8.12c-.39-.39-.39-1.02 0-1.41.39-.39 1.02-.39 1.41 0l4.59 4.59c.39.39.39 1.02 0 1.41L10.7 17.3c-.39.39-1.02.39-1.41 0-.38-.39-.39-1.03 0-1.42z"/></svg>
       
     </span>
   </li>
-  <ul class="menu__list active" data-data=/statistics/ data-link=https://jiwooblog.netlify.app/posts/statistics/bayesian/fcb01/>
+  <ul class="menu__list " data-data=/statistics/ data-link=https://jiwooblog.netlify.app/posts/dataengineering/fc_part4_4/>
     
       
         
@@ -2183,7 +2174,7 @@
       
     </span>
   </li>
-  <ul class="menu__list " data-data=/psychology/ data-link=https://jiwooblog.netlify.app/posts/statistics/bayesian/fcb01/>
+  <ul class="menu__list " data-data=/psychology/ data-link=https://jiwooblog.netlify.app/posts/dataengineering/fc_part4_4/>
     
       
         
@@ -2234,7 +2225,7 @@
       
     </span>
   </li>
-  <ul class="menu__list " data-data=/python/ data-link=https://jiwooblog.netlify.app/posts/statistics/bayesian/fcb01/>
+  <ul class="menu__list " data-data=/python/ data-link=https://jiwooblog.netlify.app/posts/dataengineering/fc_part4_4/>
     
   </ul>
   
@@ -2254,17 +2245,17 @@
   
   
   
-  <li class="menu__title--collapse " data-depth="0" data-permalink="https://jiwooblog.netlify.app/posts/r/">
+  <li class="menu__title--collapse active" data-depth="0" data-permalink="https://jiwooblog.netlify.app/posts/r/">
     <span class="menu__title--collapse-text">
       R
     </span>
-    <span class="menu__title--icon right">
+    <span class="menu__title--icon down">
       
         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"><path fill="currentColor" d="M9.29 15.88L13.17 12 9.29 8.12c-.39-.39-.39-1.02 0-1.41.39-.39 1.02-.39 1.41 0l4.59 4.59c.39.39.39 1.02 0 1.41L10.7 17.3c-.39.39-1.02.39-1.41 0-.38-.39-.39-1.03 0-1.42z"/></svg>
       
     </span>
   </li>
-  <ul class="menu__list " data-data=/r/ data-link=https://jiwooblog.netlify.app/posts/statistics/bayesian/fcb01/>
+  <ul class="menu__list active" data-data=/r/ data-link=https://jiwooblog.netlify.app/posts/dataengineering/fc_part4_4/>
     
       
         
@@ -2292,17 +2283,17 @@
   
   
   
-  <li class="menu__title--collapse active" data-depth="0" data-permalink="https://jiwooblog.netlify.app/posts/statistics/">
+  <li class="menu__title--collapse " data-depth="0" data-permalink="https://jiwooblog.netlify.app/posts/statistics/">
     <span class="menu__title--collapse-text">
       Statistics
     </span>
-    <span class="menu__title--icon down">
+    <span class="menu__title--icon right">
       
         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"><path fill="currentColor" d="M9.29 15.88L13.17 12 9.29 8.12c-.39-.39-.39-1.02 0-1.41.39-.39 1.02-.39 1.41 0l4.59 4.59c.39.39.39 1.02 0 1.41L10.7 17.3c-.39.39-1.02.39-1.41 0-.38-.39-.39-1.03 0-1.42z"/></svg>
       
     </span>
   </li>
-  <ul class="menu__list active" data-data=/statistics/ data-link=https://jiwooblog.netlify.app/posts/statistics/bayesian/fcb01/>
+  <ul class="menu__list " data-data=/statistics/ data-link=https://jiwooblog.netlify.app/posts/dataengineering/fc_part4_4/>
     
       
         
@@ -2329,7 +2320,7 @@
       
     </span>
   </li>
-  <ul class="menu__list " data-data=/linearalgebra/ data-link=https://jiwooblog.netlify.app/posts/statistics/bayesian/fcb01/>
+  <ul class="menu__list " data-data=/linearalgebra/ data-link=https://jiwooblog.netlify.app/posts/dataengineering/fc_part4_4/>
     
       
         
@@ -2367,23 +2358,23 @@
   
   
   
-  <li class="menu__title--collapse active" data-depth="1" data-permalink="https://jiwooblog.netlify.app/posts/statistics/bayesian/">
+  <li class="menu__title--collapse " data-depth="1" data-permalink="https://jiwooblog.netlify.app/posts/statistics/bayesian/">
     <span class="menu__title--collapse-text">
       Bayesian
     </span>
-    <span class="menu__title--icon down">
+    <span class="menu__title--icon right">
       
         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"><path fill="currentColor" d="M9.29 15.88L13.17 12 9.29 8.12c-.39-.39-.39-1.02 0-1.41.39-.39 1.02-.39 1.41 0l4.59 4.59c.39.39.39 1.02 0 1.41L10.7 17.3c-.39.39-1.02.39-1.41 0-.38-.39-.39-1.03 0-1.42z"/></svg>
       
     </span>
   </li>
-  <ul class="menu__list active" data-data=/bayesian/ data-link=https://jiwooblog.netlify.app/posts/statistics/bayesian/fcb01/>
+  <ul class="menu__list " data-data=/bayesian/ data-link=https://jiwooblog.netlify.app/posts/dataengineering/fc_part4_4/>
     
       
         
         
         <li>
-          <a href="https://jiwooblog.netlify.app/posts/statistics/bayesian/fcb01/" class="menu__title active" data-depth="1">FCB Ch01.</a>
+          <a href="https://jiwooblog.netlify.app/posts/statistics/bayesian/fcb01/" class="menu__title " data-depth="1">FCB Ch01.</a>
         </li>
       
     
@@ -2426,17 +2417,17 @@
   
   
   
-  <li class="menu__title--collapse " data-depth="0" data-permalink="https://jiwooblog.netlify.app/posts/dataengineering/">
+  <li class="menu__title--collapse active" data-depth="0" data-permalink="https://jiwooblog.netlify.app/posts/dataengineering/">
     <span class="menu__title--collapse-text">
       Data Engineering
     </span>
-    <span class="menu__title--icon right">
+    <span class="menu__title--icon down">
       
         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"><path fill="currentColor" d="M9.29 15.88L13.17 12 9.29 8.12c-.39-.39-.39-1.02 0-1.41.39-.39 1.02-.39 1.41 0l4.59 4.59c.39.39.39 1.02 0 1.41L10.7 17.3c-.39.39-1.02.39-1.41 0-.38-.39-.39-1.03 0-1.42z"/></svg>
       
     </span>
   </li>
-  <ul class="menu__list " data-data=/dataengineering/ data-link=https://jiwooblog.netlify.app/posts/statistics/bayesian/fcb01/>
+  <ul class="menu__list active" data-data=/dataengineering/ data-link=https://jiwooblog.netlify.app/posts/dataengineering/fc_part4_4/>
     
       
         
@@ -2498,7 +2489,7 @@
         
         
         <li>
-          <a href="https://jiwooblog.netlify.app/posts/dataengineering/fc_part4_4/" class="menu__title " data-depth="0">SQL 활용 (MySQL)</a>
+          <a href="https://jiwooblog.netlify.app/posts/dataengineering/fc_part4_4/" class="menu__title active" data-depth="0">SQL 활용 (MySQL)</a>
         </li>
       
     
@@ -2526,71 +2517,34 @@
   
 
   <article class="single__contents" data-dir="ltr">
-    <h2 id="chapter-01-br-introduction-and-examples">Chapter 01. <br> Introduction and Examples</h2>
-<p>본 포스팅은 <strong>First Course in Bayesian Statistical Methods</strong>를 참고하였다.<br />
-이번 장을 통해서는 Likelihood and Prior를 살펴보고 Full probability model의 의미를 보는 데에 주목해보쟈.</p>
-<h3 id="베이지안-추론의-목적">베이지안 추론의 목적</h3>
-<p>우리는 데이터 획득을 통해, 모집단 특성에 대한 불확실성을 줄여나가고자 한다. 이때, 불확실성 정도의 변화 수준을 계량화하는 것이 베이지안 추론통계의 목적이라고 할 수 있다.</p>
-<h3 id="핵심-개념">핵심 개념</h3>
-<ol>
-<li>prior distribution <code>$p(\theta)$</code>
-<ul>
-<li>사전확률</li>
-<li>모수에 대해 기존에 갖고 있던 믿음의 정도</li>
+    <h2 id="part-4-데이터의-이해와-데이터베이스">Part 4. 데이터의 이해와 데이터베이스</h2>
+<p>본 포스팅은 패스트캠퍼스(FastCampus)의 <strong>데이터 엔지니어링 올인원 패키지 Online</strong>을 참고하였습니다.</p>
+<h3 id="1-artist-data">1. Artist Data</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="n">genre</span><span class="p">,</span> <span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="k">FROM</span> <span class="n">artist_genres</span> <span class="k">GROUP</span> <span class="k">BY</span> <span class="mi">1</span> <span class="k">ORDER</span> <span class="k">BY</span> <span class="mi">2</span> <span class="k">DESC</span> <span class="k">LIMIT</span> <span class="mi">20</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="2-artist-genre-analysis-with-sql">2. Artist Genre Analysis with SQL</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="n">popularity</span><span class="p">,</span> <span class="n">name</span> <span class="k">FROM</span> <span class="n">artists</span> <span class="k">ORDER</span> <span class="k">BY</span> <span class="mi">1</span> <span class="k">DESC</span> <span class="k">LIMIT</span> <span class="mi">20</span><span class="p">;</span>
+
+<span class="k">SELECT</span> <span class="n">genre</span><span class="p">,</span> <span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="k">FROM</span> <span class="n">artists</span> <span class="n">t1</span> <span class="k">JOIN</span> <span class="n">artist_genres</span> <span class="n">t2</span> <span class="k">ON</span> <span class="n">t2</span><span class="p">.</span><span class="n">artist_id</span> <span class="o">=</span> <span class="n">t1</span><span class="p">.</span><span class="n">id</span> <span class="k">WHERE</span> <span class="n">t1</span><span class="p">.</span><span class="n">popularity</span> <span class="o">&gt;</span> <span class="mi">80</span> <span class="k">GROUP</span> <span class="k">BY</span> <span class="mi">1</span> <span class="k">ORDER</span> <span class="k">BY</span> <span class="mi">2</span> <span class="k">DESC</span> <span class="k">LIMIT</span> <span class="mi">20</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>join을 통해 ERD의 장점을 활용하여 기초분석을 할 수 있다.</li>
 </ul>
-</li>
-<li>sampling model <code>$p(y|\theta)$</code>
-<ul>
-<li>일종의 가능도 함수(likelihood)</li>
-<li>사전확률이 참이라는 가정 하에, 특정 데이터가 관찰된 확률</li>
-</ul>
-</li>
-<li>posterior distribution <code>$p(\theta|y)$</code>
-<ul>
-<li>데이터가 관찰되었을 때, 이를 바탕으로 수정된 모수에 대한 믿음의 정도</li>
-</ul>
-</li>
-</ol>
-<h3 id="bayes-rule">Bayes' Rule</h3>
-<p>$$p(\theta|y) = \frac{p(y|\theta)p(\theta)}{\int_{\Theta}p(y|\tilde{\theta})p(\tilde{\theta})d\tilde{\theta}}$$</p>
-<p>이는 사후분포가 사전분포와 가능도 함수에 의해 어떻게 업데이트 되는지를 수식적으로 나타난 것이다.<br />
-베이즈 통계의 전부라고 해도 무방하다.</p>
-<h3 id="활용예시">활용예시</h3>
-<ol>
-<li>희소사건 확률 추정(Estimation)
-<ul>
-<li>감염 확률(infectious probability)</li>
-<li>확률론자(frequentist)는 sample이 적을 때 확률추정을 합리적으로 하는 데에 있어서 취약할 수 있다. 예를 들어, 20명만을 대상으로 감염 여부를 확인하고 감염 확률을 추론한다면, 감염확률을 0%라고 제안하는 것은 통계적으로는 그럴 듯하게 계산될 수 있다. 하지만 이는 현실과는 다소 거리가 있을 수 있다.</li>
-<li>이에 반해, 베이지안은 감염 확률을 분포로서 제시할 뿐더러 기존의 믿음을 사전확률로서 제안하기 때문에 이러한 부분에 있어서 덜 취약할 수 있다.</li>
-</ul>
-</li>
-<li>예측 모델 구축(Prediction)
-<ul>
-<li>당뇨병(diabetes progression)</li>
-<li>50% 확률로 변수의 coefficient가 0라고 사전확률을 제안한다면, 변수선택의 효과를 얻을 수 있다.</li>
-</ul>
-</li>
-</ol>
-<h3 id="etc">ETC</h3>
-<ul>
-<li>&lsquo;Adjusted&rsquo; Wald interval<br />
-흔히 알려진 신뢰구간을 베이지안적으로 바꾼 형태이다.</li>
-</ul>
-<p style='text-align: center'>`\hat{\theta} \pm 1.96\sqrt{\hat{\theta}(1-\hat{\theta})//n}` , where </p>
-<p style='text-align: center'>`\hat{\theta} = \frac{n}{n+4}\bar{y} + \frac{4}{n+4}\frac{1}{2}`</p>
-<ul>
-<li>Lasso<br />
-변수 선택의 한 방법이다. 아래 제시된 SSR를 최소화하는 것을 목표로 한다. 베이지안의 맥락에서 처음 연구된 방법론은 아니지만, 특정 사전확률을 적용한다면 베이지안의 관점과 일치한다.<br />
-$$SSR(\beta:\lambda) = \sum_{i=1}^{n}(y_i-\boldsymbol{x_i}^T\boldsymbol{\beta})^2 + \lambda\sum_{j=1}^{n}|\beta_j|$$</li>
-</ul>
-<h3 id="conclusion">Conclusion</h3>
-<p style='text-align: center'> "All models are wrong, but some are useful" </p>
-<p style='text-align: center'> - Box and Draper, 1987 </p> <br>
-<hr />
-<br> 
-<p style='text-align: center; color:gray'> 혹시 궁금한 점이나 잘못된 내용이 있다면, 댓글로 알려주시면 적극 반영하도록 하겠습니다. </p>
-<br>
-<br>
+
   </article>
 </div>
       
@@ -2598,10 +2552,17 @@ $$SSR(\beta:\lambda) = \sum_{i=1}^{n}(y_i-\boldsymbol{x_i}^T\boldsymbol{\beta})^
 <nav class="pagination-single">
   
     
+      <a href="https://jiwooblog.netlify.app/posts/dataengineering/fc_part4_3/" title="Python &amp; MySQL" class="pagination-single__left">
+        <div class="pagination-single__icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0V0z"/><path fill="currentColor" d="M19 11H7.83l4.88-4.88c.39-.39.39-1.03 0-1.42-.39-.39-1.02-.39-1.41 0l-6.59 6.59c-.39.39-.39 1.02 0 1.41l6.59 6.59c.39.39 1.02.39 1.41 0 .39-.39.39-1.02 0-1.41L7.83 13H19c.55 0 1-.45 1-1s-.45-1-1-1z"/></svg>
+        </div>
+        <div class="pagination-single__right-title">Python &amp; MySQL</div>
+      </a>
+    
     <div class="grow"></div>
     
-      <a href="https://jiwooblog.netlify.app/posts/statistics/bayesian/fcb02/" title="FCB Ch02." class="pagination-single__right">
-        <div class="pagination-single__left-title">FCB Ch02.</div>
+      <a href="https://jiwooblog.netlify.app/posts/dataengineering/fc_part4_5/" title="NoSQL (DynamoDB)" class="pagination-single__right">
+        <div class="pagination-single__left-title">NoSQL (DynamoDB)</div>
         <div class="pagination-single__icon">
           <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0V0z"/><path fill="currentColor" d="M5 13h11.17l-4.88 4.88c-.39.39-.39 1.03 0 1.42.39.39 1.02.39 1.41 0l6.59-6.59c.39-.39.39-1.02 0-1.41l-6.58-6.6c-.39-.39-1.02-.39-1.41 0-.39.39-.39 1.02 0 1.41L16.17 11H5c-.55 0-1 .45-1 1s.45 1 1 1z"/></svg>
         </div>
@@ -2621,14 +2582,10 @@ $$SSR(\beta:\lambda) = \sum_{i=1}^{n}(y_i-\boldsymbol{x_i}^T\boldsymbol{\beta})^
   <div class="toc__body">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#chapter-01-br-introduction-and-examples">Chapter 01. <br> Introduction and Examples</a>
+    <li><a href="#part-4-데이터의-이해와-데이터베이스">Part 4. 데이터의 이해와 데이터베이스</a>
       <ul>
-        <li><a href="#베이지안-추론의-목적">베이지안 추론의 목적</a></li>
-        <li><a href="#핵심-개념">핵심 개념</a></li>
-        <li><a href="#bayes-rule">Bayes' Rule</a></li>
-        <li><a href="#활용예시">활용예시</a></li>
-        <li><a href="#etc">ETC</a></li>
-        <li><a href="#conclusion">Conclusion</a></li>
+        <li><a href="#1-artist-data">1. Artist Data</a></li>
+        <li><a href="#2-artist-genre-analysis-with-sql">2. Artist Genre Analysis with SQL</a></li>
       </ul>
     </li>
   </ul>

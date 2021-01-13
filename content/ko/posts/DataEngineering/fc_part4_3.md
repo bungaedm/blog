@@ -297,5 +297,70 @@ def main():
 - 모든 API가 제공하는 것은 아니긴 하다!
 - Spotify는 ['Get Several Artists']((https://developer.spotify.com/console/get-several-artists/))하는 법을 제공하고 있다.
 
+```python
+def main():
+    try:
+        conn = pymysql.connect(host=host, user=username, passwd=password, db=database, port=port, use_unicode=True, charset='utf8')
+        cursor = conn.cursor()
+    except:
+        logging.error('could not connect to RDS')
+        sys.exit(1)
+
+    headers = get_headers(client_id, client_secret)
+
+    cursor.execute("SELECT id FROM artists")
+    artists = []
+    for (id, ) in cursor.fetchall():
+        artists.append(id)
+
+    artist_batch = [artists[i: i+50] for i in range(0, len(artists), 50)]
+
+    for i in artist_batch:
+        ids = ','.join(i)
+        URL = 'https://api.spotify.com/v1/artists/?ids={}'.format(ids)
+
+        r= requests.get(URL, headers=headers)
+        raw = json.loads(r.text)
+        print(raw)
+        print(len(raw['artists']))
+        sys.exit(0)
+```
+
+```sql
+-- 제대로 잘 들어갔는지 확인해보기
+select * from artist_genres limit 10;
+```
 
 ### 9. MySQL 테이블들로 데이터 저장
+```python
+def main():
+    ## ... 여기까지는 위와 똑같음
+    artist_batch = [artists[i: i+50] for i in range(0, len(artists), 50)]
+    artist_genres = []
+
+    for i in artist_batch:
+        ids = ','.join(i)
+        URL = 'https://api.spotify.com/v1/artists/?ids={}'.format(ids)
+
+        r= requests.get(URL, headers=headers)
+        raw = json.loads(r.text)
+
+        for artist in raw['artists']:
+            for genre in artist['genres']:
+                artist_genres.append(
+                    {
+                        'artist_id': artist['id'],
+                        'genre': genre
+                    }
+                )
+
+    for data in artist_genres:
+        insert_row(cursor, data, 'artist_genres')
+
+    conn.commit()
+    sys.exit(0)
+    
+    ## ... 아래도 다 똑같음
+```
+
+<br>
