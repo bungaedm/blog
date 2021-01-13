@@ -12,9 +12,11 @@ weight: 1
 ### Posts
 1. 프로젝트들 정리
     1. Rhino: 수소차 충전소 입지 선정
-    2. 빅콘테스트 NS Shop+
+    2. [ESC 2020_SUMMER] 빅콘테스트 NS Shop+
     3. 심리성향 예측 AI 경진대회
-    4. NLP 논문 따라해보기
+    4. [ESC 2020_FALL] NLP 논문 따라해보기
+    5. [ESC 2020_SPRING] 행복지수 예측
+            - 배운 점: 해석 시 Domain Knowledge의 중요성, FA의 효과
 
 2. R 다양한 기능들 정리
     1. dpylr: group_by, summarise, mutate, select, filter

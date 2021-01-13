@@ -179,7 +179,4 @@ response = table.scan(
 )
 print(len(response['Items']))
 ```
-
-
-
-
+<br>
