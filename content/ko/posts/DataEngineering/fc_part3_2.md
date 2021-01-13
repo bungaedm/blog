@@ -52,8 +52,8 @@ import base64
 import json
 import logging
 
-client_id = '8b2afab1206d4d8c8485818b98a8d12e'
-client_secret = '1dfcd633c62d4837b1ac78d76b251573'
+client_id = '' # client_id 입력
+client_secret = '' # client_secret 입력
 
 def main():
     headers = get_headers(client_id, client_secret)
@@ -161,8 +161,8 @@ import base64
 import json
 import logging
 
-client_id = '8b2afab1206d4d8c8485818b98a8d12e'
-client_secret = '1dfcd633c62d4837b1ac78d76b251573'
+client_id = '' # client_id 입력
+client_secret = '' # client_secret 입력
 
 def main():
     headers = get_headers(client_id, client_secret)
