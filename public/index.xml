@@ -159,6 +159,16 @@ Exponential Family Conjugate Prior Conclusion Conjugacy를 잘 알아두자. 혹
       </item>
       
       <item>
+        <title>RDBMS</title>
+        <link>https://jiwooblog.netlify.app/posts/dataengineering/fc_part4_1/</link>
+        <pubDate>Wed, 13 Jan 2021 10:09:56 +0900</pubDate>
+        
+        <guid>https://jiwooblog.netlify.app/posts/dataengineering/fc_part4_1/</guid>
+        <description>Part 4. 데이터의 이해와 데이터베이스 본 포스팅은 패스트캠퍼스(FastCampus)의 데이터 엔지니어링 올인원 패키지 Online을 참고하였습니다.
+0. Data Type  numeric data/time character/string unicode character/string binary miscellaneous  1. Relational Database(RDB)  모든 데이터를 2차원의 테이블로 표현 하나 이상의 테이블로 구성 Entity-Relationship 모델 Normalization (Reduce Redundacy)  2. AWS 클라우드 MySQL 데이터베이스 생성  aws.amazon.com &amp;gt; RDS &amp;gt; 데이터 생성 Templates &amp;gt; Free Tier로 설정 (과금 예방) Public Access 허용하기 VPC에서 인바운드 규칙에 MySql 추가하기  3.</description>
+      </item>
+      
+      <item>
         <title>빅콘테스트 NS Shop&#43; 홈쇼핑 실적 예측</title>
         <link>https://jiwooblog.netlify.app/blog/bigcontest2020/</link>
         <pubDate>Mon, 04 Jan 2021 00:00:00 +0000</pubDate>
