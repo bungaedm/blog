@@ -73,6 +73,17 @@ run.sh 코드(참고용) #!/bin/bashpython examply.py 1 &amp;gt; example.txtpy
 0. Data Type  numeric data/time character/string unicode character/string binary miscellaneous  1. Relational Database(RDB)  모든 데이터를 2차원의 테이블로 표현 하나 이상의 테이블로 구성 Entity-Relationship 모델 Normalization (Reduce Redundacy)  2. AWS 클라우드 MySQL 데이터베이스 생성  aws.amazon.com &amp;gt; RDS &amp;gt; 데이터 생성 Templates &amp;gt; Free Tier로 설정 (과금 예방) Public Access 허용하기 VPC에서 인바운드 규칙에 MySql 추가하기  3.</description>
       </item>
       
+      <item>
+        <title>Spotify Data</title>
+        <link>https://jiwooblog.netlify.app/posts/dataengineering/fc_part4_2/</link>
+        <pubDate>Wed, 13 Jan 2021 10:09:56 +0900</pubDate>
+        
+        <guid>https://jiwooblog.netlify.app/posts/dataengineering/fc_part4_2/</guid>
+        <description>Part 4. 데이터의 이해와 데이터베이스 본 포스팅은 패스트캠퍼스(FastCampus)의 데이터 엔지니어링 올인원 패키지 Online을 참고하였습니다.
+1. Spotify 데이터 이해 Spotify Web API &amp;gt; get an artist
+artist object 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33  { &amp;#34;external_urls&amp;#34; : { &amp;#34;spotify&amp;#34; : &amp;#34;https://open.spotify.com/artist/0OdUWJ0sBjDrqHygGUXeCF&amp;#34; }, &amp;#34;followers&amp;#34; : { &amp;#34;href&amp;#34; : null, &amp;#34;total&amp;#34; : 306565 }, &amp;#34;genres&amp;#34; : [ &amp;#34;indie folk&amp;#34;, &amp;#34;indie pop&amp;#34; ], &amp;#34;href&amp;#34; : &amp;#34;https://api.</description>
+      </item>
+      
     
   </channel>
 </rss>
