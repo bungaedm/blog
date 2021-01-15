@@ -211,6 +211,46 @@ artist object 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 
       </item>
       
       <item>
+        <title>데이터 레이크</title>
+        <link>https://jiwooblog.netlify.app/posts/dataengineering/fc_part5_1/</link>
+        <pubDate>Wed, 13 Jan 2021 10:09:56 +0900</pubDate>
+        
+        <guid>https://jiwooblog.netlify.app/posts/dataengineering/fc_part5_1/</guid>
+        <description>Part 5. 데이터 엔지니어링 구축 본 포스팅은 패스트캠퍼스(FastCampus)의 데이터 엔지니어링 올인원 패키지 Online을 참고하였습니다.
+1. 데이터 레이크 vs. 데이터 웨어하우스    구분 데이터 레이크 데이터 웨어하우스     Data Structure Raw Processed   Purpose of Data Not yet Determined In Use   Users Data Scientists Business Professionals   Accessibility High / Quick to update Complicated / Costly     Schema의 차이가 가장 크다.</description>
+      </item>
+      
+      <item>
+        <title>S3 Athena</title>
+        <link>https://jiwooblog.netlify.app/posts/dataengineering/fc_part5_2/</link>
+        <pubDate>Wed, 13 Jan 2021 10:09:56 +0900</pubDate>
+        
+        <guid>https://jiwooblog.netlify.app/posts/dataengineering/fc_part5_2/</guid>
+        <description>Part 5. 데이터 엔지니어링 구축 본 포스팅은 패스트캠퍼스(FastCampus)의 데이터 엔지니어링 올인원 패키지 Online을 참고하였습니다.
+1. Presto 2. Serverless 3. AWS Athena 4. 테이블 생성 5. 데이터 쿼리 </description>
+      </item>
+      
+      <item>
+        <title>Apache Spark</title>
+        <link>https://jiwooblog.netlify.app/posts/dataengineering/fc_part5_3/</link>
+        <pubDate>Wed, 13 Jan 2021 10:09:56 +0900</pubDate>
+        
+        <guid>https://jiwooblog.netlify.app/posts/dataengineering/fc_part5_3/</guid>
+        <description>Part 5. 데이터 엔지니어링 구축 본 포스팅은 패스트캠퍼스(FastCampus)의 데이터 엔지니어링 올인원 패키지 Online을 참고하였습니다.
+1. Apache Spark 2. EC-2 제플린 인스턴스 생성 </description>
+      </item>
+      
+      <item>
+        <title>Pyspark</title>
+        <link>https://jiwooblog.netlify.app/posts/dataengineering/fc_part5_4/</link>
+        <pubDate>Wed, 13 Jan 2021 10:09:56 +0900</pubDate>
+        
+        <guid>https://jiwooblog.netlify.app/posts/dataengineering/fc_part5_4/</guid>
+        <description>Part 5. 데이터 엔지니어링 구축 본 포스팅은 패스트캠퍼스(FastCampus)의 데이터 엔지니어링 올인원 패키지 Online을 참고하였습니다.
+1. Spark RDD 2. Spark Dataframes 3. Select Subset Columns 4. Filter Rows 5. Create UDF 6. Join 7. SQL 8. 데이터분석 with Spark 9. 시각화 with Spark </description>
+      </item>
+      
+      <item>
         <title>빅콘테스트 NS Shop&#43; 홈쇼핑 실적 예측</title>
         <link>https://jiwooblog.netlify.app/blog/bigcontest2020/</link>
         <pubDate>Mon, 04 Jan 2021 00:00:00 +0000</pubDate>
