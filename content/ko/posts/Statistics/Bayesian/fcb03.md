@@ -13,10 +13,19 @@ weight: 3
 ### Binomial Model
 이항분포:
 
+Prior: 
+Likelihood:
+Posterior: 
+
 ### Poisson Model
 포아송분포:
 
+Prior:
+Likelihood:
+Posterior:
+
 ### Exponential Family
+
 
 ### Conjugate Prior
 
