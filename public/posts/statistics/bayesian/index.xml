@@ -54,6 +54,26 @@ Posterior:
 Exponential Family Conjugate Prior Conclusion Conjugacy를 잘 알아두자. 혹시 궁금한 점이나 잘못된 내용이 있다면, 댓글로 알려주시면 적극 반영하도록 하겠습니다. </description>
       </item>
       
+      <item>
+        <title>FCB Ch04.</title>
+        <link>https://jiwooblog.netlify.app/posts/statistics/bayesian/fcb04/</link>
+        <pubDate>Thu, 21 Jan 2021 10:08:56 +0900</pubDate>
+        
+        <guid>https://jiwooblog.netlify.app/posts/statistics/bayesian/fcb04/</guid>
+        <description>Chapter 04. Monte Carlo Approximation 본 포스팅은 First Course in Bayesian Statistical Methods를 참고하였다.
+Monte Carlo Method Sampling from Predictive Distributions Posterior Predictive Model Checking 혹시 궁금한 점이나 잘못된 내용이 있다면, 댓글로 알려주시면 적극 반영하도록 하겠습니다. </description>
+      </item>
+      
+      <item>
+        <title>FCB Ch05.</title>
+        <link>https://jiwooblog.netlify.app/posts/statistics/bayesian/fcb05/</link>
+        <pubDate>Thu, 21 Jan 2021 10:08:56 +0900</pubDate>
+        
+        <guid>https://jiwooblog.netlify.app/posts/statistics/bayesian/fcb05/</guid>
+        <description>Chapter 05. Normal Model 본 포스팅은 First Course in Bayesian Statistical Methods와 Bayesian Data Analysis를 참고하였다.
+Warm up! Gamma Distribution Inverse Gamma Distribution Scaled Inverse Chi-squared Distribution Single Parameter Conjugacy unknown ${\sigma}^2$ unknown ${\mu}$ Two Parameter Conjugacy unknown ${\sigma}^2, {\mu}$ semi-conjugacy 혹시 궁금한 점이나 잘못된 내용이 있다면, 댓글로 알려주시면 적극 반영하도록 하겠습니다. </description>
+      </item>
+      
     
   </channel>
 </rss>
