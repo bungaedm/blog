@@ -1,0 +1,97 @@
+---
+collapsible: false
+date: "2021-01-20T10:08:56+09:00"
+description: Null
+draft: false
+title: Bayes
+weight: 1
+---
+
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+
+
+<pre class="r"><code>y &lt;- c(93, 112, 122, 135, 122, 150, 118, 90, 124, 114)
+n &lt;- length(y)
+s2 &lt;- var(y)
+my &lt;- mean(y)</code></pre>
+<pre class="r"><code># helper functions to sample from and evaluate
+# scaled inverse chi-squared distribution
+rsinvchisq &lt;- function(n, nu, s2, ...) nu*s2 / rchisq(n , nu, ...)
+dsinvchisq &lt;- function(x, nu, s2){
+  exp(log(nu/2)*nu/2 - lgamma(nu/2) + log(s2)/2*nu - log(x)*(nu/2+1) - (nu*s2/2)/x)
+}
+
+ns &lt;- 1000
+sigma2  &lt;- rsinvchisq(ns, n-1, s2)
+mu &lt;- my + sqrt(sigma2/n)*rnorm(length(sigma2))
+sigma &lt;- sqrt(sigma2)
+ynew &lt;- rnorm(ns, mu, sigma)
+
+t1l &lt;- c(90, 150)
+t2l &lt;- c(10, 60)
+nl &lt;- c(50, 185)
+t1 &lt;- seq(t1l[1], t1l[2], length.out = ns)
+t2 &lt;- seq(t2l[1], t2l[2], length.out = ns)
+xynew &lt;- seq(nl[1], nl[2], length.out = ns)
+
+# multiplication by 1./sqrt(s2/n) is due to the transformation of
+# variable z=(x-mean(y))/sqrt(s2/n), see BDA3 p. 21
+pm &lt;- dt((t1-my) / sqrt(s2/n), n-1) / sqrt(s2/n)
+pmk &lt;- density(mu, adjust = 2, n = ns, from = t1l[1], to = t1l[2])$y
+
+# the multiplication by 2*t2 is due to the transformation of
+# variable z=t2^2, see BDA3 p. 21
+ps &lt;- dsinvchisq(t2^2, n-1, s2) * 2*t2
+psk &lt;- density(sigma, n = ns, from = t2l[1], to = t2l[2])$y
+
+# multiplication by 1./sqrt(s2/n) is due to the transformation of variable
+# see BDA3 p. 21
+p_new &lt;- dt((xynew-my) / sqrt(s2*(1+1/n)), n-1) / sqrt(s2*(1+1/n))
+
+# Combine grid points into another data frame
+# with all pairwise combinations
+dfj &lt;- data.frame(t1 = rep(t1, each = length(t2)),
+                  t2 = rep(t2, length(t1)))
+dfj$z &lt;- dsinvchisq(dfj$t2^2, n-1, s2) * 2*dfj$t2 * dnorm(dfj$t1, my, dfj$t2/sqrt(n))
+# breaks for plotting the contours
+cl &lt;- seq(1e-5, max(dfj$z), length.out = 6)</code></pre>
+<div id="demo-3.1" class="section level1">
+<h1>Demo 3.1</h1>
+<pre class="r"><code>dfm &lt;- data.frame(t1, Exact = pm, Empirical = pmk) %&gt;% gather(grp, p, -t1)
+margmu &lt;- ggplot(dfm) +
+  geom_line(aes(t1, p, color = grp)) +
+  coord_cartesian(xlim = t1l) +
+  labs(title = &#39;Marginal of mu&#39;, x = &#39;&#39;, y = &#39;&#39;) +
+  scale_y_continuous(breaks = NULL) +
+  theme(legend.background = element_blank(),
+        legend.position = c(0.75, 0.8),
+        legend.title = element_blank())
+
+dfs &lt;- data.frame(t2, Exact = ps, Empirical = psk) %&gt;% gather(grp, p, -t2)
+margsig &lt;- ggplot(dfs) +
+  geom_line(aes(t2, p, color = grp)) +
+  coord_cartesian(xlim = t2l) +
+  coord_flip() +
+  labs(title = &#39;Marginal of sigma&#39;, x = &#39;&#39;, y = &#39;&#39;) +
+  scale_y_continuous(breaks = NULL) +
+  theme(legend.background = element_blank(),
+        legend.position = c(0.75, 0.8),
+        legend.title = element_blank())
+
+joint1labs &lt;- c(&#39;Samples&#39;,&#39;Exact contour&#39;)
+joint1 &lt;- ggplot() +
+  geom_point(data = data.frame(mu,sigma), aes(mu, sigma, col = &#39;1&#39;), size = 0.1) +
+  geom_contour(data = dfj, aes(t1, t2, z = z, col = &#39;2&#39;), breaks = cl) +
+  coord_cartesian(xlim = t1l,ylim = t2l) +
+  labs(title = &#39;Joint posterior&#39;, x = &#39;&#39;, y = &#39;&#39;) +
+  scale_y_continuous(labels = NULL) +
+  scale_x_continuous(labels = NULL) +
+  scale_color_manual(values=c(&#39;blue&#39;, &#39;black&#39;), labels = joint1labs) +
+  guides(color = guide_legend(nrow  = 1, override.aes = list(
+    shape = c(16, NA), linetype = c(0, 1), size = c(2, 1)))) +
+  theme(legend.background = element_blank(),
+        legend.position = c(0.5, 0.9),
+        legend.title = element_blank())</code></pre>
+<pre class="r"><code>grid.arrange(joint1, margsig, margmu, nrow = 2)</code></pre>
+<p><img src="/ko/posts/R/bayes_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+</div>
