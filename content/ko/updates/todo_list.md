@@ -23,6 +23,7 @@ weight: 1
     2. ggplot2
     3. plotly
     4. highcharter
+    5. mice: NA imputation
 
 ### Updates
 1. 주식 
