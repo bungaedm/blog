@@ -31,6 +31,7 @@ disableKinds = ["taxonomyTerm"]
     lineNos = true
     lineNumbersInTable = true
     noClasses = false
+
   [markup.tableOfContents]
     endLevel = 4
     ordered = false

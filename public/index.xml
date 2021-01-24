@@ -20,8 +20,8 @@
         <pubDate>Sat, 23 Jan 2021 10:08:56 +0900</pubDate>
         
         <guid>https://jiwooblog.netlify.app/posts/r/na_imputation/</guid>
-        <description>데이터 설명dataset containing demographic data and laboratory data of 857 patients with acute coronary syndrome(ACS).
-# 변수별 NA값 확인colSums(is.na(acs))## age sex cardiogenicShock entry ## 0 0 0 0 ## Dx EF height weight ## 0 134 93 91 ## BMI obesity TC LDLC ## 93 0 23 24 ## HDLC TG DM HBP ## 23 15 0 0 ## smoking ## 0colSums(is.na(acs))[colSums(is.na(acs))&amp;gt;0]## EF height weight BMI TC LDLC HDLC TG ## 134 93 91 93 23 24 23 15na.</description>
+        <description>.watch-out {background-color: lightpink;border: 3px solid red;font-weight: bold;}데이터 설명dataset containing demographic data and laboratory data of 857 patients with acute coronary syndrome(ACS).
+# 변수별 NA값 확인colSums(is.na(acs))## age sex cardiogenicShock entry ## 0 0 0 0 ## Dx EF height weight ## 0 134 93 91 ## BMI obesity TC LDLC ## 93 0 23 24 ## HDLC TG DM HBP ## 23 15 0 0 ## smoking ## 0colSums(is.</description>
       </item>
       
       <item>

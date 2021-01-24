@@ -1114,7 +1114,7 @@
     "datePublished": "2021-01-23T10:08:56+09:00",
     "dateModified": "2021-01-23T10:08:56+09:00",
     "url" : "https://jiwooblog.netlify.app/posts/r/na_imputation/",
-    "description": "데이터 설명\rdataset containing demographic data and laboratory data of 857 patients with acute coronary syndrome(ACS). # 변수별 NA값 확인\rcolSums(is.na(acs))\r## age sex …",
+    "description": ".watch-out {\rbackground-color: lightpink;\rborder: 3px solid red;\rfont-weight: bold;\r}\r\r데이터 설명\rdataset containing demographic data and laboratory data of 857 patients with …",
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "https://jiwooblog.netlify.app/"
@@ -2624,10 +2624,17 @@
 <script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
 
+<style type="text/css">
+.watch-out {
+  background-color: lightpink;
+  border: 3px solid red;
+  font-weight: bold;
+}
+</style>
 <div id="데이터-설명" class="section level1">
 <h1>데이터 설명</h1>
 <p>dataset containing demographic data and laboratory data of 857 patients with acute coronary syndrome(ACS).</p>
-<pre class="r"><code># 변수별 NA값 확인
+<pre class="r watch-out"><code># 변수별 NA값 확인
 colSums(is.na(acs))</code></pre>
 <pre><code>##              age              sex cardiogenicShock            entry 
 ##                0                0                0                0 
@@ -2639,15 +2646,15 @@ colSums(is.na(acs))</code></pre>
 ##               23               15                0                0 
 ##          smoking 
 ##                0</code></pre>
-<pre class="r"><code>colSums(is.na(acs))[colSums(is.na(acs))&gt;0]</code></pre>
+<pre class="r watch-out"><code>colSums(is.na(acs))[colSums(is.na(acs))&gt;0]</code></pre>
 <pre><code>##     EF height weight    BMI     TC   LDLC   HDLC     TG 
 ##    134     93     91     93     23     24     23     15</code></pre>
-<pre class="r"><code>na.var &lt;- names(colSums(is.na(acs))[colSums(is.na(acs))&gt;0])
+<pre class="r watch-out"><code>na.var &lt;- names(colSums(is.na(acs))[colSums(is.na(acs))&gt;0])
 
 # 그래프로 보기
 aggr(acs, prop=FALSE) </code></pre>
-<p><img src="/ko/posts/R/na_imputation_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
-<pre class="r"><code># 상관관계
+<p><img src="/ko/posts/R/na_imputation_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<pre class="r watch-out"><code># 상관관계
 acs.na &lt;- is.na(acs[,na.var])
 round(cor(acs.na),2)</code></pre>
 <pre><code>##          EF height weight  BMI   TC LDLC HDLC   TG
