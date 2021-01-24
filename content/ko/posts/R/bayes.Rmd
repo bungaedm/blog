@@ -19,7 +19,7 @@ theme_set(theme_minimal())
 y <- c(93, 112, 122, 135, 122, 150, 118, 90, 124, 114)
 n <- length(y)
 s2 <- var(y)
-my <- mean(y)
+my <- mean(y) 
 ```
 
 ```{r}
