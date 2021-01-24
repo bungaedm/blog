@@ -24,6 +24,7 @@ weight: 1
     3. plotly
     4. highcharter
     5. mice: NA imputation
+    6. blogdown
 
 ### Updates
 1. 주식 
