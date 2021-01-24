@@ -8,8 +8,8 @@ themeOptions = ["light", "dark"]
 useFaviconGenerator = true # https://www.favicon-generator.org/
 
 wideViewAsDefault = true #아주 중요!
-
 enableWideBlogSwitch = true
+
 enableTocSwitch = true
 enableLandingBackground = true
 enableSearch = true
@@ -33,7 +33,7 @@ taxoGroupByDate = "2006" # "2006-01": group by month, "2006": group by year
 github = "https://github.com/SonJiwoo/jiwooblog"
 
 # comment
-enableComment = false
+enableComment = true
 disqus_shortname = "jiwooblog" #"jiwooblog"
 commento = false
 
