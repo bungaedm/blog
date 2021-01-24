@@ -13,9 +13,10 @@ library(moonBook)
 library(tidyverse)
 ```
 
-```{r}
-# A dataset containing demographic data and laboratory data of 857 patients with acute coronary syndrome(ACS).
+# 데이터 설명
+dataset containing demographic data and laboratory data of 857 patients with acute coronary syndrome(ACS).
 
+```{r}
 # 변수별 NA값 확인
 colSums(is.na(acs))
 colSums(is.na(acs))[colSums(is.na(acs))>0]
@@ -34,6 +35,12 @@ round(cor(acs.na),2)
 1. MCAR (missing completely at random): 변수의 종류와 값 모두와 무관한 경우
 2. MAR (missing at random): 누락이 변수와는 관련있지만 그 값과는 관계 없는 경우
 3. MNAR (missing at not random): 누락의 원인이 있는 경우
+
+```{r}
+# na.omit과 complete.cases는 같은 역할을 한다.
+nrow(na.omit(acs)) == nrow(acs[complete.cases(acs),])
+```
+
 
 # 추가로 알아볼 만한 주제
 1. NA imputation with Gibbs Sampler

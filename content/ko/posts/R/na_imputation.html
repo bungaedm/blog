@@ -10,9 +10,10 @@ weight: 1
 <script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
 
-<pre class="r"><code># A dataset containing demographic data and laboratory data of 857 patients with acute coronary syndrome(ACS).
-
-# 변수별 NA값 확인
+<div id="데이터-설명" class="section level1">
+<h1>데이터 설명</h1>
+<p>dataset containing demographic data and laboratory data of 857 patients with acute coronary syndrome(ACS).</p>
+<pre class="r"><code># 변수별 NA값 확인
 colSums(is.na(acs))</code></pre>
 <pre><code>##              age              sex cardiogenicShock            entry 
 ##                0                0                0                0 
@@ -44,6 +45,7 @@ round(cor(acs.na),2)</code></pre>
 ## LDLC   0.12   0.19   0.19 0.19 0.98 1.00 0.98 0.73
 ## HDLC   0.13   0.20   0.20 0.20 1.00 0.98 1.00 0.75
 ## TG     0.11   0.21   0.21 0.21 0.75 0.73 0.75 1.00</code></pre>
+</div>
 <div id="missing-data-종류" class="section level1">
 <h1>Missing Data 종류</h1>
 <ol style="list-style-type: decimal">
@@ -51,6 +53,9 @@ round(cor(acs.na),2)</code></pre>
 <li>MAR (missing at random): 누락이 변수와는 관련있지만 그 값과는 관계 없는 경우</li>
 <li>MNAR (missing at not random): 누락의 원인이 있는 경우</li>
 </ol>
+<pre class="r"><code># na.omit과 complete.cases는 같은 역할을 한다.
+nrow(na.omit(acs)) == nrow(acs[complete.cases(acs),])</code></pre>
+<pre><code>## [1] TRUE</code></pre>
 </div>
 <div id="추가로-알아볼-만한-주제" class="section level1">
 <h1>추가로 알아볼 만한 주제</h1>
