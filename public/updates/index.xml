@@ -14,6 +14,36 @@
     
     
       
+      <item>
+        <title>To Do List</title>
+        <link>https://jiwooblog.netlify.app/updates/todo_list/</link>
+        <pubDate>Fri, 22 Jan 2021 00:08:29 +0900</pubDate>
+        
+        <guid>https://jiwooblog.netlify.app/updates/todo_list/</guid>
+        <description>To Do List 1. Want to Upload Posts   프로젝트들 정리
+ Rhino: 수소차 충전소 입지 선정 [ESC 2020_SUMMER] 빅콘테스트 NS Shop+ 심리성향 예측 AI 경진대회 [ESC 2020_FALL] NLP 논문 따라해보기 [ESC 2020_SPRING] 행복지수 예측
+- 배운 점: 해석 시 Domain Knowledge의 중요성, FA의 효과    R 다양한 기능들 정리
+ dpylr: group_by, summarise, mutate, select, filter ggplot2 plotly highcharter mice: NA imputation    Updates  주식  gitignore나 config.</description>
+      </item>
+      
+      <item>
+        <title>January 2021</title>
+        <link>https://jiwooblog.netlify.app/updates/2021_01/</link>
+        <pubDate>Fri, 22 Jan 2021 00:08:29 +0900</pubDate>
+        
+        <guid>https://jiwooblog.netlify.app/updates/2021_01/</guid>
+        <description>2021.1.15  다시 보니 10.68달러 과금으로 증가해있어서 얼른 RDS를 삭제했다. 교훈: 돌다리도&amp;hellip; 다음주부터는 주식 관련해서도 update 해야겠다.  2021.1.14  FastCampus 따라하다가 AWS 과금 4.13달러 발생했다&amp;hellip; Free Tier라고 모든게 다 공짜는 아니었다&amp;hellip;  2021.1.11  Data Engineering에 관심이 생겼다.  2021.1.8  First Course in Bayesian Statistical Methods(이하 FCB) 1장을 정리해서 올렸다. 오래된 Github Repository를 정리했는데&amp;hellip;이들을 삭제하면 각 repository와 연관된 commit 기록들도 사라지기 때문에 잔디 심어둔 것들이 사라져버리는 사태가 발생했다&amp;hellip;아깝다&amp;hellip; 교훈: repository는 신중하게 만들고, 가능하면 지우지 말자&amp;hellip;  2021.</description>
+      </item>
+      
+      <item>
+        <title>주식</title>
+        <link>https://jiwooblog.netlify.app/updates/stock/</link>
+        <pubDate>Fri, 22 Jan 2021 00:08:29 +0900</pubDate>
+        
+        <guid>https://jiwooblog.netlify.app/updates/stock/</guid>
+        <description>국내/해외 지수 및 환율 1월 넷째주    INDEX 1.18(월) 1.19(화)     코스피 3013.93 ▼71.97(2.33%) 3092.66 ▲78.73(2.61%)   코스닥 944.67 ▼19.77(2.05%) 957.75 ▲13.08(1.38%)   S&amp;amp;P500 3768.25 ▼27.29(0.72%) 3768.25 ▼27.27(0.72%)   나스닥 12998.50 ▼114.14(0.87%) 12998.50 ▼114.14(0.87%)   환율 1103.90 ▲4.50(0.41%) 1102.90 ▼1.00(0.09%)    1월 셋째주 1.15(금) 오후 10:36 기준    INDEX VALUE Change Rate     코스피 3085.</description>
+      </item>
+      
     
   </channel>
 </rss>

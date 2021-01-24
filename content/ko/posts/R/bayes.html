@@ -13,7 +13,7 @@ weight: 1
 <pre class="r"><code>y &lt;- c(93, 112, 122, 135, 122, 150, 118, 90, 124, 114)
 n &lt;- length(y)
 s2 &lt;- var(y)
-my &lt;- mean(y)</code></pre>
+my &lt;- mean(y) </code></pre>
 <pre class="r"><code># helper functions to sample from and evaluate
 # scaled inverse chi-squared distribution
 rsinvchisq &lt;- function(n, nu, s2, ...) nu*s2 / rchisq(n , nu, ...)
