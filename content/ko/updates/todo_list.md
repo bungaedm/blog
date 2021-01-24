@@ -24,7 +24,6 @@ weight: 1
     3. plotly
     4. highcharter
     5. mice: NA imputation
-    6. blogdown
 
 ### Updates 
 1. 주식 
@@ -37,7 +36,9 @@ weight: 1
 ### Blog
 1. Blogdown으로 블로그 만들기
     1. blogdown 설치 및 사이트 개설
-    2. github 업로드 방식 (Terminal 사용법) / 세부 오류 수정(자격증명 관리자-Windows 자격증명)[참고사이트](https://recoveryman.tistory.com/392?category=635733) 
+    2. github 업로드 방식 (Terminal 사용법)
+    2-1. 세부 오류 수정(자격증명 관리자-Windows 자격증명)[참고사이트](https://recoveryman.tistory.com/392?category=635733) 
+    2-2. git origin 수정하기 [참고사이트](https://stackoverflow.com/questions/39435240/rstudio-changing-origin-for-git-version-control-of-project)
     3. 테마 선택하기 / Markdown 문법 기본 소개
     4. 세부수정하기 1) baseURL
     5. 세부수정하기 2) (ex. config.toml의 baseURL, 이미지 삽입)
