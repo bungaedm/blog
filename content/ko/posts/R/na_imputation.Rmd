@@ -30,7 +30,7 @@ acs.na <- is.na(acs[,na.var])
 round(cor(acs.na),2)
 ```
 
-
+ 
 # Missing Data 종류
 1. MCAR (missing completely at random): 변수의 종류와 값 모두와 무관한 경우
 2. MAR (missing at random): 누락이 변수와는 관련있지만 그 값과는 관계 없는 경우
