@@ -26,7 +26,7 @@ weight: 1
     5. mice: NA imputation
     6. blogdown
 
-### Updates
+### Updates 
 1. 주식 
     1. gitignore나 config.toml ignoreFiles에 추가해두기
     2. 매달 초 기록하기
