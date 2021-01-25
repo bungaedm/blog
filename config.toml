@@ -16,9 +16,13 @@ ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_cache$", "\\.knit\\.md$", "\\.utf8\
 #github -> Settings -> Options -> Github pages -> Source를 docs로 바꾸면 github.io로 디자인 가능
 #그런데 이렇게 하면, netlify에서 site setting도 public->docsf로 바꿔줘야 할 것 같긴 함.
 
+#highlightjsTheme = "A 11 Y Dark"
+
 googleAnalytics = ""
 
 disableKinds = ["taxonomyTerm"]
+
+
 
 [markup]
   [markup.goldmark]
@@ -31,7 +35,8 @@ disableKinds = ["taxonomyTerm"]
     lineNos = true
     lineNumbersInTable = true
     noClasses = false
-
+    pygmentsCodeFences = true
+    pygmentsStyle = "tango"
   [markup.tableOfContents]
     endLevel = 4
     ordered = false

@@ -13,7 +13,7 @@ library(moonBook)
 library(tidyverse)
 ```
 
-# 데이터 설명
+## 데이터 설명
 dataset containing demographic data and laboratory data of 857 patients with acute coronary syndrome(ACS).
 
 ```{r}
@@ -29,7 +29,6 @@ aggr(acs, prop=FALSE)
 acs.na <- is.na(acs[,na.var])
 round(cor(acs.na),2)
 ```
-
  
 # Missing Data 종류
 1. MCAR (missing completely at random): 변수의 종류와 값 모두와 무관한 경우
