@@ -24,6 +24,8 @@ weight: 1
     3. plotly
     4. highcharter
     5. mice: NA imputation
+    6. visNetwork(visNodes, visEdges)
+    7. apriori(연관성분석, 장바구니분석)
 
 ### Updates 
 1. 주식 

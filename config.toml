@@ -22,8 +22,6 @@ googleAnalytics = ""
 
 disableKinds = ["taxonomyTerm"]
 
-
-
 [markup]
   [markup.goldmark]
     [markup.goldmark.renderer]
