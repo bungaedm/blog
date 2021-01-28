@@ -7,19 +7,20 @@ title: MVN
 weight: 1
 ---
 
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
-library(tidyverse)
-library(gridExtra)
-```
+
+
+
 
 # 1. Drawing MVN plots with ggplot2
-```{r}
-mu = matrix(c(0,10), ncol=1)
+
+```r
+mu = matrix(c(0,10), ncol=1) 
 invSig = solve(matrix(c(4,10,10,100), ncol=2, byrow=TRUE))
 ```
 
 ## 1-1. Vectorize + Outer
-```{r}
+
+```r
 dmvlnorm = function(theta, mu, invSig){
   (-nrow(mu)/2) * log(2*pi) + 0.5*log(det(invSig)) - 0.5*(t(theta-mu) %*% invSig %*% (theta-mu))
 }
@@ -45,15 +46,21 @@ ggplot(data=dens, aes(x=a, y=b)) +
   labs(title='MVN density', x='alpha', y='beta')
 ```
 
+<img src="/ko/posts/Statistics/기초/MVN_files/figure-html/unnamed-chunk-4-1.png" width="672" />
+
 # 2. Gibbs sampling for MVN draws
-```{r}
+
+```r
 Y = dget('https://www2.stat.duke.edu/~pdh10/FCBS/Inline/Y.reading')
 ggplot(data.frame(Y)) +
   geom_point(aes(x=pretest, y=posttest))
 ```
 
+<img src="/ko/posts/Statistics/기초/MVN_files/figure-html/unnamed-chunk-5-1.png" width="672" />
+
 ## Prior specification
-```{r}
+
+```r
 Mu0 <- c(50,50)
 Lambda0 = matrix(c(625,312.5,312.5,625), ncol=2)
 nu0 = 4
@@ -61,7 +68,8 @@ S0 = (nu0-nrow(Lambda0)-1) * Lambda0
 ```
 
 ## Gibbs Sampler
-```{r}
+
+```r
 inv = solve
 n = nrow(Y)
 ybar = colMeans(Y)
@@ -103,17 +111,34 @@ p2 <- data.frame(meandiff=meandiff) %>%
 grid.arrange(p1, p2, ncol=2)
 ```
 
+<img src="/ko/posts/Statistics/기초/MVN_files/figure-html/unnamed-chunk-7-1.png" width="672" />
+
 # 3. Gibbs Sampling for NA imputation
-```{r}
+
+```r
 Y = dget('https://www2.stat.duke.edu/~pdh10/FCBS/Inline/Y.pima.miss')
 head(Y)
 ```
 
-```{r}
+```
+##   glu bp skin  bmi
+## 1  86 68   28 30.2
+## 2 195 70   33   NA
+## 3  77 82   NA 35.8
+## 4  NA 76   43 47.9
+## 5 107 60   NA   NA
+## 6  97 76   27   NA
+```
+
+
+```r
 psych::pairs.panels(Y, method='pearson', density=T, breaks=20, hist.col='steelblue')
 ```
 
-```{r}
+<img src="/ko/posts/Statistics/기초/MVN_files/figure-html/unnamed-chunk-9-1.png" width="672" />
+
+
+```r
 # priors
 n = nrow(Y)
 p = ncol(Y)
@@ -160,9 +185,27 @@ for(s in 1:S){
 }
 ```
 
-```{r}
+```
+## 1 	11 	21 	31 	41 	51 	61 	71 	81 	91 	
+```
+
+
+```r
 colSums(is.na(Y))
+```
+
+```
+##  glu   bp skin  bmi 
+##   15   23   25   22
+```
+
+```r
 colSums(is.na(Y.full))
+```
+
+```
+##  glu   bp skin  bmi 
+##    0    0    0    0
 ```
 
 
