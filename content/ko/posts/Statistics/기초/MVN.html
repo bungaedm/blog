@@ -1,0 +1,166 @@
+---
+collapsible: true
+date: "2021-01-08T10:08:56+09:00"
+description: 다변량 정규분포
+draft: false
+title: Multivariate Normal Model
+weight: 1
+---
+
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+
+
+<div id="drawing-mvn-plots-with-ggplot2" class="section level1">
+<h1>1. Drawing MVN plots with ggplot2</h1>
+<pre class="r"><code>mu = matrix(c(0,10), ncol=1)
+invSig = solve(matrix(c(4,10,10,100), ncol=2, byrow=TRUE))</code></pre>
+<div id="vectorize-outer" class="section level2">
+<h2>1-1. Vectorize + Outer</h2>
+<pre class="r"><code>dmvlnorm = function(theta, mu, invSig){
+  (-nrow(mu)/2) * log(2*pi) + 0.5*log(det(invSig)) - 0.5*(t(theta-mu) %*% invSig %*% (theta-mu))
+}
+
+calc.dens = Vectorize(function(a,b){
+  theta = c(a,b)
+  exp(dmvlnorm(theta, mu, invSig))
+})
+
+A = seq(-5, 5, length=100)
+B = seq(-15, 40, length=100)
+dense = outer(A, B, FUN=calc.dens)
+rownames(dense) = A
+colnames(dense) = B
+dens = reshape2::melt(dense)
+colnames(dens) = c(&#39;a&#39;,&#39;b&#39;,&#39;dens&#39;)
+
+ggplot(data=dens, aes(x=a, y=b)) +
+  geom_raster(aes(fill=dens, alpha=dens), interpolate=TRUE) +
+  geom_contour(aes(z=dens), color=&#39;black&#39;, size=0.2) +
+  scale_fill_gradient(low=&#39;cornflowerblue&#39;, high=&#39;steelblue&#39;, guide=FALSE) +
+  scale_alpha(range=c(0,1), guide=FALSE) +
+  labs(title=&#39;MVN density&#39;, x=&#39;alpha&#39;, y=&#39;beta&#39;)</code></pre>
+<p><img src="/ko/posts/Statistics/기초/MVN_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+</div>
+</div>
+<div id="gibbs-sampling-for-mvn-draws" class="section level1">
+<h1>2. Gibbs sampling for MVN draws</h1>
+<pre class="r"><code>Y = dget(&#39;https://www2.stat.duke.edu/~pdh10/FCBS/Inline/Y.reading&#39;)
+ggplot(data.frame(Y)) +
+  geom_point(aes(x=pretest, y=posttest))</code></pre>
+<p><img src="/ko/posts/Statistics/기초/MVN_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<div id="prior-specification" class="section level2">
+<h2>Prior specification</h2>
+<pre class="r"><code>Mu0 &lt;- c(50,50)
+Lambda0 = matrix(c(625,312.5,312.5,625), ncol=2)
+nu0 = 4
+S0 = (nu0-nrow(Lambda0)-1) * Lambda0</code></pre>
+</div>
+<div id="gibbs-sampler" class="section level2">
+<h2>Gibbs Sampler</h2>
+<pre class="r"><code>inv = solve
+n = nrow(Y)
+ybar = colMeans(Y)
+Sigma = cov(Y) #initials
+S = 5000
+MU = matrix(NA, nrow=S, ncol=2)
+SIGMA = matrix(NA, nrow=S, ncol=4)
+
+for(s in 1:S){
+  
+  # update Mu
+  Lambdan = inv(inv(Lambda0) + n*inv(Sigma))
+  Mun = Lambdan %*% (inv(Lambda0) %*% Mu0 + n*inv(Sigma) %*% ybar)
+  Mu = MASS::mvrnorm(n=1, Mun, Lambdan)
+  
+  # update Sigma
+  Sn = S0 + (t(Y)-c(Mu)) %*% t((t(Y)-c(Mu)))
+  Sigma = inv(rWishart(1, nu0+n, inv(Sn))[,,1])
+  
+  MU[s,] = Mu
+  SIGMA[s,] = c(Sigma)
+}
+
+disp = tail(1:S, S/2)
+
+p1 &lt;- data.frame(mu1=MU[disp,1], mu2=MU[disp,2]) %&gt;% 
+  ggplot(aes(x=mu1, y=mu2)) + geom_point(size=0.5, color=&#39;steelblue&#39;) +
+  geom_abline(slope=1, intercept=0) +
+  coord_fixed(ratio=1) +
+  ggtitle(&#39;Posterior darws of MU&#39;)
+
+meandiff = MU[disp,2] - MU[disp,1]
+p2 &lt;- data.frame(meandiff=meandiff) %&gt;% 
+  ggplot(aes(x=meandiff)) +
+  geom_histogram(color=&#39;white&#39;, fill=&#39;steelblue&#39;, bins=30) +
+  geom_vline(xintercept=0) +
+  ggtitle(&#39;Posterior draws of Mu2 - Mu1&#39;)
+
+grid.arrange(p1, p2, ncol=2)</code></pre>
+<p><img src="/ko/posts/Statistics/기초/MVN_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+</div>
+</div>
+<div id="gibbs-sampling-for-na-imputation" class="section level1">
+<h1>3. Gibbs Sampling for NA imputation</h1>
+<pre class="r"><code>Y = dget(&#39;https://www2.stat.duke.edu/~pdh10/FCBS/Inline/Y.pima.miss&#39;)
+head(Y)</code></pre>
+<pre><code>##   glu bp skin  bmi
+## 1  86 68   28 30.2
+## 2 195 70   33   NA
+## 3  77 82   NA 35.8
+## 4  NA 76   43 47.9
+## 5 107 60   NA   NA
+## 6  97 76   27   NA</code></pre>
+<pre class="r"><code>psych::pairs.panels(Y, method=&#39;pearson&#39;, density=T, breaks=20, hist.col=&#39;steelblue&#39;)</code></pre>
+<p><img src="/ko/posts/Statistics/기초/MVN_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<pre class="r"><code># priors
+n = nrow(Y)
+p = ncol(Y)
+Mu0 = c(120,64,26,26)
+sd0 = Mu0/2
+L0 = matrix(0.1, p, p)
+diag(L0) = 1
+L0 = L0*outer(sd0,sd0)
+nu0 = p+2
+S0 = (nu0-p-1)*L0
+
+Sigma = S0
+Y.full = Y
+O = 1*(!is.na(Y))
+for(j in 1:p){
+  Y.full[is.na(Y.full)[,j], j] = mean(Y.full[,j], na.rm=TRUE) #mean imputation
+}
+inv = solve
+S = 100
+
+for(s in 1:S){
+  # update Mu
+  ybar = colMeans(Y.full)
+  Ln = inv(inv(L0) + n*inv(Sigma))
+  Mun = Ln %*% (inv(L0) %*% Mu0 + n*inv(Sigma) %*% ybar)
+  Mu = MASS::mvrnorm(n=1, Mun, Ln)
+  
+  # update Sigma
+  Sn = S0 + (t(Y.full) - c(Mu)) %*% t((t(Y.full) - c(Mu)))
+  Sigma = inv(rWishart(1, nu0+n, inv(Sn))[,,1])
+  
+  # update missing data
+  for(i in 1:n){ #iterate over rows
+    b = (O[i,] == 0) #missing at each row
+    a = (O[i,] == 1) #observed at each row
+    if(sum(b)==0) next
+    iSa = inv(Sigma[a,a])
+    beta.j = Sigma[b,a] %*% iSa
+    Sigma.j = Sigma[b,b] - Sigma[b,a] %*% iSa %*% Sigma[a,b]
+    Mu.j = Mu[b] + beta.j %*% (t(Y.full[i,a]) - Mu[a])
+    Y.full[i,b] = MASS::mvrnorm(1, Mu.j, Sigma.j)
+  }
+  if(s%% 10 == 1) cat(s, &#39;\t&#39;)
+}</code></pre>
+<pre><code>## 1    11  21  31  41  51  61  71  81  91  </code></pre>
+<pre class="r"><code>colSums(is.na(Y))</code></pre>
+<pre><code>##  glu   bp skin  bmi 
+##   15   23   25   22</code></pre>
+<pre class="r"><code>colSums(is.na(Y.full))</code></pre>
+<pre><code>##  glu   bp skin  bmi 
+##    0    0    0    0</code></pre>
+</div>
