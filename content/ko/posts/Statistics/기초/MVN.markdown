@@ -9,8 +9,6 @@ weight: 1
 
 
 
-
-
 # 1. Drawing MVN plots with ggplot2
 
 ```r
@@ -46,7 +44,7 @@ ggplot(data=dens, aes(x=a, y=b)) +
   labs(title='MVN density', x='alpha', y='beta')
 ```
 
-<img src="/ko/posts/Statistics/기초/MVN_files/figure-html/unnamed-chunk-4-1.png" width="672" />
+<img src="/ko/posts/Statistics/기초/MVN_files/figure-html/unnamed-chunk-3-1.png" width="672" />
 
 # 2. Gibbs sampling for MVN draws
 
@@ -56,7 +54,7 @@ ggplot(data.frame(Y)) +
   geom_point(aes(x=pretest, y=posttest))
 ```
 
-<img src="/ko/posts/Statistics/기초/MVN_files/figure-html/unnamed-chunk-5-1.png" width="672" />
+<img src="/ko/posts/Statistics/기초/MVN_files/figure-html/unnamed-chunk-4-1.png" width="672" />
 
 ## Prior specification
 
@@ -111,7 +109,7 @@ p2 <- data.frame(meandiff=meandiff) %>%
 grid.arrange(p1, p2, ncol=2)
 ```
 
-<img src="/ko/posts/Statistics/기초/MVN_files/figure-html/unnamed-chunk-7-1.png" width="672" />
+<img src="/ko/posts/Statistics/기초/MVN_files/figure-html/unnamed-chunk-6-1.png" width="672" />
 
 # 3. Gibbs Sampling for NA imputation
 
@@ -135,7 +133,7 @@ head(Y)
 psych::pairs.panels(Y, method='pearson', density=T, breaks=20, hist.col='steelblue')
 ```
 
-<img src="/ko/posts/Statistics/기초/MVN_files/figure-html/unnamed-chunk-9-1.png" width="672" />
+<img src="/ko/posts/Statistics/기초/MVN_files/figure-html/unnamed-chunk-8-1.png" width="672" />
 
 
 ```r

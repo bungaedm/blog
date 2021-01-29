@@ -1,0 +1,56 @@
+---
+collapsible: false
+date: "2021-01-08T10:08:56+09:00"
+description: test
+draft: false
+title: test
+weight: 1
+---
+
+```{r, echo=FALSE, eval=F}
+  ```{css, echo=FALSE}
+  .scroll-100 {
+    max-height: 100px;
+    overflow-y: auto;
+    background-color: 'white';
+  }
+  ```
+  
+  ```{css, echo=FALSE}
+  pre {
+    max-height: 300px;
+    overflow-y: auto;
+    background-color: 'white';
+  }
+  
+  pre[class] {
+    max-height: 100px;
+    background-color: 'green';
+  }
+  ```
+```
+
+# plotly
+
+```{r, echo=TRUE, message=FALSE, warning=FALSE}
+library(ggplot2)
+library(plotly)
+library(gapminder)
+```
+
+```{r test}
+p <- gapminder %>%
+  filter(year==1977) %>%
+  ggplot( aes(gdpPercap, lifeExp, size = pop, color=continent)) +
+  geom_point() +
+  scale_x_log10() +
+  theme_bw()
+ 
+ggplotly(p)
+```
+
+
+```{r}
+tmp <- c(1,2,3,4)
+print(tmp)
+```

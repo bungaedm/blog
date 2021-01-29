@@ -33,8 +33,8 @@ disableKinds = ["taxonomyTerm"]
     lineNos = true
     lineNumbersInTable = true
     noClasses = false
-    pygmentsCodeFences = true
-    pygmentsStyle = "tango"
+#    pygmentsCodeFences = true
+#    pygmentsStyle = "tango"
   [markup.tableOfContents]
     endLevel = 4
     ordered = false

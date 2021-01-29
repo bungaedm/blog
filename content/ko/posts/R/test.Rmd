@@ -19,10 +19,6 @@ weight: 2
 - 확장행렬을 기약행사다리꼴(RREF, reduced row echelon form)로 바꾸는 알고리즘
 - 가우스조던 소거법 = 가감법 + 대입법
 
-```{r cars, echo=FALSE}
-summary(cars)
-```
-
 ```{r}
 summary(cars)
 ```

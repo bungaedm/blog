@@ -18,8 +18,23 @@
   </url>
   
   <url>
+    <loc>https://jiwooblog.netlify.app/posts/statistics/%EA%B8%B0%EC%B4%88/</loc>
+    <lastmod>2021-01-20T10:08:56+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://jiwooblog.netlify.app/posts/dataengineering/fc_part2_1/</loc>
     <lastmod>2021-01-11T10:08:56+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jiwooblog.netlify.app/posts/statistics/%EA%B8%B0%EC%B4%88/mvn/</loc>
+    <lastmod>2021-01-08T10:08:56+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jiwooblog.netlify.app/posts/statistics/%EA%B8%B0%EC%B4%88/test/</loc>
+    <lastmod>2021-01-08T10:08:56+09:00</lastmod>
   </url>
   
   <url>
@@ -29,11 +44,6 @@
   
   <url>
     <loc>https://jiwooblog.netlify.app/posts/statistics/linearalgebra/l01/</loc>
-    <lastmod>2021-01-07T10:08:56+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jiwooblog.netlify.app/posts/statistics/linearalgebra/</loc>
     <lastmod>2021-01-07T10:08:56+09:00</lastmod>
   </url>
   
@@ -78,17 +88,17 @@
   </url>
   
   <url>
-    <loc>https://jiwooblog.netlify.app/posts/statistics/bayesian/</loc>
-    <lastmod>2021-01-08T10:08:56+09:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://jiwooblog.netlify.app/posts/statistics/bayesian/fcb02/</loc>
     <lastmod>2021-01-07T10:08:56+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://jiwooblog.netlify.app/posts/statistics/linearalgebra/l02/</loc>
+    <lastmod>2021-01-07T10:08:56+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jiwooblog.netlify.app/posts/statistics/linearalgebra/</loc>
     <lastmod>2021-01-07T10:08:56+09:00</lastmod>
   </url>
   
@@ -120,6 +130,11 @@
   <url>
     <loc>https://jiwooblog.netlify.app/posts/dataengineering/fc_part3_1/</loc>
     <lastmod>2021-01-12T10:09:56+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jiwooblog.netlify.app/posts/statistics/bayesian/</loc>
+    <lastmod>2021-01-08T10:08:56+09:00</lastmod>
   </url>
   
   <url>
