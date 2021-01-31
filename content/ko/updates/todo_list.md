@@ -41,6 +41,7 @@ weight: 1
     2. github 업로드 방식 (Terminal 사용법)
     2-1. 세부 오류 수정(자격증명 관리자-Windows 자격증명)[참고사이트](https://recoveryman.tistory.com/392?category=635733) 
     2-2. git origin 수정하기 [참고사이트](https://stackoverflow.com/questions/39435240/rstudio-changing-origin-for-git-version-control-of-project)
+    2-3. .Rprofile 수정하기 (blogdown.knit.on_save = TRUE)
     3. 테마 선택하기 / Markdown 문법 기본 소개
     4. 세부수정하기 1) baseURL
     5. 세부수정하기 2) (ex. config.toml의 baseURL, 이미지 삽입)

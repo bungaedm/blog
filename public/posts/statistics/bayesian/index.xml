@@ -15,7 +15,7 @@
     
       
       <item>
-        <title>FCB Ch01.</title>
+        <title>베이즈 통계란</title>
         <link>https://jiwooblog.netlify.app/posts/statistics/bayesian/fcb01/</link>
         <pubDate>Thu, 07 Jan 2021 10:08:56 +0900</pubDate>
         
@@ -27,7 +27,7 @@
       </item>
       
       <item>
-        <title>FCB Ch02.</title>
+        <title>Exchangeability</title>
         <link>https://jiwooblog.netlify.app/posts/statistics/bayesian/fcb02/</link>
         <pubDate>Thu, 07 Jan 2021 10:08:56 +0900</pubDate>
         
@@ -38,7 +38,7 @@ Belief functions and Probabilities$Be()$는 belief function이라고 하자. �
       </item>
       
       <item>
-        <title>FCB Ch03.</title>
+        <title>One-parameter Model</title>
         <link>https://jiwooblog.netlify.app/posts/statistics/bayesian/fcb03/</link>
         <pubDate>Thu, 07 Jan 2021 10:08:56 +0900</pubDate>
         
@@ -55,7 +55,7 @@ Exponential Family Conjugate Prior Conclusion Conjugacy를 잘 알아두자. 혹
       </item>
       
       <item>
-        <title>FCB Ch04.</title>
+        <title>Monte Carlo Approximation</title>
         <link>https://jiwooblog.netlify.app/posts/statistics/bayesian/fcb04/</link>
         <pubDate>Thu, 21 Jan 2021 10:08:56 +0900</pubDate>
         
@@ -65,13 +65,22 @@ Monte Carlo Method Sampling from Predictive Distributions Posterior Predictive M
       </item>
       
       <item>
-        <title>FCB Ch05.</title>
+        <title>Normal Model</title>
         <link>https://jiwooblog.netlify.app/posts/statistics/bayesian/fcb05/</link>
         <pubDate>Thu, 21 Jan 2021 10:08:56 +0900</pubDate>
         
         <guid>https://jiwooblog.netlify.app/posts/statistics/bayesian/fcb05/</guid>
         <description>Chapter 05. Normal Model 본 포스팅은 First Course in Bayesian Statistical Methods와 Bayesian Data Analysis를 참고하였다.
 Warm up! Gamma Distribution Inverse Gamma Distribution Scaled Inverse Chi-squared Distribution Single Parameter Conjugacy unknown ${\sigma}^2$ unknown ${\mu}$ Two Parameter Conjugacy unknown ${\sigma}^2, {\mu}$ semi-conjugacy 혹시 궁금한 점이나 잘못된 내용이 있다면, 댓글로 알려주시면 적극 반영하도록 하겠습니다. </description>
+      </item>
+      
+      <item>
+        <title>BDA Example</title>
+        <link>https://jiwooblog.netlify.app/posts/statistics/bayesian/bda_example/</link>
+        <pubDate>Wed, 20 Jan 2021 10:08:56 +0900</pubDate>
+        
+        <guid>https://jiwooblog.netlify.app/posts/statistics/bayesian/bda_example/</guid>
+        <description>y &amp;lt;- c(93, 112, 122, 135, 122, 150, 118, 90, 124, 114)n &amp;lt;- length(y)s2 &amp;lt;- var(y)my &amp;lt;- mean(y) # helper functions to sample from and evaluate# scaled inverse chi-squared distributionrsinvchisq &amp;lt;- function(n, nu, s2, ...) nu*s2 / rchisq(n , nu, ...)dsinvchisq &amp;lt;- function(x, nu, s2){exp(log(nu/2)*nu/2 - lgamma(nu/2) + log(s2)/2*nu - log(x)*(nu/2+1) - (nu*s2/2)/x)}ns &amp;lt;- 1000sigma2 &amp;lt;- rsinvchisq(ns, n-1, s2)mu &amp;lt;- my + sqrt(sigma2/n)*rnorm(length(sigma2))sigma &amp;lt;- sqrt(sigma2)ynew &amp;lt;- rnorm(ns, mu, sigma)t1l &amp;lt;- c(90, 150)t2l &amp;lt;- c(10, 60)nl &amp;lt;- c(50, 185)t1 &amp;lt;- seq(t1l[1], t1l[2], length.</description>
       </item>
       
     

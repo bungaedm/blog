@@ -3,7 +3,7 @@ collapsible: false
 date: "2021-01-07T10:08:56+09:00"
 description: One-parameter Models
 draft: false
-title: FCB Ch03.
+title: One-parameter Model
 weight: 3
 ---
 

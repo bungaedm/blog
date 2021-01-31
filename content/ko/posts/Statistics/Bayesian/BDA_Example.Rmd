@@ -3,8 +3,8 @@ collapsible: false
 date: "2021-01-20T10:08:56+09:00"
 description: Null
 draft: false
-title: Bayes
-weight: 1
+title: BDA Example
+weight: 99
 ---
 
 ```{r, echo=FALSE, warning=FALSE}

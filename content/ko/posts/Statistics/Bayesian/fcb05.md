@@ -3,7 +3,7 @@ collapsible: false
 date: "2021-01-21T10:08:56+09:00"
 description: Normal Model
 draft: false
-title: FCB Ch05.
+title: Normal Model
 weight: 5
 ---
 

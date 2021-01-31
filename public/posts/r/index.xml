@@ -25,22 +25,17 @@
       </item>
       
       <item>
-        <title>Bayes</title>
-        <link>https://jiwooblog.netlify.app/posts/r/bayes/</link>
-        <pubDate>Wed, 20 Jan 2021 10:08:56 +0900</pubDate>
+        <title>R 꿀팁</title>
+        <link>https://jiwooblog.netlify.app/posts/r/r_tip/</link>
+        <pubDate>Sun, 31 Jan 2021 10:08:56 +0900</pubDate>
         
-        <guid>https://jiwooblog.netlify.app/posts/r/bayes/</guid>
-        <description>y &amp;lt;- c(93, 112, 122, 135, 122, 150, 118, 90, 124, 114)n &amp;lt;- length(y)s2 &amp;lt;- var(y)my &amp;lt;- mean(y) # helper functions to sample from and evaluate# scaled inverse chi-squared distributionrsinvchisq &amp;lt;- function(n, nu, s2, ...) nu*s2 / rchisq(n , nu, ...)dsinvchisq &amp;lt;- function(x, nu, s2){exp(log(nu/2)*nu/2 - lgamma(nu/2) + log(s2)/2*nu - log(x)*(nu/2+1) - (nu*s2/2)/x)}ns &amp;lt;- 1000sigma2 &amp;lt;- rsinvchisq(ns, n-1, s2)mu &amp;lt;- my + sqrt(sigma2/n)*rnorm(length(sigma2))sigma &amp;lt;- sqrt(sigma2)ynew &amp;lt;- rnorm(ns, mu, sigma)t1l &amp;lt;- c(90, 150)t2l &amp;lt;- c(10, 60)nl &amp;lt;- c(50, 185)t1 &amp;lt;- seq(t1l[1], t1l[2], length.</description>
-      </item>
-      
-      <item>
-        <title>Rmd Test</title>
-        <link>https://jiwooblog.netlify.app/posts/r/test/</link>
-        <pubDate>Thu, 07 Jan 2021 10:08:56 +0900</pubDate>
-        
-        <guid>https://jiwooblog.netlify.app/posts/r/test/</guid>
-        <description>Vector Space덧셈에 닫혀있다.스칼라배에 닫혀있다.Subspace벡터공간 \(V_n\) 의 부분 집합 \(W_n\)이 벡터공간이면, \(W_n\)을 \(V_n\)의 부분공간이라고 한다. 즉, \(W_n\)이 부분공간이려면, 덧셈과 스칼라배에 닫혀있으면 된다.
-Gauss-Jordan Elimination확장행렬을 기약행사다리꼴(RREF, reduced row echelon form)로 바꾸는 알고리즘가우스조던 소거법 = 가감법 + 대입법summary(cars)## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 26.00 ## Median :15.0 Median : 36.</description>
+        <guid>https://jiwooblog.netlify.app/posts/r/r_tip/</guid>
+        <description>1. 추천 사이트 R for data science
+2. 검색 팁 구글링 시, 뒤에 &amp;lsquo;Rpubs&amp;rsquo; 붙이기
+3. blogdown Auto-Knit 끄기 Ctrl+S 단축키로 수시로 저장하는 습관 때문에, Rmd 파일을 작업할 때 knit가 수시로 되어 작업속도에 영향을 미친다.
+이럴 때는 .Rprofile이라는 이름의 파일을 찾아서
+ blogdown.knit.on_save = TRUE
+ 라는 코드에서 TRUE를 FALSE로 바꿔주어야 한다.</description>
       </item>
       
     
