@@ -3,7 +3,7 @@ collapsible: false
 date: "2021-01-07T10:08:56+09:00"
 description: One-parameter Models
 draft: false
-title: One-parameter Model
+title: Conjugacy
 weight: 3
 ---
 
@@ -25,7 +25,6 @@ Likelihood:
 Posterior:
 
 ### Exponential Family
-
 
 ### Conjugate Prior
 

@@ -3,7 +3,7 @@ collapsible: false
 date: "2021-01-21T10:08:56+09:00"
 description: Monte Carlo Approximation
 draft: false
-title: Monte Carlo Approximation
+title: Monte Carlo Method
 weight: 4
 ---
 

@@ -3,7 +3,7 @@ collapsible: false
 date: "2021-01-07T10:08:56+09:00"
 description: Introduction and Examples
 draft: false
-title: 베이즈 통계란
+title: What is Bayesian
 weight: 1
 ---
 
