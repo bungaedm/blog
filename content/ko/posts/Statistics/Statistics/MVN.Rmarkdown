@@ -164,6 +164,3 @@ for(s in 1:S){
 colSums(is.na(Y))
 colSums(is.na(Y.full))
 ```
-
-
-
