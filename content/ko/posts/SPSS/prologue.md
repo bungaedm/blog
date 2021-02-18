@@ -23,20 +23,26 @@ weight: 1
     - 모수적 접근 & 비모수적 접근
 5. 단일집단 평균
     - 모수적 접근(t-test)
-    - 비모수적 접근(Kolmogorov-Smirnov test)
+    - 비모수적 접근(Kolmogorov-Smirnov test, Runs 검정)
 6. 독립 두 집단 평균
     - 모수적 접근(t-test)
-    - 비모수적 접근(Mann-Whitney test or Wilcoxon rank-sum test)
+    - 비모수적 접근(Mann-Whitney U-test, Wilcoxon rank-sum test, Kolmogorov-Smirnov test, 중앙값 검정)
 7. 대응 두 집단 평균
     - 모수적 접근(paires t-test)
-    - 비모수적 접근(Wilcoxon signed rank test)
+    - 비모수적 접근(sign test, Wilcoxon signed rank test)
 8. 독립 세 집단 이상 평균
     - 모수적 접근(ANOVA)
     - 비모수적 접근(Kruskal-Wallis test)
-9. 카이제곱검정(범주형 데이터)
+    - 사후분석(Bonferroni)
+9. 종속 세 집단 이상 평균
+    - 비모수적 접근(Cochran Q test, Friedman test)
+10. 카이제곱검정(범주형 데이터)
     - 독립성 검정
     - 적합도 검정 
     - 동질성 검정
+11. 상관분석
+    - 모수적 접근
+    - 비모수적 접근(Spearman 상관계수, Kendall 순위 상관계수, Kendall 편 순위 상관계수, Kendall 일치도 계수)
 
 
 <br>
