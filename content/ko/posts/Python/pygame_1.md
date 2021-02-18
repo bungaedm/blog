@@ -3,7 +3,7 @@ collapsible: false
 date: "2021-02-15T10:09:56+09:00"
 description: pygame 기초
 draft: false
-title: pygame
+title: pygame[기초]
 weight: 3
 ---
 
