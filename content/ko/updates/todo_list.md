@@ -27,6 +27,17 @@ weight: 1
     6. visNetwork(visNodes, visEdges)
     7. apriori(연관성분석, 장바구니분석)
 
+3. SPSS & Statistics
+    1. 기술통계(데이터 유형, 분포의 이해)
+    2. 표본분포의 개념
+    3. 정규성 검정(모수적 접근 & 비모수적 접근)
+    4. 가설검정
+    5. 단일집단 평균
+    6. 독립 두 집단 평균
+    7. 대응 두 집단 평균
+    8. 독립 세 집단 이상 평균
+    9. 카이제곱검정(범주형 데이터)
+
 ### Updates 
 1. 주식 
     1. gitignore나 config.toml ignoreFiles에 추가해두기
