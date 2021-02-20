@@ -7,7 +7,7 @@ title: pygame[응용]
 weight: 4
 ---
 
-## Pygame
+## Pygame 응용
 본 포스팅은 해당 [영상](https://www.youtube.com/watch?v=Dkx8Pl6QKW0&ab_channel=%EB%82%98%EB%8F%84%EC%BD%94%EB%94%A9)을 적극참고 하였습니다.
 
 #### 코드

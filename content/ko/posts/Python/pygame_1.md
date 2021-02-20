@@ -7,7 +7,7 @@ title: pygame[기초]
 weight: 3
 ---
 
-## Pygame
+## Pygame 기초
 본 포스팅은 해당 사이트(https://kkamikoon.tistory.com/129)를 적극참고 하였습니다.
 
 #### 코드
