@@ -27,7 +27,7 @@ weight: 1
     6. visNetwork(visNodes, visEdges)
     7. apriori(연관성분석, 장바구니분석)
 
-3. SPSS & Statistics
+3. SPSS
     1. 기술통계(데이터 유형, 분포의 이해)
     2. 표본분포의 개념
     3. 정규성 검정(모수적 접근 & 비모수적 접근)
@@ -37,6 +37,11 @@ weight: 1
     7. 대응 두 집단 평균
     8. 독립 세 집단 이상 평균
     9. 카이제곱검정(범주형 데이터)
+
+4. Statistics
+    0. SPSS 내용 대부분
+    1. 분포 간 관계도 정리
+    2. mgf(moment generative function)
 
 ### Updates 
 1. 주식 
