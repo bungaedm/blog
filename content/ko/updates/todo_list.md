@@ -41,7 +41,7 @@ weight: 1
 4. Statistics
     0. SPSS 내용 대부분
     1. 분포 간 관계도 정리
-    2. mgf(moment generative function)
+    2. mgf(moment generating function)
 
 ### Updates 
 1. 주식 
