@@ -25,4 +25,4 @@ $$\rightarrow y' = \frac{f'(x)g(x) - f(x)g'(x)}{g^2(x)}$$
 ### 4. Implicit Differentiation
 $$\frac{d}{dx}[f(y)] = \frac{d}{dy}[f(y)] \times \frac{dy}{dx} $$
 
-<br>
+<br> 
