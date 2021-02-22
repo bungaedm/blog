@@ -54,6 +54,7 @@ weight: 1
 ### Blog
 1. Blogdown으로 블로그 만들기
     1. blogdown 설치 및 사이트 개설
+    1-1. 테마 추천(가장 유명한 Academic, Rstudio에서 공식적으로 밀고 있는 Apero, 깔끔한 distill )
     2. github 업로드 방식 (Terminal 사용법)
     2-1. 세부 오류 수정(자격증명 관리자-Windows 자격증명)[참고사이트](https://recoveryman.tistory.com/392?category=635733) 
     2-2. git origin 수정하기 [참고사이트](https://stackoverflow.com/questions/39435240/rstudio-changing-origin-for-git-version-control-of-project)
@@ -64,6 +65,7 @@ weight: 1
     6. Comment 기능 추가하기(disqus, gitalk)
     7. LaTex 수식 리스트 (md와 RMD 구분하기)
     8. Netlify로 배포하기
+    9. 블로그탭 바꾸기(static->favicon) [favicon 변환사이트](https://www.favicon-generator.org/)
 <br>
 ---
 
