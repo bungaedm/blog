@@ -49,6 +49,9 @@ where `$Z\text{~ }N(0,1), V\text{~ } \chi^2(\nu)$`
 #### 이항 분포(Binomial Distribution)
 
 #### 감마 분포(Gamma Distribution)
+$$ \text{X~} Gamma(\alpha, \beta) \rightarrow f(x) = \frac{1}{\beta^\alpha\cdot\Gamma(\alpha)}x^{\alpha-1}e^{-\frac{x}{\beta}} $$
+`$\text{for } x>0, \ \alpha>0, \ \beta>0 $`
+$$ E(X)=\alpha\beta, \ Var(X)=\alpha\beta^2 $$
 
 #### 베타 분포(Beta Distribution)
 
