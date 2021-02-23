@@ -7,6 +7,25 @@ title: purrr
 weight: 2
 ---
 
+# purrr 패키지 훑어보기
 ```{r, message=FALSE, warning=FALSE}
 library(purrr)
 ```
+
+## 목차
+1. map, map2
+
+#### map, map2
+```{r}
+num <- c(1,2,4,5,7)
+num2 <- c(3,5,6,8,9)
+
+#list
+map(num, function(x){x^2})
+map2(num, num2, sum)
+
+#numeric vector
+map_dbl(num, function(x){x^2})
+map2_dbl(num, num2, sum)
+```
+
