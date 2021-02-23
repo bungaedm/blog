@@ -173,6 +173,10 @@ sections:
     color: white
     image: images/section/tableau.jpg
     subtitle: Tableau
+  - cards:
+    color: white
+    image: images/section/spss.png
+    subtitle: SPSS        
   header:
     color: '#fff'
     fontSize: 32
