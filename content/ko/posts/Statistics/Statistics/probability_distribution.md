@@ -41,10 +41,12 @@ $$ E(X) = \mu, Var(X) = \sigma^2$$
 [관련 포스팅](https://jiwooblog.netlify.app/posts/statistics/statistics/mvn/) 참고
 
 #### T-분포(Student's t-Distribution)
+$$ \text{X~} t(n) \rightarrow f(x) = \frac{\Gamma(\frac{n+1}{2})}{\Gamma(\frac{n}{2})\cdot\sqrt{\pi n}}x $$
+
 $$ T = \frac{Z}{\sqrt{\frac{V}{\nu}}} \text{~ } t(df)$$
 where `$Z\text{~ }N(0,1), V\text{~ } \chi^2(\nu)$`
-###### t-검정(t-test)
-`$ t = \frac{\bar{X}-\mu}{s/\sqrt{n}} $`
+
+`$ $`
 
 #### 이항 분포(Binomial Distribution)
 
