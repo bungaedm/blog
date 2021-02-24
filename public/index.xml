@@ -15,6 +15,64 @@
     
       
       <item>
+        <title>중심극한정리</title>
+        <link>https://jiwooblog.netlify.app/posts/statistics/statistics/central_limit_theorem/</link>
+        <pubDate>Sun, 21 Feb 2021 10:08:56 +0900</pubDate>
+        
+        <guid>https://jiwooblog.netlify.app/posts/statistics/statistics/central_limit_theorem/</guid>
+        <description>중심극한정리(Central Limit Theorem) $ X_1, ... X_n $을 평균이 $\mu$이고, 분산이 $\sigma^2$인 분포로부터 무작위로 얻은 샘플이라고 하자. (단, $\sigma^2 &amp;lt; \infty$)
+그러면 $Y_n = \frac{\sqrt{n}(\bar{X_n} - \mu)}{\sigma}$은 $N(0,1)$을 극한분포로 갖는다.
+증명 mgf를 활용하여 증명한다. (추후 추가 예정)</description>
+      </item>
+      
+      <item>
+        <title>확률분포</title>
+        <link>https://jiwooblog.netlify.app/posts/statistics/statistics/probability_distribution/</link>
+        <pubDate>Sun, 21 Feb 2021 10:08:56 +0900</pubDate>
+        
+        <guid>https://jiwooblog.netlify.app/posts/statistics/statistics/probability_distribution/</guid>
+        <description>확률분포(Probability Distribution) 출처: https://artificialnetworkforstarters.readthedocs.io/en/latest/_post/chap6.html 연속형  정규 분포 T-분포 감마 분포 베타 분포 카이제곱 분포 F-분포 균일 분포  이산형  이항 분포 베르누이 분포 포아송 분포 기하 분포 음이항 분포 초기하 분포  정규 분포(Normal Distribution) $$ \text{X~} N(\mu, \sigma^2) \rightarrow f(x) = \frac{1}{\sqrt{2\pi\sigma^2}} \exp(-\frac{(x-\mu)}{2\sigma^2}^2) $$
+$$ E(X) = \mu, Var(X) = \sigma^2$$
+다변수 정규분포(Multivariate Normal Distribution) 관련 포스팅 참고
+T-분포(Student&amp;rsquo;s t-Distribution) $$ \text{X~} t(n) \rightarrow f(x) = \frac{\Gamma(\frac{n+1}{2})}{\Gamma(\frac{n}{2})\cdot\sqrt{\pi n}}(\frac{n}{x^2+n})^\frac{n+1}{2} \ \text{ for } -\infty&amp;lt;x&amp;lt;\infty$$</description>
+      </item>
+      
+      <item>
+        <title>개요</title>
+        <link>https://jiwooblog.netlify.app/posts/spss/prologue/</link>
+        <pubDate>Thu, 18 Feb 2021 10:08:56 +0900</pubDate>
+        
+        <guid>https://jiwooblog.netlify.app/posts/spss/prologue/</guid>
+        <description>Index  통계학이란?  표본분포 모수 검정 &amp;amp; 비모수 검정   기술통계  데이터 유형 분포의 이해 CLT   가설검정  양방향 &amp;amp; 단방향   정규성 검정  Kolmogorov-Smirnov test(표본 50개 이상) Shapiro-Wilk test(표본 50개 이하) 모수적 접근 &amp;amp; 비모수적 접근   단일집단 평균  모수적 접근(t-test) 비모수적 접근(Kolmogorov-Smirnov test, Runs 검정)   독립 두 집단 평균  모수적 접근(t-test) 비모수적 접근(Mann-Whitney U-test, Wilcoxon rank-sum test, Kolmogorov-Smirnov test, 중앙값 검정)   대응 두 집단 평균  모수적 접근(paires t-test) 비모수적 접근(sign test, Wilcoxon signed rank test)   독립 세 집단 이상 평균  모수적 접근(ANOVA) 비모수적 접근(Kruskal-Wallis test) 사후분석(Bonferroni)   종속 세 집단 이상 평균  비모수적 접근(Cochran Q test, Friedman test)   카이제곱검정(범주형 데이터)  독립성 검정 적합도 검정 동질성 검정   상관분석  모수적 접근 비모수적 접근(Spearman 상관계수, Kendall 순위 상관계수, Kendall 편 순위 상관계수, Kendall 일치도 계수)    </description>
+      </item>
+      
+      <item>
+        <title>미분</title>
+        <link>https://jiwooblog.netlify.app/posts/statistics/calculus/1_differentiation/</link>
+        <pubDate>Sun, 07 Feb 2021 10:08:56 +0900</pubDate>
+        
+        <guid>https://jiwooblog.netlify.app/posts/statistics/calculus/1_differentiation/</guid>
+        <description>미분(Differentiation) 1. Chain Rule $$\frac{dy}{dx} = \frac{dy}{du} \times \frac{du}{dx}$$
+2. Product Rule $$\frac{dy}{dx} = \frac{du}{dx}v + u\frac{dv}{dx}$$
+이를 다르게 쓰면,
+$$y = f(x)g(x)$$
+$$\rightarrow y&#39;=f&#39;(x)g(x)+f(x)g&#39;(x)$$
+3. Quotient Rule $$y = \frac{f(x)}{g(x)}$$
+$$\rightarrow y&#39; = \frac{f&#39;(x)g(x) - f(x)g&#39;(x)}{g^2(x)}$$
+4. Implicit Differentiation $$\frac{d}{dx}[f(y)] = \frac{d}{dy}[f(y)] \times \frac{dy}{dx} $$</description>
+      </item>
+      
+      <item>
+        <title>Python 꿀팁</title>
+        <link>https://jiwooblog.netlify.app/posts/python/python_tip/</link>
+        <pubDate>Sun, 31 Jan 2021 00:08:29 +0900</pubDate>
+        
+        <guid>https://jiwooblog.netlify.app/posts/python/python_tip/</guid>
+        <description>1. 추천 사이트  pandas_exercises  2. 추천 책  Python for Data Analysis (Wes McKinney)  3. 검색 팁 구글링 시, 뒤에 &amp;lsquo;towards data science&amp;rsquo; 또는 &amp;lsquo;medium&amp;rsquo; 붙이기
+하루 열람 제한이 있는데, 더 읽고 싶은 경우는 Chrome 시크릿 모드를 활용하면 제한이 풀린다.</description>
+      </item>
+      
+      <item>
         <title>NA Imputation</title>
         <link>https://jiwooblog.netlify.app/posts/r/na_imputation/</link>
         <pubDate>Sat, 23 Jan 2021 10:08:56 +0900</pubDate>
@@ -33,7 +91,7 @@
         <description>To Do List 1. Want to Upload Posts   프로젝트들 정리
  Rhino: 수소차 충전소 입지 선정 [ESC 2020_SUMMER] 빅콘테스트 NS Shop+ 심리성향 예측 AI 경진대회 [ESC 2020_FALL] NLP 논문 따라해보기 [ESC 2020_SPRING] 행복지수 예측
 - 배운 점: 해석 시 Domain Knowledge의 중요성, FA의 효과    R 다양한 기능들 정리
- dpylr: group_by, summarise, mutate, select, filter ggplot2 plotly highcharter mice: NA imputation visNetwork(visNodes, visEdges) apriori(연관성분석, 장바구니분석)    Updates  주식  gitignore나 config.</description>
+ dpylr: group_by, summarise, mutate, select, filter ggplot2 plotly highcharter mice: NA imputation visNetwork(visNodes, visEdges) apriori(연관성분석, 장바구니분석)    SPSS</description>
       </item>
       
       <item>
@@ -56,20 +114,11 @@ run.sh 코드(참고용) #!/bin/bashpython examply.py 1 &amp;gt; example.txtpy
       
       <item>
         <title>MVN</title>
-        <link>https://jiwooblog.netlify.app/posts/statistics/%EA%B8%B0%EC%B4%88/mvn/</link>
+        <link>https://jiwooblog.netlify.app/posts/statistics/statistics/mvn/</link>
         <pubDate>Fri, 08 Jan 2021 10:08:56 +0900</pubDate>
         
-        <guid>https://jiwooblog.netlify.app/posts/statistics/%EA%B8%B0%EC%B4%88/mvn/</guid>
+        <guid>https://jiwooblog.netlify.app/posts/statistics/statistics/mvn/</guid>
         <description>1. Drawing MVN plots with ggplot2 1 2  mu = matrix(c(0,10), ncol=1) invSig = solve(matrix(c(4,10,10,100), ncol=2, byrow=TRUE))   1-1. Vectorize + Outer 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23  dmvlnorm = function(theta, mu, invSig){ (-nrow(mu)/2) * log(2*pi) + 0.5*log(det(invSig)) - 0.5*(t(theta-mu) %*% invSig %*% (theta-mu)) } calc.dens = Vectorize(function(a,b){ theta = c(a,b) exp(dmvlnorm(theta, mu, invSig)) }) A = seq(-5, 5, length=100) B = seq(-15, 40, length=100) dense = outer(A, B, FUN=calc.</description>
-      </item>
-      
-      <item>
-        <title>test</title>
-        <link>https://jiwooblog.netlify.app/posts/statistics/%EA%B8%B0%EC%B4%88/test/</link>
-        <pubDate>Fri, 08 Jan 2021 10:08:56 +0900</pubDate>
-        
-        <guid>https://jiwooblog.netlify.app/posts/statistics/%EA%B8%B0%EC%B4%88/test/</guid>
-        <description>.scroll-100 {max-height: 100px;overflow-y: auto;background-color: &#39;white&#39;;}pre {max-height: 300px;overflow-y: auto;background-color: &#39;white&#39;;}pre[class] {max-height: 100px;background-color: &#39;green&#39;;}# plotly```rlibrary(ggplot2)library(plotly)library(gapminder)1 2 3 4 5 6 7 8  p &amp;lt;- gapminder %&amp;gt;% filter(year==1977) %&amp;gt;% ggplot( aes(gdpPercap, lifeExp, size = pop, color=continent)) + geom_point() + scale_x_log10() + theme_bw() ggplotly(p)   {&#34;</description>
       </item>
       
       <item>
@@ -84,7 +133,7 @@ Gauss-Jordan Elimination  확장행렬을 기약행사다리꼴(RREF, reduced ro
       </item>
       
       <item>
-        <title>베이즈 통계란</title>
+        <title>What is Bayesian</title>
         <link>https://jiwooblog.netlify.app/posts/statistics/bayesian/fcb01/</link>
         <pubDate>Thu, 07 Jan 2021 10:08:56 +0900</pubDate>
         
@@ -125,13 +174,39 @@ Dacon 코드 공유 Factor Analysis Word Cloud_국내 Word Cloud_해외 Cluster 
       </item>
       
       <item>
+        <title>대회 리스트</title>
+        <link>https://jiwooblog.netlify.app/updates/contest_list/</link>
+        <pubDate>Mon, 22 Feb 2021 00:08:29 +0900</pubDate>
+        
+        <guid>https://jiwooblog.netlify.app/updates/contest_list/</guid>
+        <description>대회 리스트  빅콘테스트 데이콘(Dacon) 서울특별시 빅데이터 캠퍼스 공모전 한국정보화진흥원 데이터 크리에이터 캠프 상권분석 빅데이터 경진대회 KB 국민은행 Future Finance Ai Challenge 빅데이터 활용정책 아이디어 공모전 Big Data Competition 미래에셋대학생디지털 금융페스티벌  </description>
+      </item>
+      
+      <item>
+        <title>dplyr</title>
+        <link>https://jiwooblog.netlify.app/posts/r/dplyr/</link>
+        <pubDate>Sun, 21 Feb 2021 10:08:56 +0900</pubDate>
+        
+        <guid>https://jiwooblog.netlify.app/posts/r/dplyr/</guid>
+        <description>1  library(tidyverse)   목차  rowwise  데이터 1 2 3 4  tmp &amp;lt;- tibble(x=round(rnorm(n=5, mean=5, sd=1)), y=round(rnorm(n=5, mean=5, sd=3)), z=round(rnorm(n=5, mean=5, sd=5))) tmp   ## # A tibble: 5 x 3## x y z## &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt;## 1 7 4 2## 2 7 4 4## 3 7 3 5## 4 6 4 8## 5 5 7 21. rowwise() 행별로 최대값 구하기</description>
+      </item>
+      
+      <item>
+        <title>purrr</title>
+        <link>https://jiwooblog.netlify.app/posts/r/purrr/</link>
+        <pubDate>Sun, 21 Feb 2021 10:08:56 +0900</pubDate>
+        
+        <guid>https://jiwooblog.netlify.app/posts/r/purrr/</guid>
+        <description>purrr 패키지 훑어보기 1  library(purrr)   목차  map, map2  map, map2 1 2 3 4 5  num &amp;lt;- c(1,2,4,5,7) num2 &amp;lt;- c(3,5,6,8,9) #list map(num, function(x){x^2})   ## [[1]]## [1] 1## ## [[2]]## [1] 4## ## [[3]]## [1] 16## ## [[4]]## [1] 25## ## [[5]]## [1] 491  map2(num, num2, sum)   ## [[1]]## [1] 4## ## [[2]]## [1] 7## ## [[3]]## [1] 10## ## [[4]]## [1] 13## ## [[5]]## [1] 161 2  #numeric vector map_dbl(num, function(x){x^2})   ## [1] 1 4 16 25 491  map2_dbl(num, num2, sum)   ## [1] 4 7 10 13 16</description>
+      </item>
+      
+      <item>
         <title>R 꿀팁</title>
         <link>https://jiwooblog.netlify.app/posts/r/r_tip/</link>
         <pubDate>Sun, 31 Jan 2021 10:08:56 +0900</pubDate>
         
         <guid>https://jiwooblog.netlify.app/posts/r/r_tip/</guid>
-        <description>1. 추천 사이트 R for data science
-2. 검색 팁 구글링 시, 뒤에 &amp;lsquo;Rpubs&amp;rsquo; 붙이기
+        <description>1. 추천 사이트  R for data science  2. 검색 팁 구글링 시, 뒤에 &amp;lsquo;Rpubs&amp;rsquo; 붙이기
 3. blogdown Auto-Knit 끄기 Ctrl+S 단축키로 수시로 저장하는 습관 때문에, Rmd 파일을 작업할 때 knit가 수시로 되어 작업속도에 영향을 미친다.
 이럴 때는 .Rprofile이라는 이름의 파일을 찾아서
  blogdown.knit.on_save = TRUE
@@ -180,6 +255,38 @@ Belief functions and Probabilities$Be()$는 belief function이라고 하자. �
       </item>
       
       <item>
+        <title>삼각함수공식</title>
+        <link>https://jiwooblog.netlify.app/posts/statistics/calculus/3_trigonometry/</link>
+        <pubDate>Fri, 19 Feb 2021 10:08:56 +0900</pubDate>
+        
+        <guid>https://jiwooblog.netlify.app/posts/statistics/calculus/3_trigonometry/</guid>
+        <description>삼각함수 공식(Trigonometric Functions) $\sin^2{x} + \cos^2{x} = 1 $
+$\tan^2{x} + 1 = \sec^2{x} $
+$\cos{2x} = 1 - 2\sin^2{x} = 2\cos^2{x} -1 $
+$\frac{d}{dx}\tan{x} = \sec^2{x} $
+$\frac{d}{dx}\sec{x} = \sec{x}\tan{x} $</description>
+      </item>
+      
+      <item>
+        <title>pygame[기초]</title>
+        <link>https://jiwooblog.netlify.app/posts/python/pygame_1/</link>
+        <pubDate>Mon, 15 Feb 2021 10:09:56 +0900</pubDate>
+        
+        <guid>https://jiwooblog.netlify.app/posts/python/pygame_1/</guid>
+        <description>Pygame 기초 본 포스팅은 해당 사이트(https://kkamikoon.tistory.com/129)를 적극참고 하였습니다.
+코드 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38  import pygame pygame.init() BLACK = (0,0,0) WHITE = (255,255,255) BLUE = (0,0,255) GREEN = (0,255,0) RED = (255,0,0) size = [400,300] screen = pygame.</description>
+      </item>
+      
+      <item>
+        <title>오차와 잔차</title>
+        <link>https://jiwooblog.netlify.app/posts/statistics/statistics/error_residual/</link>
+        <pubDate>Mon, 15 Feb 2021 10:08:56 +0900</pubDate>
+        
+        <guid>https://jiwooblog.netlify.app/posts/statistics/statistics/error_residual/</guid>
+        <description>오차 &amp;amp; 잔차  오차(error): 모집단 회귀식 예측값 - 실제 관측값 잔차(residual): 표본집단 회귀식 예측값 - 실제 관측값  </description>
+      </item>
+      
+      <item>
         <title>주식</title>
         <link>https://jiwooblog.netlify.app/updates/stock/</link>
         <pubDate>Fri, 22 Jan 2021 00:08:29 +0900</pubDate>
@@ -199,7 +306,7 @@ Belief functions and Probabilities$Be()$는 belief function이라고 하자. �
       </item>
       
       <item>
-        <title>One-parameter Model</title>
+        <title>Conjugacy</title>
         <link>https://jiwooblog.netlify.app/posts/statistics/bayesian/fcb03/</link>
         <pubDate>Thu, 07 Jan 2021 10:08:56 +0900</pubDate>
         
@@ -216,7 +323,17 @@ Exponential Family Conjugate Prior Conclusion Conjugacy를 잘 알아두자. 혹
       </item>
       
       <item>
-        <title>Monte Carlo Approximation</title>
+        <title>pygame[응용]</title>
+        <link>https://jiwooblog.netlify.app/posts/python/pygame_2/</link>
+        <pubDate>Thu, 18 Feb 2021 10:09:56 +0900</pubDate>
+        
+        <guid>https://jiwooblog.netlify.app/posts/python/pygame_2/</guid>
+        <description>Pygame 응용 본 포스팅은 해당 영상을 적극참고 하였습니다.
+코드 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143 144 145 146 147 148 149 150 151 152 153 154 155 156 157 158 159 160 161 162 163 164 165 166 167 168 169 170 171 172 173 174 175 176 177 178 179 180 181 182 183 184 185 186 187 188 189 190 191 192 193 194 195 196 197 198 199 200 201 202 203 204 205 206 207 208 209 210 211 212 213 214 215 216 217 218 219 220 221 222 223 224 225 226 227 228 229 230 231 232 233 234 235 236 237 238 239 240 241 242 243 244 245 246 247 248 249 250 251 252 253 254 255 256 257 258 259 260 261 262 263 264 265 266 267 268 269 270 271 272 273 274 275 276 277 278 279 280 281 282  import os import pygame ############################################################################## # 기본 초기화 (반드시 해야 하는 것들) pygame.</description>
+      </item>
+      
+      <item>
+        <title>Monte Carlo Method</title>
         <link>https://jiwooblog.netlify.app/posts/statistics/bayesian/fcb04/</link>
         <pubDate>Thu, 21 Jan 2021 10:08:56 +0900</pubDate>
         
@@ -256,6 +373,16 @@ Warm up! Gamma Distribution Inverse Gamma Distribution Scaled Inverse Chi-square
       </item>
       
       <item>
+        <title>Gibbs Sampling</title>
+        <link>https://jiwooblog.netlify.app/posts/statistics/bayesian/fcb06/</link>
+        <pubDate>Thu, 21 Jan 2021 10:08:56 +0900</pubDate>
+        
+        <guid>https://jiwooblog.netlify.app/posts/statistics/bayesian/fcb06/</guid>
+        <description>Chapter 06. Posterior Approximation with the Gibbs sampler 본 포스팅은 First Course in Bayesian Statistical Methods를 참고하였다.
+1. A Semi-conjugate prior distribution 2. Discrete approximations 3. Sampling from the conditional distributions 4. Gibbs Sampling 5. General properties of the Gibbs sampler 6. Introduction to MCMC diagnostics Conclusion semi-conjugate 분포를 모두 알면 full conditional probability를 아는 것과 거의 같다. 혹시 궁금한 점이나 잘못된 내용이 있다면, 댓글로 알려주시면 적극 반영하도록 하겠습니다. </description>
+      </item>
+      
+      <item>
         <title>Spotify Data</title>
         <link>https://jiwooblog.netlify.app/posts/dataengineering/fc_part4_2/</link>
         <pubDate>Wed, 13 Jan 2021 10:09:56 +0900</pubDate>
@@ -264,6 +391,16 @@ Warm up! Gamma Distribution Inverse Gamma Distribution Scaled Inverse Chi-square
         <description>Part 4. 데이터의 이해와 데이터베이스 본 포스팅은 패스트캠퍼스(FastCampus)의 데이터 엔지니어링 올인원 패키지 Online을 참고하였습니다.
 1. Spotify 데이터 이해 Spotify Web API &amp;gt; get an artist
 artist object 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33  { &amp;#34;external_urls&amp;#34; : { &amp;#34;spotify&amp;#34; : &amp;#34;https://open.spotify.com/artist/0OdUWJ0sBjDrqHygGUXeCF&amp;#34; }, &amp;#34;followers&amp;#34; : { &amp;#34;href&amp;#34; : null, &amp;#34;total&amp;#34; : 306565 }, &amp;#34;genres&amp;#34; : [ &amp;#34;indie folk&amp;#34;, &amp;#34;indie pop&amp;#34; ], &amp;#34;href&amp;#34; : &amp;#34;https://api.</description>
+      </item>
+      
+      <item>
+        <title>MVN</title>
+        <link>https://jiwooblog.netlify.app/posts/statistics/bayesian/fcb07/</link>
+        <pubDate>Sun, 31 Jan 2021 10:08:56 +0900</pubDate>
+        
+        <guid>https://jiwooblog.netlify.app/posts/statistics/bayesian/fcb07/</guid>
+        <description>Chapter 07. The Multivariate Normal Model 본 포스팅은 First Course in Bayesian Statistical Methods를 참고하였다.
+1. Multivariate Normal Desity 2. Semiconjugate prior distribution for the mean 3. inverse-Wishart Distribution 4. Gibbs Sampling of the mean and covariance 4-1. Draw yourself Figure 7.1 1 2 3 4 5  library(tidyverse) library(gridExtra) library(MASS) library(reshape2) library(ash)   1 2 3 4 5 6 7 8 9 10 11  # 초기 설정 inv &amp;lt;- solve MU = matrix(c(50,50), ncol=1) SIGMA = matrix(c(64,0,0,144), ncol=2) # MVN pdf calc.</description>
       </item>
       
       <item>
@@ -338,12 +475,32 @@ artist object 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 
       </item>
       
       <item>
+        <title>fread</title>
+        <link>https://jiwooblog.netlify.app/posts/r/fread/</link>
+        <pubDate>Mon, 08 Feb 2021 10:08:56 +0900</pubDate>
+        
+        <guid>https://jiwooblog.netlify.app/posts/r/fread/</guid>
+        <description>fread 패키지로 대용량 데이터 빠르게 불러오기 약 24000행의 샘플 csv가 있다고 가정하자. 그렇다면 fread와 read.csv의 성능은 다음과 같다.
+1 2 3 4 5 6 7 8 9 10 11  library(data.table) fread(&amp;#39;sample.csv&amp;#39;) #약 24000x3 system.time(fread(&amp;#39;sample.csv&amp;#39;)) # 사용자 시스템 elapsed  # 0.02 0.00 0.01  system.time(read.csv(&amp;#39;sample.csv&amp;#39;)) # 사용자 시스템 elapsed  # 0.74 0.03 0.77   read.csv는 0.77초가 걸리는 데에 반해 fread는 0.01초 만에 읽어왔다.
+이외에도 3백만 행의 csv으로 실험해본 결과, 각각 2초와 33초로 그 성능 차이가 더욱 도드라짐을 알 수 있었다.</description>
+      </item>
+      
+      <item>
         <title>BDA Example</title>
         <link>https://jiwooblog.netlify.app/posts/statistics/bayesian/bda_example/</link>
         <pubDate>Wed, 20 Jan 2021 10:08:56 +0900</pubDate>
         
         <guid>https://jiwooblog.netlify.app/posts/statistics/bayesian/bda_example/</guid>
         <description>y &amp;lt;- c(93, 112, 122, 135, 122, 150, 118, 90, 124, 114)n &amp;lt;- length(y)s2 &amp;lt;- var(y)my &amp;lt;- mean(y) # helper functions to sample from and evaluate# scaled inverse chi-squared distributionrsinvchisq &amp;lt;- function(n, nu, s2, ...) nu*s2 / rchisq(n , nu, ...)dsinvchisq &amp;lt;- function(x, nu, s2){exp(log(nu/2)*nu/2 - lgamma(nu/2) + log(s2)/2*nu - log(x)*(nu/2+1) - (nu*s2/2)/x)}ns &amp;lt;- 1000sigma2 &amp;lt;- rsinvchisq(ns, n-1, s2)mu &amp;lt;- my + sqrt(sigma2/n)*rnorm(length(sigma2))sigma &amp;lt;- sqrt(sigma2)ynew &amp;lt;- rnorm(ns, mu, sigma)t1l &amp;lt;- c(90, 150)t2l &amp;lt;- c(10, 60)nl &amp;lt;- c(50, 185)t1 &amp;lt;- seq(t1l[1], t1l[2], length.</description>
+      </item>
+      
+      <item>
+        <title>test</title>
+        <link>https://jiwooblog.netlify.app/posts/r/test/</link>
+        <pubDate>Fri, 08 Jan 2021 10:08:56 +0900</pubDate>
+        
+        <guid>https://jiwooblog.netlify.app/posts/r/test/</guid>
+        <description>.scroll-100 {max-height: 100px;overflow-y: auto;background-color: &#39;white&#39;;}pre {max-height: 300px;overflow-y: auto;background-color: &#39;white&#39;;}pre[class] {max-height: 100px;background-color: &#39;green&#39;;}# plotly```rlibrary(ggplot2)library(plotly)library(gapminder)1 2 3 4 5 6 7 8  p &amp;lt;- gapminder %&amp;gt;% filter(year==1977) %&amp;gt;% ggplot( aes(gdpPercap, lifeExp, size = pop, color=continent)) + geom_point() + scale_x_log10() + theme_bw() ggplotly(p)   {&#34;</description>
       </item>
       
       <item>

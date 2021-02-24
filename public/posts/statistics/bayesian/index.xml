@@ -15,7 +15,7 @@
     
       
       <item>
-        <title>베이즈 통계란</title>
+        <title>What is Bayesian</title>
         <link>https://jiwooblog.netlify.app/posts/statistics/bayesian/fcb01/</link>
         <pubDate>Thu, 07 Jan 2021 10:08:56 +0900</pubDate>
         
@@ -38,7 +38,7 @@ Belief functions and Probabilities$Be()$는 belief function이라고 하자. �
       </item>
       
       <item>
-        <title>One-parameter Model</title>
+        <title>Conjugacy</title>
         <link>https://jiwooblog.netlify.app/posts/statistics/bayesian/fcb03/</link>
         <pubDate>Thu, 07 Jan 2021 10:08:56 +0900</pubDate>
         
@@ -55,7 +55,7 @@ Exponential Family Conjugate Prior Conclusion Conjugacy를 잘 알아두자. 혹
       </item>
       
       <item>
-        <title>Monte Carlo Approximation</title>
+        <title>Monte Carlo Method</title>
         <link>https://jiwooblog.netlify.app/posts/statistics/bayesian/fcb04/</link>
         <pubDate>Thu, 21 Jan 2021 10:08:56 +0900</pubDate>
         
@@ -72,6 +72,26 @@ Monte Carlo Method Sampling from Predictive Distributions Posterior Predictive M
         <guid>https://jiwooblog.netlify.app/posts/statistics/bayesian/fcb05/</guid>
         <description>Chapter 05. Normal Model 본 포스팅은 First Course in Bayesian Statistical Methods와 Bayesian Data Analysis를 참고하였다.
 Warm up! Gamma Distribution Inverse Gamma Distribution Scaled Inverse Chi-squared Distribution Single Parameter Conjugacy unknown ${\sigma}^2$ unknown ${\mu}$ Two Parameter Conjugacy unknown ${\sigma}^2, {\mu}$ semi-conjugacy 혹시 궁금한 점이나 잘못된 내용이 있다면, 댓글로 알려주시면 적극 반영하도록 하겠습니다. </description>
+      </item>
+      
+      <item>
+        <title>Gibbs Sampling</title>
+        <link>https://jiwooblog.netlify.app/posts/statistics/bayesian/fcb06/</link>
+        <pubDate>Thu, 21 Jan 2021 10:08:56 +0900</pubDate>
+        
+        <guid>https://jiwooblog.netlify.app/posts/statistics/bayesian/fcb06/</guid>
+        <description>Chapter 06. Posterior Approximation with the Gibbs sampler 본 포스팅은 First Course in Bayesian Statistical Methods를 참고하였다.
+1. A Semi-conjugate prior distribution 2. Discrete approximations 3. Sampling from the conditional distributions 4. Gibbs Sampling 5. General properties of the Gibbs sampler 6. Introduction to MCMC diagnostics Conclusion semi-conjugate 분포를 모두 알면 full conditional probability를 아는 것과 거의 같다. 혹시 궁금한 점이나 잘못된 내용이 있다면, 댓글로 알려주시면 적극 반영하도록 하겠습니다. </description>
+      </item>
+      
+      <item>
+        <title>MVN</title>
+        <link>https://jiwooblog.netlify.app/posts/statistics/bayesian/fcb07/</link>
+        <pubDate>Sun, 31 Jan 2021 10:08:56 +0900</pubDate>
+        
+        <guid>https://jiwooblog.netlify.app/posts/statistics/bayesian/fcb07/</guid>
+        <description>Chapter 07. The Multivariate Normal Model 본 포스팅은 First Course in Bayesian Statistical Methods를 참고하였다.
+1. Multivariate Normal Desity 2. Semiconjugate prior distribution for the mean 3. inverse-Wishart Distribution 4. Gibbs Sampling of the mean and covariance 4-1. Draw yourself Figure 7.1 1 2 3 4 5  library(tidyverse) library(gridExtra) library(MASS) library(reshape2) library(ash)   1 2 3 4 5 6 7 8 9 10 11  # 초기 설정 inv &amp;lt;- solve MU = matrix(c(50,50), ncol=1) SIGMA = matrix(c(64,0,0,144), ncol=2) # MVN pdf calc.</description>
       </item>
       
       <item>

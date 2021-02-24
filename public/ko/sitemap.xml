@@ -3,6 +3,31 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://jiwooblog.netlify.app/posts/statistics/statistics/central_limit_theorem/</loc>
+    <lastmod>2021-02-21T10:08:56+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jiwooblog.netlify.app/posts/statistics/statistics/probability_distribution/</loc>
+    <lastmod>2021-02-21T10:08:56+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jiwooblog.netlify.app/posts/spss/prologue/</loc>
+    <lastmod>2021-02-18T10:08:56+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jiwooblog.netlify.app/posts/statistics/calculus/1_differentiation/</loc>
+    <lastmod>2021-02-07T10:08:56+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jiwooblog.netlify.app/posts/python/python_tip/</loc>
+    <lastmod>2021-01-31T00:08:29+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://jiwooblog.netlify.app/posts/r/na_imputation/</loc>
     <lastmod>2021-01-23T10:08:56+09:00</lastmod>
   </url>
@@ -13,7 +38,7 @@
   </url>
   
   <url>
-    <loc>https://jiwooblog.netlify.app/posts/statistics/%EA%B8%B0%EC%B4%88/</loc>
+    <loc>https://jiwooblog.netlify.app/posts/statistics/statistics/</loc>
     <lastmod>2021-01-20T10:08:56+09:00</lastmod>
   </url>
   
@@ -23,12 +48,7 @@
   </url>
   
   <url>
-    <loc>https://jiwooblog.netlify.app/posts/statistics/%EA%B8%B0%EC%B4%88/mvn/</loc>
-    <lastmod>2021-01-08T10:08:56+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jiwooblog.netlify.app/posts/statistics/%EA%B8%B0%EC%B4%88/test/</loc>
+    <loc>https://jiwooblog.netlify.app/posts/statistics/statistics/mvn/</loc>
     <lastmod>2021-01-08T10:08:56+09:00</lastmod>
   </url>
   
@@ -70,6 +90,21 @@
   <url>
     <loc>https://jiwooblog.netlify.app/posts/dacon/nh_yz/</loc>
     <lastmod>2020-01-02T10:08:56+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jiwooblog.netlify.app/updates/contest_list/</loc>
+    <lastmod>2021-02-22T00:08:29+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jiwooblog.netlify.app/posts/r/dplyr/</loc>
+    <lastmod>2021-02-21T10:08:56+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jiwooblog.netlify.app/posts/r/purrr/</loc>
+    <lastmod>2021-02-21T10:08:56+09:00</lastmod>
   </url>
   
   <url>
@@ -118,6 +153,31 @@
   </url>
   
   <url>
+    <loc>https://jiwooblog.netlify.app/posts/statistics/calculus/3_trigonometry/</loc>
+    <lastmod>2021-02-19T10:08:56+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jiwooblog.netlify.app/posts/statistics/calculus/</loc>
+    <lastmod>2021-02-18T10:08:56+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jiwooblog.netlify.app/posts/spss/</loc>
+    <lastmod>2021-02-18T10:08:56+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jiwooblog.netlify.app/posts/python/pygame_1/</loc>
+    <lastmod>2021-02-15T10:09:56+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jiwooblog.netlify.app/posts/statistics/statistics/error_residual/</loc>
+    <lastmod>2021-02-15T10:08:56+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://jiwooblog.netlify.app/updates/stock/</loc>
     <lastmod>2021-01-22T00:08:29+09:00</lastmod>
   </url>
@@ -140,6 +200,11 @@
   <url>
     <loc>https://jiwooblog.netlify.app/posts/yonsei/esc/</loc>
     <lastmod>2020-02-28T10:08:56+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jiwooblog.netlify.app/posts/python/pygame_2/</loc>
+    <lastmod>2021-02-18T10:09:56+09:00</lastmod>
   </url>
   
   <url>
@@ -168,6 +233,11 @@
   </url>
   
   <url>
+    <loc>https://jiwooblog.netlify.app/posts/statistics/bayesian/fcb06/</loc>
+    <lastmod>2021-01-21T10:08:56+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://jiwooblog.netlify.app/posts/dataengineering/fc_part4_2/</loc>
     <lastmod>2021-01-13T10:09:56+09:00</lastmod>
   </url>
@@ -175,6 +245,11 @@
   <url>
     <loc>https://jiwooblog.netlify.app/posts/dataengineering/</loc>
     <lastmod>2021-01-11T10:08:56+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jiwooblog.netlify.app/posts/statistics/bayesian/fcb07/</loc>
+    <lastmod>2021-01-31T10:08:56+09:00</lastmod>
   </url>
   
   <url>
@@ -213,8 +288,18 @@
   </url>
   
   <url>
+    <loc>https://jiwooblog.netlify.app/posts/r/fread/</loc>
+    <lastmod>2021-02-08T10:08:56+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://jiwooblog.netlify.app/posts/statistics/bayesian/bda_example/</loc>
     <lastmod>2021-01-20T10:08:56+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jiwooblog.netlify.app/posts/r/test/</loc>
+    <lastmod>2021-01-08T10:08:56+09:00</lastmod>
   </url>
   
   <url>

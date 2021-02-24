@@ -25,17 +25,54 @@
       </item>
       
       <item>
+        <title>dplyr</title>
+        <link>https://jiwooblog.netlify.app/posts/r/dplyr/</link>
+        <pubDate>Sun, 21 Feb 2021 10:08:56 +0900</pubDate>
+        
+        <guid>https://jiwooblog.netlify.app/posts/r/dplyr/</guid>
+        <description>1  library(tidyverse)   목차  rowwise  데이터 1 2 3 4  tmp &amp;lt;- tibble(x=round(rnorm(n=5, mean=5, sd=1)), y=round(rnorm(n=5, mean=5, sd=3)), z=round(rnorm(n=5, mean=5, sd=5))) tmp   ## # A tibble: 5 x 3## x y z## &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt;## 1 7 4 2## 2 7 4 4## 3 7 3 5## 4 6 4 8## 5 5 7 21. rowwise() 행별로 최대값 구하기</description>
+      </item>
+      
+      <item>
+        <title>purrr</title>
+        <link>https://jiwooblog.netlify.app/posts/r/purrr/</link>
+        <pubDate>Sun, 21 Feb 2021 10:08:56 +0900</pubDate>
+        
+        <guid>https://jiwooblog.netlify.app/posts/r/purrr/</guid>
+        <description>purrr 패키지 훑어보기 1  library(purrr)   목차  map, map2  map, map2 1 2 3 4 5  num &amp;lt;- c(1,2,4,5,7) num2 &amp;lt;- c(3,5,6,8,9) #list map(num, function(x){x^2})   ## [[1]]## [1] 1## ## [[2]]## [1] 4## ## [[3]]## [1] 16## ## [[4]]## [1] 25## ## [[5]]## [1] 491  map2(num, num2, sum)   ## [[1]]## [1] 4## ## [[2]]## [1] 7## ## [[3]]## [1] 10## ## [[4]]## [1] 13## ## [[5]]## [1] 161 2  #numeric vector map_dbl(num, function(x){x^2})   ## [1] 1 4 16 25 491  map2_dbl(num, num2, sum)   ## [1] 4 7 10 13 16</description>
+      </item>
+      
+      <item>
         <title>R 꿀팁</title>
         <link>https://jiwooblog.netlify.app/posts/r/r_tip/</link>
         <pubDate>Sun, 31 Jan 2021 10:08:56 +0900</pubDate>
         
         <guid>https://jiwooblog.netlify.app/posts/r/r_tip/</guid>
-        <description>1. 추천 사이트 R for data science
-2. 검색 팁 구글링 시, 뒤에 &amp;lsquo;Rpubs&amp;rsquo; 붙이기
+        <description>1. 추천 사이트  R for data science  2. 검색 팁 구글링 시, 뒤에 &amp;lsquo;Rpubs&amp;rsquo; 붙이기
 3. blogdown Auto-Knit 끄기 Ctrl+S 단축키로 수시로 저장하는 습관 때문에, Rmd 파일을 작업할 때 knit가 수시로 되어 작업속도에 영향을 미친다.
 이럴 때는 .Rprofile이라는 이름의 파일을 찾아서
  blogdown.knit.on_save = TRUE
  라는 코드에서 TRUE를 FALSE로 바꿔주어야 한다.</description>
+      </item>
+      
+      <item>
+        <title>fread</title>
+        <link>https://jiwooblog.netlify.app/posts/r/fread/</link>
+        <pubDate>Mon, 08 Feb 2021 10:08:56 +0900</pubDate>
+        
+        <guid>https://jiwooblog.netlify.app/posts/r/fread/</guid>
+        <description>fread 패키지로 대용량 데이터 빠르게 불러오기 약 24000행의 샘플 csv가 있다고 가정하자. 그렇다면 fread와 read.csv의 성능은 다음과 같다.
+1 2 3 4 5 6 7 8 9 10 11  library(data.table) fread(&amp;#39;sample.csv&amp;#39;) #약 24000x3 system.time(fread(&amp;#39;sample.csv&amp;#39;)) # 사용자 시스템 elapsed  # 0.02 0.00 0.01  system.time(read.csv(&amp;#39;sample.csv&amp;#39;)) # 사용자 시스템 elapsed  # 0.74 0.03 0.77   read.csv는 0.77초가 걸리는 데에 반해 fread는 0.01초 만에 읽어왔다.
+이외에도 3백만 행의 csv으로 실험해본 결과, 각각 2초와 33초로 그 성능 차이가 더욱 도드라짐을 알 수 있었다.</description>
+      </item>
+      
+      <item>
+        <title>test</title>
+        <link>https://jiwooblog.netlify.app/posts/r/test/</link>
+        <pubDate>Fri, 08 Jan 2021 10:08:56 +0900</pubDate>
+        
+        <guid>https://jiwooblog.netlify.app/posts/r/test/</guid>
+        <description>.scroll-100 {max-height: 100px;overflow-y: auto;background-color: &#39;white&#39;;}pre {max-height: 300px;overflow-y: auto;background-color: &#39;white&#39;;}pre[class] {max-height: 100px;background-color: &#39;green&#39;;}# plotly```rlibrary(ggplot2)library(plotly)library(gapminder)1 2 3 4 5 6 7 8  p &amp;lt;- gapminder %&amp;gt;% filter(year==1977) %&amp;gt;% ggplot( aes(gdpPercap, lifeExp, size = pop, color=continent)) + geom_point() + scale_x_log10() + theme_bw() ggplotly(p)   {&#34;</description>
       </item>
       
     

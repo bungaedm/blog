@@ -16,10 +16,10 @@
       
       <item>
         <title>기초통계학</title>
-        <link>https://jiwooblog.netlify.app/posts/statistics/%EA%B8%B0%EC%B4%88/</link>
+        <link>https://jiwooblog.netlify.app/posts/statistics/statistics/</link>
         <pubDate>Wed, 20 Jan 2021 10:08:56 +0900</pubDate>
         
-        <guid>https://jiwooblog.netlify.app/posts/statistics/%EA%B8%B0%EC%B4%88/</guid>
+        <guid>https://jiwooblog.netlify.app/posts/statistics/statistics/</guid>
         <description></description>
       </item>
       
@@ -29,6 +29,15 @@
         <pubDate>Thu, 07 Jan 2021 10:08:56 +0900</pubDate>
         
         <guid>https://jiwooblog.netlify.app/posts/statistics/linearalgebra/</guid>
+        <description></description>
+      </item>
+      
+      <item>
+        <title>Calculus</title>
+        <link>https://jiwooblog.netlify.app/posts/statistics/calculus/</link>
+        <pubDate>Thu, 18 Feb 2021 10:08:56 +0900</pubDate>
+        
+        <guid>https://jiwooblog.netlify.app/posts/statistics/calculus/</guid>
         <description></description>
       </item>
       

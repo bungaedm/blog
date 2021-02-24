@@ -7,12 +7,14 @@ title: dplyr
 weight: 2
 ---
 
+# dplyr 패키지 훑어보기
 ```{r warning=FALSE, message=FALSE}
 library(tidyverse)
 ```
 
 # 목차
 1. rowwise
+1-1. pmax
 
 ### 데이터
 ```{r data}
@@ -33,5 +35,13 @@ tmp %>%
 #잘못된 버전
 tmp %>%
   mutate(max = max(x,y,z))
+```
+
+#### 1-1. pmax
+그런데 사실은 여기서 `rowwise`를 사용하지 않고 보다 간단하게 구할 수 있기도 하다.
+```{r}
+#간단한 버전
+tmp %>% 
+  mutate(max = pmax(x,y,z))
 ```
 
