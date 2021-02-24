@@ -42,13 +42,13 @@ footer:
   #   title: Features
     
 landing:
-  buttons:
-  - color: null
-    link: posts
-    text: View Posts
-  height: 400
-  image: favicon/logo.png
-  spaceBetweenTitleText: 25
+  # buttons:
+  # - color: null
+  #   link: posts
+  #   text: View Posts
+  # height: 500
+  image: favicon/logo_small.png
+  spaceBetweenTitleText: 5
   text:
   - Yonsei University 
   textColor: null
@@ -134,12 +134,12 @@ sections:
 - bgcolor: '#ffbf00'
   body:
     description:
-      1. 수소차 충전소 입지 추천
-
-      2. NH투자증권 Y&Z세대 투자자 프로파일링
-
+      1. 수소차 충전소 입지 추천  
+      
+      2. NH투자증권 Y&Z세대 투자자 프로파일링  
+      
       3. 심리 성향 예측 AI 경진대회
-
+      
       4. 홈쇼핑 매출 예측 (빅콘테스트 챔피언스리그)
     image: images/section/keyboard.png
     imagePosition: left
