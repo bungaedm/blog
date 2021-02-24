@@ -43,10 +43,10 @@ footer:
     
 landing:
   buttons:
-  # - color: primary
-  #   link: posts
-  #   text: Posts
-  # height: 500
+  - color: null
+    link: posts
+    text: View Posts
+  height: 400
   image: favicon/logo.png
   spaceBetweenTitleText: 25
   text:
