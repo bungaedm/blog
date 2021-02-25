@@ -1114,7 +1114,7 @@
     "datePublished": "2021-02-21T10:08:56+09:00",
     "dateModified": "2021-02-21T10:08:56+09:00",
     "url" : "https://jiwooblog.netlify.app/posts/r/purrr/",
-    "description": "purrr 패키지 훑어보기 1  library(purrr)   목차  map, map2  map, map2 1 2 3 4 5  num \u0026lt;- c(1,2,4,5,7) num2 \u0026lt;- c(3,5,6,8,9) #list map(num, function(x){x^2})   ## [[1]]\r## [1] 1 …",
+    "description": "purrr 패키지 훑어보기 purrr는 R에서 깔끔하게 반복 작업 처리하는 패키지입니다. Purrr 을 이용하면 반복작업을 Apply family 에 비해 더욱 직관적이고 쉽게 할 수 있습니다. purrr는 고양이 울음소리와 R의 합성어로, 로고는 아래와 같습니다. 1  library(purrr)   목 …",
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "https://jiwooblog.netlify.app/"
@@ -1576,6 +1576,30 @@
         
         
         <li>
+          <a href="https://jiwooblog.netlify.app/posts/statistics/statistics/nonparametric/" class="menu__title " data-depth="1">비모수통계학</a>
+        </li>
+      
+    
+      
+        
+        
+        <li>
+          <a href="https://jiwooblog.netlify.app/posts/statistics/statistics/t_test/" class="menu__title " data-depth="1">t 검정</a>
+        </li>
+      
+    
+      
+        
+        
+        <li>
+          <a href="https://jiwooblog.netlify.app/posts/statistics/statistics/normality/" class="menu__title " data-depth="1">정규성 검정</a>
+        </li>
+      
+    
+      
+        
+        
+        <li>
           <a href="https://jiwooblog.netlify.app/posts/statistics/statistics/error_residual/" class="menu__title " data-depth="1">오차와 잔차</a>
         </li>
       
@@ -1707,6 +1731,14 @@
     </span>
   </li>
   <ul class="menu__list " data-data=/bayesian/ data-link=https://jiwooblog.netlify.app/posts/r/purrr/>
+    
+      
+        
+        
+        <li>
+          <a href="https://jiwooblog.netlify.app/posts/statistics/bayesian/gibbs_sampler/" class="menu__title " data-depth="1">Gibbs Sampler</a>
+        </li>
+      
     
       
         
@@ -2713,6 +2745,30 @@
         
         
         <li>
+          <a href="https://jiwooblog.netlify.app/posts/statistics/statistics/nonparametric/" class="menu__title " data-depth="1">비모수통계학</a>
+        </li>
+      
+    
+      
+        
+        
+        <li>
+          <a href="https://jiwooblog.netlify.app/posts/statistics/statistics/t_test/" class="menu__title " data-depth="1">t 검정</a>
+        </li>
+      
+    
+      
+        
+        
+        <li>
+          <a href="https://jiwooblog.netlify.app/posts/statistics/statistics/normality/" class="menu__title " data-depth="1">정규성 검정</a>
+        </li>
+      
+    
+      
+        
+        
+        <li>
           <a href="https://jiwooblog.netlify.app/posts/statistics/statistics/error_residual/" class="menu__title " data-depth="1">오차와 잔차</a>
         </li>
       
@@ -2844,6 +2900,14 @@
     </span>
   </li>
   <ul class="menu__list " data-data=/bayesian/ data-link=https://jiwooblog.netlify.app/posts/r/purrr/>
+    
+      
+        
+        
+        <li>
+          <a href="https://jiwooblog.netlify.app/posts/statistics/bayesian/gibbs_sampler/" class="menu__title " data-depth="1">Gibbs Sampler</a>
+        </li>
+      
     
       
         
@@ -3065,6 +3129,7 @@
 
   <article class="single__contents" data-dir="ltr">
     <h1 id="purrr-패키지-훑어보기">purrr 패키지 훑어보기</h1>
+<p>purrr는 R에서 깔끔하게 반복 작업 처리하는 패키지입니다. Purrr 을 이용하면 반복작업을 Apply family 에 비해 더욱 직관적이고 쉽게 할 수 있습니다. purrr는 고양이 울음소리와 R의 합성어로, 로고는 아래와 같습니다.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -3073,12 +3138,26 @@
 <pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">library</span><span class="p">(</span><span class="n">purrr</span><span class="p">)</span>
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="목차">목차</h2>
+</div><p><p class="md__image">
+  <img src="/images/posts/r/purrr.jpg" alt="purrr logo"  />
+</p></p>
+<h2 id="목차">목차</h2>
 <ol>
 <li>map, map2</li>
+<li>pmap, invoke_map</li>
+<li>rerun</li>
 </ol>
+<hr />
 <h4 id="map-map2">map, map2</h4>
-<div class="highlight"><div class="chroma">
+<div class="expand">
+  <button type="button" class="expand__button" aria-label="Expand Button">
+    <span class="expand-icon expand-icon__right">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M9.29 15.88L13.17 12 9.29 8.12c-.39-.39-.39-1.02 0-1.41.39-.39 1.02-.39 1.41 0l4.59 4.59c.39.39.39 1.02 0 1.41L10.7 17.3c-.39.39-1.02.39-1.41 0-.38-.39-.39-1.03 0-1.42z"/></svg>
+    </span>
+    map, map2 예시
+  </button>
+  <div class="expand__content">
+    <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
@@ -3151,6 +3230,197 @@
 </div>
 </div><pre><code>## [1]  4  7 10 13 16
 </code></pre>
+  </div>
+</div>
+<hr />
+<h4 id="pmap-invoke_map">pmap, invoke_map</h4>
+<div class="expand">
+  <button type="button" class="expand__button" aria-label="Expand Button">
+    <span class="expand-icon expand-icon__right">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M9.29 15.88L13.17 12 9.29 8.12c-.39-.39-.39-1.02 0-1.41.39-.39 1.02-.39 1.41 0l4.59 4.59c.39.39.39 1.02 0 1.41L10.7 17.3c-.39.39-1.02.39-1.41 0-.38-.39-.39-1.03 0-1.42z"/></svg>
+    </span>
+    pmap, invoke_map 예시
+  </button>
+  <div class="expand__content">
+    <div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="n">x</span> <span class="o">&lt;-</span> <span class="nf">list</span><span class="p">(</span><span class="m">3</span><span class="p">,</span> <span class="m">6</span><span class="p">,</span> <span class="m">9</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">&lt;-</span> <span class="nf">list</span><span class="p">(</span><span class="m">10</span><span class="p">,</span> <span class="m">21</span><span class="p">,</span> <span class="m">30</span><span class="p">)</span>
+<span class="n">z</span> <span class="o">&lt;-</span> <span class="nf">list</span><span class="p">(</span><span class="m">100</span><span class="p">,</span> <span class="m">200</span><span class="p">,</span> <span class="m">300</span><span class="p">)</span>
+
+<span class="c1"># pmap은 3개 이상의 리스트일 때 사용한다.</span>
+<span class="nf">pmap</span><span class="p">(</span><span class="nf">list</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">),</span> <span class="n">sum</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><pre><code>## [[1]]
+## [1] 113
+## 
+## [[2]]
+## [1] 227
+## 
+## [[3]]
+## [1] 339
+</code></pre><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="c1"># invoke_map은 각각의 리스트에 다른 함수를 적용시키고 싶을 때 활용한다.</span>
+<span class="nf">invoke_map</span><span class="p">(</span><span class="nf">list</span><span class="p">(</span><span class="n">runif</span><span class="p">,</span> <span class="n">rnorm</span><span class="p">),</span> <span class="nf">list</span><span class="p">(</span><span class="nf">list</span><span class="p">(</span><span class="n">n</span> <span class="o">=</span> <span class="m">10</span><span class="p">),</span> <span class="nf">list</span><span class="p">(</span><span class="n">n</span> <span class="o">=</span> <span class="m">5</span><span class="p">)))</span>
+</code></pre></td></tr></table>
+</div>
+</div><pre><code>## [[1]]
+##  [1] 0.11231795 0.62016180 0.12892009 0.35631370 0.03229519 0.23713282
+##  [7] 0.53951703 0.81935297 0.27680450 0.93446657
+## 
+## [[2]]
+## [1] -0.201972351  0.161094968 -1.162654194  0.003363922 -0.388906857
+</code></pre>
+  </div>
+</div>
+<hr />
+<h4 id="rerun">rerun</h4>
+<div class="expand">
+  <button type="button" class="expand__button" aria-label="Expand Button">
+    <span class="expand-icon expand-icon__right">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M9.29 15.88L13.17 12 9.29 8.12c-.39-.39-.39-1.02 0-1.41.39-.39 1.02-.39 1.41 0l4.59 4.59c.39.39.39 1.02 0 1.41L10.7 17.3c-.39.39-1.02.39-1.41 0-.38-.39-.39-1.03 0-1.42z"/></svg>
+    </span>
+    rerun 예시
+  </button>
+  <div class="expand__content">
+    <div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="c1"># rerun은 샘플 데이터를 형성하는 데에 효율적인 방법이다.</span>
+
+<span class="c1"># 예시</span>
+<span class="nf">set.seed</span><span class="p">(</span><span class="m">2021</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">&lt;-</span> <span class="m">10</span> <span class="o">%&gt;%</span> 
+  <span class="nf">rerun</span><span class="p">(</span><span class="nf">rnorm</span><span class="p">(</span><span class="m">5</span><span class="p">))</span>
+<span class="n">b</span>
+</code></pre></td></tr></table>
+</div>
+</div><pre><code>## [[1]]
+## [1] -0.1224600  0.5524566  0.3486495  0.3596322  0.8980537
+## 
+## [[2]]
+## [1] -1.92256952  0.26174436  0.91556637  0.01377194  1.72996316
+## 
+## [[3]]
+## [1] -1.0822049 -0.2728252  0.1819954  1.5085418  1.6044701
+## 
+## [[4]]
+## [1] -1.841476  1.623310  0.131389  1.481122  1.513318
+## 
+## [[5]]
+## [1] -0.9424433 -0.1856850 -1.1011246  1.2081153 -1.6249385
+## 
+## [[6]]
+## [1]  0.10537833 -1.45544335 -0.35401614 -0.09370004  1.10066863
+## 
+## [[7]]
+## [1] -1.9638251 -1.4479444  1.0194434 -1.4214171 -0.6045321
+## 
+## [[8]]
+## [1] -1.58347390 -1.28593235 -1.45468488 -0.08707112  0.50473644
+## 
+## [[9]]
+## [1]  0.11638871  1.76021373 -0.34511646  2.12000016 -0.03437749
+## 
+## [[10]]
+## [1] -0.7921541  1.4755152 -0.7255572  0.3123790  0.6919641
+</code></pre><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="c1"># 위 함수는 아래의 함수와 같은 결과를 산출함을 알 수 있다.</span>
+<span class="nf">set.seed</span><span class="p">(</span><span class="m">2021</span><span class="p">)</span>
+<span class="n">a</span> <span class="o">&lt;-</span> <span class="nf">list</span><span class="p">()</span>
+<span class="nf">for</span><span class="p">(</span><span class="n">i</span> <span class="n">in</span> <span class="m">1</span><span class="o">:</span><span class="m">10</span><span class="p">){</span>
+  <span class="n">a[[i]]</span> <span class="o">&lt;-</span> <span class="nf">rnorm</span><span class="p">(</span><span class="m">5</span><span class="p">)</span>
+  <span class="nf">print</span><span class="p">(</span><span class="n">a[i]</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><pre><code>## [[1]]
+## [1] -0.1224600  0.5524566  0.3486495  0.3596322  0.8980537
+## 
+## [[1]]
+## [1] -1.92256952  0.26174436  0.91556637  0.01377194  1.72996316
+## 
+## [[1]]
+## [1] -1.0822049 -0.2728252  0.1819954  1.5085418  1.6044701
+## 
+## [[1]]
+## [1] -1.841476  1.623310  0.131389  1.481122  1.513318
+## 
+## [[1]]
+## [1] -0.9424433 -0.1856850 -1.1011246  1.2081153 -1.6249385
+## 
+## [[1]]
+## [1]  0.10537833 -1.45544335 -0.35401614 -0.09370004  1.10066863
+## 
+## [[1]]
+## [1] -1.9638251 -1.4479444  1.0194434 -1.4214171 -0.6045321
+## 
+## [[1]]
+## [1] -1.58347390 -1.28593235 -1.45468488 -0.08707112  0.50473644
+## 
+## [[1]]
+## [1]  0.11638871  1.76021373 -0.34511646  2.12000016 -0.03437749
+## 
+## [[1]]
+## [1] -0.7921541  1.4755152 -0.7255572  0.3123790  0.6919641
+</code></pre><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">for</span><span class="p">(</span><span class="n">i</span> <span class="n">in</span> <span class="m">1</span><span class="o">:</span><span class="m">10</span><span class="p">){</span>
+  <span class="nf">print</span><span class="p">(</span><span class="n">a[[i]]</span> <span class="o">==</span> <span class="n">b[[i]]</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><pre><code>## [1] TRUE TRUE TRUE TRUE TRUE
+## [1] TRUE TRUE TRUE TRUE TRUE
+## [1] TRUE TRUE TRUE TRUE TRUE
+## [1] TRUE TRUE TRUE TRUE TRUE
+## [1] TRUE TRUE TRUE TRUE TRUE
+## [1] TRUE TRUE TRUE TRUE TRUE
+## [1] TRUE TRUE TRUE TRUE TRUE
+## [1] TRUE TRUE TRUE TRUE TRUE
+## [1] TRUE TRUE TRUE TRUE TRUE
+## [1] TRUE TRUE TRUE TRUE TRUE
+</code></pre>
+  </div>
+</div>
+
   </article>
 </div>
       
@@ -3193,6 +3463,8 @@
         <li>
           <ul>
             <li><a href="#map-map2">map, map2</a></li>
+            <li><a href="#pmap-invoke_map">pmap, invoke_map</a></li>
+            <li><a href="#rerun">rerun</a></li>
           </ul>
         </li>
       </ul>

@@ -47,6 +47,43 @@ T-분포(Student&amp;rsquo;s t-Distribution) $$ \text{X~} t(n) \rightarrow f(x) 
       </item>
       
       <item>
+        <title>비모수통계학</title>
+        <link>https://jiwooblog.netlify.app/posts/statistics/statistics/nonparametric/</link>
+        <pubDate>Wed, 24 Feb 2021 10:08:56 +0900</pubDate>
+        
+        <guid>https://jiwooblog.netlify.app/posts/statistics/statistics/nonparametric/</guid>
+        <description>비모수통계학 비모수통계학(nonparametric statistics)는 모수적 검정의 가정이 충족되지 못하거나, 데이터 형식이 순서형일 경우처럼 일반적이지 않은 경우에 사용하는 통계적 방법론에 대한 연구를 한다.
+t검정에서 독립표본 t-검정과 대응표본 t-검정이 있습니다. 이에 대응하여 비모수통계학에서는 Wilcoxon rank-sum test(Mann-Whitney U-test)와 Wilcoxon signed-rank test가 있습니다.
+1. Wilcoxon rank-sum test Mann-Whitney U-test라고도 한다.
+독립표본 t-검정의 비모수 버전이다.
+2. Wilcoxon signed-rank test 대응표본 t-검정의 비모수 버전이다.
+참고 [1] 연세대학교 심리통계 2019-1 수업자료 [2] https://blog.naver.com/istech7/50152096673
+[3] http://www.incodom.kr/R%ED%99%9C%EC%9A%A9/Wilcoxon_Signed-Rank_Test
+[4] https://dermabae.tistory.com/159</description>
+      </item>
+      
+      <item>
+        <title>t 검정</title>
+        <link>https://jiwooblog.netlify.app/posts/statistics/statistics/t_test/</link>
+        <pubDate>Mon, 22 Feb 2021 10:08:56 +0900</pubDate>
+        
+        <guid>https://jiwooblog.netlify.app/posts/statistics/statistics/t_test/</guid>
+        <description>t-검정 t-검정은 모집단의 분산이나 표준편차를 알지 못할 때, 모집단을 대표하는 표본으로부터 추정된 분산이나 표준편차를 가지고 검정하는 방법이다.
+1. 단일표본 t-검정 모집단의 평균이 특정검정값과 같은지 확인하는 통계빵법이다.
+2. 독립표본 t-검정 독립된 두 집단 간 비교하는 방법으로, 서로 다른 두 모집단으로부터 데이터가 추출되었을 때 시행한다.
+1 2 3 4 5 6 7 8  # independent t-test x1 = 3.6667 x2 = 6.0667 s1 = 2.60951 s2 = 2.37447 n1 = n2 = 15 sp = sqrt((s1^2*(n1-1) + s2^2*(n2-1)) / ((n1-1) + (n2-1))) t = (x1-x2) / (sp*sqrt(1/n1 + 1/n2))   3.</description>
+      </item>
+      
+      <item>
+        <title>정규성 검정</title>
+        <link>https://jiwooblog.netlify.app/posts/statistics/statistics/normality/</link>
+        <pubDate>Sun, 21 Feb 2021 10:08:56 +0900</pubDate>
+        
+        <guid>https://jiwooblog.netlify.app/posts/statistics/statistics/normality/</guid>
+        <description>정규성 검정 </description>
+      </item>
+      
+      <item>
         <title>오차와 잔차</title>
         <link>https://jiwooblog.netlify.app/posts/statistics/statistics/error_residual/</link>
         <pubDate>Mon, 15 Feb 2021 10:08:56 +0900</pubDate>

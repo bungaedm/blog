@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://jiwooblog.netlify.app/posts/statistics/bayesian/gibbs_sampler/</loc>
+    <lastmod>2021-02-23T10:08:56+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://jiwooblog.netlify.app/posts/statistics/statistics/central_limit_theorem/</loc>
     <lastmod>2021-02-21T10:08:56+09:00</lastmod>
   </url>
@@ -34,6 +39,11 @@
   
   <url>
     <loc>https://jiwooblog.netlify.app/updates/todo_list/</loc>
+    <lastmod>2021-01-22T00:08:29+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jiwooblog.netlify.app/updates/shopping_list/</loc>
     <lastmod>2021-01-22T00:08:29+09:00</lastmod>
   </url>
   
@@ -150,6 +160,21 @@
   <url>
     <loc>https://jiwooblog.netlify.app/posts/r/</loc>
     <lastmod>2020-02-28T10:08:56+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jiwooblog.netlify.app/posts/statistics/statistics/nonparametric/</loc>
+    <lastmod>2021-02-24T10:08:56+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jiwooblog.netlify.app/posts/statistics/statistics/t_test/</loc>
+    <lastmod>2021-02-22T10:08:56+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jiwooblog.netlify.app/posts/statistics/statistics/normality/</loc>
+    <lastmod>2021-02-21T10:08:56+09:00</lastmod>
   </url>
   
   <url>

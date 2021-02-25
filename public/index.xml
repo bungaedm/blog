@@ -15,6 +15,21 @@
     
       
       <item>
+        <title>Gibbs Sampler</title>
+        <link>https://jiwooblog.netlify.app/posts/statistics/bayesian/gibbs_sampler/</link>
+        <pubDate>Tue, 23 Feb 2021 10:08:56 +0900</pubDate>
+        
+        <guid>https://jiwooblog.netlify.app/posts/statistics/bayesian/gibbs_sampler/</guid>
+        <description>Gibbs Sampler 기본 원리 (추후 업데이트)
+종류 1. Systematic Sweep Gibbs Sampler 모든 모수에 대해 샘플링을 반복하여 업데이트하는 방법
+2. Random Sweep Gibbs Sampler 무작위로 모수를 뽑아서 업데이트하는 방법
+3. Grouped Gibbs Sampler 여러 개의 모수를 한번에 뽑아서 업데이트하는 방법
+이때 모수 간의 연관성이 생긴다.
+4. Collapsed Gibbs Sampler 적분을 통해서 특정 모수와 독립적인 분포를 계산한 후, 샘플링하여 업데이트하는 방법
+참고사이트 [1] https://niceguy1575.tistory.com/entry/%EB%B2%A0%EC%9D%B4%EC%A7%80%EC%95%88-%ED%86%B5%EA%B3%84%ED%95%99-4-Gibbs-Sampler%EA%B9%81%EC%8A%A4-%EC%83%98%ED%94%8C%EB%9F%AC-%EC%9D%98-%EC%A2%85%EB%A5%98%EC%99%80-%EC%84%B1%EC%A7%88</description>
+      </item>
+      
+      <item>
         <title>중심극한정리</title>
         <link>https://jiwooblog.netlify.app/posts/statistics/statistics/central_limit_theorem/</link>
         <pubDate>Sun, 21 Feb 2021 10:08:56 +0900</pubDate>
@@ -43,7 +58,7 @@ T-분포(Student&amp;rsquo;s t-Distribution) $$ \text{X~} t(n) \rightarrow f(x) 
         <pubDate>Thu, 18 Feb 2021 10:08:56 +0900</pubDate>
         
         <guid>https://jiwooblog.netlify.app/posts/spss/prologue/</guid>
-        <description>Index  통계학이란?  표본분포 모수 검정 &amp;amp; 비모수 검정   기술통계  데이터 유형 분포의 이해 CLT   가설검정  양방향 &amp;amp; 단방향   정규성 검정  Kolmogorov-Smirnov test(표본 50개 이상) Shapiro-Wilk test(표본 50개 이하) 모수적 접근 &amp;amp; 비모수적 접근   단일집단 평균  모수적 접근(t-test) 비모수적 접근(Kolmogorov-Smirnov test, Runs 검정)   독립 두 집단 평균  모수적 접근(t-test) 비모수적 접근(Mann-Whitney U-test, Wilcoxon rank-sum test, Kolmogorov-Smirnov test, 중앙값 검정)   대응 두 집단 평균  모수적 접근(paires t-test) 비모수적 접근(sign test, Wilcoxon signed rank test)   독립 세 집단 이상 평균  모수적 접근(ANOVA) 비모수적 접근(Kruskal-Wallis test) 사후분석(Bonferroni)   종속 세 집단 이상 평균  비모수적 접근(Cochran Q test, Friedman test)   카이제곱검정(범주형 데이터)  독립성 검정 적합도 검정 동질성 검정   상관분석  모수적 접근 비모수적 접근(Spearman 상관계수, Kendall 순위 상관계수, Kendall 편 순위 상관계수, Kendall 일치도 계수)    </description>
+        <description>Index  통계학이란?  표본분포 모수 검정 &amp;amp; 비모수 검정   기술통계  데이터 유형 분포의 이해 CLT   가설검정  양방향 &amp;amp; 단방향   정규성 검정  Kolmogorov-Smirnov test(표본 50개 이상) Shapiro-Wilk test(표본 50개 이하) 모수적 접근 &amp;amp; 비모수적 접근   단일집단 평균  모수적 접근(one sample t-test) 비모수적 접근(Kolmogorov-Smirnov test, Runs 검정)   독립 두 집단 평균  모수적 접근(independent t-test) 비모수적 접근(Mann-Whitney U-test, Wilcoxon rank-sum test, Kolmogorov-Smirnov test, 중앙값 검정)   대응 두 집단 평균  모수적 접근(paired t-test) 비모수적 접근(sign test, Wilcoxon signed rank test)   독립 세 집단 이상 평균  모수적 접근(ANOVA) 비모수적 접근(Kruskal-Wallis test) 사후분석(Bonferroni)   종속 세 집단 이상 평균  비모수적 접근(Cochran Q test, Friedman test)   카이제곱검정(범주형 데이터)  독립성 검정 적합도 검정 동질성 검정   상관분석  모수적 접근 비모수적 접근(Spearman 상관계수, Kendall 순위 상관계수, Kendall 편 순위 상관계수, Kendall 일치도 계수)    </description>
       </item>
       
       <item>
@@ -92,6 +107,15 @@ $$\rightarrow y&#39; = \frac{f&#39;(x)g(x) - f(x)g&#39;(x)}{g^2(x)}$$
  Rhino: 수소차 충전소 입지 선정 [ESC 2020_SUMMER] 빅콘테스트 NS Shop+ 심리성향 예측 AI 경진대회 [ESC 2020_FALL] NLP 논문 따라해보기 [ESC 2020_SPRING] 행복지수 예측
 - 배운 점: 해석 시 Domain Knowledge의 중요성, FA의 효과    R 다양한 기능들 정리
  dpylr: group_by, summarise, mutate, select, filter ggplot2 plotly highcharter mice: NA imputation visNetwork(visNodes, visEdges) apriori(연관성분석, 장바구니분석)    SPSS</description>
+      </item>
+      
+      <item>
+        <title>쇼핑 리스트</title>
+        <link>https://jiwooblog.netlify.app/updates/shopping_list/</link>
+        <pubDate>Fri, 22 Jan 2021 00:08:29 +0900</pubDate>
+        
+        <guid>https://jiwooblog.netlify.app/updates/shopping_list/</guid>
+        <description>2021년 2월    주문날짜 제품명 브랜드 금액 쇼핑몰     2.6 뉴발란스 327 오렌지 뉴발란스 114,000원 크림   2.23 캉골 트로픽 헌팅캡 504 BEIGE 캉골 37,850원 인터파크   2.24 19ss easy pants brick 유니폼브릿지 15,000원 에딧에디션   2.24 19fw fisherman cardigan orange 유니폼 브릿지 25,000원 에딧에디션    </description>
       </item>
       
       <item>
@@ -188,7 +212,7 @@ Dacon 코드 공유 Factor Analysis Word Cloud_국내 Word Cloud_해외 Cluster 
         <pubDate>Sun, 21 Feb 2021 10:08:56 +0900</pubDate>
         
         <guid>https://jiwooblog.netlify.app/posts/r/dplyr/</guid>
-        <description>1  library(tidyverse)   목차  rowwise  데이터 1 2 3 4  tmp &amp;lt;- tibble(x=round(rnorm(n=5, mean=5, sd=1)), y=round(rnorm(n=5, mean=5, sd=3)), z=round(rnorm(n=5, mean=5, sd=5))) tmp   ## # A tibble: 5 x 3## x y z## &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt;## 1 7 4 2## 2 7 4 4## 3 7 3 5## 4 6 4 8## 5 5 7 21. rowwise() 행별로 최대값 구하기</description>
+        <description>1  library(tidyverse)   목차  rowwise  데이터 1 2 3 4  tmp &amp;lt;- tibble(x=round(rnorm(n=5, mean=5, sd=1)), y=round(rnorm(n=5, mean=5, sd=3)), z=round(rnorm(n=5, mean=5, sd=5))) tmp   ## # A tibble: 5 x 3## x y z## &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt;## 1 5 4 9## 2 4 8 8## 3 6 7 3## 4 5 0 4## 5 6 8 81. rowwise() 행별로 최대값 구하기</description>
       </item>
       
       <item>
@@ -197,7 +221,8 @@ Dacon 코드 공유 Factor Analysis Word Cloud_국내 Word Cloud_해외 Cluster 
         <pubDate>Sun, 21 Feb 2021 10:08:56 +0900</pubDate>
         
         <guid>https://jiwooblog.netlify.app/posts/r/purrr/</guid>
-        <description>purrr 패키지 훑어보기 1  library(purrr)   목차  map, map2  map, map2 1 2 3 4 5  num &amp;lt;- c(1,2,4,5,7) num2 &amp;lt;- c(3,5,6,8,9) #list map(num, function(x){x^2})   ## [[1]]## [1] 1## ## [[2]]## [1] 4## ## [[3]]## [1] 16## ## [[4]]## [1] 25## ## [[5]]## [1] 491  map2(num, num2, sum)   ## [[1]]## [1] 4## ## [[2]]## [1] 7## ## [[3]]## [1] 10## ## [[4]]## [1] 13## ## [[5]]## [1] 161 2  #numeric vector map_dbl(num, function(x){x^2})   ## [1] 1 4 16 25 491  map2_dbl(num, num2, sum)   ## [1] 4 7 10 13 16</description>
+        <description>purrr 패키지 훑어보기 purrr는 R에서 깔끔하게 반복 작업 처리하는 패키지입니다. Purrr 을 이용하면 반복작업을 Apply family 에 비해 더욱 직관적이고 쉽게 할 수 있습니다. purrr는 고양이 울음소리와 R의 합성어로, 로고는 아래와 같습니다.
+1  library(purrr)   목차  map, map2 pmap, invoke_map rerun  map, map2   map, map2 예시  1 2 3 4 5  num &amp;lt;- c(1,2,4,5,7) num2 &amp;lt;- c(3,5,6,8,9) #list map(num, function(x){x^2})   ## [[1]]## [1] 1## ## [[2]]## [1] 4## ## [[3]]## [1] 16## ## [[4]]## [1] 25## ## [[5]]## [1] 491  map2(num, num2, sum)   ## [[1]]## [1] 4## ## [[2]]## [1] 7## ## [[3]]## [1] 10## ## [[4]]## [1] 13## ## [[5]]## [1] 161 2  #numeric vector map_dbl(num, function(x){x^2})   ## [1] 1 4 16 25 491  map2_dbl(num, num2, sum)   ## [1] 4 7 10 13 16   pmap, invoke_map   pmap, invoke_map 예시  1 2 3 4 5 6  x &amp;lt;- list(3, 6, 9) y &amp;lt;- list(10, 21, 30) z &amp;lt;- list(100, 200, 300) # pmap은 3개 이상의 리스트일 때 사용한다.</description>
       </item>
       
       <item>
@@ -252,6 +277,43 @@ Belief functions and Probabilities$Be()$는 belief function이라고 하자. �
         <guid>https://jiwooblog.netlify.app/posts/statistics/linearalgebra/l02/</guid>
         <description>Vector Space덧셈에 닫혀있다.스칼라배에 닫혀있다.Subspace벡터공간 \(V_n\) 의 부분 집합 \(W_n\)이 벡터공간이면, \(W_n\)을 \(V_n\)의 부분공간이라고 한다. 즉, \(W_n\)이 부분공간이려면, 덧셈과 스칼라배에 닫혀있으면 된다.
 Gauss-Jordan Elimination확장행렬을 기약행사다리꼴(RREF, reduced row echelon form)로 바꾸는 알고리즘가우스조던 소거법 = 가감법 + 대입법## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 26.00 ## Median :15.0 Median : 36.00 ## Mean :15.</description>
+      </item>
+      
+      <item>
+        <title>비모수통계학</title>
+        <link>https://jiwooblog.netlify.app/posts/statistics/statistics/nonparametric/</link>
+        <pubDate>Wed, 24 Feb 2021 10:08:56 +0900</pubDate>
+        
+        <guid>https://jiwooblog.netlify.app/posts/statistics/statistics/nonparametric/</guid>
+        <description>비모수통계학 비모수통계학(nonparametric statistics)는 모수적 검정의 가정이 충족되지 못하거나, 데이터 형식이 순서형일 경우처럼 일반적이지 않은 경우에 사용하는 통계적 방법론에 대한 연구를 한다.
+t검정에서 독립표본 t-검정과 대응표본 t-검정이 있습니다. 이에 대응하여 비모수통계학에서는 Wilcoxon rank-sum test(Mann-Whitney U-test)와 Wilcoxon signed-rank test가 있습니다.
+1. Wilcoxon rank-sum test Mann-Whitney U-test라고도 한다.
+독립표본 t-검정의 비모수 버전이다.
+2. Wilcoxon signed-rank test 대응표본 t-검정의 비모수 버전이다.
+참고 [1] 연세대학교 심리통계 2019-1 수업자료 [2] https://blog.naver.com/istech7/50152096673
+[3] http://www.incodom.kr/R%ED%99%9C%EC%9A%A9/Wilcoxon_Signed-Rank_Test
+[4] https://dermabae.tistory.com/159</description>
+      </item>
+      
+      <item>
+        <title>t 검정</title>
+        <link>https://jiwooblog.netlify.app/posts/statistics/statistics/t_test/</link>
+        <pubDate>Mon, 22 Feb 2021 10:08:56 +0900</pubDate>
+        
+        <guid>https://jiwooblog.netlify.app/posts/statistics/statistics/t_test/</guid>
+        <description>t-검정 t-검정은 모집단의 분산이나 표준편차를 알지 못할 때, 모집단을 대표하는 표본으로부터 추정된 분산이나 표준편차를 가지고 검정하는 방법이다.
+1. 단일표본 t-검정 모집단의 평균이 특정검정값과 같은지 확인하는 통계빵법이다.
+2. 독립표본 t-검정 독립된 두 집단 간 비교하는 방법으로, 서로 다른 두 모집단으로부터 데이터가 추출되었을 때 시행한다.
+1 2 3 4 5 6 7 8  # independent t-test x1 = 3.6667 x2 = 6.0667 s1 = 2.60951 s2 = 2.37447 n1 = n2 = 15 sp = sqrt((s1^2*(n1-1) + s2^2*(n2-1)) / ((n1-1) + (n2-1))) t = (x1-x2) / (sp*sqrt(1/n1 + 1/n2))   3.</description>
+      </item>
+      
+      <item>
+        <title>정규성 검정</title>
+        <link>https://jiwooblog.netlify.app/posts/statistics/statistics/normality/</link>
+        <pubDate>Sun, 21 Feb 2021 10:08:56 +0900</pubDate>
+        
+        <guid>https://jiwooblog.netlify.app/posts/statistics/statistics/normality/</guid>
+        <description>정규성 검정 </description>
       </item>
       
       <item>

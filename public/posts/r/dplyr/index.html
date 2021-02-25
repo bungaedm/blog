@@ -1576,6 +1576,30 @@
         
         
         <li>
+          <a href="https://jiwooblog.netlify.app/posts/statistics/statistics/nonparametric/" class="menu__title " data-depth="1">비모수통계학</a>
+        </li>
+      
+    
+      
+        
+        
+        <li>
+          <a href="https://jiwooblog.netlify.app/posts/statistics/statistics/t_test/" class="menu__title " data-depth="1">t 검정</a>
+        </li>
+      
+    
+      
+        
+        
+        <li>
+          <a href="https://jiwooblog.netlify.app/posts/statistics/statistics/normality/" class="menu__title " data-depth="1">정규성 검정</a>
+        </li>
+      
+    
+      
+        
+        
+        <li>
           <a href="https://jiwooblog.netlify.app/posts/statistics/statistics/error_residual/" class="menu__title " data-depth="1">오차와 잔차</a>
         </li>
       
@@ -1707,6 +1731,14 @@
     </span>
   </li>
   <ul class="menu__list " data-data=/bayesian/ data-link=https://jiwooblog.netlify.app/posts/r/dplyr/>
+    
+      
+        
+        
+        <li>
+          <a href="https://jiwooblog.netlify.app/posts/statistics/bayesian/gibbs_sampler/" class="menu__title " data-depth="1">Gibbs Sampler</a>
+        </li>
+      
     
       
         
@@ -2713,6 +2745,30 @@
         
         
         <li>
+          <a href="https://jiwooblog.netlify.app/posts/statistics/statistics/nonparametric/" class="menu__title " data-depth="1">비모수통계학</a>
+        </li>
+      
+    
+      
+        
+        
+        <li>
+          <a href="https://jiwooblog.netlify.app/posts/statistics/statistics/t_test/" class="menu__title " data-depth="1">t 검정</a>
+        </li>
+      
+    
+      
+        
+        
+        <li>
+          <a href="https://jiwooblog.netlify.app/posts/statistics/statistics/normality/" class="menu__title " data-depth="1">정규성 검정</a>
+        </li>
+      
+    
+      
+        
+        
+        <li>
           <a href="https://jiwooblog.netlify.app/posts/statistics/statistics/error_residual/" class="menu__title " data-depth="1">오차와 잔차</a>
         </li>
       
@@ -2844,6 +2900,14 @@
     </span>
   </li>
   <ul class="menu__list " data-data=/bayesian/ data-link=https://jiwooblog.netlify.app/posts/r/dplyr/>
+    
+      
+        
+        
+        <li>
+          <a href="https://jiwooblog.netlify.app/posts/statistics/bayesian/gibbs_sampler/" class="menu__title " data-depth="1">Gibbs Sampler</a>
+        </li>
+      
     
       
         
@@ -3094,11 +3158,11 @@
 </div><pre><code>## # A tibble: 5 x 3
 ##       x     y     z
 ##   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
-## 1     7     4     2
-## 2     7     4     4
-## 3     7     3     5
-## 4     6     4     8
-## 5     5     7     2
+## 1     5     4     9
+## 2     4     8     8
+## 3     6     7     3
+## 4     5     0     4
+## 5     6     8     8
 </code></pre><h4 id="1-rowwise">1. rowwise()</h4>
 <p>행별로 최대값 구하기</p>
 <div class="highlight"><div class="chroma">
@@ -3119,11 +3183,11 @@
 ## # Rowwise: 
 ##       x     y     z   max
 ##   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
-## 1     7     4     2     7
-## 2     7     4     4     7
-## 3     7     3     5     7
-## 4     6     4     8     8
-## 5     5     7     2     7
+## 1     5     4     9     9
+## 2     4     8     8     8
+## 3     6     7     3     7
+## 4     5     0     4     5
+## 5     6     8     8     8
 </code></pre><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -3139,11 +3203,32 @@
 </div><pre><code>## # A tibble: 5 x 4
 ##       x     y     z   max
 ##   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
-## 1     7     4     2     8
-## 2     7     4     4     8
-## 3     7     3     5     8
-## 4     6     4     8     8
-## 5     5     7     2     8
+## 1     5     4     9     9
+## 2     4     8     8     9
+## 3     6     7     3     9
+## 4     5     0     4     9
+## 5     6     8     8     9
+</code></pre><p>그런데 사실은 여기서 <code>rowwise</code>를 사용하지 않고 보다 간단하게 구할 수 있기도 하다.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="c1">#간단한 버전</span>
+<span class="n">tmp</span> <span class="o">%&gt;%</span> 
+  <span class="nf">mutate</span><span class="p">(</span><span class="n">max</span> <span class="o">=</span> <span class="nf">pmax</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">))</span>
+</code></pre></td></tr></table>
+</div>
+</div><pre><code>## # A tibble: 5 x 4
+##       x     y     z   max
+##   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1     5     4     9     9
+## 2     4     8     8     8
+## 3     6     7     3     7
+## 4     5     0     4     5
+## 5     6     8     8     8
 </code></pre>
   </article>
 </div>
