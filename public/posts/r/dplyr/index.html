@@ -1114,7 +1114,7 @@
     "datePublished": "2021-02-21T10:08:56+09:00",
     "dateModified": "2021-02-21T10:08:56+09:00",
     "url" : "https://jiwooblog.netlify.app/posts/r/dplyr/",
-    "description": "1  library(tidyverse)   목차  rowwise  데이터 1 2 3 4  tmp \u0026lt;- tibble(x=round(rnorm(n=5, mean=5, sd=1)), y=round(rnorm(n=5, mean=5, sd=3)), z=round(rnorm(n=5, mean=5, …",
+    "description": "dplyr 패키지 훑어보기 1  library(tidyverse)   목차  rowwise 1-1. pmax  데이터   data  1 2 3 4  tmp \u0026lt;- tibble(x=round(rnorm(n=5, mean=5, sd=1)), y=round(rnorm(n=5, mean=5, sd=3)), …",
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "https://jiwooblog.netlify.app/"
@@ -3128,7 +3128,8 @@
   
 
   <article class="single__contents" data-dir="ltr">
-    <div class="highlight"><div class="chroma">
+    <h1 id="dplyr-패키지-훑어보기">dplyr 패키지 훑어보기</h1>
+<div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
@@ -3138,10 +3139,19 @@
 </div>
 </div><h1 id="목차">목차</h1>
 <ol>
-<li>rowwise</li>
+<li>rowwise<br />
+1-1. pmax</li>
 </ol>
 <h3 id="데이터">데이터</h3>
-<div class="highlight"><div class="chroma">
+<div class="expand">
+  <button type="button" class="expand__button" aria-label="Expand Button">
+    <span class="expand-icon expand-icon__right">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M9.29 15.88L13.17 12 9.29 8.12c-.39-.39-.39-1.02 0-1.41.39-.39 1.02-.39 1.41 0l4.59 4.59c.39.39.39 1.02 0 1.41L10.7 17.3c-.39.39-1.02.39-1.41 0-.38-.39-.39-1.03 0-1.42z"/></svg>
+    </span>
+    data
+  </button>
+  <div class="expand__content">
+    <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
@@ -3158,14 +3168,25 @@
 </div><pre><code>## # A tibble: 5 x 3
 ##       x     y     z
 ##   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
-## 1     5     4     9
-## 2     4     8     8
-## 3     6     7     3
-## 4     5     0     4
-## 5     6     8     8
-</code></pre><h4 id="1-rowwise">1. rowwise()</h4>
-<p>행별로 최대값 구하기</p>
-<div class="highlight"><div class="chroma">
+## 1     4     2    14
+## 2     6     4     4
+## 3     6     0     2
+## 4     4    11    13
+## 5     5     4     6
+</code></pre>
+  </div>
+</div>
+<h4 id="1-rowwise">1. rowwise()</h4>
+<p>행별로 최대값 구하기<br />
+<div class="expand">
+  <button type="button" class="expand__button" aria-label="Expand Button">
+    <span class="expand-icon expand-icon__right">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M9.29 15.88L13.17 12 9.29 8.12c-.39-.39-.39-1.02 0-1.41.39-.39 1.02-.39 1.41 0l4.59 4.59c.39.39.39 1.02 0 1.41L10.7 17.3c-.39.39-1.02.39-1.41 0-.38-.39-.39-1.03 0-1.42z"/></svg>
+    </span>
+    rowwise 예시
+  </button>
+  <div class="expand__content">
+    <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
@@ -3183,11 +3204,11 @@
 ## # Rowwise: 
 ##       x     y     z   max
 ##   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
-## 1     5     4     9     9
-## 2     4     8     8     8
-## 3     6     7     3     7
-## 4     5     0     4     5
-## 5     6     8     8     8
+## 1     4     2    14    14
+## 2     6     4     4     6
+## 3     6     0     2     6
+## 4     4    11    13    13
+## 5     5     4     6     6
 </code></pre><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -3203,13 +3224,25 @@
 </div><pre><code>## # A tibble: 5 x 4
 ##       x     y     z   max
 ##   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
-## 1     5     4     9     9
-## 2     4     8     8     9
-## 3     6     7     3     9
-## 4     5     0     4     9
-## 5     6     8     8     9
-</code></pre><p>그런데 사실은 여기서 <code>rowwise</code>를 사용하지 않고 보다 간단하게 구할 수 있기도 하다.</p>
-<div class="highlight"><div class="chroma">
+## 1     4     2    14    14
+## 2     6     4     4    14
+## 3     6     0     2    14
+## 4     4    11    13    14
+## 5     5     4     6    14
+</code></pre>
+  </div>
+</div></p>
+<h4 id="1-1-pmax">1-1. pmax</h4>
+<p>그런데 사실은 여기서 <code>rowwise</code>를 사용하지 않고, <code>pmax</code>를 사용하면 보다 간단하게 구할 수 있기도 하다.<br />
+<div class="expand">
+  <button type="button" class="expand__button" aria-label="Expand Button">
+    <span class="expand-icon expand-icon__right">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M9.29 15.88L13.17 12 9.29 8.12c-.39-.39-.39-1.02 0-1.41.39-.39 1.02-.39 1.41 0l4.59 4.59c.39.39.39 1.02 0 1.41L10.7 17.3c-.39.39-1.02.39-1.41 0-.38-.39-.39-1.03 0-1.42z"/></svg>
+    </span>
+    pmax 예시
+  </button>
+  <div class="expand__content">
+    <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
@@ -3224,12 +3257,15 @@
 </div><pre><code>## # A tibble: 5 x 4
 ##       x     y     z   max
 ##   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
-## 1     5     4     9     9
-## 2     4     8     8     8
-## 3     6     7     3     7
-## 4     5     0     4     5
-## 5     6     8     8     8
+## 1     4     2    14    14
+## 2     6     4     4     6
+## 3     6     0     2     6
+## 4     4    11    13    13
+## 5     5     4     6     6
 </code></pre>
+  </div>
+</div></p>
+
   </article>
 </div>
       
@@ -3272,6 +3308,7 @@
         <li><a href="#데이터">데이터</a>
           <ul>
             <li><a href="#1-rowwise">1. rowwise()</a></li>
+            <li><a href="#1-1-pmax">1-1. pmax</a></li>
           </ul>
         </li>
       </ul>

@@ -4,6 +4,7 @@ logoType = "short" # long, short
 description = "The ZDoc theme for Hugo example site."
 
 themeOptions = ["light", "dark"]
+# custom_css = ["css/custom.css", "scss/custom.scss"] #https://zzo-docs.vercel.app/zzo/customization/customcss/ 참고하기
 
 useFaviconGenerator = true # https://www.favicon-generator.org/
 

@@ -17,15 +17,18 @@ library(tidyverse)
 1-1. pmax
 
 ### 데이터
+{{< expand "data" >}}
 ```{r data}
 tmp <- tibble(x=round(rnorm(n=5, mean=5, sd=1)),
        y=round(rnorm(n=5, mean=5, sd=3)),
        z=round(rnorm(n=5, mean=5, sd=5)))
 tmp
 ```
+{{< /expand >}}
 
 #### 1. rowwise()
 행별로 최대값 구하기
+{{< expand "rowwise 예시" >}}
 ```{r}
 #올바른 버전
 tmp %>%
@@ -36,12 +39,14 @@ tmp %>%
 tmp %>%
   mutate(max = max(x,y,z))
 ```
+{{< /expand >}}
 
 #### 1-1. pmax
-그런데 사실은 여기서 `rowwise`를 사용하지 않고 보다 간단하게 구할 수 있기도 하다.
+그런데 사실은 여기서 `rowwise`를 사용하지 않고, `pmax`를 사용하면 보다 간단하게 구할 수 있기도 하다.
+{{< expand "pmax 예시" >}}
 ```{r}
 #간단한 버전
 tmp %>% 
   mutate(max = pmax(x,y,z))
 ```
-
+{{< /expand >}}

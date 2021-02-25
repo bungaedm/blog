@@ -32,9 +32,10 @@ disableKinds = ["taxonomyTerm"]
     codeFences = true
     lineNos = true
     lineNumbersInTable = true
-    noClasses = false
-#    pygmentsCodeFences = true
-#    pygmentsStyle = "tango"
+    lineNoStart = 1
+    noClasses = false  # 이게 뭔가 핵심인거 같은데ㅠㅠ
+#    style = "fruity"
+
   [markup.tableOfContents]
     endLevel = 4
     ordered = false
