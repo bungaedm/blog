@@ -33,8 +33,8 @@ disableKinds = ["taxonomyTerm"]
     lineNos = true
     lineNumbersInTable = true
     lineNoStart = 1
-    noClasses = false  # 이게 뭔가 핵심인거 같은데ㅠㅠ
-#    style = "fruity"
+    noClasses = false  # 이거 건드리면 뭔가 이상해짐
+    style = "native"
 
   [markup.tableOfContents]
     endLevel = 4

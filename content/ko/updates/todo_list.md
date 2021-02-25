@@ -66,6 +66,9 @@ weight: 1
     7. LaTex 수식 리스트 (md와 RMD 구분하기)
     8. Netlify로 배포하기
     9. 블로그탭 바꾸기(static->favicon) [favicon 변환사이트](https://www.favicon-generator.org/)
+    10. 코드 결과물 글씨색깔 바꾸기 (assets / sass / themes / _lightcode.scss 중에서 content-code-in-pre-color 바꿔주기) (단, zdoc theme에 한정된 것일 수도!)
+    10-1. 위의 방법이 안된다면, config.toml 중 'markup.highlight'에 'style="fruity"'와 같은 style 추가하기 [style 참고사이트](https://xyproto.github.io/splash/docs/all.html)
+     
 <br>
 ---
 
