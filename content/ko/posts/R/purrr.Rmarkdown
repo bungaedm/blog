@@ -22,6 +22,7 @@ library(purrr)
 ---
 
 #### map, map2
+{{< expand "map, map2 예시" >}}
 ```{r}
 num <- c(1,2,4,5,7)
 num2 <- c(3,5,6,8,9)
@@ -34,10 +35,12 @@ map2(num, num2, sum)
 map_dbl(num, function(x){x^2})
 map2_dbl(num, num2, sum)
 ```
+{{< /expand >}}
 
 ---
 
 #### pmap, invoke_map
+{{< expand "pmap, invoke_map 예시" >}}
 ```{r}
 x <- list(3, 6, 9)
 y <- list(10, 21, 30)
@@ -49,10 +52,12 @@ pmap(list(x, y, z), sum)
 # invoke_map은 각각의 리스트에 다른 함수를 적용시키고 싶을 때 활용한다.
 invoke_map(list(runif, rnorm), list(list(n = 10), list(n = 5)))
 ```
+{{< /expand >}}
 
 ---
 
 #### rerun
+{{< expand "rerun 예시" >}}
 ```{r}
 # rerun은 샘플 데이터를 형성하는 데에 효율적인 방법이다.
 
@@ -73,6 +78,5 @@ for(i in 1:10){
 for(i in 1:10){
   print(a[[i]] == b[[i]])
 }
-
 ```
-
+{{< /expand >}}
