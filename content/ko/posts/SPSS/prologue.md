@@ -22,14 +22,14 @@ weight: 1
     - Shapiro-Wilk test(표본 50개 이하)
     - 모수적 접근 & 비모수적 접근
 5. 단일집단 평균
-    - 모수적 접근(t-test)
-    - 비모수적 접근(Kolmogorov-Smirnov test, Runs 검정)
+    - [모수적 접근(one sample t-test)](../posts/statistics/statistics/t_test/)
+    - [비모수적 접근(Kolmogorov-Smirnov test, Runs 검정)](../posts/statistics/statistics/nonparametric/)
 6. 독립 두 집단 평균
-    - 모수적 접근(t-test)
-    - 비모수적 접근(Mann-Whitney U-test, Wilcoxon rank-sum test, Kolmogorov-Smirnov test, 중앙값 검정)
+    - [모수적 접근(independent t-test)](../posts/statistics/statistics/t_test/)
+    - [비모수적 접근(Mann-Whitney U-test, Wilcoxon rank-sum test, Kolmogorov-Smirnov test, 중앙값 검정)](../posts/statistics/statistics/nonparametric/)
 7. 대응 두 집단 평균
-    - 모수적 접근(paires t-test)
-    - 비모수적 접근(sign test, Wilcoxon signed rank test)
+    - [모수적 접근(paired t-test)](../posts/statistics/statistics/t_test/)
+    - [비모수적 접근(sign test, Wilcoxon signed rank test)](../posts/statistics/statistics/nonparametric/)
 8. 독립 세 집단 이상 평균
     - 모수적 접근(ANOVA)
     - 비모수적 접근(Kruskal-Wallis test)
