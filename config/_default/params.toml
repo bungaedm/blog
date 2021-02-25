@@ -1,17 +1,16 @@
-logo = true
+logo = false
 logoText = "JW Blog"
 logoType = "short" # long, short
-description = "The ZDoc theme for Hugo example site."
+# description = "The ZDoc theme for Hugo example site."
 
 themeOptions = ["light", "dark"]
-# custom_css = ["css/custom.css", "scss/custom.scss"] #https://zzo-docs.vercel.app/zzo/customization/customcss/ 참고하기
 
 useFaviconGenerator = true # https://www.favicon-generator.org/
 
 wideViewAsDefault = true #아주 중요!
-enableWideBlogSwitch = true
-
+enableWideBlogSwitch = true #아주 중요!
 enableTocSwitch = true
+enableWhoami = true
 enableLandingBackground = true
 enableSearch = true
 enableSearchHighlight = true
@@ -19,7 +18,7 @@ enableLangChange = false
 enableDarkMode = true
 enableBreadcrumb = true
 enableBlogBreadcrumb = true
-enableEditBtn = false
+enableEditBtn = false #false
 enableToc = true
 enableMenu = true
 enableNavbar = true

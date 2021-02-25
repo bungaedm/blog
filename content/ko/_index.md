@@ -1,45 +1,28 @@
 ---
+title: JW Blog
 date: "2020-01-26T04:15:05+09:00"
 description: Hugo zzo, zdoc theme documentation home page
 draft: false
-footer:
-  contents:
-    align: left
-    applySinglePageCss: false
-    markdown: |
-      ## Jiwoo Son
-      Copyright © 2021. All rights reserved.
-  # sections:
-  # - links:
-  #   - link: https://gohugo.io/
-  #     title: Docs
-  #   - link: https://gohugo.io/
-  #     title: Learn
-  #   - link: https://gohugo.io/
-  #     title: Showcase
-  #   - link: https://gohugo.io/
-  #     title: Blog
-  #   title: General
-  # - links:
-  #   - link: https://gohugo.io/
-  #     title: GitHub
-  #   - link: https://gohugo.io/
-  #     title: Releases
-  #   - link: https://gohugo.io/
-  #     title: Spectrum
-  #   - link: https://gohugo.io/
-  #     title: Telemetry
-  #   title: resources
-  # - links:
-  #   - link: https://gohugo.io/
-  #     title: GitHub
-  #   - link: https://gohugo.io/
-  #     title: Releases
-  #   - link: https://gohugo.io/
-  #     title: Spectrum
-  #   - link: https://gohugo.io/
-  #     title: Telemetry
-  #   title: Features
+
+# landing:
+#   - type: typewriter
+#     methods:
+#       - typeString: Hello world!
+#       - pauseFor: 2500
+#       - deleteAll: true
+#       - typeString: Strings can be removed
+#       - pauseFor: 2500
+#       - deleteChars: 7
+#       - typeString: <strong>altered!</strong>
+#       - pauseFor: 2500
+#     options:
+#       loop: true
+#       autoStart: false
+#     height: 190
+#     paddingX: 50
+#     align: center
+#     fontSize: 44
+#     fontColor: yellow
     
 landing:
   # buttons:
@@ -50,7 +33,7 @@ landing:
   image: favicon/logo_small.png
   spaceBetweenTitleText: 5
   text:
-  - Yonsei University 
+  - Yonsei University
   textColor: null
   title:
   - Jiwoo Son
@@ -184,6 +167,44 @@ sections:
     title: Language Available
     width: 350
   type: card
+
+footer:
+  contents:
+    align: left
+    applySinglePageCss: false
+    markdown: |
+      ## Jiwoo Son
+      Copyright © 2021. All rights reserved.
+  # sections:
+  # - links:
+  #   - link: https://gohugo.io/
+  #     title: Docs
+  #   - link: https://gohugo.io/
+  #     title: Learn
+  #   - link: https://gohugo.io/
+  #     title: Showcase
+  #   - link: https://gohugo.io/
+  #     title: Blog
+  #   title: General
+  # - links:
+  #   - link: https://gohugo.io/
+  #     title: GitHub
+  #   - link: https://gohugo.io/
+  #     title: Releases
+  #   - link: https://gohugo.io/
+  #     title: Spectrum
+  #   - link: https://gohugo.io/
+  #     title: Telemetry
+  #   title: resources
+  # - links:
+  #   - link: https://gohugo.io/
+  #     title: GitHub
+  #   - link: https://gohugo.io/
+  #     title: Releases
+  #   - link: https://gohugo.io/
+  #     title: Spectrum
+  #   - link: https://gohugo.io/
+  #     title: Telemetry
+  #   title: Features
   
-title: JW Blog
 --- 
