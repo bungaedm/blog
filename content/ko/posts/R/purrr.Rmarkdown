@@ -19,6 +19,7 @@ library(purrr)
 2. pmap, invoke_map
 3. rerun
 4. every, some, none
+5. reduce, accumulate
 
 ---
 
@@ -98,5 +99,21 @@ y %>% every(is.numeric)
 y %>% every(is.integer)
 y %>% some(is.integer)
 y %>% none(is.character)
+```
+{{</expand>}}
+
+#### reduce, accumulate
+함수를 재귀적으로(recursively) 적용시키는 효율적인 방법이다.
+{{<expand "reduce, accumulate 예시">}}
+```{r}
+#1. reduce:
+reduce(1:10, sum)
+
+#2. accumulate
+accumulate(1:10, sum)
+
+#reduce 응용 버전
+paste2 <- function(x, y, sep = ".") paste(x, y, sep = sep)
+letters[1:4] %>% reduce(paste2)
 ```
 {{</expand>}}
