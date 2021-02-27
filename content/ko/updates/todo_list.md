@@ -43,6 +43,7 @@ weight: 1
     1. 분포 간 관계도 정리
     2. mgf(moment generating function)
     2-1. 테일러급수
+    3. normal sampling theory 증명
 
 ### Updates 
 1. 주식 
