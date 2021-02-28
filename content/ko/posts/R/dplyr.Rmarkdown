@@ -10,19 +10,25 @@ weight: 2
 # dplyr 패키지 훑어보기
 ```{r warning=FALSE, message=FALSE}
 library(tidyverse)
+library(MASS)
 ```
 
 # 목차
 1. rowwise
 1-1. pmax
+2. slice
+3. relocate
 
 ### 데이터
-{{< expand "data" >}}
-```{r data}
+{{< expand "data1: tmp" >}}
+```{r tmp & survey}
 tmp <- tibble(x=round(rnorm(n=5, mean=5, sd=1)),
        y=round(rnorm(n=5, mean=5, sd=3)),
        z=round(rnorm(n=5, mean=5, sd=5)))
 tmp
+
+data(survey)
+glimpse(survey)
 ```
 {{< /expand >}}
 
@@ -50,3 +56,41 @@ tmp %>%
   mutate(max = pmax(x,y,z))
 ```
 {{< /expand >}}
+
+#### 2. slice()
+행 선택
+{{<expand "slice 예시">}}
+```{r}
+# choose 10 rows with smallest 10 pulse values.
+survey %>%
+  slice_min(Pulse, n = 10)
+# choose 10 columns with greatest 10 pulses values.
+survey %>%
+  slice_max(Pulse, n = 10)
+# randomly select 10 rows.
+survey %>%
+  slice_sample(n = 10)
+# randomly select 10% of the data observations.
+survey %>%
+  slice_sample(prop = .05)
+```
+{{</expand>}}
+
+#### 3. relocate()
+relocate: changes the order of the columns.
+{{<expand "relocate 예시">}}
+```{r}
+# move columns with factor variables to the front
+survey %>%
+  relocate(where(is.factor)) %>% colnames()
+# move Pulse before Height
+survey %>%
+  relocate(Pulse, .before = Height) %>% colnames()
+# move Pulse to the end
+survey %>%
+  relocate(Pulse, .after = last_col()) %>% colnames()
+```
+{{</expand>}}
+
+###### 참고
+[1] slice와 relocate 예시는 slack `슬기로운통계생활`을 참고하였습니다.
