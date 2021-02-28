@@ -1,0 +1,35 @@
+---
+collapsible: false
+date: "2021-02-28T10:08:56+09:00"
+description: null
+draft: false
+title: tidyr
+weight: 2
+---
+
+# tidyr 패키지 훑어보기
+tidyr은 tidy data를 형성하기 위해 고안된 패키지입니다. tidy data에서 1) 열은 변수를 의미하고, 2) 행은 하나의 케이스를 의미하며, 3) 하나의 셀은 하나의 값을 의미합니다.
+
+```{r, message=FALSE, warning=FALSE}
+library(tidyverse)
+```
+{{< img src="/images/posts/r/tidyr/tidyr.png" width="250px" position="center" >}}
+
+## 목차
+1. nest
+
+#### nest
+예시를 통해, 단순히 group_by를 하는 것과 group_by 이후 nest를 한 후에 어떻게 데이터가 정리되는지 확인해보자.
+{{<expand "nest 예시">}}
+```{r}
+iris %>%
+  group_by(Species)
+
+iris %>%
+  group_by(Species) %>%
+  nest()
+```
+{{</expand>}}
+
+###### 참고
+[1] https://gomguard.tistory.com/229
