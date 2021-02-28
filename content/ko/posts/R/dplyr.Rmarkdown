@@ -20,7 +20,7 @@ library(MASS)
 3. relocate
 
 ### 데이터
-{{< expand "data1: tmp" >}}
+{{< expand "data" >}}
 ```{r tmp & survey}
 tmp <- tibble(x=round(rnorm(n=5, mean=5, sd=1)),
        y=round(rnorm(n=5, mean=5, sd=3)),

@@ -11,9 +11,9 @@ weight: 2
 purrr는 R에서 깔끔하게 반복 작업 처리하는 패키지입니다. Purrr 을 이용하면 반복작업을 Apply family 에 비해 더욱 직관적이고 쉽게 할 수 있습니다. purrr는 고양이 울음소리와 R의 합성어로, 로고는 아래와 같습니다.
 
 ```r
-library(purrr)
+library(tidyverse)
 ```
-![purrr logo](images/posts/r/purrr.jpg)
+![purrr logo](images/posts/r/purrr/purrr.jpg)
 
 ## 목차
 1. map, map2
@@ -91,6 +91,39 @@ map2_dbl(num, num2, sum)
 ```
 {{< /expand >}}
 
+{{<expand "map 실전활용- iris data">}}
+
+```r
+n_iris <- iris %>%
+  group_by(Species) %>%
+  nest()
+
+mod_fun <- function(df){
+  lm(Sepal.Length ~ ., data = df)
+  }
+  
+m_iris <- n_iris %>%
+  mutate(model = map(data, mod_fun))
+
+b_fun <- function(mod){
+  coefficients(mod)[[1]]
+}
+
+m_iris %>% transmute(Species, beta = map_dbl(model, b_fun))
+```
+
+```
+## # A tibble: 3 x 2
+## # Groups:   Species [3]
+##   Species     beta
+##   <fct>      <dbl>
+## 1 setosa     2.35 
+## 2 versicolor 1.90 
+## 3 virginica  0.700
+```
+{{</expand>}}
+![map](images/posts/r/purrr/map_example.PNG)
+
 ---
 
 #### pmap, invoke_map
@@ -123,11 +156,11 @@ invoke_map(list(runif, rnorm), list(list(n = 10), list(n = 5)))
 
 ```
 ## [[1]]
-##  [1] 0.82179405 0.70784132 0.40978492 0.27620854 0.87074035 0.37980786
-##  [7] 0.55595557 0.36283085 0.84422884 0.06306048
+##  [1] 0.07250356 0.88643385 0.53457501 0.45493290 0.95970419 0.57638199
+##  [7] 0.62800763 0.63266467 0.64451000 0.77471082
 ## 
 ## [[2]]
-## [1]  0.1244243 -1.4416397  0.7895214 -0.2616793  0.7750155
+## [1]  0.1348207 -0.5144428 -0.8763132  0.8955774  0.3386345
 ```
 {{< /expand >}}
 

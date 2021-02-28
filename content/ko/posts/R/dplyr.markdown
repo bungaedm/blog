@@ -21,7 +21,7 @@ library(MASS)
 3. relocate
 
 ### 데이터
-{{< expand "data1: tmp" >}}
+{{< expand "data" >}}
 
 ```r
 tmp <- tibble(x=round(rnorm(n=5, mean=5, sd=1)),
@@ -34,11 +34,11 @@ tmp
 ## # A tibble: 5 x 3
 ##       x     y     z
 ##   <dbl> <dbl> <dbl>
-## 1     5     3     4
-## 2     5     6    14
-## 3     5     2     6
-## 4     5     6     2
-## 5     5     4     9
+## 1     5     9     8
+## 2     3     4     2
+## 3     5     4     7
+## 4     3     3     7
+## 5     5     7     0
 ```
 
 ```r
@@ -80,11 +80,11 @@ tmp %>%
 ## # Rowwise: 
 ##       x     y     z   max
 ##   <dbl> <dbl> <dbl> <dbl>
-## 1     5     3     4     5
-## 2     5     6    14    14
-## 3     5     2     6     6
-## 4     5     6     2     6
-## 5     5     4     9     9
+## 1     5     9     8     9
+## 2     3     4     2     4
+## 3     5     4     7     7
+## 4     3     3     7     7
+## 5     5     7     0     7
 ```
 
 ```r
@@ -97,11 +97,11 @@ tmp %>%
 ## # A tibble: 5 x 4
 ##       x     y     z   max
 ##   <dbl> <dbl> <dbl> <dbl>
-## 1     5     3     4    14
-## 2     5     6    14    14
-## 3     5     2     6    14
-## 4     5     6     2    14
-## 5     5     4     9    14
+## 1     5     9     8     9
+## 2     3     4     2     9
+## 3     5     4     7     9
+## 4     3     3     7     9
+## 5     5     7     0     9
 ```
 {{< /expand >}}
 
@@ -119,11 +119,11 @@ tmp %>%
 ## # A tibble: 5 x 4
 ##       x     y     z   max
 ##   <dbl> <dbl> <dbl> <dbl>
-## 1     5     3     4     5
-## 2     5     6    14    14
-## 3     5     2     6     6
-## 4     5     6     2     6
-## 5     5     4     9     9
+## 1     5     9     8     9
+## 2     3     4     2     4
+## 3     5     4     7     7
+## 4     3     3     7     7
+## 5     5     7     0     7
 ```
 {{< /expand >}}
 
@@ -211,27 +211,27 @@ survey %>%
 
 ```
 ##       Sex Wr.Hnd NW.Hnd W.Hnd    Fold Pulse    Clap Exer Smoke Height      M.I
-## 1    Male   16.0   15.5 Right Neither    71   Right Freq Never 154.94 Imperial
-## 2  Female   18.0   18.0 Right  L on R    89 Neither Freq Never 157.00   Metric
-## 3  Female   16.2   16.4 Right  R on L    NA   Right Freq Occas 172.00   Metric
-## 4  Female   16.9   16.0 Right  L on R    70   Right None Never 158.00   Metric
-## 5  Female   18.2   18.0 Right  L on R    70   Right Some Never 162.56 Imperial
-## 6  Female   18.0   17.5 Right  L on R    64    Left Freq Never 170.00   Metric
-## 7  Female   17.0   16.5 Right  R on L    70   Right Some Never 162.56 Imperial
-## 8    Male   23.2   23.3 Right  L on R    NA   Right None Heavy 171.00   Metric
-## 9  Female   16.3   16.2 Right  L on R    92   Right Some Regul 152.40 Imperial
-## 10 Female   13.0   13.0  <NA>  L on R    70    Left Freq Never 180.34 Imperial
+## 1    Male   20.5   20.5 Right Neither    76   Right Freq Regul 172.72 Imperial
+## 2  Female   18.2   18.0 Right  L on R    70   Right Some Never 162.56 Imperial
+## 3    Male   18.5   18.5 Right  R on L    65   Right None Never 165.00   Metric
+## 4    Male   20.6   21.0  Left  L on R    NA    Left Freq Occas 175.26 Imperial
+## 5    Male   16.0   15.5 Right  R on L    60   Right Some Never     NA     <NA>
+## 6    Male     NA     NA Right  R on L    60    <NA> Some Never 172.00   Metric
+## 7  Female   13.0   13.0  <NA>  L on R    70    Left Freq Never 180.34 Imperial
+## 8  Female   20.5   20.5 Right  R on L    NA    Left Freq Regul     NA     <NA>
+## 9  Female   15.5   15.4 Right  R on L    70 Neither None Never 157.48 Imperial
+## 10   Male   21.0   21.5 Right  R on L    90   Right Some Never 183.00   Metric
 ##       Age
-## 1  17.167
-## 2  19.333
-## 3  17.000
-## 4  20.500
-## 5  18.000
-## 6  17.583
-## 7  17.167
-## 8  20.917
-## 9  23.500
-## 10 17.417
+## 1  36.583
+## 2  18.000
+## 3  18.500
+## 4  18.417
+## 5  17.167
+## 6  28.583
+## 7  17.417
+## 8  19.250
+## 9  17.167
+## 10 17.167
 ```
 
 ```r
@@ -241,30 +241,30 @@ survey %>%
 ```
 
 ```
-##       Sex Wr.Hnd NW.Hnd W.Hnd    Fold Pulse    Clap Exer Smoke Height    M.I
-## 1    Male   18.5   18.5 Right Neither    90 Neither Some Never     NA   <NA>
-## 2  Female   17.6   17.2 Right  L on R    NA   Right Some Never     NA   <NA>
-## 3    Male   18.5   18.0 Right Neither    63 Neither Freq Never  196.0 Metric
-## 4    Male   20.5   21.0 Right  R on L    60   Right Freq Never  185.0 Metric
-## 5    Male   18.5   18.5 Right  L on R    NA Neither Freq Never  171.0 Metric
-## 6    Male   18.8   19.1 Right  L on R    66 Neither Freq Regul  178.5 Metric
-## 7    Male   18.5   19.0 Right  L on R    70    Left Freq Never  170.0 Metric
-## 8  Female   17.5   17.5 Right  R on L    98    Left Freq Never     NA   <NA>
-## 9    Male   22.5   22.5 Right  R on L    65   Right Freq Regul  182.0 Metric
-## 10   Male   19.5   19.7 Right  R on L    72   Right Freq Never     NA   <NA>
-## 11   Male   14.0   15.5 Right  L on R    NA Neither Freq Heavy     NA   <NA>
+##       Sex Wr.Hnd NW.Hnd W.Hnd   Fold Pulse    Clap Exer Smoke Height      M.I
+## 1  Female   17.0   16.7 Right R on L    70   Right Some Never 159.00   Metric
+## 2    Male   21.0   19.5 Right L on R    80    Left None  <NA>     NA     <NA>
+## 3  Female   18.0   17.7  Left R on L    92    Left Some Never     NA     <NA>
+## 4    Male   22.8   23.2 Right R on L    66 Neither Freq Never 187.00   Metric
+## 5  Female   17.5   17.1 Right R on L    80    Left None Never 167.00   Metric
+## 6  Female   19.0   18.8 Right L on R    NA   Right Some Never     NA     <NA>
+## 7    Male   22.2   21.0 Right L on R    66   Right Freq Occas 190.00   Metric
+## 8  Female   20.8   20.7 Right R on L    NA Neither Freq Never 171.50   Metric
+## 9  Female   18.2   18.0 Right L on R    70   Right Some Never 162.56 Imperial
+## 10 Female   18.6   18.6 Right L on R    74   Right Some Never 160.00   Metric
+## 11   Male   21.0   20.9 Right R on L    78   Right Freq Never 177.00   Metric
 ##       Age
-## 1  17.583
-## 2  19.917
-## 3  20.083
-## 4  17.917
-## 5  18.333
-## 6  18.083
-## 7  23.833
-## 8  17.667
-## 9  20.000
-## 10 17.417
-## 11 21.083
+## 1  22.917
+## 2  18.333
+## 3  17.583
+## 4  20.333
+## 5  18.417
+## 6  17.083
+## 7  18.000
+## 8  18.500
+## 9  18.000
+## 10 17.167
+## 11 17.917
 ```
 {{</expand>}}
 
