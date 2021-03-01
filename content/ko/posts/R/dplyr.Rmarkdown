@@ -18,6 +18,7 @@ library(MASS)
 1-1. pmax
 2. slice
 3. relocate
+4. lag, lead
 
 ### 데이터
 {{< expand "data" >}}
@@ -89,6 +90,18 @@ survey %>%
 # move Pulse to the end
 survey %>%
   relocate(Pulse, .after = last_col()) %>% colnames()
+```
+{{</expand>}}
+
+#### 4. lag(), lead()
+{{<expand "lag, lead 예시">}}
+```{r}
+lag(1:5)
+lag(1:5, n = 2)
+lag(1:5, default = 0)
+
+lead(1:5)
+lead(1:5, default = 6)
 ```
 {{</expand>}}
 
