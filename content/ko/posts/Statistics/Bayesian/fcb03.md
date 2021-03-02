@@ -34,7 +34,7 @@ prior와 posterior의 확률분포형태가 같을 수 있도록 prior을 설정
 위의 예시 외에도 Normal model 등이 있는데, 이들에 대해서는 다음에 이어서 살펴보도록 하겠다.
 
 ### Conclusion
-<p style='text-align: center'> Conjugacy를 잘 알아두자. </p>
+<p style='text-align: center'> Conjugacy를 잘 알아두자. </p> 
 
 ---
 <br> 
