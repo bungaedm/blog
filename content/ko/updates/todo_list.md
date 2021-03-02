@@ -20,12 +20,15 @@ weight: 1
 
 2. R 다양한 기능들 정리
     1. dpylr: group_by, summarise, mutate, select, filter
-    2. ggplot2
-    3. plotly
-    4. highcharter
-    5. mice: NA imputation
-    6. visNetwork(visNodes, visEdges)
-    7. apriori(연관성분석, 장바구니분석)
+    2. 시각화
+    2-1. ggplot2
+    2-2. plotly
+    2-3. [highcharter](https://jkunst.com/highcharter/)
+    2-4. [g2r](https://g2r.opifex.org/articles/get-started.html)
+    3. shiny
+    4. mice: NA imputation
+    5. visNetwork(visNodes, visEdges)
+    6. apriori(연관성분석, 장바구니분석)
 
 3. SPSS
     1. 기술통계(데이터 유형, 분포의 이해)
