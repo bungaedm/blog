@@ -105,5 +105,17 @@ lead(1:5, default = 6)
 ```
 {{</expand>}}
 
+#### 5. between(), near()
+{{<expand "between, near 예시">}}
+```{r}
+# between: >=, <= 조건을 한번에 사용하기
+between(1:12, 7, 9)
+
+# near: ==의 안전한 버전(특히 소수점 계산시)
+sqrt(2) ^ 2 == 2
+near(sqrt(2) ^ 2, 2)
+```
+{{</expand>}}
+
 ###### 참고
 [1] slice와 relocate 예시는 slack `슬기로운통계생활`을 참고하였습니다.

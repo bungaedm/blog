@@ -35,11 +35,11 @@ tmp
 ## # A tibble: 5 x 3
 ##       x     y     z
 ##   <dbl> <dbl> <dbl>
-## 1     6     3    -5
-## 2     4     4     4
-## 3     6     3     4
-## 4     6     4     7
-## 5     5     3     5
+## 1     5     4     3
+## 2     5     3    10
+## 3     4     0    -1
+## 4     5     6     8
+## 5     4     1     4
 ```
 
 ```r
@@ -81,11 +81,11 @@ tmp %>%
 ## # Rowwise: 
 ##       x     y     z   max
 ##   <dbl> <dbl> <dbl> <dbl>
-## 1     6     3    -5     6
-## 2     4     4     4     4
-## 3     6     3     4     6
-## 4     6     4     7     7
-## 5     5     3     5     5
+## 1     5     4     3     5
+## 2     5     3    10    10
+## 3     4     0    -1     4
+## 4     5     6     8     8
+## 5     4     1     4     4
 ```
 
 ```r
@@ -98,11 +98,11 @@ tmp %>%
 ## # A tibble: 5 x 4
 ##       x     y     z   max
 ##   <dbl> <dbl> <dbl> <dbl>
-## 1     6     3    -5     7
-## 2     4     4     4     7
-## 3     6     3     4     7
-## 4     6     4     7     7
-## 5     5     3     5     7
+## 1     5     4     3    10
+## 2     5     3    10    10
+## 3     4     0    -1    10
+## 4     5     6     8    10
+## 5     4     1     4    10
 ```
 {{< /expand >}}
 
@@ -120,11 +120,11 @@ tmp %>%
 ## # A tibble: 5 x 4
 ##       x     y     z   max
 ##   <dbl> <dbl> <dbl> <dbl>
-## 1     6     3    -5     6
-## 2     4     4     4     4
-## 3     6     3     4     6
-## 4     6     4     7     7
-## 5     5     3     5     5
+## 1     5     4     3     5
+## 2     5     3    10    10
+## 3     4     0    -1     4
+## 4     5     6     8     8
+## 5     4     1     4     4
 ```
 {{< /expand >}}
 
@@ -211,28 +211,28 @@ survey %>%
 ```
 
 ```
-##       Sex Wr.Hnd NW.Hnd W.Hnd    Fold Pulse    Clap Exer Smoke Height      M.I
-## 1  Female   15.5   15.5 Right Neither    50   Right Some Regul     NA     <NA>
-## 2  Female   19.0   18.5  Left  L on R   104    Left Freq Never 170.00   Metric
-## 3    Male   18.1   18.2  Left Neither    NA   Right Some Never 168.00   Metric
-## 4    Male   18.0   13.3 Right  L on R    87 Neither None Occas     NA     <NA>
-## 5  Female   17.0   16.5 Right  R on L    70   Right Some Never 162.56 Imperial
-## 6  Female   18.0   18.0 Right  L on R    92 Neither Freq Never 165.00   Metric
-## 7  Female   16.0   15.5 Right  L on R    60    Left Freq Never 162.56 Imperial
-## 8  Female   17.0   17.4 Right  R on L    NA Neither Some Never     NA     <NA>
-## 9    Male   22.0   22.0 Right  L on R    72   Right Freq Never 182.88 Imperial
-## 10 Female   19.0   18.8 Right  R on L    65   Right Freq Never 172.72 Imperial
+##       Sex Wr.Hnd NW.Hnd W.Hnd    Fold Pulse    Clap Exer Smoke Height    M.I
+## 1    Male   18.5   18.5 Right  R on L    90   Right Some Never    167 Metric
+## 2    Male   18.5   18.0 Right Neither    63 Neither Freq Never    196 Metric
+## 3  Female   18.5   18.0 Right  R on L    64   Right Freq Never     NA   <NA>
+## 4  Female   17.5   17.0 Right  R on L    83 Neither Freq Occas    168 Metric
+## 5  Female   17.0   17.4 Right  R on L    NA Neither Some Never     NA   <NA>
+## 6  Female   17.0   16.6 Right  R on L    68   Right Some Never    171 Metric
+## 7  Female   19.5   18.5 Right  R on L    80   Right Some Never    170 Metric
+## 8    Male   20.0   20.0 Right Neither    35   Right Some Never    165 Metric
+## 9  Female   17.0   17.5 Right  R on L    64    Left Some Never     NA   <NA>
+## 10   Male   20.5   20.0 Right  R on L    75    Left Some Never    183 Metric
 ##       Age
-## 1  18.500
-## 2  17.250
-## 3  21.167
-## 4  16.917
+## 1  22.333
+## 2  20.083
+## 3  16.917
+## 4  17.083
 ## 5  17.167
-## 6  20.000
-## 7  17.417
-## 8  17.167
-## 9  19.333
-## 10 17.250
+## 6  17.667
+## 7  18.250
+## 8  23.667
+## 9  19.167
+## 10 19.667
 ```
 
 ```r
@@ -242,29 +242,29 @@ survey %>%
 ```
 
 ```
-##       Sex Wr.Hnd NW.Hnd W.Hnd   Fold Pulse    Clap Exer Smoke Height      M.I
-## 1    Male   17.5   17.5 Right L on R    64 Neither Freq Never 180.00   Metric
-## 2  Female   17.5   17.5 Right R on L    60   Right Freq Never 166.50   Metric
-## 3  Female   18.9   19.2 Right L on R    74   Right Some Never 167.64 Imperial
-## 4    Male   17.0   18.0 Right L on R    78    Left Some Never 170.18 Imperial
-## 5    Male   18.5   19.0 Right L on R    70    Left Freq Never 170.00   Metric
-## 6    Male   22.0   21.5 Right R on L    86   Right Freq Never 187.96 Imperial
-## 7  Female   19.0   18.5  Left L on R   104    Left Freq Never 170.00   Metric
-## 8    Male   18.5   18.0 Right L on R    64   Right Freq Never 180.34 Imperial
-## 9    Male   17.5   17.6 Right R on L    84   Right Some Never 160.00   Metric
-## 10   Male   20.5   20.5 Right L on R    NA    Left Some Never 190.50 Imperial
-## 11 Female   17.5   16.0 Right L on R    NA   Right Some Never 169.00   Metric
+##       Sex Wr.Hnd NW.Hnd W.Hnd    Fold Pulse    Clap Exer Smoke Height      M.I
+## 1    Male   18.5   18.0 Right  L on R    64   Right Freq Never 180.34 Imperial
+## 2    Male   17.0   18.0 Right  L on R    78    Left Some Never 170.18 Imperial
+## 3  Female   18.5   18.5 Right  R on L    76    Left Freq Never 175.00   Metric
+## 4    Male   21.9   22.2 Right  R on L    NA   Right Some Never 187.00   Metric
+## 5    Male   19.8   20.0  Left  L on R    59   Right Freq Never 180.00   Metric
+## 6  Female   17.0   17.3 Right  R on L    74   Right Freq Never 157.00   Metric
+## 7    Male   20.8   21.4 Right  R on L    62 Neither Freq Never 175.26 Imperial
+## 8    Male   19.1   19.1 Right Neither    NA   Right Some Never 177.00   Metric
+## 9  Female   17.5   17.0 Right  R on L    83 Neither Freq Occas 168.00   Metric
+## 10 Female   17.0   17.6 Right  L on R    76   Right Some Never 165.00   Metric
+## 11   Male   18.8   18.2 Right  L on R    78   Right Freq Never 180.00   Metric
 ##       Age
-## 1  18.583
-## 2  23.250
-## 3  44.250
-## 4  18.333
-## 5  23.833
-## 6  20.000
-## 7  17.250
-## 8  17.833
-## 9  18.583
-## 10 19.750
+## 1  17.833
+## 2  18.333
+## 3  24.167
+## 4  18.917
+## 5  17.417
+## 6  35.833
+## 7  18.083
+## 8  19.917
+## 9  17.083
+## 10 23.583
 ## 11 17.500
 ```
 {{</expand>}}
@@ -348,6 +348,36 @@ lead(1:5, default = 6)
 
 ```
 ## [1] 2 3 4 5 6
+```
+{{</expand>}}
+
+#### 5. between(), near()
+{{<expand "between, near 예시">}}
+
+```r
+# between: >=, <= 조건을 한번에 사용하기
+between(1:12, 7, 9)
+```
+
+```
+##  [1] FALSE FALSE FALSE FALSE FALSE FALSE  TRUE  TRUE  TRUE FALSE FALSE FALSE
+```
+
+```r
+# near: ==의 안전한 버전(특히 소수점 계산시)
+sqrt(2) ^ 2 == 2
+```
+
+```
+## [1] FALSE
+```
+
+```r
+near(sqrt(2) ^ 2, 2)
+```
+
+```
+## [1] TRUE
 ```
 {{</expand>}}
 
