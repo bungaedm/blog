@@ -59,14 +59,12 @@ Belief functions and Probabilities$Be()$는 belief function이라고 하자. �
         
         <guid>https://jiwooblog.netlify.app/posts/statistics/bayesian/fcb03/</guid>
         <description>Chapter 03. One-parameter Models 본 포스팅은 First Course in Bayesian Statistical Methods를 참고하였다.
-Binomial Model 이항분포:
-Prior: Likelihood:
-Posterior:
-Poisson Model 포아송분포:
-Prior:
-Likelihood:
-Posterior:
-Exponential Family Conjugate Prior Conclusion Conjugacy를 잘 알아두자. 혹시 궁금한 점이나 잘못된 내용이 있다면, 댓글로 알려주시면 적극 반영하도록 하겠습니다. </description>
+Binomial Model Prior: $\theta \text{ ~ } beta(a,b)$
+Likelihood: $Y|\theta \text{ ~ } binomial(n, \theta) $
+Posterior: $\theta|y \text{ ~ } beta(a+y, b+n-y) $
+$ E[\theta|y] = \frac{a+y}{a+b+n} = \frac{n}{a+b+n}\times\frac{y}{n} + \frac{a+b}{a+b+n}\times\frac{a}{a+b} $ where $\frac{y}{n}$ = sample mean, $\frac{a}{a+b}$ = prior expectation
+Poisson Model Prior: $\theta \text{ ~ } gamma(a,b) $
+Likelihood: $Y_1, ..., Y_n \text{ ~ iid.</description>
       </item>
       
       <item>

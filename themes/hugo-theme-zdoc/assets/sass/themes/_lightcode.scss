@@ -1,6 +1,6 @@
-$lightcode: (
+/* $lightcode: (
   content-code-color: #344952,
-  content-code-in-pre-color: #b56102, /* 원래는 #607d8b */
+  content-code-in-pre-color: #b56102, 
   content-code-background-color: #ffe56433,
   content-pre-color: #344952,
   content-pre-number-color: #aaa,
@@ -8,4 +8,16 @@ $lightcode: (
   content-pre-border-background-color: rgba(12, 13, 14, 0.1),
   content-pre-header-background-color: #e2e6e9,
   content-pre-header-color: #344952,
+); */ /* content-code-in-pre-color: 원래는 #607d8b */
+
+$lightcode: (
+  content-code-color: #f48fb1,
+  content-code-in-pre-color: #b29762, /* 원래는 #fcfcfa*/
+  content-code-background-color: #ffe56433,
+  content-pre-color: #eee,
+  content-pre-number-color: #666,
+  content-pre-background-color: #222222,
+  content-pre-border-background-color: rgba(243, 242, 241, 0.1),
+  content-pre-header-background-color: #262838,
+  content-pre-header-color: #FCFCFA,
 );

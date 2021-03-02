@@ -1114,7 +1114,7 @@
     "datePublished": "2021-02-21T10:08:56+09:00",
     "dateModified": "2021-02-21T10:08:56+09:00",
     "url" : "https://jiwooblog.netlify.app/posts/statistics/statistics/probability_distribution/",
-    "description": "확률분포(Probability Distribution) 출처: https://artificialnetworkforstarters.readthedocs.io/en/latest/_post/chap6.html \r연속형  정규 분포 T-분포 감마 분포 베타 분포 카이제곱 분포 F- …",
+    "description": "확률분포(Probability Distribution) 출처: https://artificialnetworkforstarters.readthedocs.io/en/latest/_post/chap6.html  --\r연속형  정규 분포 T-분포 감마 분포 베타 분포 카이제곱 분포 F- …",
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "https://jiwooblog.netlify.app/"
@@ -1410,6 +1410,14 @@
         
         <li>
           <a href="https://jiwooblog.netlify.app/posts/r/na_imputation/" class="menu__title " data-depth="0">NA Imputation</a>
+        </li>
+      
+    
+      
+        
+        
+        <li>
+          <a href="https://jiwooblog.netlify.app/posts/r/tidyr/" class="menu__title " data-depth="0">tidyr</a>
         </li>
       
     
@@ -2595,6 +2603,14 @@
         
         
         <li>
+          <a href="https://jiwooblog.netlify.app/posts/r/tidyr/" class="menu__title " data-depth="0">tidyr</a>
+        </li>
+      
+    
+      
+        
+        
+        <li>
           <a href="https://jiwooblog.netlify.app/posts/r/dplyr/" class="menu__title " data-depth="0">dplyr</a>
         </li>
       
@@ -3141,8 +3157,8 @@
 <p><p class="md__image">
   <img src="/images/posts/statistics/prob_dist_relation.png" alt="확률분포 관계도"  />
 </p></p>
-<div style="text-align: center"> 출처: https://artificialnetworkforstarters.readthedocs.io/en/latest/_post/chap6.html </div>
-<h3 id="연속형">연속형</h3>
+<!-- <div style="text-align: center"> 출처: https://artificialnetworkforstarters.readthedocs.io/en/latest/_post/chap6.html </div> -->
+<h5 id="연속형">연속형</h5>
 <ul>
 <li>정규 분포</li>
 <li>T-분포</li>
@@ -3150,34 +3166,171 @@
 <li>베타 분포</li>
 <li>카이제곱 분포</li>
 <li>F-분포</li>
-<li>균일 분포</li>
+<li>균일 분포<br />
+&hellip;</li>
 </ul>
-<h3 id="이산형">이산형</h3>
+<h5 id="이산형">이산형</h5>
 <ul>
 <li>이항 분포</li>
 <li>베르누이 분포</li>
 <li>포아송 분포</li>
 <li>기하 분포</li>
 <li>음이항 분포</li>
-<li>초기하 분포</li>
+<li>초기하 분포<br />
+&hellip;</li>
 </ul>
 <hr />
 <h4 id="정규-분포normal-distribution">정규 분포(Normal Distribution)</h4>
-<p>$$ \text{X~} N(\mu, \sigma^2) \rightarrow f(x) = \frac{1}{\sqrt{2\pi\sigma^2}} \exp(-\frac{(x-\mu)}{2\sigma^2}^2) $$</p>
-<p>$$ E(X) = \mu, Var(X) = \sigma^2$$</p>
+<div class="expand">
+  <button type="button" class="expand__button" aria-label="Expand Button">
+    <span class="expand-icon expand-icon__right">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M9.29 15.88L13.17 12 9.29 8.12c-.39-.39-.39-1.02 0-1.41.39-.39 1.02-.39 1.41 0l4.59 4.59c.39.39.39 1.02 0 1.41L10.7 17.3c-.39.39-1.02.39-1.41 0-.38-.39-.39-1.03 0-1.42z"/></svg>
+    </span>
+    정규분포
+  </button>
+  <div class="expand__content">
+    $$ \text{X~} N(\mu, \sigma^2) \rightarrow f(x) = \frac{1}{\sqrt{2\pi\sigma^2}} \exp(-\frac{(x-\mu)}{2\sigma^2}^2) $$<br />
+$$ E(X) = \mu, Var(X) = \sigma^2$$
+  </div>
+</div>
 <h4 id="다변수-정규분포multivariate-normal-distribution">다변수 정규분포(Multivariate Normal Distribution)</h4>
 <p><a href="/posts/statistics/statistics/mvn/" target="_blank">관련 포스팅</a> 참고</p>
 <h4 id="t-분포students-t-distribution">T-분포(Student&rsquo;s t-Distribution)</h4>
-<p>$$ \text{X~} t(n) \rightarrow f(x) = \frac{\Gamma(\frac{n+1}{2})}{\Gamma(\frac{n}{2})\cdot\sqrt{\pi n}}(\frac{n}{x^2+n})^\frac{n+1}{2} \ \text{ for } -\infty&lt;x&lt;\infty$$</p>
-<p>$$ T = \frac{Z}{\sqrt{\frac{V}{\nu}}} \text{~ } t(df)$$<br />
+<div class="expand">
+  <button type="button" class="expand__button" aria-label="Expand Button">
+    <span class="expand-icon expand-icon__right">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M9.29 15.88L13.17 12 9.29 8.12c-.39-.39-.39-1.02 0-1.41.39-.39 1.02-.39 1.41 0l4.59 4.59c.39.39.39 1.02 0 1.41L10.7 17.3c-.39.39-1.02.39-1.41 0-.38-.39-.39-1.03 0-1.42z"/></svg>
+    </span>
+    T-분포
+  </button>
+  <div class="expand__content">
+    <p>$$ \text{X~} t(n) \rightarrow f(x) = \frac{\Gamma(\frac{n+1}{2})}{\Gamma(\frac{n}{2})\cdot\sqrt{\pi n}}(\frac{n}{x^2+n})^\frac{n+1}{2} \ \text{ for } -\infty&lt;x&lt;\infty$$<br />
+$$ E(X) = 0, Var(X) = \frac{n}{n-2} $$</p>
+<p>T분포는 기본적으로 통계검정을 하기 위해서 작위적으로 고안된 분포이다.<br />
+T분포의 탄생 과정은 아래와 같다.<br />
+$$ T = \frac{Z}{\sqrt{\frac{V}{\nu}}} \text{~ } t(df)$$<br />
 where <code>$Z\text{~ }N(0,1), V\text{~ } \chi^2(\nu)$</code></p>
-<p>$$ E(X) = 0, Var(X) = \frac{n}{n-2} $$</p>
+
+  </div>
+</div>
 <h4 id="이항-분포binomial-distribution">이항 분포(Binomial Distribution)</h4>
 <h4 id="감마-분포gamma-distribution">감마 분포(Gamma Distribution)</h4>
-<p>$$ \text{X~} Gamma(\alpha, \beta) \rightarrow f(x) = \frac{1}{\beta^\alpha\cdot\Gamma(\alpha)}x^{\alpha-1}e^{-\frac{x}{\beta}} $$<br />
+<p><div class="expand">
+  <button type="button" class="expand__button" aria-label="Expand Button">
+    <span class="expand-icon expand-icon__right">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M9.29 15.88L13.17 12 9.29 8.12c-.39-.39-.39-1.02 0-1.41.39-.39 1.02-.39 1.41 0l4.59 4.59c.39.39.39 1.02 0 1.41L10.7 17.3c-.39.39-1.02.39-1.41 0-.38-.39-.39-1.03 0-1.42z"/></svg>
+    </span>
+    감마분포 (알파: shape, 베타: scale)
+  </button>
+  <div class="expand__content">
+    $$ \text{X~} Gamma(\alpha, \beta) \rightarrow f(x) = \frac{1}{\beta^\alpha\cdot\Gamma(\alpha)}x^{\alpha-1}e^{-\frac{x}{\beta}}$$<br />
 <code>$\text{for } x&gt;0, \ \alpha&gt;0, \ \beta&gt;0 $</code><br />
-$$ E(X)=\alpha\beta, \ Var(X)=\alpha\beta^2 $$</p>
+$$ E(X)=\alpha\beta, \ Var(X)=\alpha\beta^2 $$
+  </div>
+</div><br />
+<figure >
+  
+    
+    <img data-src="/images/posts/statistics/gamma_distribution.png" alt="k=alpha, theta=beta로 생각하기" data-caption="k=alpha, theta=beta로 생각하기" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='24pt' height='24pt' viewBox='0 0 24 24' version='1.1'%3E%3Cg id='surface1035795'%3E%3Cpath style=' stroke:none;fill-rule:nonzero;fill:rgb(80%25,80%25,80%25);fill-opacity:1;' d='M 4 4 C 2.90625 4 2 4.90625 2 6 L 2 18 C 2 19.09375 2.90625 20 4 20 L 20 20 C 21.09375 20 22 19.09375 22 18 L 22 6 C 22 4.90625 21.09375 4 20 4 Z M 4 6 L 20 6 L 20 18 L 4 18 Z M 4 6 '/%3E%3C/g%3E%3C/svg%3E%0A" class="lazyload" width="400px" height=""/>
+    
+  
+  <figcaption>
+    <strong>Gamma Distribution</strong>:
+    
+    k=alpha, theta=beta로 생각하기
+    
+      
+      
+    
+  </figcaption>
+  
+</figure></p>
+<p>참고로, 포아송분포, 지수분포, 카이제곱분포와의 연관성을 생각하면 베타를 rate parameter로 보는 것이 좋다.<br />
+<div class="expand">
+  <button type="button" class="expand__button" aria-label="Expand Button">
+    <span class="expand-icon expand-icon__right">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M9.29 15.88L13.17 12 9.29 8.12c-.39-.39-.39-1.02 0-1.41.39-.39 1.02-.39 1.41 0l4.59 4.59c.39.39.39 1.02 0 1.41L10.7 17.3c-.39.39-1.02.39-1.41 0-.38-.39-.39-1.03 0-1.42z"/></svg>
+    </span>
+    감마분포 (알파: shape, 베타: rate)
+  </button>
+  <div class="expand__content">
+    $$ \text{X~} Gamma(\alpha, \beta) \rightarrow f(x) = \frac{\beta^\alpha}{\Gamma(\alpha)}x^{\alpha-1}e^{-\beta x}$$<br />
+<code>$\text{for } x&gt;0, \ \alpha&gt;0, \ \beta&gt;0 $</code><br />
+$$ E(X)=\frac{\alpha}{\beta}, \ Var(X)=\frac{\alpha}{\beta^2} $$
+  </div>
+</div></p>
 <h4 id="베타-분포beta-distribution">베타 분포(Beta Distribution)</h4>
+<h4 id="포아송-분포poisson-distribution">포아송 분포(Poisson Distribution)</h4>
+<p>정해진 시간 안에 어떤 사건이 일어날 횟수에 대한 기댓값을 <code>$\lambda$</code> 라고 했을 때, 그 사건이 n회 일어날 확률은 다음과 같다.<br />
+<div class="expand">
+  <button type="button" class="expand__button" aria-label="Expand Button">
+    <span class="expand-icon expand-icon__right">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M9.29 15.88L13.17 12 9.29 8.12c-.39-.39-.39-1.02 0-1.41.39-.39 1.02-.39 1.41 0l4.59 4.59c.39.39.39 1.02 0 1.41L10.7 17.3c-.39.39-1.02.39-1.41 0-.38-.39-.39-1.03 0-1.42z"/></svg>
+    </span>
+    포아송 분포
+  </button>
+  <div class="expand__content">
+    $$ \text{X~} Pois(\lambda) \rightarrow f(x) = \frac{\lambda^x e^\lambda}{x!}$$<br />
+for <code>$x$</code>: 0이상의 정수, <code>$\lambda&gt;0$</code><br />
+$$ E(X) = Var(X) = \lambda $$
+  </div>
+</div><br />
+<figure >
+  
+    
+    <img data-src="/images/posts/statistics/poisson_distribution.png"  data-caption="" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='24pt' height='24pt' viewBox='0 0 24 24' version='1.1'%3E%3Cg id='surface1035795'%3E%3Cpath style=' stroke:none;fill-rule:nonzero;fill:rgb(80%25,80%25,80%25);fill-opacity:1;' d='M 4 4 C 2.90625 4 2 4.90625 2 6 L 2 18 C 2 19.09375 2.90625 20 4 20 L 20 20 C 21.09375 20 22 19.09375 22 18 L 22 6 C 22 4.90625 21.09375 4 20 4 Z M 4 6 L 20 6 L 20 18 L 4 18 Z M 4 6 '/%3E%3C/g%3E%3C/svg%3E%0A" class="lazyload" width="400px" height=""/>
+    
+  
+</figure></p>
+<h4 id="지수-분포exponential-distribution">지수 분포(Exponential Distribution)</h4>
+<p>사건이 서로 독립적일 때, 일정 시간동안 발생하는 사건의 횟수가 푸아송 분포를 따른다면, 다음 사건이 일어날 때까지 대기 시간 또는 사건이 한 번 일어날 때까지 걸리는 시간은 지수분포를 따른다. 지수분포는 감마분포의 특수한 형태이다.<br />
+<div class="expand">
+  <button type="button" class="expand__button" aria-label="Expand Button">
+    <span class="expand-icon expand-icon__right">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M9.29 15.88L13.17 12 9.29 8.12c-.39-.39-.39-1.02 0-1.41.39-.39 1.02-.39 1.41 0l4.59 4.59c.39.39.39 1.02 0 1.41L10.7 17.3c-.39.39-1.02.39-1.41 0-.38-.39-.39-1.03 0-1.42z"/></svg>
+    </span>
+    지수 분포
+  </button>
+  <div class="expand__content">
+    $$\text{X~} exp(\lambda) \rightarrow f(x) = \lambda e^{\lambda x} $$<br />
+<code>$exp(\lambda) = \Gamma(1,\lambda) $</code> where <code>$\beta$</code>위치의 모수가 rate parameter를 뜻할 때!<br />
+$$ E(X) = \frac{1}{\lambda}, \ Var(X)=\frac{1}{\lambda^2} $$
+  </div>
+</div><br />
+<figure >
+  
+    
+    <img data-src="/images/posts/statistics/exponential_distribution.png"  data-caption="" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='24pt' height='24pt' viewBox='0 0 24 24' version='1.1'%3E%3Cg id='surface1035795'%3E%3Cpath style=' stroke:none;fill-rule:nonzero;fill:rgb(80%25,80%25,80%25);fill-opacity:1;' d='M 4 4 C 2.90625 4 2 4.90625 2 6 L 2 18 C 2 19.09375 2.90625 20 4 20 L 20 20 C 21.09375 20 22 19.09375 22 18 L 22 6 C 22 4.90625 21.09375 4 20 4 Z M 4 6 L 20 6 L 20 18 L 4 18 Z M 4 6 '/%3E%3C/g%3E%3C/svg%3E%0A" class="lazyload" width="400px" height=""/>
+    
+  
+</figure></p>
+<h4 id="카이제곱-분포chi-squared-distribution">카이제곱 분포(Chi-squared Distribution)</h4>
+<p><code>$\nu$</code>개의 서로 독립적인 표준정규분포 확률변수를 각각 제곱한 다음 합해서 얻어지는 분포이다.<br />
+이때 <code>$\nu$</code>를 자유도라고 하며, 카이제곱 분포의 매개변수가 된다.<br />
+<div class="expand">
+  <button type="button" class="expand__button" aria-label="Expand Button">
+    <span class="expand-icon expand-icon__right">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M9.29 15.88L13.17 12 9.29 8.12c-.39-.39-.39-1.02 0-1.41.39-.39 1.02-.39 1.41 0l4.59 4.59c.39.39.39 1.02 0 1.41L10.7 17.3c-.39.39-1.02.39-1.41 0-.38-.39-.39-1.03 0-1.42z"/></svg>
+    </span>
+    카이제곱 분포
+  </button>
+  <div class="expand__content">
+    $$\text{X~} \chi^2(\nu) \rightarrow f(x) = \frac{(\frac{1}{2})^\frac{\nu}{2}}{\Gamma(\frac{\nu}{2})}x^{\frac{\nu}{2}-1}e^{-x/2} $$<br />
+<code>$\chi^2(\nu) = \Gamma(\frac{\nu}{2}, \frac{1}{2}) $</code> where <code>$\beta$</code>위치의 모수가 rate parameter를 뜻할 때!<br />
+$$ E(X) = \nu, \ Var(X) = 2\nu$$
+  </div>
+</div><br />
+<figure >
+  
+    
+    <img data-src="/images/posts/statistics/chisquared_distribution.png"  data-caption="" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='24pt' height='24pt' viewBox='0 0 24 24' version='1.1'%3E%3Cg id='surface1035795'%3E%3Cpath style=' stroke:none;fill-rule:nonzero;fill:rgb(80%25,80%25,80%25);fill-opacity:1;' d='M 4 4 C 2.90625 4 2 4.90625 2 6 L 2 18 C 2 19.09375 2.90625 20 4 20 L 20 20 C 21.09375 20 22 19.09375 22 18 L 22 6 C 22 4.90625 21.09375 4 20 4 Z M 4 6 L 20 6 L 20 18 L 4 18 Z M 4 6 '/%3E%3C/g%3E%3C/svg%3E%0A" class="lazyload" width="400px" height=""/>
+    
+  
+</figure></p>
+<hr />
+<h6 id="사진-출처">사진 출처</h6>
+<p>[1] <a href="https://artificialnetworkforstarters.readthedocs.io/en/latest/_post/chap6.html">https://artificialnetworkforstarters.readthedocs.io/en/latest/_post/chap6.html</a><br />
+[2] 위키백과</p>
 
   </article>
 </div>
@@ -3218,15 +3371,18 @@ $$ E(X)=\alpha\beta, \ Var(X)=\alpha\beta^2 $$</p>
   <ul>
     <li>
       <ul>
-        <li><a href="#연속형">연속형</a></li>
-        <li><a href="#이산형">이산형</a>
+        <li>
           <ul>
+            <li></li>
             <li><a href="#정규-분포normal-distribution">정규 분포(Normal Distribution)</a></li>
             <li><a href="#다변수-정규분포multivariate-normal-distribution">다변수 정규분포(Multivariate Normal Distribution)</a></li>
             <li><a href="#t-분포students-t-distribution">T-분포(Student&rsquo;s t-Distribution)</a></li>
             <li><a href="#이항-분포binomial-distribution">이항 분포(Binomial Distribution)</a></li>
             <li><a href="#감마-분포gamma-distribution">감마 분포(Gamma Distribution)</a></li>
             <li><a href="#베타-분포beta-distribution">베타 분포(Beta Distribution)</a></li>
+            <li><a href="#포아송-분포poisson-distribution">포아송 분포(Poisson Distribution)</a></li>
+            <li><a href="#지수-분포exponential-distribution">지수 분포(Exponential Distribution)</a></li>
+            <li><a href="#카이제곱-분포chi-squared-distribution">카이제곱 분포(Chi-squared Distribution)</a></li>
           </ul>
         </li>
       </ul>

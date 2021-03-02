@@ -1114,7 +1114,7 @@
     "datePublished": "2021-02-21T10:08:56+09:00",
     "dateModified": "2021-02-21T10:08:56+09:00",
     "url" : "https://jiwooblog.netlify.app/posts/r/dplyr/",
-    "description": "dplyr 패키지 훑어보기 1  library(tidyverse)   목차  rowwise 1-1. pmax  데이터   data  1 2 3 4  tmp \u0026lt;- tibble(x=round(rnorm(n=5, mean=5, sd=1)), y=round(rnorm(n=5, mean=5, sd=3)), …",
+    "description": "dplyr 패키지 훑어보기 1 2  library(tidyverse) library(MASS)   목차  rowwise 1-1. pmax slice relocate lag, lead  데이터   data  1 2 3 4  tmp \u0026lt;- tibble(x=round(rnorm(n=5, mean=5, …",
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "https://jiwooblog.netlify.app/"
@@ -1410,6 +1410,14 @@
         
         <li>
           <a href="https://jiwooblog.netlify.app/posts/r/na_imputation/" class="menu__title " data-depth="0">NA Imputation</a>
+        </li>
+      
+    
+      
+        
+        
+        <li>
+          <a href="https://jiwooblog.netlify.app/posts/r/tidyr/" class="menu__title " data-depth="0">tidyr</a>
         </li>
       
     
@@ -2586,6 +2594,14 @@
         
         
         <li>
+          <a href="https://jiwooblog.netlify.app/posts/r/tidyr/" class="menu__title " data-depth="0">tidyr</a>
+        </li>
+      
+    
+      
+        
+        
+        <li>
           <a href="https://jiwooblog.netlify.app/posts/r/dplyr/" class="menu__title active" data-depth="0">dplyr</a>
         </li>
       
@@ -3132,15 +3148,20 @@
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">library</span><span class="p">(</span><span class="n">tidyverse</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">MASS</span><span class="p">)</span>
 </code></pre></td></tr></table>
 </div>
 </div><h1 id="목차">목차</h1>
 <ol>
 <li>rowwise<br />
 1-1. pmax</li>
+<li>slice</li>
+<li>relocate</li>
+<li>lag, lead</li>
 </ol>
 <h3 id="데이터">데이터</h3>
 <div class="expand">
@@ -3168,11 +3189,35 @@
 </div><pre><code>## # A tibble: 5 x 3
 ##       x     y     z
 ##   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
-## 1     4     2    14
-## 2     6     4     4
-## 3     6     0     2
-## 4     4    11    13
-## 5     5     4     6
+## 1     5     4     3
+## 2     5     3    10
+## 3     4     0    -1
+## 4     5     6     8
+## 5     4     1     4
+</code></pre><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">data</span><span class="p">(</span><span class="n">survey</span><span class="p">)</span>
+<span class="nf">glimpse</span><span class="p">(</span><span class="n">survey</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><pre><code>## Rows: 237
+## Columns: 12
+## $ Sex    &lt;fct&gt; Female, Male, Male, Male, Male, Female, Male, Female, Male, ...
+## $ Wr.Hnd &lt;dbl&gt; 18.5, 19.5, 18.0, 18.8, 20.0, 18.0, 17.7, 17.0, 20.0, 18.5, ...
+## $ NW.Hnd &lt;dbl&gt; 18.0, 20.5, 13.3, 18.9, 20.0, 17.7, 17.7, 17.3, 19.5, 18.5, ...
+## $ W.Hnd  &lt;fct&gt; Right, Left, Right, Right, Right, Right, Right, Right, Right...
+## $ Fold   &lt;fct&gt; R on L, R on L, L on R, R on L, Neither, L on R, L on R, R o...
+## $ Pulse  &lt;int&gt; 92, 104, 87, NA, 35, 64, 83, 74, 72, 90, 80, 68, NA, 66, 60,...
+## $ Clap   &lt;fct&gt; Left, Left, Neither, Neither, Right, Right, Right, Right, Ri...
+## $ Exer   &lt;fct&gt; Some, None, None, None, Some, Some, Freq, Freq, Some, Some, ...
+## $ Smoke  &lt;fct&gt; Never, Regul, Occas, Never, Never, Never, Never, Never, Neve...
+## $ Height &lt;dbl&gt; 173.00, 177.80, NA, 160.00, 165.00, 172.72, 182.88, 157.00, ...
+## $ M.I    &lt;fct&gt; Metric, Imperial, NA, Metric, Metric, Imperial, Imperial, Me...
+## $ Age    &lt;dbl&gt; 18.250, 17.583, 16.917, 20.333, 23.667, 21.000, 18.833, 35.8...
 </code></pre>
   </div>
 </div>
@@ -3204,11 +3249,11 @@
 ## # Rowwise: 
 ##       x     y     z   max
 ##   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
-## 1     4     2    14    14
-## 2     6     4     4     6
-## 3     6     0     2     6
-## 4     4    11    13    13
-## 5     5     4     6     6
+## 1     5     4     3     5
+## 2     5     3    10    10
+## 3     4     0    -1     4
+## 4     5     6     8     8
+## 5     4     1     4     4
 </code></pre><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -3224,11 +3269,11 @@
 </div><pre><code>## # A tibble: 5 x 4
 ##       x     y     z   max
 ##   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
-## 1     4     2    14    14
-## 2     6     4     4    14
-## 3     6     0     2    14
-## 4     4    11    13    14
-## 5     5     4     6    14
+## 1     5     4     3    10
+## 2     5     3    10    10
+## 3     4     0    -1    10
+## 4     5     6     8    10
+## 5     4     1     4    10
 </code></pre>
   </div>
 </div></p>
@@ -3257,14 +3302,332 @@
 </div><pre><code>## # A tibble: 5 x 4
 ##       x     y     z   max
 ##   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
-## 1     4     2    14    14
-## 2     6     4     4     6
-## 3     6     0     2     6
-## 4     4    11    13    13
-## 5     5     4     6     6
+## 1     5     4     3     5
+## 2     5     3    10    10
+## 3     4     0    -1     4
+## 4     5     6     8     8
+## 5     4     1     4     4
 </code></pre>
   </div>
 </div></p>
+<h4 id="2-slice">2. slice()</h4>
+<p>행 선택<br />
+<div class="expand">
+  <button type="button" class="expand__button" aria-label="Expand Button">
+    <span class="expand-icon expand-icon__right">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M9.29 15.88L13.17 12 9.29 8.12c-.39-.39-.39-1.02 0-1.41.39-.39 1.02-.39 1.41 0l4.59 4.59c.39.39.39 1.02 0 1.41L10.7 17.3c-.39.39-1.02.39-1.41 0-.38-.39-.39-1.03 0-1.42z"/></svg>
+    </span>
+    slice 예시
+  </button>
+  <div class="expand__content">
+    <div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="c1"># choose 10 rows with smallest 10 pulse values.</span>
+<span class="n">survey</span> <span class="o">%&gt;%</span>
+  <span class="nf">slice_min</span><span class="p">(</span><span class="n">Pulse</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="m">10</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><pre><code>##       Sex Wr.Hnd NW.Hnd W.Hnd    Fold Pulse    Clap Exer Smoke Height      M.I
+## 1    Male   20.0   20.0 Right Neither    35   Right Some Never 165.00   Metric
+## 2  Female   16.5   17.0 Right  L on R    40    Left Freq Never 167.64 Imperial
+## 3  Female   18.0   17.5 Right  R on L    48 Neither Freq Never 165.00   Metric
+## 4    Male   21.0   21.0 Right  L on R    48 Neither Freq Never 174.00   Metric
+## 5  Female   18.0   17.9 Right  R on L    50    Left None Never 165.00   Metric
+## 6  Female   15.5   15.5 Right Neither    50   Right Some Regul     NA     &lt;NA&gt;
+## 7    Male   18.0   19.0 Right  L on R    54 Neither Some Regul     NA     &lt;NA&gt;
+## 8    Male   22.0   21.5  Left  R on L    55    Left Freq Never 200.00   Metric
+## 9    Male   20.5   19.5 Right  L on R    56   Right Freq Never 179.00   Metric
+## 10   Male   19.8   20.0  Left  L on R    59   Right Freq Never 180.00   Metric
+##       Age
+## 1  23.667
+## 2  17.417
+## 3  18.667
+## 4  21.333
+## 5  30.750
+## 6  18.500
+## 7  17.750
+## 8  18.500
+## 9  17.417
+## 10 17.417
+</code></pre><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="c1"># choose 10 columns with greatest 10 pulses values.</span>
+<span class="n">survey</span> <span class="o">%&gt;%</span>
+  <span class="nf">slice_max</span><span class="p">(</span><span class="n">Pulse</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="m">10</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><pre><code>##       Sex Wr.Hnd NW.Hnd W.Hnd   Fold Pulse    Clap Exer Smoke Height      M.I
+## 1    Male   19.5   20.5  Left R on L   104    Left None Regul  177.8 Imperial
+## 2  Female   19.0   18.5  Left L on R   104    Left Freq Never  170.0   Metric
+## 3  Female   18.5   18.0  Left L on R   100 Neither Some Never  171.0   Metric
+## 4    Male   21.0   20.4 Right L on R   100   Right Freq Heavy  184.0   Metric
+## 5  Female   17.5   17.5 Right R on L    98    Left Freq Never     NA     &lt;NA&gt;
+## 6    Male   17.5   17.0  Left L on R    97 Neither None Never  165.0   Metric
+## 7    Male   22.5   23.0 Right R on L    96   Right None Never  170.0   Metric
+## 8    Male   21.4   21.0 Right L on R    96 Neither Some Never  180.0   Metric
+## 9  Female   17.5   17.8 Right R on L    96   Right Some Never     NA     &lt;NA&gt;
+## 10 Female   18.5   18.0 Right R on L    92    Left Some Never  173.0   Metric
+## 11 Female   18.0   17.7  Left R on L    92    Left Some Never     NA     &lt;NA&gt;
+## 12 Female   18.5   18.0 Right R on L    92   Right Freq Never  172.0   Metric
+## 13 Female   18.0   18.0 Right L on R    92 Neither Freq Never  165.0   Metric
+## 14 Female   16.3   16.2 Right L on R    92   Right Some Regul  152.4 Imperial
+## 15   Male   20.0   19.5 Right R on L    92   Right Some Never  179.1 Imperial
+##       Age
+## 1  17.583
+## 2  17.250
+## 3  18.917
+## 4  20.083
+## 5  17.667
+## 6  19.500
+## 7  19.417
+## 8  19.000
+## 9  18.667
+## 10 18.250
+## 11 17.583
+## 12 17.500
+## 13 20.000
+## 14 23.500
+## 15 18.917
+</code></pre><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="c1"># randomly select 10 rows.</span>
+<span class="n">survey</span> <span class="o">%&gt;%</span>
+  <span class="nf">slice_sample</span><span class="p">(</span><span class="n">n</span> <span class="o">=</span> <span class="m">10</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><pre><code>##       Sex Wr.Hnd NW.Hnd W.Hnd    Fold Pulse    Clap Exer Smoke Height    M.I
+## 1    Male   18.5   18.5 Right  R on L    90   Right Some Never    167 Metric
+## 2    Male   18.5   18.0 Right Neither    63 Neither Freq Never    196 Metric
+## 3  Female   18.5   18.0 Right  R on L    64   Right Freq Never     NA   &lt;NA&gt;
+## 4  Female   17.5   17.0 Right  R on L    83 Neither Freq Occas    168 Metric
+## 5  Female   17.0   17.4 Right  R on L    NA Neither Some Never     NA   &lt;NA&gt;
+## 6  Female   17.0   16.6 Right  R on L    68   Right Some Never    171 Metric
+## 7  Female   19.5   18.5 Right  R on L    80   Right Some Never    170 Metric
+## 8    Male   20.0   20.0 Right Neither    35   Right Some Never    165 Metric
+## 9  Female   17.0   17.5 Right  R on L    64    Left Some Never     NA   &lt;NA&gt;
+## 10   Male   20.5   20.0 Right  R on L    75    Left Some Never    183 Metric
+##       Age
+## 1  22.333
+## 2  20.083
+## 3  16.917
+## 4  17.083
+## 5  17.167
+## 6  17.667
+## 7  18.250
+## 8  23.667
+## 9  19.167
+## 10 19.667
+</code></pre><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="c1"># randomly select 10% of the data observations.</span>
+<span class="n">survey</span> <span class="o">%&gt;%</span>
+  <span class="nf">slice_sample</span><span class="p">(</span><span class="n">prop</span> <span class="o">=</span> <span class="m">.05</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><pre><code>##       Sex Wr.Hnd NW.Hnd W.Hnd    Fold Pulse    Clap Exer Smoke Height      M.I
+## 1    Male   18.5   18.0 Right  L on R    64   Right Freq Never 180.34 Imperial
+## 2    Male   17.0   18.0 Right  L on R    78    Left Some Never 170.18 Imperial
+## 3  Female   18.5   18.5 Right  R on L    76    Left Freq Never 175.00   Metric
+## 4    Male   21.9   22.2 Right  R on L    NA   Right Some Never 187.00   Metric
+## 5    Male   19.8   20.0  Left  L on R    59   Right Freq Never 180.00   Metric
+## 6  Female   17.0   17.3 Right  R on L    74   Right Freq Never 157.00   Metric
+## 7    Male   20.8   21.4 Right  R on L    62 Neither Freq Never 175.26 Imperial
+## 8    Male   19.1   19.1 Right Neither    NA   Right Some Never 177.00   Metric
+## 9  Female   17.5   17.0 Right  R on L    83 Neither Freq Occas 168.00   Metric
+## 10 Female   17.0   17.6 Right  L on R    76   Right Some Never 165.00   Metric
+## 11   Male   18.8   18.2 Right  L on R    78   Right Freq Never 180.00   Metric
+##       Age
+## 1  17.833
+## 2  18.333
+## 3  24.167
+## 4  18.917
+## 5  17.417
+## 6  35.833
+## 7  18.083
+## 8  19.917
+## 9  17.083
+## 10 23.583
+## 11 17.500
+</code></pre>
+  </div>
+</div></p>
+<h4 id="3-relocate">3. relocate()</h4>
+<p>relocate: changes the order of the columns.<br />
+<div class="expand">
+  <button type="button" class="expand__button" aria-label="Expand Button">
+    <span class="expand-icon expand-icon__right">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M9.29 15.88L13.17 12 9.29 8.12c-.39-.39-.39-1.02 0-1.41.39-.39 1.02-.39 1.41 0l4.59 4.59c.39.39.39 1.02 0 1.41L10.7 17.3c-.39.39-1.02.39-1.41 0-.38-.39-.39-1.03 0-1.42z"/></svg>
+    </span>
+    relocate 예시
+  </button>
+  <div class="expand__content">
+    <div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="c1"># move columns with factor variables to the front</span>
+<span class="n">survey</span> <span class="o">%&gt;%</span>
+  <span class="nf">relocate</span><span class="p">(</span><span class="nf">where</span><span class="p">(</span><span class="n">is.factor</span><span class="p">))</span> <span class="o">%&gt;%</span> <span class="nf">colnames</span><span class="p">()</span>
+</code></pre></td></tr></table>
+</div>
+</div><pre><code>##  [1] &quot;Sex&quot;    &quot;W.Hnd&quot;  &quot;Fold&quot;   &quot;Clap&quot;   &quot;Exer&quot;   &quot;Smoke&quot;  &quot;M.I&quot;    &quot;Wr.Hnd&quot;
+##  [9] &quot;NW.Hnd&quot; &quot;Pulse&quot;  &quot;Height&quot; &quot;Age&quot;
+</code></pre><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="c1"># move Pulse before Height</span>
+<span class="n">survey</span> <span class="o">%&gt;%</span>
+  <span class="nf">relocate</span><span class="p">(</span><span class="n">Pulse</span><span class="p">,</span> <span class="n">.before</span> <span class="o">=</span> <span class="n">Height</span><span class="p">)</span> <span class="o">%&gt;%</span> <span class="nf">colnames</span><span class="p">()</span>
+</code></pre></td></tr></table>
+</div>
+</div><pre><code>##  [1] &quot;Sex&quot;    &quot;Wr.Hnd&quot; &quot;NW.Hnd&quot; &quot;W.Hnd&quot;  &quot;Fold&quot;   &quot;Clap&quot;   &quot;Exer&quot;   &quot;Smoke&quot; 
+##  [9] &quot;Pulse&quot;  &quot;Height&quot; &quot;M.I&quot;    &quot;Age&quot;
+</code></pre><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="c1"># move Pulse to the end</span>
+<span class="n">survey</span> <span class="o">%&gt;%</span>
+  <span class="nf">relocate</span><span class="p">(</span><span class="n">Pulse</span><span class="p">,</span> <span class="n">.after</span> <span class="o">=</span> <span class="nf">last_col</span><span class="p">())</span> <span class="o">%&gt;%</span> <span class="nf">colnames</span><span class="p">()</span>
+</code></pre></td></tr></table>
+</div>
+</div><pre><code>##  [1] &quot;Sex&quot;    &quot;Wr.Hnd&quot; &quot;NW.Hnd&quot; &quot;W.Hnd&quot;  &quot;Fold&quot;   &quot;Clap&quot;   &quot;Exer&quot;   &quot;Smoke&quot; 
+##  [9] &quot;Height&quot; &quot;M.I&quot;    &quot;Age&quot;    &quot;Pulse&quot;
+</code></pre>
+  </div>
+</div></p>
+<h4 id="4-lag-lead">4. lag(), lead()</h4>
+<div class="expand">
+  <button type="button" class="expand__button" aria-label="Expand Button">
+    <span class="expand-icon expand-icon__right">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M9.29 15.88L13.17 12 9.29 8.12c-.39-.39-.39-1.02 0-1.41.39-.39 1.02-.39 1.41 0l4.59 4.59c.39.39.39 1.02 0 1.41L10.7 17.3c-.39.39-1.02.39-1.41 0-.38-.39-.39-1.03 0-1.42z"/></svg>
+    </span>
+    lag, lead 예시
+  </button>
+  <div class="expand__content">
+    <div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">lag</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">5</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><pre><code>## [1] NA  1  2  3  4
+</code></pre><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">lag</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">5</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="m">2</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><pre><code>## [1] NA NA  1  2  3
+</code></pre><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">lag</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">5</span><span class="p">,</span> <span class="n">default</span> <span class="o">=</span> <span class="m">0</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><pre><code>## [1] 0 1 2 3 4
+</code></pre><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">lead</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">5</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><pre><code>## [1]  2  3  4  5 NA
+</code></pre><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">lead</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">5</span><span class="p">,</span> <span class="n">default</span> <span class="o">=</span> <span class="m">6</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><pre><code>## [1] 2 3 4 5 6
+</code></pre>
+  </div>
+</div>
+<h4 id="5-between-near">5. between(), near()</h4>
+<div class="expand">
+  <button type="button" class="expand__button" aria-label="Expand Button">
+    <span class="expand-icon expand-icon__right">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M9.29 15.88L13.17 12 9.29 8.12c-.39-.39-.39-1.02 0-1.41.39-.39 1.02-.39 1.41 0l4.59 4.59c.39.39.39 1.02 0 1.41L10.7 17.3c-.39.39-1.02.39-1.41 0-.38-.39-.39-1.03 0-1.42z"/></svg>
+    </span>
+    between, near 예시
+  </button>
+  <div class="expand__content">
+    <div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="c1"># between: &gt;=, &lt;= 조건을 한번에 사용하기</span>
+<span class="nf">between</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">12</span><span class="p">,</span> <span class="m">7</span><span class="p">,</span> <span class="m">9</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><pre><code>##  [1] FALSE FALSE FALSE FALSE FALSE FALSE  TRUE  TRUE  TRUE FALSE FALSE FALSE
+</code></pre><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="c1"># near: ==의 안전한 버전(특히 소수점 계산시)</span>
+<span class="nf">sqrt</span><span class="p">(</span><span class="m">2</span><span class="p">)</span> <span class="n">^</span> <span class="m">2</span> <span class="o">==</span> <span class="m">2</span>
+</code></pre></td></tr></table>
+</div>
+</div><pre><code>## [1] FALSE
+</code></pre><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">near</span><span class="p">(</span><span class="nf">sqrt</span><span class="p">(</span><span class="m">2</span><span class="p">)</span> <span class="n">^</span> <span class="m">2</span><span class="p">,</span> <span class="m">2</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><pre><code>## [1] TRUE
+</code></pre>
+  </div>
+</div>
+<h6 id="참고">참고</h6>
+<p>[1] slice와 relocate 예시는 slack <code>슬기로운통계생활</code>을 참고하였습니다.</p>
 
   </article>
 </div>
@@ -3273,11 +3636,11 @@
 <nav class="pagination-single">
   
     
-      <a href="https://jiwooblog.netlify.app/posts/r/na_imputation/" title="NA Imputation" class="pagination-single__left">
+      <a href="https://jiwooblog.netlify.app/posts/r/tidyr/" title="tidyr" class="pagination-single__left">
         <div class="pagination-single__icon">
           <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0V0z"/><path fill="currentColor" d="M19 11H7.83l4.88-4.88c.39-.39.39-1.03 0-1.42-.39-.39-1.02-.39-1.41 0l-6.59 6.59c-.39.39-.39 1.02 0 1.41l6.59 6.59c.39.39 1.02.39 1.41 0 .39-.39.39-1.02 0-1.41L7.83 13H19c.55 0 1-.45 1-1s-.45-1-1-1z"/></svg>
         </div>
-        <div class="pagination-single__right-title">NA Imputation</div>
+        <div class="pagination-single__right-title">tidyr</div>
       </a>
     
     <div class="grow"></div>
@@ -3309,6 +3672,10 @@
           <ul>
             <li><a href="#1-rowwise">1. rowwise()</a></li>
             <li><a href="#1-1-pmax">1-1. pmax</a></li>
+            <li><a href="#2-slice">2. slice()</a></li>
+            <li><a href="#3-relocate">3. relocate()</a></li>
+            <li><a href="#4-lag-lead">4. lag(), lead()</a></li>
+            <li><a href="#5-between-near">5. between(), near()</a></li>
           </ul>
         </li>
       </ul>

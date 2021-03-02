@@ -1417,6 +1417,14 @@
         
         
         <li>
+          <a href="https://jiwooblog.netlify.app/posts/r/tidyr/" class="menu__title " data-depth="0">tidyr</a>
+        </li>
+      
+    
+      
+        
+        
+        <li>
           <a href="https://jiwooblog.netlify.app/posts/r/dplyr/" class="menu__title " data-depth="0">dplyr</a>
         </li>
       
@@ -2595,6 +2603,14 @@
         
         
         <li>
+          <a href="https://jiwooblog.netlify.app/posts/r/tidyr/" class="menu__title " data-depth="0">tidyr</a>
+        </li>
+      
+    
+      
+        
+        
+        <li>
           <a href="https://jiwooblog.netlify.app/posts/r/dplyr/" class="menu__title " data-depth="0">dplyr</a>
         </li>
       
@@ -3140,19 +3156,25 @@
     <h2 id="chapter-03-br-one-parameter-models">Chapter 03. <br> One-parameter Models</h2>
 <p>본 포스팅은 <strong>First Course in Bayesian Statistical Methods</strong>를 참고하였다.</p>
 <h3 id="binomial-model">Binomial Model</h3>
-<p>이항분포:</p>
-<p>Prior: <br />
-Likelihood:<br />
-Posterior:</p>
+<p>Prior: <code>$\theta \text{ ~ } beta(a,b)$</code><br />
+Likelihood: <code>$Y|\theta \text{ ~ } binomial(n, \theta) $</code><br />
+Posterior: <code>$\theta|y \text{ ~ } beta(a+y, b+n-y) $</code></p>
+<p><code>$ E[\theta|y] = \frac{a+y}{a+b+n} = \frac{n}{a+b+n}\times\frac{y}{n} + \frac{a+b}{a+b+n}\times\frac{a}{a+b} $</code> where <code>$\frac{y}{n}$</code> = sample mean, <code>$\frac{a}{a+b}$</code> = prior expectation</p>
 <h3 id="poisson-model">Poisson Model</h3>
-<p>포아송분포:</p>
-<p>Prior:<br />
-Likelihood:<br />
-Posterior:</p>
+<p>Prior: <code>$\theta \text{ ~ } gamma(a,b) $</code><br />
+Likelihood: <code>$Y_1, ..., Y_n \text{ ~ iid. } Poisson(\theta)$</code><br />
+Posterior: <code>$\theta|Y_1, ..., Y_n \text{ ~ } gamma(a+\sum_{i=1}^{n}{Y_i}, b+n) $</code></p>
 <h3 id="exponential-family">Exponential Family</h3>
+<p>exponential family(지수족)의 pdf 또는 pmf는 다음과 같은 형식으로 표현될 수 있어야 한다. <code>$ p(y_i|\theta) = f(y_i) \ g(\theta) \ exp(\phi(\theta)^Ts(y_i)) $</code></p>
+<p>Prior: <code>$ p(\theta) \propto g(\theta)^\eta \ exp(\phi(\theta)^T \ \nu) $</code><br />
+Likelihood: <code>$ p(y|\theta) = \prod_{i=1}^{N} f(y_i) \ g(\theta)^N \ exp(\phi(\theta)^T \ \sum_{i=1}^{N}s(y_i)) $</code> where <code>$\sum_{i=1}^{N}s(y_i))$</code> is sufficient statistics <code>$t(y)$</code><br />
+Posterior: <code>$ p(\theta|y) \propto g(\theta)^{\eta+N} \ exp(\phi(\theta)^T \ (\nu + t(y)) $</code></p>
 <h3 id="conjugate-prior">Conjugate Prior</h3>
+<p>prior와 posterior의 확률분포형태가 같을 수 있도록 prior을 설정하면 이를 conjugate prior라고 한다.<br />
+위의 예시 외에도 Normal model 등이 있는데, 이들에 대해서는 다음에 이어서 살펴보도록 하겠다.<br />
+다양한 예시들은 <a href="https://en.wikipedia.org/wiki/Conjugate_prior" target="_blank">위키백과</a>에 자세히 나와있으니 궁금한 사람들은 추가적으로 살펴보아도 좋겠다.</p>
 <h3 id="conclusion">Conclusion</h3>
-<p style='text-align: center'> Conjugacy를 잘 알아두자. </p>
+<p style='text-align: center'> Conjugacy를 잘 알아두자. </p> 
 <hr />
 <br> 
 <p style='text-align: center; color:gray'> 혹시 궁금한 점이나 잘못된 내용이 있다면, 댓글로 알려주시면 적극 반영하도록 하겠습니다. </p>

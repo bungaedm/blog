@@ -103,6 +103,16 @@
   </url>
   
   <url>
+    <loc>https://jiwooblog.netlify.app/posts/r/tidyr/</loc>
+    <lastmod>2021-02-28T10:08:56+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jiwooblog.netlify.app/updates/diary/2021_02/</loc>
+    <lastmod>2021-02-22T00:08:29+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://jiwooblog.netlify.app/updates/contest_list/</loc>
     <lastmod>2021-02-22T00:08:29+09:00</lastmod>
   </url>
@@ -123,7 +133,7 @@
   </url>
   
   <url>
-    <loc>https://jiwooblog.netlify.app/updates/2021_01/</loc>
+    <loc>https://jiwooblog.netlify.app/updates/diary/2021_01/</loc>
     <lastmod>2021-01-22T00:08:29+09:00</lastmod>
   </url>
   
@@ -325,6 +335,11 @@
   <url>
     <loc>https://jiwooblog.netlify.app/posts/r/test/</loc>
     <lastmod>2021-01-08T10:08:56+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jiwooblog.netlify.app/updates/diary/</loc>
+    <lastmod>2020-01-28T00:08:29+09:00</lastmod>
   </url>
   
   <url>

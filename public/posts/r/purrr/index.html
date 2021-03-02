@@ -1114,7 +1114,7 @@
     "datePublished": "2021-02-21T10:08:56+09:00",
     "dateModified": "2021-02-21T10:08:56+09:00",
     "url" : "https://jiwooblog.netlify.app/posts/r/purrr/",
-    "description": "purrr 패키지 훑어보기 purrr는 R에서 깔끔하게 반복 작업 처리하는 패키지입니다. Purrr 을 이용하면 반복작업을 Apply family 에 비해 더욱 직관적이고 쉽게 할 수 있습니다. purrr는 고양이 울음소리와 R의 합성어로, 로고는 아래와 같습니다. 1  library(purrr)   목 …",
+    "description": "purrr 패키지 훑어보기 purrr는 R에서 깔끔하게 반복 작업 처리하는 패키지입니다. Purrr 을 이용하면 반복작업을 Apply family 에 비해 더욱 직관적이고 쉽게 할 수 있습니다. purrr는 고양이 울음소리와 R의 합성어로, 로고는 아래와 같습니다. 1  library(tidyverse) …",
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "https://jiwooblog.netlify.app/"
@@ -1410,6 +1410,14 @@
         
         <li>
           <a href="https://jiwooblog.netlify.app/posts/r/na_imputation/" class="menu__title " data-depth="0">NA Imputation</a>
+        </li>
+      
+    
+      
+        
+        
+        <li>
+          <a href="https://jiwooblog.netlify.app/posts/r/tidyr/" class="menu__title " data-depth="0">tidyr</a>
         </li>
       
     
@@ -2586,6 +2594,14 @@
         
         
         <li>
+          <a href="https://jiwooblog.netlify.app/posts/r/tidyr/" class="menu__title " data-depth="0">tidyr</a>
+        </li>
+      
+    
+      
+        
+        
+        <li>
           <a href="https://jiwooblog.netlify.app/posts/r/dplyr/" class="menu__title " data-depth="0">dplyr</a>
         </li>
       
@@ -3135,17 +3151,19 @@
 <pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">library</span><span class="p">(</span><span class="n">purrr</span><span class="p">)</span>
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">library</span><span class="p">(</span><span class="n">tidyverse</span><span class="p">)</span>
 </code></pre></td></tr></table>
 </div>
 </div><p><p class="md__image">
-  <img src="/images/posts/r/purrr.jpg" alt="purrr logo"  />
+  <img src="/images/posts/r/purrr/purrr.jpg" alt="purrr logo"  />
 </p></p>
 <h2 id="목차">목차</h2>
 <ol>
 <li>map, map2</li>
 <li>pmap, invoke_map</li>
 <li>rerun</li>
+<li>every, some, none</li>
+<li>reduce, accumulate</li>
 </ol>
 <hr />
 <h4 id="map-map2">map, map2</h4>
@@ -3232,6 +3250,65 @@
 </code></pre>
   </div>
 </div>
+<p><div class="expand">
+  <button type="button" class="expand__button" aria-label="Expand Button">
+    <span class="expand-icon expand-icon__right">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M9.29 15.88L13.17 12 9.29 8.12c-.39-.39-.39-1.02 0-1.41.39-.39 1.02-.39 1.41 0l4.59 4.59c.39.39.39 1.02 0 1.41L10.7 17.3c-.39.39-1.02.39-1.41 0-.38-.39-.39-1.03 0-1.42z"/></svg>
+    </span>
+    map 실전활용- iris data
+  </button>
+  <div class="expand__content">
+    <div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="n">n_iris</span> <span class="o">&lt;-</span> <span class="n">iris</span> <span class="o">%&gt;%</span>
+  <span class="nf">group_by</span><span class="p">(</span><span class="n">Species</span><span class="p">)</span> <span class="o">%&gt;%</span>
+  <span class="nf">nest</span><span class="p">()</span>
+
+<span class="n">mod_fun</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">df</span><span class="p">){</span>
+  <span class="nf">lm</span><span class="p">(</span><span class="n">Sepal.Length</span> <span class="o">~</span> <span class="n">.,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">df</span><span class="p">)</span>
+  <span class="p">}</span>
+  
+<span class="n">m_iris</span> <span class="o">&lt;-</span> <span class="n">n_iris</span> <span class="o">%&gt;%</span>
+  <span class="nf">mutate</span><span class="p">(</span><span class="n">model</span> <span class="o">=</span> <span class="nf">map</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">mod_fun</span><span class="p">))</span>
+
+<span class="n">b_fun</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">mod</span><span class="p">){</span>
+  <span class="nf">coefficients</span><span class="p">(</span><span class="n">mod</span><span class="p">)</span><span class="n">[[1]]</span>
+<span class="p">}</span>
+
+<span class="n">m_iris</span> <span class="o">%&gt;%</span> <span class="nf">transmute</span><span class="p">(</span><span class="n">Species</span><span class="p">,</span> <span class="n">beta</span> <span class="o">=</span> <span class="nf">map_dbl</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">b_fun</span><span class="p">))</span>
+</code></pre></td></tr></table>
+</div>
+</div><pre><code>## # A tibble: 3 x 2
+## # Groups:   Species [3]
+##   Species     beta
+##   &lt;fct&gt;      &lt;dbl&gt;
+## 1 setosa     2.35 
+## 2 versicolor 1.90 
+## 3 virginica  0.700
+</code></pre>
+  </div>
+</div><br />
+<p class="md__image">
+  <img src="/images/posts/r/purrr/map_example.PNG" alt="map"  />
+</p></p>
 <hr />
 <h4 id="pmap-invoke_map">pmap, invoke_map</h4>
 <div class="expand">
@@ -3279,16 +3356,17 @@
 </code></pre></td></tr></table>
 </div>
 </div><pre><code>## [[1]]
-##  [1] 0.11231795 0.62016180 0.12892009 0.35631370 0.03229519 0.23713282
-##  [7] 0.53951703 0.81935297 0.27680450 0.93446657
+##  [1] 0.07250356 0.88643385 0.53457501 0.45493290 0.95970419 0.57638199
+##  [7] 0.62800763 0.63266467 0.64451000 0.77471082
 ## 
 ## [[2]]
-## [1] -0.201972351  0.161094968 -1.162654194  0.003363922 -0.388906857
+## [1]  0.1348207 -0.5144428 -0.8763132  0.8955774  0.3386345
 </code></pre>
   </div>
 </div>
 <hr />
 <h4 id="rerun">rerun</h4>
+<p>rerun은 샘플 데이터를 <strong>리스트</strong> 형식으로 형성하는 데에 효율적인 방법이다.<br />
 <div class="expand">
   <button type="button" class="expand__button" aria-label="Expand Button">
     <span class="expand-icon expand-icon__right">
@@ -3304,17 +3382,13 @@
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r"><span class="c1"># rerun은 샘플 데이터를 형성하는 데에 효율적인 방법이다.</span>
-
-<span class="c1"># 예시</span>
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="c1"># 예시</span>
 <span class="nf">set.seed</span><span class="p">(</span><span class="m">2021</span><span class="p">)</span>
-<span class="n">b</span> <span class="o">&lt;-</span> <span class="m">10</span> <span class="o">%&gt;%</span> 
+<span class="n">a</span> <span class="o">&lt;-</span> <span class="m">10</span> <span class="o">%&gt;%</span> 
   <span class="nf">rerun</span><span class="p">(</span><span class="nf">rnorm</span><span class="p">(</span><span class="m">5</span><span class="p">))</span>
-<span class="n">b</span>
+<span class="n">a</span>
 </code></pre></td></tr></table>
 </div>
 </div><pre><code>## [[1]]
@@ -3359,10 +3433,10 @@
 <td class="lntd">
 <pre class="chroma"><code class="language-r" data-lang="r"><span class="c1"># 위 함수는 아래의 함수와 같은 결과를 산출함을 알 수 있다.</span>
 <span class="nf">set.seed</span><span class="p">(</span><span class="m">2021</span><span class="p">)</span>
-<span class="n">a</span> <span class="o">&lt;-</span> <span class="nf">list</span><span class="p">()</span>
+<span class="n">b</span> <span class="o">&lt;-</span> <span class="nf">list</span><span class="p">()</span>
 <span class="nf">for</span><span class="p">(</span><span class="n">i</span> <span class="n">in</span> <span class="m">1</span><span class="o">:</span><span class="m">10</span><span class="p">){</span>
-  <span class="n">a[[i]]</span> <span class="o">&lt;-</span> <span class="nf">rnorm</span><span class="p">(</span><span class="m">5</span><span class="p">)</span>
-  <span class="nf">print</span><span class="p">(</span><span class="n">a[i]</span><span class="p">)</span>
+  <span class="n">b[[i]]</span> <span class="o">&lt;-</span> <span class="nf">rnorm</span><span class="p">(</span><span class="m">5</span><span class="p">)</span>
+  <span class="nf">print</span><span class="p">(</span><span class="n">b[i]</span><span class="p">)</span>
 <span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
@@ -3417,9 +3491,161 @@
 ## [1] TRUE TRUE TRUE TRUE TRUE
 ## [1] TRUE TRUE TRUE TRUE TRUE
 ## [1] TRUE TRUE TRUE TRUE TRUE
+</code></pre><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="c1"># 참고로, base에 있는 replicate와 어떻게 다른지 한번 살펴보자!</span>
+<span class="nf">replicate</span><span class="p">(</span><span class="m">10</span><span class="p">,</span> <span class="nf">rnorm</span><span class="p">(</span><span class="m">5</span><span class="p">))</span>
+</code></pre></td></tr></table>
+</div>
+</div><pre><code>##             [,1]       [,2]        [,3]       [,4]        [,5]       [,6]
+## [1,] -0.50029080  0.1037663  0.01604353 -0.9836134 -0.34823176 -0.2369450
+## [2,] -2.25586935  0.4272891 -0.18536431  0.5650808 -0.04298997 -0.9991415
+## [3,]  0.04374133 -0.1704815  0.39193326  1.6167519 -1.39755396 -1.3925426
+## [4,] -0.36881809 -1.5491403 -0.75671092 -0.2519641  1.49021633  0.9820053
+## [5,] -0.96022240 -1.5055999  0.23141761 -1.0558786 -1.03938712  0.3609409
+##            [,7]       [,8]        [,9]      [,10]
+## [1,] -0.3375092 -1.2400271  0.81061837 -0.1220018
+## [2,] -0.6433876  0.5339593 -0.29366457 -0.6467737
+## [3,] -2.1668853 -1.5882648 -0.05345832 -0.8678583
+## [4,]  0.6332890 -0.9909645  0.73518450 -0.5087003
+## [5,] -0.1449141  0.4832608  0.01498499 -2.0775844
+</code></pre><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">typeof</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><pre><code>## [1] &quot;list&quot;
+</code></pre><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">typeof</span><span class="p">(</span><span class="nf">replicate</span><span class="p">(</span><span class="m">10</span><span class="p">,</span> <span class="nf">rnorm</span><span class="p">(</span><span class="m">5</span><span class="p">)))</span>
+</code></pre></td></tr></table>
+</div>
+</div><pre><code>## [1] &quot;double&quot;
 </code></pre>
   </div>
+</div></p>
+<h4 id="every-some-none">every, some, none</h4>
+<p><strong>리스트</strong>형식을 summarise하는 데에 효율적인 방법이다.<br />
+<div class="expand">
+  <button type="button" class="expand__button" aria-label="Expand Button">
+    <span class="expand-icon expand-icon__right">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M9.29 15.88L13.17 12 9.29 8.12c-.39-.39-.39-1.02 0-1.41.39-.39 1.02-.39 1.41 0l4.59 4.59c.39.39.39 1.02 0 1.41L10.7 17.3c-.39.39-1.02.39-1.41 0-.38-.39-.39-1.03 0-1.42z"/></svg>
+    </span>
+    every, some, none 예시
+  </button>
+  <div class="expand__content">
+    <div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="n">y</span> <span class="o">&lt;-</span> <span class="nf">list</span><span class="p">(</span><span class="m">0</span><span class="o">:</span><span class="m">10</span><span class="p">,</span> <span class="m">5.5</span><span class="p">)</span>
+<span class="n">y</span>
+</code></pre></td></tr></table>
 </div>
+</div><pre><code>## [[1]]
+##  [1]  0  1  2  3  4  5  6  7  8  9 10
+## 
+## [[2]]
+## [1] 5.5
+</code></pre><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="n">y</span> <span class="o">%&gt;%</span> <span class="nf">every</span><span class="p">(</span><span class="n">is.numeric</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><pre><code>## [1] TRUE
+</code></pre><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="n">y</span> <span class="o">%&gt;%</span> <span class="nf">every</span><span class="p">(</span><span class="n">is.integer</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><pre><code>## [1] FALSE
+</code></pre><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="n">y</span> <span class="o">%&gt;%</span> <span class="nf">some</span><span class="p">(</span><span class="n">is.integer</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><pre><code>## [1] TRUE
+</code></pre><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="n">y</span> <span class="o">%&gt;%</span> <span class="nf">none</span><span class="p">(</span><span class="n">is.character</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><pre><code>## [1] TRUE
+</code></pre>
+  </div>
+</div></p>
+<h4 id="reduce-accumulate">reduce, accumulate</h4>
+<p>함수를 재귀적으로(recursively) 적용시키는 효율적인 방법이다.<br />
+<div class="expand">
+  <button type="button" class="expand__button" aria-label="Expand Button">
+    <span class="expand-icon expand-icon__right">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M9.29 15.88L13.17 12 9.29 8.12c-.39-.39-.39-1.02 0-1.41.39-.39 1.02-.39 1.41 0l4.59 4.59c.39.39.39 1.02 0 1.41L10.7 17.3c-.39.39-1.02.39-1.41 0-.38-.39-.39-1.03 0-1.42z"/></svg>
+    </span>
+    reduce, accumulate 예시
+  </button>
+  <div class="expand__content">
+    <div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="c1">#1. reduce:</span>
+<span class="nf">reduce</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">10</span><span class="p">,</span> <span class="n">sum</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><pre><code>## [1] 55
+</code></pre><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="c1">#2. accumulate</span>
+<span class="nf">accumulate</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">10</span><span class="p">,</span> <span class="n">sum</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><pre><code>##  [1]  1  3  6 10 15 21 28 36 45 55
+</code></pre><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="c1">#reduce 응용 버전</span>
+<span class="n">paste2</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">sep</span> <span class="o">=</span> <span class="s">&#34;.&#34;</span><span class="p">)</span> <span class="nf">paste</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">sep</span> <span class="o">=</span> <span class="n">sep</span><span class="p">)</span>
+<span class="kc">letters</span><span class="n">[1</span><span class="o">:</span><span class="m">4</span><span class="n">]</span> <span class="o">%&gt;%</span> <span class="nf">reduce</span><span class="p">(</span><span class="n">paste2</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><pre><code>## [1] &quot;a.b.c.d&quot;
+</code></pre>
+  </div>
+</div></p>
 
   </article>
 </div>
@@ -3465,6 +3691,8 @@
             <li><a href="#map-map2">map, map2</a></li>
             <li><a href="#pmap-invoke_map">pmap, invoke_map</a></li>
             <li><a href="#rerun">rerun</a></li>
+            <li><a href="#every-some-none">every, some, none</a></li>
+            <li><a href="#reduce-accumulate">reduce, accumulate</a></li>
           </ul>
         </li>
       </ul>
