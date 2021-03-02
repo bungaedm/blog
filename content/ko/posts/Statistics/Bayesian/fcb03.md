@@ -32,6 +32,7 @@ Posterior: `$ p(\theta|y) \propto g(\theta)^{\eta+N} \ exp(\phi(\theta)^T \ (\nu
 ### Conjugate Prior
 prior와 posterior의 확률분포형태가 같을 수 있도록 prior을 설정하면 이를 conjugate prior라고 한다.  
 위의 예시 외에도 Normal model 등이 있는데, 이들에 대해서는 다음에 이어서 살펴보도록 하겠다.
+다양한 예시들은 [위키백과](https://en.wikipedia.org/wiki/Conjugate_prior)에 자세히 나와있으니 궁금한 사람들은 추가적으로 살펴보아도 좋겠다.
 
 ### Conclusion
 <p style='text-align: center'> Conjugacy를 잘 알아두자. </p> 
