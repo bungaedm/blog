@@ -118,7 +118,7 @@ near(sqrt(2) ^ 2, 2)
 {{</expand>}}
 
 #### 6. coalesce()
-coalesce: 각 위치별로 NA가 아닌 값을 첫번째 값을 반환
+각 위치별로 NA가 아닌 값을 첫번째 값을 반환
 {{<expand "coalesce 예시">}}
 ```{r}
 library(tidyverse)
