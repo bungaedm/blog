@@ -25,6 +25,7 @@ weight: 1
     2-2. plotly
     2-3. [highcharter](https://jkunst.com/highcharter/)
     2-4. [g2r](https://g2r.opifex.org/articles/get-started.html)
+    2-5. rayshader
     3. shiny
     4. mice: NA imputation
     5. visNetwork(visNodes, visEdges)

@@ -19,3 +19,6 @@ Ctrl+S 단축키로 수시로 저장하는 습관 때문에, Rmd 파일을 작�
 > blogdown.knit.on_save = `TRUE`
 
 라는 코드에서 `TRUE`를 `FALSE`로 바꿔주어야 한다.
+
+## 4. 자동정렬 단축키
+`ctrl + I` 
