@@ -120,7 +120,6 @@ near(sqrt(2) ^ 2, 2)
 #### 6. coalesce()
 coalesce: 각 위치별로 NA가 아닌 값을 첫번째 값을 반환
 {{<expand "coalesce 예시">}}
-{{</expand>}}
 ```{r}
 library(tidyverse)
 a <- NA
@@ -142,5 +141,7 @@ vecs <- list(
 )
 coalesce(!!!vecs)
 ```
+{{</expand>}}
+
 ###### 참고
 [1] slice와 relocate 예시는 slack `슬기로운통계생활`을 참고하였습니다.
