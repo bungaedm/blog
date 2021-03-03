@@ -35,11 +35,11 @@ tmp
 ## # A tibble: 5 x 3
 ##       x     y     z
 ##   <dbl> <dbl> <dbl>
-## 1     5     4     3
-## 2     5     3    10
-## 3     4     0    -1
-## 4     5     6     8
-## 5     4     1     4
+## 1     3     4    -6
+## 2     5    -1     1
+## 3     4     5    12
+## 4     4     5    -1
+## 5     7     1     8
 ```
 
 ```r
@@ -81,11 +81,11 @@ tmp %>%
 ## # Rowwise: 
 ##       x     y     z   max
 ##   <dbl> <dbl> <dbl> <dbl>
-## 1     5     4     3     5
-## 2     5     3    10    10
-## 3     4     0    -1     4
-## 4     5     6     8     8
-## 5     4     1     4     4
+## 1     3     4    -6     4
+## 2     5    -1     1     5
+## 3     4     5    12    12
+## 4     4     5    -1     5
+## 5     7     1     8     8
 ```
 
 ```r
@@ -98,11 +98,11 @@ tmp %>%
 ## # A tibble: 5 x 4
 ##       x     y     z   max
 ##   <dbl> <dbl> <dbl> <dbl>
-## 1     5     4     3    10
-## 2     5     3    10    10
-## 3     4     0    -1    10
-## 4     5     6     8    10
-## 5     4     1     4    10
+## 1     3     4    -6    12
+## 2     5    -1     1    12
+## 3     4     5    12    12
+## 4     4     5    -1    12
+## 5     7     1     8    12
 ```
 {{< /expand >}}
 
@@ -120,11 +120,11 @@ tmp %>%
 ## # A tibble: 5 x 4
 ##       x     y     z   max
 ##   <dbl> <dbl> <dbl> <dbl>
-## 1     5     4     3     5
-## 2     5     3    10    10
-## 3     4     0    -1     4
-## 4     5     6     8     8
-## 5     4     1     4     4
+## 1     3     4    -6     4
+## 2     5    -1     1     5
+## 3     4     5    12    12
+## 4     4     5    -1     5
+## 5     7     1     8     8
 ```
 {{< /expand >}}
 
@@ -211,28 +211,28 @@ survey %>%
 ```
 
 ```
-##       Sex Wr.Hnd NW.Hnd W.Hnd    Fold Pulse    Clap Exer Smoke Height    M.I
-## 1    Male   18.5   18.5 Right  R on L    90   Right Some Never    167 Metric
-## 2    Male   18.5   18.0 Right Neither    63 Neither Freq Never    196 Metric
-## 3  Female   18.5   18.0 Right  R on L    64   Right Freq Never     NA   <NA>
-## 4  Female   17.5   17.0 Right  R on L    83 Neither Freq Occas    168 Metric
-## 5  Female   17.0   17.4 Right  R on L    NA Neither Some Never     NA   <NA>
-## 6  Female   17.0   16.6 Right  R on L    68   Right Some Never    171 Metric
-## 7  Female   19.5   18.5 Right  R on L    80   Right Some Never    170 Metric
-## 8    Male   20.0   20.0 Right Neither    35   Right Some Never    165 Metric
-## 9  Female   17.0   17.5 Right  R on L    64    Left Some Never     NA   <NA>
-## 10   Male   20.5   20.0 Right  R on L    75    Left Some Never    183 Metric
+##       Sex Wr.Hnd NW.Hnd W.Hnd   Fold Pulse    Clap Exer Smoke Height    M.I
+## 1    Male   17.5   17.5 Right L on R    64 Neither Freq Never    180 Metric
+## 2    Male   17.8   17.8 Right L on R    76 Neither Freq Never     NA   <NA>
+## 3  Female   16.5   17.0 Right L on R    NA   Right Some Never    168 Metric
+## 4    Male   21.0   21.0 Right R on L    68    Left Freq Never     NA   <NA>
+## 5    Male   21.0   21.0 Right L on R    48 Neither Freq Never    174 Metric
+## 6  Female   19.5   20.2 Right L on R    66 Neither Some Never    155 Metric
+## 7    Male   18.8   18.9 Right R on L    NA Neither None Never    160 Metric
+## 8    Male   21.0   19.5 Right L on R    80    Left None  <NA>     NA   <NA>
+## 9    Male   22.5   22.5 Right R on L    65   Right Freq Regul    182 Metric
+## 10 Female   17.0   16.6 Right R on L    68   Right Some Never    171 Metric
 ##       Age
-## 1  22.333
-## 2  20.083
-## 3  16.917
-## 4  17.083
-## 5  17.167
-## 6  17.667
-## 7  18.250
-## 8  23.667
-## 9  19.167
-## 10 19.667
+## 1  18.583
+## 2  21.917
+## 3  73.000
+## 4  18.250
+## 5  21.333
+## 6  17.500
+## 7  20.333
+## 8  18.333
+## 9  20.000
+## 10 17.667
 ```
 
 ```r
@@ -242,30 +242,30 @@ survey %>%
 ```
 
 ```
-##       Sex Wr.Hnd NW.Hnd W.Hnd    Fold Pulse    Clap Exer Smoke Height      M.I
-## 1    Male   18.5   18.0 Right  L on R    64   Right Freq Never 180.34 Imperial
-## 2    Male   17.0   18.0 Right  L on R    78    Left Some Never 170.18 Imperial
-## 3  Female   18.5   18.5 Right  R on L    76    Left Freq Never 175.00   Metric
-## 4    Male   21.9   22.2 Right  R on L    NA   Right Some Never 187.00   Metric
-## 5    Male   19.8   20.0  Left  L on R    59   Right Freq Never 180.00   Metric
-## 6  Female   17.0   17.3 Right  R on L    74   Right Freq Never 157.00   Metric
-## 7    Male   20.8   21.4 Right  R on L    62 Neither Freq Never 175.26 Imperial
-## 8    Male   19.1   19.1 Right Neither    NA   Right Some Never 177.00   Metric
-## 9  Female   17.5   17.0 Right  R on L    83 Neither Freq Occas 168.00   Metric
-## 10 Female   17.0   17.6 Right  L on R    76   Right Some Never 165.00   Metric
-## 11   Male   18.8   18.2 Right  L on R    78   Right Freq Never 180.00   Metric
+##       Sex Wr.Hnd NW.Hnd W.Hnd   Fold Pulse    Clap Exer Smoke Height      M.I
+## 1    Male   17.9   18.4 Right R on L    68    Left None Occas 176.00   Metric
+## 2  Female   18.0   18.0 Right L on R    85   Right Some Never 165.10 Imperial
+## 3    Male   20.0   19.8 Right L on R    68   Right Freq Never 185.00   Metric
+## 4    Male   20.5   20.0 Right R on L    76   Right Freq Never 173.00   Metric
+## 5  Female   18.5   18.0 Right R on L    92   Right Freq Never 172.00   Metric
+## 6    Male   20.0   19.5 Right R on L    68 Neither Freq Regul 190.00   Metric
+## 7    Male   22.0   22.5 Right L on R    60   Right Some Never 180.00   Metric
+## 8  Female   17.5   17.6 Right L on R    NA   Right Freq Never 150.00   Metric
+## 9  Female   18.2   18.5 Right R on L    NA   Right Some Never 168.00   Metric
+## 10 Female   16.5   15.0 Right L on R    65   Right Some Regul 160.02 Imperial
+## 11 Female   18.3   18.5 Right R on L    68 Neither Some Never 165.10 Imperial
 ##       Age
-## 1  17.833
-## 2  18.333
-## 3  24.167
-## 4  18.917
-## 5  17.417
-## 6  35.833
-## 7  18.083
-## 8  19.917
+## 1  18.917
+## 2  17.667
+## 3  17.417
+## 4  23.583
+## 5  17.500
+## 6  19.417
+## 7  27.333
+## 8  20.750
 ## 9  17.083
-## 10 23.583
-## 11 17.500
+## 10 32.750
+## 11 17.083
 ```
 {{</expand>}}
 
@@ -381,5 +381,53 @@ near(sqrt(2) ^ 2, 2)
 ```
 {{</expand>}}
 
+#### 6. coalesce()
+coalesce: 각 위치별로 NA가 아닌 값을 첫번째 값을 반환
+{{<expand "coalesce 예시">}}
+{{</expand>}}
+
+```r
+library(tidyverse)
+a <- NA
+b <- 3
+c <- 5
+coalesce(a,b,c)
+```
+
+```
+## [1] 3
+```
+
+```r
+# 응용: coalesce를 NA imputation으로 활용하기
+x <- sample(c(1:5, NA, NA, NA))
+coalesce(x, 0)
+```
+
+```
+## [1] 2 3 1 5 4 0 0 0
+```
+
+```r
+y <- c(1, 2, NA, NA, 5)
+z <- c(NA, NA, 3, 4, 5)
+coalesce(y, z)
+```
+
+```
+## [1] 1 2 3 4 5
+```
+
+```r
+vecs <- list(
+  c(1, 2, NA, NA, 5),
+  c(NA, NA, 3, 4, 5)
+)
+coalesce(!!!vecs)
+```
+
+```
+## [1] 1 2 3 4 5
+```
 ###### 참고
 [1] slice와 relocate 예시는 slack `슬기로운통계생활`을 참고하였습니다.

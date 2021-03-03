@@ -117,5 +117,30 @@ near(sqrt(2) ^ 2, 2)
 ```
 {{</expand>}}
 
+#### 6. coalesce()
+coalesce: 각 위치별로 NA가 아닌 값을 첫번째 값을 반환
+{{<expand "coalesce 예시">}}
+{{</expand>}}
+```{r}
+library(tidyverse)
+a <- NA
+b <- 3
+c <- 5
+coalesce(a,b,c)
+
+# 응용: coalesce를 NA imputation으로 활용하기
+x <- sample(c(1:5, NA, NA, NA))
+coalesce(x, 0)
+
+y <- c(1, 2, NA, NA, 5)
+z <- c(NA, NA, 3, 4, 5)
+coalesce(y, z)
+
+vecs <- list(
+  c(1, 2, NA, NA, 5),
+  c(NA, NA, 3, 4, 5)
+)
+coalesce(!!!vecs)
+```
 ###### 참고
 [1] slice와 relocate 예시는 slack `슬기로운통계생활`을 참고하였습니다.
