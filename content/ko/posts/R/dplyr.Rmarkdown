@@ -143,5 +143,24 @@ coalesce(!!!vecs)
 ```
 {{</expand>}}
 
+#### 7. recode()
+case_when의 특수한 형태로서 데이터를 교체할 때 사용할 수 있을 것이다.
+{{<expand "recode 예시">}}
+```{r}
+tmp_char <- sample(c("a", "b", "c"), 10, replace = TRUE)
+recode(tmp_char, a = "Apple")
+recode(tmp_char, a = "Apple", b = "Banana")
+recode(tmp_char, a = "Apple", b = "Banana", .default = NA_character_)
+
+# 숫자형은 아래와 같이 ``표시가 들어가야 한다.
+tmp_num <- sample(c(1,2,3), 10, replace=TRUE)
+recode(tmp_num, `1`=5)
+
+# !!!을 활용하면, python에서 dictionary 형태로 활용하는 것처럼 쓸 수 있다.
+level_key <- c(a = "apple", b = "banana", c = "carrot")
+recode(tmp_char, !!!level_key)
+```
+{{</expand>}}
+
 ###### 참고
 [1] slice와 relocate 예시는 slack `슬기로운통계생활`을 참고하였습니다.
