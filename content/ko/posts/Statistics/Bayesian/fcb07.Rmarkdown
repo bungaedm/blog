@@ -15,6 +15,7 @@ weight: 7
 
 ### 4. Gibbs Sampling of the mean and covariance
 #### 4-1. Draw yourself Figure 7.1
+
 ```{r, message=FALSE, warning=FALSE}
 library(tidyverse)
 library(gridExtra)
