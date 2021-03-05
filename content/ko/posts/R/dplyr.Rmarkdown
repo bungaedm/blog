@@ -162,5 +162,19 @@ recode(tmp_char, !!!level_key)
 ```
 {{</expand>}}
 
+#### 8. first(), last(), nth()
+첫번째, 마지막 또는 특정 위치에 있는 요소를 반환하는 함수이다.
+{{<expand "first, last, nth 예시">}}
+```{r}
+x <- 1:10
+y <- 10:1
+
+first(x)
+last(y)
+nth(x, 3)
+nth(y, 4)
+```
+{{</expand>}}
+
 ###### 참고
 [1] slice와 relocate 예시는 slack `슬기로운통계생활`을 참고하였습니다.
