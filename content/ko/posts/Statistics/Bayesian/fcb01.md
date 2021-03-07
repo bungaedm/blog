@@ -47,7 +47,10 @@ $$p(\theta|y) = \frac{p(y|\theta)p(\theta)}{\int_{\Theta}p(y|\tilde{\theta})p(\t
 <p style='text-align: center'>`\hat{\theta} = \frac{n}{n+4}\bar{y} + \frac{4}{n+4}\frac{1}{2}`</p>
 
 - Lasso
-변수 선택의 한 방법이다. 아래 제시된 SSR를 최소화하는 것을 목표로 한다. 베이지안의 맥락에서 처음 연구된 방법론은 아니지만, 특정 사전확률을 적용한다면 베이지안의 관점과 일치한다.
+변수 선택의 한 방법이다. 아래 제시된 SSR를 최소화하는 것을 목표로 한다.  
+베이지안의 맥락에서 처음 연구된 방법론은 아니지만, 특정 사전확률을 적용한다면 베이지안의 관점과 일치한다.  
+여기서 말하는 그 특정 사전확률분포란, `$\beta_j$`가 0에서 첨점을 갖는 라플라스 분포(또는 double-exponential distribution)를 따른다는 것을 의미한다.  
+그리고 이때 lasso estimate은 `$\beta$`의 사후 최빈값(posterior mode)과 같다.
 $$SSR(\beta:\lambda) = \sum_{i=1}^{n}(y_i-\boldsymbol{x_i}^T\boldsymbol{\beta})^2 + \lambda\sum_{j=1}^{n}|\beta_j|$$ 
 
 

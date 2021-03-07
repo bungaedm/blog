@@ -120,6 +120,14 @@ $$\rightarrow f(x) = \frac{(1/2)^{\nu/2}}{\Gamma(\nu/2)}\left(\frac{1}{x}\right)
 $$\text{X~} \chi^{-2}(\nu, \tau^2) = \Gamma^{-1}(\nu/2, \nu\tau^2/2) $$
 $$\rightarrow f(x) = \frac{(\nu\tau^2/2)^{\nu/2}}{\Gamma(\nu/2)}\left(\frac{1}{x}\right)^{\nu/2+1}exp(-\frac{\nu\tau^2}{2x}) $$
 {{</expand>}}
+ 
+#### 라플라스 분포(Laplace Distribution)
+지수분포를 두 개 붙여놓은 것 같다고 하여 double-exponential distribution이라고도 불린다.
+{{<expand "라플라스 분포 (Laplcace Distribution)">}}
+$$\text{X~} Laplace(\mu, b) \rightarrow f(x) = \frac{1}{2b}exp(-\frac{|x-\mu|}{b}) $$
+$$ E(X) = \mu, Var(X) = 2b^2 $$
+{{</expand>}}
+{{< img src="/images/posts/statistics/laplace_distribution.png" width="400px" position="center" >}}
 
 ---
 
