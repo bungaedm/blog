@@ -1,0 +1,83 @@
+---
+collapsible: false
+date: "2021-02-23T10:08:56+09:00"
+title: Gibbs Sampler
+weight: 1
+---
+
+
+
+
+## Gibbs Sampler
+
+#### 기본 원리
+(추후 업데이트)
+
+#### 예시
+
+```r
+## Data load 
+data = dget('https://www2.stat.duke.edu/~pdh10/FCBS/Inline/yX.o2uptake')
+y = data[,1]
+X = data[,-1]
+inv = solve
+
+## set prior
+g = length(y)
+nu0 = 1
+s20 = summary(lm(y~-1+X))$sigma^2
+n = length(y)
+p = ncol(X)
+
+## setup
+S = 1000
+set.seed(2021)
+BETA = matrix(NA, nrow=S, ncol=p)
+sigma2 = matrix(NA, nrow=S, ncol=1)
+BETA[1,] = inv(t(X) %*% X) %*% t(X) %*% y
+sigma2[1,] = s20
+
+## gibbs sampling
+nun = nu0 + n
+betan = (g/(g+1)) * inv(t(X) %*% X) %*% t(X) %*% y
+for(s in 2:S){
+  s2n = nu0*s20 + t(y-X%*%BETA[s-1,]) %*% (y-X%*%BETA[s-1,])
+  sigma2[s,] = 1/rgamma(1, shape=nun/2, rate=s2n/2)
+  
+  Sigman = (g/(g+1)) * sigma2[s,] * inv(t(X) %*% X)
+  BETA[s,] = MASS::mvrnorm(n=1, betan, Sigman)
+}
+
+## graph
+colnames(BETA) = colnames(X)
+gather(as.data.frame(BETA)) %>% 
+  ggplot(aes(y=value, fill=key)) + geom_histogram() +
+  coord_flip() + facet_wrap(~key, scales='free_x') +
+  ggtitle('Posterior samples of Beta') +
+  theme(legend.position = 'None')
+```
+
+```
+## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+```
+
+<img src="/ko/posts/Statistics/Bayesian/gibbs_sampler_files/figure-html/unnamed-chunk-2-1.png" width="672" />
+
+
+#### 종류
+###### 1. Systematic Sweep Gibbs Sampler
+모든 모수에 대해 샘플링을 반복하여 업데이트하는 방법
+
+###### 2. Random Sweep Gibbs Sampler
+무작위로 모수를 뽑아서 업데이트하는 방법
+
+###### 3. Grouped Gibbs Sampler
+여러 개의 모수를 한번에 뽑아서 업데이트하는 방법  
+이때 모수 간의 연관성이 생긴다.
+
+###### 4. Collapsed Gibbs Sampler
+적분을 통해서 특정 모수와 독립적인 분포를 계산한 후, 샘플링하여 업데이트하는 방법
+
+###### 참고사이트
+[1] https://niceguy1575.tistory.com/entry/%EB%B2%A0%EC%9D%B4%EC%A7%80%EC%95%88-%ED%86%B5%EA%B3%84%ED%95%99-4-Gibbs-Sampler%EA%B9%81%EC%8A%A4-%EC%83%98%ED%94%8C%EB%9F%AC-%EC%9D%98-%EC%A2%85%EB%A5%98%EC%99%80-%EC%84%B1%EC%A7%88
+

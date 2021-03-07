@@ -55,18 +55,30 @@ where `$Z\text{~ }N(0,1), V\text{~ } \chi^2(\nu)$`
 #### 이항 분포(Binomial Distribution)
 
 #### 감마 분포(Gamma Distribution)
-{{<expand "감마분포 (알파: shape, 베타: scale)">}}
+<!--{{<expand "감마분포 (알파: shape, 베타: scale)">}}
 $$ \text{X~} Gamma(\alpha, \beta) \rightarrow f(x) = \frac{1}{\beta^\alpha\cdot\Gamma(\alpha)}x^{\alpha-1}e^{-\frac{x}{\beta}}$$
 `$\text{for } x>0, \ \alpha>0, \ \beta>0 $`
 $$ E(X)=\alpha\beta, \ Var(X)=\alpha\beta^2 $$
-{{</expand>}}
-{{< img src="/images/posts/statistics/gamma_distribution.png" title="Gamma Distribution" caption="k=alpha, theta=beta로 생각하기" width="400px" position="center" >}}
+{{</expand>}}-->
+<!--{{< img src="/images/posts/statistics/gamma_distribution.png" title="Gamma Distribution" caption="k=alpha, theta=beta로 생각하기" width="400px" position="center" >}}-->
 
-참고로, 포아송분포, 지수분포, 카이제곱분포와의 연관성을 생각하면 베타를 rate parameter로 보는 것이 좋다.
+참고로, 포아송분포, 지수분포, 카이제곱분포와의 연관성을 생각하면 베타를 rate parameter로 보는 것이 좋다.  
+베타를 scale로 보는 방식은 가려두도록 하겠다.
 {{<expand "감마분포 (알파: shape, 베타: rate)">}}
 $$ \text{X~} Gamma(\alpha, \beta) \rightarrow f(x) = \frac{\beta^\alpha}{\Gamma(\alpha)}x^{\alpha-1}e^{-\beta x}$$
 `$\text{for } x>0, \ \alpha>0, \ \beta>0 $`
 $$ E(X)=\frac{\alpha}{\beta}, \ Var(X)=\frac{\alpha}{\beta^2} $$
+{{</expand>}}
+ 
+{{<expand "역감마 분포 (inverse-Gamma)">}}
+$$ \text{X~} inv-Gamma(\alpha, \beta) \rightarrow f(x) = \frac{\beta^\alpha}{\Gamma(\alpha)} \left(\frac{1}{x}\right)^{\alpha+1}exp(-\frac{\beta}{x}) $$
+`$\text{for } x>0, \ \alpha>0, \ \beta>0 $`
+$$ E(X)=\frac{\beta}{\alpha-1}, \ Var(X)=\frac{\beta^2}{(\alpha-1)^2(\alpha-2)} \ \text{for } \alpha>1$$
+{{</expand>}}
+
+{{<expand "스케일된 역감마분포 (scaled inverse-Gamma)">}}
+$$\text{X~} \chi^{-2}(\nu, \tau^2) = \Gamma^{-1}(\nu/2, \nu\tau^2/2) $$
+$$\rightarrow f(x) = \frac{(\nu\tau^2/2)^{\nu/2}}{\Gamma(\nu/2)}\left(\frac{1}{x}\right)^{\nu/2+1}exp(-\frac{\nu\tau^2}{2x}) $$
 {{</expand>}}
 
 #### 베타 분포(Beta Distribution)
@@ -98,6 +110,16 @@ $$\text{X~} \chi^2(\nu) \rightarrow f(x) = \frac{(\frac{1}{2})^\frac{\nu}{2}}{\G
 $$ E(X) = \nu, \ Var(X) = 2\nu$$
 {{</expand>}}
 {{< img src="/images/posts/statistics/chisquared_distribution.png" width="400px" position="center" >}}
+
+{{<expand "역카이제곱 분포 (inverse Chi-squared)">}}
+$$\text{X~} \chi^{-2}(\nu) = \Gamma^{-1}(\nu/2, 1/2) $$
+$$\rightarrow f(x) = \frac{(1/2)^{\nu/2}}{\Gamma(\nu/2)}\left(\frac{1}{x}\right)^{\nu/2+1}exp(-\frac{1}{2x}) $$ 
+{{</expand>}}
+
+{{<expand "스케일된 역카이제곱분포 (scaled inverse chi-squard)">}}
+$$\text{X~} \chi^{-2}(\nu, \tau^2) = \Gamma^{-1}(\nu/2, \nu\tau^2/2) $$
+$$\rightarrow f(x) = \frac{(\nu\tau^2/2)^{\nu/2}}{\Gamma(\nu/2)}\left(\frac{1}{x}\right)^{\nu/2+1}exp(-\frac{\nu\tau^2}{2x}) $$
+{{</expand>}}
 
 ---
 
