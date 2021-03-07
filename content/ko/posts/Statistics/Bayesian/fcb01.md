@@ -38,6 +38,7 @@ $$p(\theta|y) = \frac{p(y|\theta)p(\theta)}{\int_{\Theta}p(y|\tilde{\theta})p(\t
 2. 예측 모델 구축(Prediction)
     - 당뇨병(diabetes progression)
     - 50% 확률로 변수의 coefficient가 0라고 사전확률을 제안한다면, 변수선택의 효과를 얻을 수 있다.
+    - 이와 관련된 자세한 내용은 [FCB chapter 09](/posts/statistics/bayesian/fcb09/)서 Bayesian Linear Regression과 관련하여 설명될 예정이다.
 
 ### ETC
 - 'Adjusted' Wald interval
