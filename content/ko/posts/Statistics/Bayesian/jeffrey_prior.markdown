@@ -19,7 +19,7 @@ p(\phi) &\propto p(\theta) \bigg|\frac{d\theta}{d\phi}\bigg| \\
 변수변환 후에는 prior가 uninformative하지 않게 되어버림을 확인할 수 있다.
 
 ### 2. Jeffrey's prior
-그렇다면 어떻게 해야 변순변환에 강건한 prior를 줄 수 있을까?
+그렇다면 어떻게 해야 변수변환에 강건한 prior를 줄 수 있을까?
 $$\pi(\phi) \propto \sqrt{I(\theta)} $$
 위와 같이 주면 된다. 여기서 `$I(\theta) $`는 Fisher Information을 뜻하며, 아래와 같다.
 `$$I(\theta) = -E\Big[ \frac{\partial^2}{\partial{\theta}^2}ln L(x|\theta) \Big]$$`
@@ -39,6 +39,7 @@ p(\phi) &= p(\theta)\bigg|\frac{\partial\theta}{\partial\phi} \bigg| \\
 &\propto \sqrt{I(\theta)}\bigg|\frac{\partial\theta}{\partial\phi} \bigg| \\
 &=\sqrt{I(\phi)}
 \end{align}`
+
 $$\rightarrow p(\phi) \propto \sqrt{I(\phi)} $$
 
 ---
