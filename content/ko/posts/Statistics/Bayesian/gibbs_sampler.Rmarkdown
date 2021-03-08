@@ -2,7 +2,7 @@
 collapsible: false
 date: "2021-02-23T10:08:56+09:00"
 title: Gibbs Sampler
-weight: 1
+weight: 99
 ---
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}

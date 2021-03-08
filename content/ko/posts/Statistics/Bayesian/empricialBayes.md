@@ -2,7 +2,7 @@
 collapsible: false
 date: "2021-03-06T10:08:56+09:00"
 title: Empirical Bayes
-weight: 1
+weight: 99
 ---
 
 ## Empirical Bayes

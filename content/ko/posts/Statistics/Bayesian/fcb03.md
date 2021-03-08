@@ -13,26 +13,34 @@ weight: 3
 ### Binomial Model
 Prior: `$\theta \text{ ~ } beta(a,b)$`
 Likelihood: `$Y|\theta \text{ ~ } binomial(n, \theta) $`
-Posterior: `$\theta|y \text{ ~ } beta(a+y, b+n-y) $`  
-
-`$ E[\theta|y] = \frac{a+y}{a+b+n} = \frac{n}{a+b+n}\times\frac{y}{n} + \frac{a+b}{a+b+n}\times\frac{a}{a+b} $` where `$\frac{y}{n}$` = sample mean, `$\frac{a}{a+b}$` = prior expectation
+Posterior: `$\theta|y \text{ ~ } beta(a+y, b+n-y) $` <br>
+a: prior 성공횟수, b: prior 실패횟수, `$\omega$`=a+b: concentration <br>
+`$ E[\theta|y] = \frac{a+y}{a+b+n} = \frac{n}{a+b+n}\times\frac{y}{n} + \frac{a+b}{a+b+n}\times\frac{a}{a+b} $` where `$\frac{y}{n}$` = sample mean, `$\frac{a}{a+b}$` = prior expectation <br>
+Predictive: `$\tilde{y}|y \text{ ~ } beta(a+y+y^{*}, b+n+n^{*}-y-y^{*}) $`
 
 ### Poisson Model
 Prior: `$\theta \text{ ~ } gamma(a,b) $`
 Likelihood: `$Y_1, ..., Y_n \text{ ~ iid. } Poisson(\theta)$`
-Posterior: `$\theta|Y_1, ..., Y_n \text{ ~ } gamma(a+\sum_{i=1}^{n}{Y_i}, b+n) $`
+Posterior: `$\theta|Y_1, ..., Y_n \text{ ~ } gamma(a+\sum_{i=1}^{n}{Y_i}, b+n) $` <br>  
+a: sum of counts from b prior observations, b: number of prior observations <br>
+`$E[\theta|y_1, ..., y_n] = \frac{a+\sum y_i}{b+n} = \frac{b}{b+n}\frac{a}{b} + \frac{n}{b+n}\frac{\sum y_i}{n}$` <br>
+Predictive: `$\tilde{y}|y_1, ..., y_n \text{ ~ } NB(a+\sum y_i, b+n) $`
 
 ### Exponential Family
 exponential family(지수족)의 pdf 또는 pmf는 다음과 같은 형식으로 표현될 수 있어야 한다. `$ p(y_i|\theta) = f(y_i) \ g(\theta) \ exp(\phi(\theta)^Ts(y_i)) $`
 
-Prior: `$ p(\theta) \propto g(\theta)^\eta \ exp(\phi(\theta)^T \ \nu) $`
-Likelihood: `$ p(y|\theta) = \prod_{i=1}^{N} f(y_i) \ g(\theta)^N \ exp(\phi(\theta)^T \ \sum_{i=1}^{N}s(y_i)) $` where `$\sum_{i=1}^{N}s(y_i))$` is sufficient statistics `$t(y)$`
-Posterior: `$ p(\theta|y) \propto g(\theta)^{\eta+N} \ exp(\phi(\theta)^T \ (\nu + t(y)) $`
+Prior: `$ p(\theta) \propto g(\theta)^\eta \ exp(\phi(\theta)^T \ \nu) $`  
+Likelihood: `$ p(y|\theta) = \prod_{i=1}^{N} f(y_i) \ g(\theta)^N \ exp(\phi(\theta)^T \ \sum_{i=1}^{N}s(y_i)) $` where `$\sum_{i=1}^{N}s(y_i))$` is sufficient statistics `$t(y)$`  
+Posterior: `$ p(\theta|y) \propto g(\theta)^{\eta+N} \ exp(\phi(\theta)^T \ (\nu + t(y)) $`  
 
 ### Conjugate Prior
 prior와 posterior의 확률분포형태가 같을 수 있도록 prior을 설정하면 이를 conjugate prior라고 한다.  
 위의 예시 외에도 Normal model 등이 있는데, 이들에 대해서는 다음에 이어서 살펴보도록 하겠다.
 다양한 예시들은 [위키백과](https://en.wikipedia.org/wiki/Conjugate_prior)에 자세히 나와있으니 궁금한 사람들은 추가적으로 살펴보아도 좋겠다.
+
+### 주의사항
+사후확률분포가 차이가 많이 나는 것과 사후예측치가 차이가 많이 나는 것의 차이를 알아두어야 한다. 즉, {`${\theta_1 > \theta_2}$`}와 {`$\tilde{Y_1} > \tilde{Y_2}$`}는 다르다.
+> Strong evidence of a difference between two populations does not mean that the difference itself is large.
 
 ### Conclusion
 <p style='text-align: center'> Conjugacy를 잘 알아두자. </p> 

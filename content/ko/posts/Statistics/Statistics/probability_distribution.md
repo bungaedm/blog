@@ -53,6 +53,28 @@ where `$Z\text{~ }N(0,1), V\text{~ } \chi^2(\nu)$`
 {{</expand>}}
 
 #### 이항 분포(Binomial Distribution)
+{{<expand "이항분포">}}
+$$ \text{X~} Binom(n, p) \rightarrow f(x) = \binom{n}{x}p^x(1-p)^{n-x} $$
+$$ E(X) = np, Var(X) = np(1-p) $$
+{{</expand>}}
+
+#### 음이항 분포(Negative Binomial Distribution)
+n번째 시행에서 r번째 성공을 확률을 구하고자 할 때 활용한다.
+음이항 분포에서는 시행 횟수 n이 확률변수이고 성공 횟수 r이 고정되어 있는 반면, 이항분포에서는 시행 횟수 n이 고정되어 있고 성공 횟수 r이 확률변수이다. 그래서 **음이항**분포라고 이름지어진 것이다.
+{{<expand "음이항 분포(X : r번째 성공을 얻을 때까지 시행횟수)">}}
+$$\text{X~} Negative \  Binomial(r, p) $$
+$$\rightarrow f(x) = \binom{x-1}{r-1}p^r(1-p)^{x-r}, \ x=r, r+1, ... $$
+$$ E(X) = \frac{r}{p}, \ Var(X) = r \cdot\frac{1-p}{p^2}$$
+{{</expand>}}
+
+여기서 x = r+y로 하여, r번째 성공을 얻을 때까지 실패횟수를 계산하면 아래와 같다.  
+해당 확률분포 형태에 따라 **음이항**분포라고 이름지어진 것임을 다시 한 번 확인할 수 있다.
+{{<expand "음이항 분포(X : r번째 성공을 얻을 때까지 실패횟수)">}}
+$$\text{Y~} Negative \  Binomial(r, p) $$
+$$\rightarrow f(y) = \binom{r+y-1}{r-1}p^r(1-p)^y, \ y=0,1,2,...$$
+$$\rightarrow f(y) = (-1)^y\binom{-r}{y}p^r(1-p)^y, \ y=0,1,2,... $$
+$$ E(Y) = r\cdot\frac{1-p}{p}, \ Var(Y) = r \cdot\frac{1-p}{p^2}$$
+{{</expand>}}
 
 #### 감마 분포(Gamma Distribution)
 <!--{{<expand "감마분포 (알파: shape, 베타: scale)">}}
