@@ -82,6 +82,11 @@ $$\rightarrow f(x) = \frac{(\nu\tau^2/2)^{\nu/2}}{\Gamma(\nu/2)}\left(\frac{1}{x
 {{</expand>}}
 
 #### 베타 분포(Beta Distribution)
+{{<expand "베타 분포">}}
+$$ \text{X~} Beta(\alpha, \beta) \rightarrow f(x) = \frac{\Gamma(\alpha+\beta)}{\Gamma(\alpha)\Gamma(\beta)}x^{\alpha-1}(1-x)^{\beta-1} $$
+`$\text{for } x\in[0,1], \ \alpha>0, \ \beta>0 $`
+$$ E(X) = \frac{\alpha}{\alpha+\beta}, \ Var(X) = \frac{\alpha\beta}{(\alpha+\beta)^2(\alpha+\beta+1)}, \ mode(X) = \frac{\alpha-1}{\alpha+\beta-2} (\text{단}, \alpha>1, \ \beta>1)  $$
+{{</expand>}}
 
 #### 포아송 분포(Poisson Distribution)
 정해진 시간 안에 어떤 사건이 일어날 횟수에 대한 기댓값을 `$\lambda$` 라고 했을 때, 그 사건이 n회 일어날 확률은 다음과 같다.
