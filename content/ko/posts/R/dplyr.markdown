@@ -35,11 +35,11 @@ tmp
 ## # A tibble: 5 x 3
 ##       x     y     z
 ##   <dbl> <dbl> <dbl>
-## 1     4     2     3
-## 2     2     5     5
-## 3     5     1     2
-## 4     4     3     8
-## 5     5     4    16
+## 1     5     1    -3
+## 2     5    -1    18
+## 3     7     7    13
+## 4     4     2    -1
+## 5     7     0     9
 ```
 
 ```r
@@ -81,11 +81,11 @@ tmp %>%
 ## # Rowwise: 
 ##       x     y     z   max
 ##   <dbl> <dbl> <dbl> <dbl>
-## 1     4     2     3     4
-## 2     2     5     5     5
-## 3     5     1     2     5
-## 4     4     3     8     8
-## 5     5     4    16    16
+## 1     5     1    -3     5
+## 2     5    -1    18    18
+## 3     7     7    13    13
+## 4     4     2    -1     4
+## 5     7     0     9     9
 ```
 
 ```r
@@ -98,11 +98,11 @@ tmp %>%
 ## # A tibble: 5 x 4
 ##       x     y     z   max
 ##   <dbl> <dbl> <dbl> <dbl>
-## 1     4     2     3    16
-## 2     2     5     5    16
-## 3     5     1     2    16
-## 4     4     3     8    16
-## 5     5     4    16    16
+## 1     5     1    -3    18
+## 2     5    -1    18    18
+## 3     7     7    13    18
+## 4     4     2    -1    18
+## 5     7     0     9    18
 ```
 {{< /expand >}}
 
@@ -120,11 +120,11 @@ tmp %>%
 ## # A tibble: 5 x 4
 ##       x     y     z   max
 ##   <dbl> <dbl> <dbl> <dbl>
-## 1     4     2     3     4
-## 2     2     5     5     5
-## 3     5     1     2     5
-## 4     4     3     8     8
-## 5     5     4    16    16
+## 1     5     1    -3     5
+## 2     5    -1    18    18
+## 3     7     7    13    13
+## 4     4     2    -1     4
+## 5     7     0     9     9
 ```
 {{< /expand >}}
 
@@ -212,27 +212,27 @@ survey %>%
 
 ```
 ##       Sex Wr.Hnd NW.Hnd W.Hnd   Fold Pulse    Clap Exer Smoke Height      M.I
-## 1  Female   16.0   16.5 Right L on R    NA   Right Some Never 168.00   Metric
-## 2  Female   19.6   19.7 Right L on R    70   Right Freq Never 178.00   Metric
-## 3    Male   20.5   20.5 Right L on R    NA    Left Some Never 190.50 Imperial
-## 4  Female   17.6   17.2 Right L on R    NA   Right Some Never     NA     <NA>
-## 5    Male   17.5   17.6 Right R on L    84   Right Some Never 160.00   Metric
-## 6    Male   20.5   19.5  Left L on R    80   Right Some Occas 182.88 Imperial
-## 7    <NA>   19.8   19.0  Left L on R    73 Neither Freq Never 172.00   Metric
-## 8    Male     NA     NA Right R on L    60    <NA> Some Never 172.00   Metric
-## 9  Female   17.5   16.0 Right L on R    NA   Right Some Never 169.00   Metric
-## 10 Female   16.0   16.0 Right R on L    68   Right Freq Never 172.72 Imperial
+## 1  Female   18.7   18.0  Left L on R    NA    Left None Never 170.00   Metric
+## 2  Female   18.5   18.5 Right R on L    76    Left Freq Never 175.00   Metric
+## 3    Male   20.0   20.5 Right L on R    NA   Right Freq Never 185.42 Imperial
+## 4  Female   18.0   17.5 Right R on L    48 Neither Freq Never 165.00   Metric
+## 5  Female   19.5   19.2 Right R on L    70   Right Some Never 170.00   Metric
+## 6    Male   19.2   19.6 Right L on R    80   Right None Never 190.50 Imperial
+## 7  Female   15.4   16.4  Left L on R    80    Left Freq Occas 160.02 Imperial
+## 8    Male   18.8   18.9 Right R on L    NA Neither None Never 160.00   Metric
+## 9  Female   19.5   18.5 Right L on R    68   Right None Never 167.00   Metric
+## 10 Female   19.0   18.8 Right R on L    65   Right Freq Never 172.72 Imperial
 ##       Age
-## 1  19.000
-## 2  17.500
-## 3  19.750
-## 4  19.917
-## 5  18.583
-## 6  18.667
-## 7  21.500
-## 8  28.583
-## 9  17.500
-## 10 17.667
+## 1  19.833
+## 2  24.167
+## 3  18.750
+## 4  18.667
+## 5  18.167
+## 6  18.167
+## 7  18.500
+## 8  20.333
+## 9  18.667
+## 10 17.250
 ```
 
 ```r
@@ -242,30 +242,30 @@ survey %>%
 ```
 
 ```
-##       Sex Wr.Hnd NW.Hnd W.Hnd    Fold Pulse    Clap Exer Smoke Height      M.I
-## 1    Male   16.0   15.5 Right Neither    71   Right Freq Never 154.94 Imperial
-## 2    Male   19.0   18.5 Right  R on L    72   Right Freq Never 180.34 Imperial
-## 3    Male   19.4   19.2  Left  R on L    74   Right Some Never 182.88 Imperial
-## 4    Male   21.0   20.7 Right  R on L    90   Right Some Never 172.72 Imperial
-## 5    Male   18.0   13.3 Right  L on R    87 Neither None Occas     NA     <NA>
-## 6    Male   19.0   19.5 Right  L on R    60   Right Some Never 178.00   Metric
-## 7  Female   18.5   18.0 Right Neither    86   Right None Never 160.00   Metric
-## 8  Female   18.0   18.0 Right  L on R    89 Neither Freq Never 157.00   Metric
-## 9  Female   19.4   19.6 Right  R on L    68 Neither Freq Never 175.26 Imperial
-## 10 Female   16.0   16.0 Right  L on R    NA   Right Some Never 155.00   Metric
-## 11 Female   17.0   17.4 Right  R on L    NA Neither Some Never     NA     <NA>
+##       Sex Wr.Hnd NW.Hnd W.Hnd   Fold Pulse    Clap Exer Smoke Height      M.I
+## 1    Male   17.0   18.0 Right L on R    78    Left Some Never 170.18 Imperial
+## 2    Male   22.0   22.0 Right L on R    72   Right Freq Never 182.88 Imperial
+## 3    Male   23.2   22.7 Right L on R    84    Left Freq Regul 180.00   Metric
+## 4    Male   20.0   19.8 Right L on R    68   Right Freq Never 185.00   Metric
+## 5  Female   17.5   16.0 Right L on R    NA   Right Some Never 169.00   Metric
+## 6    Male   22.0   22.0 Right R on L    80   Right Some Never 185.00   Metric
+## 7    Male   17.0   17.5 Right R on L    NA Neither Freq Never 180.34 Imperial
+## 8  Female   17.5   17.0 Right R on L    83 Neither Freq Occas 168.00   Metric
+## 9    Male   22.5   22.5 Right R on L    65   Right Freq Regul 182.00   Metric
+## 10 Female   17.5   17.0 Right R on L    80    Left Some Heavy 163.00   Metric
+## 11   Male   18.0   18.5 Right R on L    62   Right Freq Never 173.00   Metric
 ##       Age
-## 1  17.167
-## 2  17.333
-## 3  18.333
-## 4  17.500
-## 5  16.917
-## 6  18.750
-## 7  20.167
-## 8  19.333
-## 9  19.083
-## 10 18.750
-## 11 17.167
+## 1  18.333
+## 2  19.333
+## 3  18.917
+## 4  17.417
+## 5  17.500
+## 6  35.500
+## 7  18.500
+## 8  17.083
+## 9  20.000
+## 10 17.667
+## 11 20.333
 ```
 {{</expand>}}
 
@@ -404,7 +404,7 @@ coalesce(x, 0)
 ```
 
 ```
-## [1] 1 3 0 2 4 0 0 5
+## [1] 0 0 3 1 5 2 4 0
 ```
 
 ```r
@@ -440,7 +440,7 @@ recode(tmp_char, a = "Apple")
 ```
 
 ```
-##  [1] "Apple" "c"     "Apple" "Apple" "b"     "c"     "Apple" "Apple" "b"    
+##  [1] "Apple" "Apple" "Apple" "Apple" "c"     "b"     "c"     "b"     "b"    
 ## [10] "b"
 ```
 
@@ -449,7 +449,7 @@ recode(tmp_char, a = "Apple", b = "Banana")
 ```
 
 ```
-##  [1] "Apple"  "c"      "Apple"  "Apple"  "Banana" "c"      "Apple"  "Apple" 
+##  [1] "Apple"  "Apple"  "Apple"  "Apple"  "c"      "Banana" "c"      "Banana"
 ##  [9] "Banana" "Banana"
 ```
 
@@ -458,7 +458,7 @@ recode(tmp_char, a = "Apple", b = "Banana", .default = NA_character_)
 ```
 
 ```
-##  [1] "Apple"  NA       "Apple"  "Apple"  "Banana" NA       "Apple"  "Apple" 
+##  [1] "Apple"  "Apple"  "Apple"  "Apple"  NA       "Banana" NA       "Banana"
 ##  [9] "Banana" "Banana"
 ```
 
@@ -469,7 +469,7 @@ recode(tmp_num, `1`=5)
 ```
 
 ```
-##  [1] 2 5 3 5 2 5 2 2 2 5
+##  [1] 3 2 3 3 2 2 5 5 3 5
 ```
 
 ```r
@@ -479,7 +479,7 @@ recode(tmp_char, !!!level_key)
 ```
 
 ```
-##  [1] "apple"  "carrot" "apple"  "apple"  "banana" "carrot" "apple"  "apple" 
+##  [1] "apple"  "apple"  "apple"  "apple"  "carrot" "banana" "carrot" "banana"
 ##  [9] "banana" "banana"
 ```
 {{</expand>}}
@@ -521,6 +521,118 @@ nth(y, 4)
 
 ```
 ## [1] 7
+```
+{{</expand>}}
+
+#### 9. rownames_to_column(), column_to_rownames()
+{{<expand "rownames_to_column, column_to_rownames 예시">}}
+
+```r
+a <- rownames_to_column(iris, var = "C")
+head(a)
+```
+
+```
+##   C Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+## 1 1          5.1         3.5          1.4         0.2  setosa
+## 2 2          4.9         3.0          1.4         0.2  setosa
+## 3 3          4.7         3.2          1.3         0.2  setosa
+## 4 4          4.6         3.1          1.5         0.2  setosa
+## 5 5          5.0         3.6          1.4         0.2  setosa
+## 6 6          5.4         3.9          1.7         0.4  setosa
+```
+
+```r
+b <- column_to_rownames(a, var = "C")
+head(b)
+```
+
+```
+##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+## 1          5.1         3.5          1.4         0.2  setosa
+## 2          4.9         3.0          1.4         0.2  setosa
+## 3          4.7         3.2          1.3         0.2  setosa
+## 4          4.6         3.1          1.5         0.2  setosa
+## 5          5.0         3.6          1.4         0.2  setosa
+## 6          5.4         3.9          1.7         0.4  setosa
+```
+{{</expand>}}
+
+#### 10. bind_rows(), bind_cols()
+기존의 rbind랑 cbind 대신에 활용하면 될 것 같다.
+{{<expand "bind_rows, bind_cols 예시">}}
+
+```r
+# bind_rows
+one_r <- starwars[1:4, ]
+two_r <- starwars[9:12, ]
+three_r <- starwars[9:12, 3]
+bind_rows(one_r, two_r)
+```
+
+```
+## # A tibble: 8 x 14
+##   name  height  mass hair_color skin_color eye_color birth_year sex   gender
+##   <chr>  <int> <dbl> <chr>      <chr>      <chr>          <dbl> <chr> <chr> 
+## 1 Luke~    172    77 blond      fair       blue            19   male  mascu~
+## 2 C-3PO    167    75 <NA>       gold       yellow         112   none  mascu~
+## 3 R2-D2     96    32 <NA>       white, bl~ red             33   none  mascu~
+## 4 Dart~    202   136 none       white      yellow          41.9 male  mascu~
+## 5 Bigg~    183    84 black      light      brown           24   male  mascu~
+## 6 Obi-~    182    77 auburn, w~ fair       blue-gray       57   male  mascu~
+## 7 Anak~    188    84 blond      fair       blue            41.9 male  mascu~
+## 8 Wilh~    180    NA auburn, g~ fair       blue            64   male  mascu~
+## # ... with 5 more variables: homeworld <chr>, species <chr>, films <list>,
+## #   vehicles <list>, starships <list>
+```
+
+```r
+bind_rows(one_r, three_r) # 에러 안 뜸. NA로 채움
+```
+
+```
+## # A tibble: 8 x 14
+##   name  height  mass hair_color skin_color eye_color birth_year sex   gender
+##   <chr>  <int> <dbl> <chr>      <chr>      <chr>          <dbl> <chr> <chr> 
+## 1 Luke~    172    77 blond      fair       blue            19   male  mascu~
+## 2 C-3PO    167    75 <NA>       gold       yellow         112   none  mascu~
+## 3 R2-D2     96    32 <NA>       white, bl~ red             33   none  mascu~
+## 4 Dart~    202   136 none       white      yellow          41.9 male  mascu~
+## 5 <NA>      NA    84 <NA>       <NA>       <NA>            NA   <NA>  <NA>  
+## 6 <NA>      NA    77 <NA>       <NA>       <NA>            NA   <NA>  <NA>  
+## 7 <NA>      NA    84 <NA>       <NA>       <NA>            NA   <NA>  <NA>  
+## 8 <NA>      NA    NA <NA>       <NA>       <NA>            NA   <NA>  <NA>  
+## # ... with 5 more variables: homeworld <chr>, species <chr>, films <list>,
+## #   vehicles <list>, starships <list>
+```
+
+```r
+# bind_cols
+one_c <- starwars[,1:4]
+two_c <- starwars[,7:9]
+three_c <- starwars[10:50,7:9]
+bind_cols(one_c, two_c)
+```
+
+```
+## # A tibble: 87 x 7
+##    name               height  mass hair_color    birth_year sex    gender   
+##    <chr>               <int> <dbl> <chr>              <dbl> <chr>  <chr>    
+##  1 Luke Skywalker        172    77 blond               19   male   masculine
+##  2 C-3PO                 167    75 <NA>               112   none   masculine
+##  3 R2-D2                  96    32 <NA>                33   none   masculine
+##  4 Darth Vader           202   136 none                41.9 male   masculine
+##  5 Leia Organa           150    49 brown               19   female feminine 
+##  6 Owen Lars             178   120 brown, grey         52   male   masculine
+##  7 Beru Whitesun lars    165    75 brown               47   female feminine 
+##  8 R5-D4                  97    32 <NA>                NA   none   masculine
+##  9 Biggs Darklighter     183    84 black               24   male   masculine
+## 10 Obi-Wan Kenobi        182    77 auburn, white       57   male   masculine
+## # ... with 77 more rows
+```
+
+```r
+# bind_cols(one_c, three_c) # 에러 뜸, bind_rows와 차이점
 ```
 {{</expand>}}
 

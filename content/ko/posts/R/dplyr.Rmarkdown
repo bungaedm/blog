@@ -176,5 +176,35 @@ nth(y, 4)
 ```
 {{</expand>}}
 
+#### 9. rownames_to_column(), column_to_rownames()
+{{<expand "rownames_to_column, column_to_rownames 예시">}}
+```{r}
+a <- rownames_to_column(iris, var = "C")
+head(a)
+b <- column_to_rownames(a, var = "C")
+head(b)
+```
+{{</expand>}}
+
+#### 10. bind_rows(), bind_cols()
+기존의 rbind랑 cbind 대신에 활용하면 될 것 같다.
+{{<expand "bind_rows, bind_cols 예시">}}
+```{r}
+# bind_rows
+one_r <- starwars[1:4, ]
+two_r <- starwars[9:12, ]
+three_r <- starwars[9:12, 3]
+bind_rows(one_r, two_r)
+bind_rows(one_r, three_r) # 에러 안 뜸. NA로 채움
+
+# bind_cols
+one_c <- starwars[,1:4]
+two_c <- starwars[,7:9]
+three_c <- starwars[10:50,7:9]
+bind_cols(one_c, two_c)
+# bind_cols(one_c, three_c) # 에러 뜸, bind_rows와 차이점
+```
+{{</expand>}}
+
 ###### 참고
 [1] slice와 relocate 예시는 slack `슬기로운통계생활`을 참고하였습니다.
