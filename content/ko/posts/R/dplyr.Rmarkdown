@@ -206,5 +206,15 @@ bind_cols(one_c, two_c)
 ```
 {{</expand>}}
 
+#### 11. mutate_all, mutate_if
+모든 변수를 다 특정 함수를 거친 형태로 바꾸거나, 조건을 주어서 특정 함수를 거친 형태로 바꾸는 함수이다.
+{{<expand "mutate_all, mutate_if 예시">}}
+```{r}
+iris  %>% mutate_all(as.integer) %>% head() # Species까지 integer로 바꿔버림
+
+iris %>% mutate_if(is.double, as.integer) %>% head()
+```
+{{</expand>}}
+
 ###### 참고
 [1] slice와 relocate 예시는 slack `슬기로운통계생활`을 참고하였습니다.

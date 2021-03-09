@@ -35,11 +35,11 @@ tmp
 ## # A tibble: 5 x 3
 ##       x     y     z
 ##   <dbl> <dbl> <dbl>
-## 1     5     1    -3
-## 2     5    -1    18
-## 3     7     7    13
-## 4     4     2    -1
-## 5     7     0     9
+## 1     5     7    -2
+## 2     4    -2     3
+## 3     5     5     0
+## 4     5     6     5
+## 5     4     5     6
 ```
 
 ```r
@@ -81,11 +81,11 @@ tmp %>%
 ## # Rowwise: 
 ##       x     y     z   max
 ##   <dbl> <dbl> <dbl> <dbl>
-## 1     5     1    -3     5
-## 2     5    -1    18    18
-## 3     7     7    13    13
-## 4     4     2    -1     4
-## 5     7     0     9     9
+## 1     5     7    -2     7
+## 2     4    -2     3     4
+## 3     5     5     0     5
+## 4     5     6     5     6
+## 5     4     5     6     6
 ```
 
 ```r
@@ -98,11 +98,11 @@ tmp %>%
 ## # A tibble: 5 x 4
 ##       x     y     z   max
 ##   <dbl> <dbl> <dbl> <dbl>
-## 1     5     1    -3    18
-## 2     5    -1    18    18
-## 3     7     7    13    18
-## 4     4     2    -1    18
-## 5     7     0     9    18
+## 1     5     7    -2     7
+## 2     4    -2     3     7
+## 3     5     5     0     7
+## 4     5     6     5     7
+## 5     4     5     6     7
 ```
 {{< /expand >}}
 
@@ -120,11 +120,11 @@ tmp %>%
 ## # A tibble: 5 x 4
 ##       x     y     z   max
 ##   <dbl> <dbl> <dbl> <dbl>
-## 1     5     1    -3     5
-## 2     5    -1    18    18
-## 3     7     7    13    13
-## 4     4     2    -1     4
-## 5     7     0     9     9
+## 1     5     7    -2     7
+## 2     4    -2     3     4
+## 3     5     5     0     5
+## 4     5     6     5     6
+## 5     4     5     6     6
 ```
 {{< /expand >}}
 
@@ -211,28 +211,28 @@ survey %>%
 ```
 
 ```
-##       Sex Wr.Hnd NW.Hnd W.Hnd   Fold Pulse    Clap Exer Smoke Height      M.I
-## 1  Female   18.7   18.0  Left L on R    NA    Left None Never 170.00   Metric
-## 2  Female   18.5   18.5 Right R on L    76    Left Freq Never 175.00   Metric
-## 3    Male   20.0   20.5 Right L on R    NA   Right Freq Never 185.42 Imperial
-## 4  Female   18.0   17.5 Right R on L    48 Neither Freq Never 165.00   Metric
-## 5  Female   19.5   19.2 Right R on L    70   Right Some Never 170.00   Metric
-## 6    Male   19.2   19.6 Right L on R    80   Right None Never 190.50 Imperial
-## 7  Female   15.4   16.4  Left L on R    80    Left Freq Occas 160.02 Imperial
-## 8    Male   18.8   18.9 Right R on L    NA Neither None Never 160.00   Metric
-## 9  Female   19.5   18.5 Right L on R    68   Right None Never 167.00   Metric
-## 10 Female   19.0   18.8 Right R on L    65   Right Freq Never 172.72 Imperial
+##       Sex Wr.Hnd NW.Hnd W.Hnd    Fold Pulse    Clap Exer Smoke Height      M.I
+## 1    Male   23.1   22.5 Right  L on R    90   Right Some Regul 189.00   Metric
+## 2    Male   21.9   22.2 Right  R on L    NA   Right Some Never 187.00   Metric
+## 3  Female   17.5   17.1 Right  R on L    80    Left None Never 167.00   Metric
+## 4  Female   17.5   16.0 Right  L on R    NA   Right Some Never 169.00   Metric
+## 5    Male   19.5   19.4 Right Neither    NA   Right Freq Never 165.00   Metric
+## 6  Female   20.8   20.7 Right  R on L    NA Neither Freq Never 171.50   Metric
+## 7  Female   17.5   17.6 Right  L on R    76   Right Some Never 153.50   Metric
+## 8    Male   21.5   22.0 Right  R on L    72    Left Freq Never 190.50 Imperial
+## 9  Female   17.0   17.5 Right  R on L    64    Left Some Never     NA     <NA>
+## 10 Female   17.2   16.7 Right  R on L    75   Right Freq Never 170.18 Imperial
 ##       Age
-## 1  19.833
-## 2  24.167
-## 3  18.750
-## 4  18.667
-## 5  18.167
-## 6  18.167
-## 7  18.500
-## 8  20.333
-## 9  18.667
-## 10 17.250
+## 1  19.167
+## 2  18.917
+## 3  18.417
+## 4  17.500
+## 5  18.083
+## 6  18.500
+## 7  17.417
+## 8  17.917
+## 9  19.167
+## 10 21.167
 ```
 
 ```r
@@ -243,29 +243,29 @@ survey %>%
 
 ```
 ##       Sex Wr.Hnd NW.Hnd W.Hnd   Fold Pulse    Clap Exer Smoke Height      M.I
-## 1    Male   17.0   18.0 Right L on R    78    Left Some Never 170.18 Imperial
-## 2    Male   22.0   22.0 Right L on R    72   Right Freq Never 182.88 Imperial
-## 3    Male   23.2   22.7 Right L on R    84    Left Freq Regul 180.00   Metric
-## 4    Male   20.0   19.8 Right L on R    68   Right Freq Never 185.00   Metric
-## 5  Female   17.5   16.0 Right L on R    NA   Right Some Never 169.00   Metric
-## 6    Male   22.0   22.0 Right R on L    80   Right Some Never 185.00   Metric
-## 7    Male   17.0   17.5 Right R on L    NA Neither Freq Never 180.34 Imperial
-## 8  Female   17.5   17.0 Right R on L    83 Neither Freq Occas 168.00   Metric
-## 9    Male   22.5   22.5 Right R on L    65   Right Freq Regul 182.00   Metric
-## 10 Female   17.5   17.0 Right R on L    80    Left Some Heavy 163.00   Metric
-## 11   Male   18.0   18.5 Right R on L    62   Right Freq Never 173.00   Metric
+## 1    Male   17.9   18.4 Right R on L    68    Left None Occas 176.00   Metric
+## 2    Male   17.5   17.5 Right L on R    64 Neither Freq Never 180.00   Metric
+## 3  Female   17.5   18.4 Right R on L    88   Right Some Never 162.56 Imperial
+## 4    Male   19.0   19.0 Right R on L    NA Neither Freq Occas 171.00   Metric
+## 5    Male   17.0   18.0 Right L on R    78    Left Some Never 170.18 Imperial
+## 6  Female   17.5   18.0 Right R on L    68 Neither Freq Never 157.48 Imperial
+## 7  Female   17.5   17.0 Right R on L    NA   Right Freq Never 156.00   Metric
+## 8    Male   21.5   21.2 Right R on L    62   Right Some Never 184.00   Metric
+## 9  Female   15.6   15.8 Right R on L    88    Left Some Never 165.00   Metric
+## 10 Female   16.0   16.5 Right L on R    NA   Right Some Never 168.00   Metric
+## 11 Female   16.5   17.0 Right L on R    40    Left Freq Never 167.64 Imperial
 ##       Age
-## 1  18.333
-## 2  19.333
-## 3  18.917
-## 4  17.417
-## 5  17.500
-## 6  35.500
-## 7  18.500
-## 8  17.083
-## 9  20.000
-## 10 17.667
-## 11 20.333
+## 1  18.917
+## 2  18.583
+## 3  18.167
+## 4  19.917
+## 5  18.333
+## 6  17.750
+## 7  17.167
+## 8  18.250
+## 9  17.750
+## 10 19.000
+## 11 17.417
 ```
 {{</expand>}}
 
@@ -404,7 +404,7 @@ coalesce(x, 0)
 ```
 
 ```
-## [1] 0 0 3 1 5 2 4 0
+## [1] 2 0 3 1 0 5 0 4
 ```
 
 ```r
@@ -440,7 +440,7 @@ recode(tmp_char, a = "Apple")
 ```
 
 ```
-##  [1] "Apple" "Apple" "Apple" "Apple" "c"     "b"     "c"     "b"     "b"    
+##  [1] "Apple" "c"     "c"     "Apple" "Apple" "c"     "Apple" "c"     "b"    
 ## [10] "b"
 ```
 
@@ -449,7 +449,7 @@ recode(tmp_char, a = "Apple", b = "Banana")
 ```
 
 ```
-##  [1] "Apple"  "Apple"  "Apple"  "Apple"  "c"      "Banana" "c"      "Banana"
+##  [1] "Apple"  "c"      "c"      "Apple"  "Apple"  "c"      "Apple"  "c"     
 ##  [9] "Banana" "Banana"
 ```
 
@@ -458,7 +458,7 @@ recode(tmp_char, a = "Apple", b = "Banana", .default = NA_character_)
 ```
 
 ```
-##  [1] "Apple"  "Apple"  "Apple"  "Apple"  NA       "Banana" NA       "Banana"
+##  [1] "Apple"  NA       NA       "Apple"  "Apple"  NA       "Apple"  NA      
 ##  [9] "Banana" "Banana"
 ```
 
@@ -469,7 +469,7 @@ recode(tmp_num, `1`=5)
 ```
 
 ```
-##  [1] 3 2 3 3 2 2 5 5 3 5
+##  [1] 2 5 5 3 2 5 3 2 5 3
 ```
 
 ```r
@@ -479,7 +479,7 @@ recode(tmp_char, !!!level_key)
 ```
 
 ```
-##  [1] "apple"  "apple"  "apple"  "apple"  "carrot" "banana" "carrot" "banana"
+##  [1] "apple"  "carrot" "carrot" "apple"  "apple"  "carrot" "apple"  "carrot"
 ##  [9] "banana" "banana"
 ```
 {{</expand>}}
@@ -633,6 +633,39 @@ bind_cols(one_c, two_c)
 
 ```r
 # bind_cols(one_c, three_c) # 에러 뜸, bind_rows와 차이점
+```
+{{</expand>}}
+
+#### 11. mutate_all, mutate_if
+모든 변수를 다 특정 함수를 거친 형태로 바꾸거나, 조건을 주어서 특정 함수를 거친 형태로 바꾸는 함수이다.
+{{<expand "mutate_all, mutate_if 예시">}}
+
+```r
+iris  %>% mutate_all(as.integer) %>% head() # Species까지 integer로 바꿔버림
+```
+
+```
+##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+## 1            5           3            1           0       1
+## 2            4           3            1           0       1
+## 3            4           3            1           0       1
+## 4            4           3            1           0       1
+## 5            5           3            1           0       1
+## 6            5           3            1           0       1
+```
+
+```r
+iris %>% mutate_if(is.double, as.integer) %>% head()
+```
+
+```
+##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+## 1            5           3            1           0  setosa
+## 2            4           3            1           0  setosa
+## 3            4           3            1           0  setosa
+## 4            4           3            1           0  setosa
+## 5            5           3            1           0  setosa
+## 6            5           3            1           0  setosa
 ```
 {{</expand>}}
 
