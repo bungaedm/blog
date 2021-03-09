@@ -21,10 +21,10 @@ Predictive: `$\tilde{y}|y \text{ ~ } beta(a+y+y^{*}, b+n+n^{*}-y-y^{*}) $`
 ### Poisson Model
 Prior: `$\theta \text{ ~ } gamma(a,b) $`
 Likelihood: `$Y_1, ..., Y_n \text{ ~ iid. } Poisson(\theta)$`
-Posterior: `$\theta|Y_1, ..., Y_n \text{ ~ } gamma(a+\sum_{i=1}^{n}{Y_i}, b+n) $` <br>  
+Posterior: `$\theta|y_1, ..., y_n \text{ ~ } gamma(a+\sum_{i=1}^{n}{y_i}, b+n) $` <br>  
 a: sum of counts from b prior observations, b: number of prior observations <br>
 `$E[\theta|y_1, ..., y_n] = \frac{a+\sum y_i}{b+n} = \frac{b}{b+n}\frac{a}{b} + \frac{n}{b+n}\frac{\sum y_i}{n}$` <br>
-Predictive: `$\tilde{y}|y_1, ..., y_n \text{ ~ } NB(a+\sum y_i, b+n) $`
+Predictive: `$\tilde{y}|y_1, ..., y_n \text{ ~ } NB(a+\sum y_i, \frac{b+n}{b+n+1}) $`
 
 ### Exponential Family
 exponential family(지수족)의 pdf 또는 pmf는 다음과 같은 형식으로 표현될 수 있어야 한다. `$ p(y_i|\theta) = f(y_i) \ g(\theta) \ exp(\phi(\theta)^Ts(y_i)) $`
