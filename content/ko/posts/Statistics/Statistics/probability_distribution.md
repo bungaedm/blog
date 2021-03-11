@@ -69,7 +69,7 @@ $$ E(X) = \frac{r}{p}, \ Var(X) = r \cdot\frac{1-p}{p^2}$$
 
 여기서 x = r+y로 하여, r번째 성공을 얻을 때까지 실패횟수를 계산하면 아래와 같다.  
 해당 확률분포 형태에 따라 **음이항**분포라고 이름지어진 것임을 다시 한 번 확인할 수 있다.
-{{<expand "음이항 분포(X : r번째 성공을 얻을 때까지 실패횟수)">}}
+{{<expand "음이항 분포(Y : r번째 성공을 얻을 때까지 실패횟수)">}}
 $$\text{Y~} Negative \  Binomial(r, p) $$
 $$\rightarrow f(y) = \binom{r+y-1}{r-1}p^r(1-p)^y, \ y=0,1,2,...$$
 $$\rightarrow f(y) = (-1)^y\binom{-r}{y}p^r(1-p)^y, \ y=0,1,2,... $$
