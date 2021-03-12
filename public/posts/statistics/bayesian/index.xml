@@ -15,21 +15,6 @@
     
       
       <item>
-        <title>Gibbs Sampler</title>
-        <link>https://jiwooblog.netlify.app/posts/statistics/bayesian/gibbs_sampler/</link>
-        <pubDate>Tue, 23 Feb 2021 10:08:56 +0900</pubDate>
-        
-        <guid>https://jiwooblog.netlify.app/posts/statistics/bayesian/gibbs_sampler/</guid>
-        <description>Gibbs Sampler 기본 원리 (추후 업데이트)
-종류 1. Systematic Sweep Gibbs Sampler 모든 모수에 대해 샘플링을 반복하여 업데이트하는 방법
-2. Random Sweep Gibbs Sampler 무작위로 모수를 뽑아서 업데이트하는 방법
-3. Grouped Gibbs Sampler 여러 개의 모수를 한번에 뽑아서 업데이트하는 방법
-이때 모수 간의 연관성이 생긴다.
-4. Collapsed Gibbs Sampler 적분을 통해서 특정 모수와 독립적인 분포를 계산한 후, 샘플링하여 업데이트하는 방법
-참고사이트 [1] https://niceguy1575.tistory.com/entry/%EB%B2%A0%EC%9D%B4%EC%A7%80%EC%95%88-%ED%86%B5%EA%B3%84%ED%95%99-4-Gibbs-Sampler%EA%B9%81%EC%8A%A4-%EC%83%98%ED%94%8C%EB%9F%AC-%EC%9D%98-%EC%A2%85%EB%A5%98%EC%99%80-%EC%84%B1%EC%A7%88</description>
-      </item>
-      
-      <item>
         <title>What is Bayesian</title>
         <link>https://jiwooblog.netlify.app/posts/statistics/bayesian/fcb01/</link>
         <pubDate>Thu, 07 Jan 2021 10:08:56 +0900</pubDate>
@@ -61,10 +46,7 @@ Belief functions and Probabilities$Be()$는 belief function이라고 하자. �
         <description>Chapter 03. One-parameter Models 본 포스팅은 First Course in Bayesian Statistical Methods를 참고하였다.
 Binomial Model Prior: $\theta \text{ ~ } beta(a,b)$
 Likelihood: $Y|\theta \text{ ~ } binomial(n, \theta) $
-Posterior: $\theta|y \text{ ~ } beta(a+y, b+n-y) $
-$ E[\theta|y] = \frac{a+y}{a+b+n} = \frac{n}{a+b+n}\times\frac{y}{n} + \frac{a+b}{a+b+n}\times\frac{a}{a+b} $ where $\frac{y}{n}$ = sample mean, $\frac{a}{a+b}$ = prior expectation
-Poisson Model Prior: $\theta \text{ ~ } gamma(a,b) $
-Likelihood: $Y_1, ..., Y_n \text{ ~ iid.</description>
+Posterior: $\theta|y \text{ ~ } beta(a+y, b+n-y) $ a: prior 성공횟수, b: prior 실패횟수, $\omega$=a+b: concentration $ E[\theta|y] = \frac{a+y}{a+b+n} = \frac{n}{a+b+n}\times\frac{y}{n} + \frac{a+b}{a+b+n}\times\frac{a}{a+b} $ where $\frac{y}{n}$ = sample mean, $\frac{a}{a+b}$ = prior expectation Poisson Model Prior: $\theta \text{ ~ } gamma(a,b) $</description>
       </item>
       
       <item>
@@ -74,7 +56,12 @@ Likelihood: $Y_1, ..., Y_n \text{ ~ iid.</description>
         
         <guid>https://jiwooblog.netlify.app/posts/statistics/bayesian/fcb04/</guid>
         <description>Chapter 04. Monte Carlo Approximation 본 포스팅은 First Course in Bayesian Statistical Methods를 참고하였다.
-Monte Carlo Method Sampling from Predictive Distributions Posterior Predictive Model Checking 혹시 궁금한 점이나 잘못된 내용이 있다면, 댓글로 알려주시면 적극 반영하도록 하겠습니다. </description>
+Monte Carlo Method Monte Carlo Method는 이름은 거창해보이지만 사실 그 방법은 매우 간단하다.
+우선, 사후분포($p(\theta|y_1,...,y_n)$)로부터 S개의 random sample을 뽑는다.
+$$\theta^{1}, &amp;hellip;, \theta^{S} ~ i.i.d p(\theta|y_1, &amp;hellip;, y_n) $$
+그러면 S가 커질수록 {$\theta^{1}, ..., \theta^{S}$}는 근사적으로 사후분포($p(\theta|y_1,...,y_n)$)를 따른다.
+이를 통해 $E[\theta|y_1, ..., y_n]$, $Var[\theta|y_1, ..., y_n]$부터 중앙값, $\alpha$ percentile 등의 통계량값들을 근사적으로 계산할 수 있다.
+이때 approximate Monte Carlo Standard error은 $\sqrt{\hat{\sigma}^2/S}$이다.</description>
       </item>
       
       <item>
@@ -105,6 +92,51 @@ Warm up! Gamma Distribution Inverse Gamma Distribution Scaled Inverse Chi-square
         <guid>https://jiwooblog.netlify.app/posts/statistics/bayesian/fcb07/</guid>
         <description>Chapter 07. The Multivariate Normal Model 본 포스팅은 First Course in Bayesian Statistical Methods를 참고하였다.
 1. Multivariate Normal Desity 2. Semiconjugate prior distribution for the mean 3. inverse-Wishart Distribution 4. Gibbs Sampling of the mean and covariance 4-1. Draw yourself Figure 7.1 1 2 3 4 5  library(tidyverse) library(gridExtra) library(MASS) library(reshape2) library(ash)   1 2 3 4 5 6 7 8 9 10 11  # 초기 설정 inv &amp;lt;- solve MU = matrix(c(50,50), ncol=1) SIGMA = matrix(c(64,0,0,144), ncol=2) # MVN pdf calc.</description>
+      </item>
+      
+      <item>
+        <title>Bayesian Linear Regression</title>
+        <link>https://jiwooblog.netlify.app/posts/statistics/bayesian/fcb09/</link>
+        <pubDate>Thu, 04 Mar 2021 10:08:56 +0900</pubDate>
+        
+        <guid>https://jiwooblog.netlify.app/posts/statistics/bayesian/fcb09/</guid>
+        <description>Chapter 09. The Multivariate Normal Model 본 포스팅은 First Course in Bayesian Statistical Methods를 참고하였다.
+1. Linear Regression Model 2. Bayesian estimation for a regression model 3. Model Selection 1  library(tidyverse)     Code Example  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39  ## Data load  data = dget(&amp;#39;https://www2.</description>
+      </item>
+      
+      <item>
+        <title>Jeffrey&#39;s Prior</title>
+        <link>https://jiwooblog.netlify.app/posts/statistics/bayesian/jeffrey_prior/</link>
+        <pubDate>Sun, 07 Mar 2021 10:08:56 +0900</pubDate>
+        
+        <guid>https://jiwooblog.netlify.app/posts/statistics/bayesian/jeffrey_prior/</guid>
+        <description>Jeffrey&amp;rsquo;s Prior 1. uninformative prior의 제한점 uninformative prior를 임의로 주게 될 경우, 여러 문제점이 있을 수 있는데 그 중 하나는 변수변환에 취약해질 수 있다는 점이다.
+예를 들어, $p(\theta) \propto 1$라고 uninformative prior를 주자. 그리고 $ \phi = exp(\theta)$라고 가정해보자.
+\begin{align}p(\phi) &amp;amp;\propto p(\theta) \bigg|\frac{d\theta}{d\phi}\bigg| \\&amp;amp;\propto \frac{1}{\phi} \neq 1\end{align}
+변수변환 후에는 prior가 uninformative하지 않게 되어버림을 확인할 수 있다.
+2. Jeffrey&amp;rsquo;s prior 그렇다면 어떻게 해야 변수변환에 강건한 prior를 줄 수 있을까?</description>
+      </item>
+      
+      <item>
+        <title>Empirical Bayes</title>
+        <link>https://jiwooblog.netlify.app/posts/statistics/bayesian/empricialbayes/</link>
+        <pubDate>Sat, 06 Mar 2021 10:08:56 +0900</pubDate>
+        
+        <guid>https://jiwooblog.netlify.app/posts/statistics/bayesian/empricialbayes/</guid>
+        <description>Empirical Bayes 베이지안은 기본적으로 prior, 즉 사전확률을 설정한다.
+그런데 이때 data density(histogram)에 비슷한 모양을 갖도록 prior를 설정하고자 하는 경우도 있는데, 이를 Empirical Bayes라고 한다.
+사전확률인데 왜 데이터를 보고 설정하는지에 대한 의문이 생길 수도 있긴 한다&amp;hellip;
+혹시 궁금한 점이나 잘못된 내용이 있다면, 댓글로 알려주시면 적극 반영하도록 하겠습니다. </description>
+      </item>
+      
+      <item>
+        <title>Gibbs Sampler</title>
+        <link>https://jiwooblog.netlify.app/posts/statistics/bayesian/gibbs_sampler/</link>
+        <pubDate>Tue, 23 Feb 2021 10:08:56 +0900</pubDate>
+        
+        <guid>https://jiwooblog.netlify.app/posts/statistics/bayesian/gibbs_sampler/</guid>
+        <description>Gibbs Sampler 기본 원리 (추후 업데이트)
+예시 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39  ## Data load  data = dget(&amp;#39;https://www2.stat.duke.edu/~pdh10/FCBS/Inline/yX.o2uptake&amp;#39;) y = data[,1] X = data[,-1] inv = solve ## set prior g = length(y) nu0 = 1 s20 = summary(lm(y~-1+X))$sigma^2 n = length(y) p = ncol(X) ## setup S = 1000 set.</description>
       </item>
       
       <item>

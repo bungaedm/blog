@@ -75,6 +75,17 @@ t검정에서 독립표본 t-검정과 대응표본 t-검정이 있습니다. �
       </item>
       
       <item>
+        <title>신뢰구간, 신용구간</title>
+        <link>https://jiwooblog.netlify.app/posts/statistics/statistics/interval/</link>
+        <pubDate>Sun, 21 Feb 2021 10:08:56 +0900</pubDate>
+        
+        <guid>https://jiwooblog.netlify.app/posts/statistics/statistics/interval/</guid>
+        <description>신뢰구간과 신용구간 간단하게 구분하자면, 신뢰구간은 빈도주의자가, 신용구간은 베이지안이 사용하는 것이다.
+일반적으로 신용구간을 신뢰구간으로 착각하는 경우가 많다.
+신뢰구간 (Confidence Interval) “If we repeat the experiment infinitely many times, 95% of the experiments will capture the population parameter in their confidence intervals.” 해석하자면, 무수히 많이 반복하여 데이터를 얻고 신뢰구간을 산출한다면, 그 수많은 신뢰구간 중 95%는 모수를 갖고 있을 것으로 신뢰한다는 의미이다. 그렇기 때문에 한번의 실험결과만으로 신뢰구간을 구하고 이를 활용하는 데에는 다소 무리가 있어보인다.</description>
+      </item>
+      
+      <item>
         <title>정규성 검정</title>
         <link>https://jiwooblog.netlify.app/posts/statistics/statistics/normality/</link>
         <pubDate>Sun, 21 Feb 2021 10:08:56 +0900</pubDate>
@@ -90,6 +101,40 @@ t검정에서 독립표본 t-검정과 대응표본 t-검정이 있습니다. �
         
         <guid>https://jiwooblog.netlify.app/posts/statistics/statistics/error_residual/</guid>
         <description>오차 &amp;amp; 잔차  오차(error): 모집단 회귀식 예측값 - 실제 관측값 잔차(residual): 표본집단 회귀식 예측값 - 실제 관측값  </description>
+      </item>
+      
+      <item>
+        <title>F1 Score</title>
+        <link>https://jiwooblog.netlify.app/posts/statistics/statistics/performance_measure/</link>
+        <pubDate>Sun, 07 Mar 2021 10:08:56 +0900</pubDate>
+        
+        <guid>https://jiwooblog.netlify.app/posts/statistics/statistics/performance_measure/</guid>
+        <description>Performance Measure 성능을 평가하는 지표에는 여러 가지가 있다. 그중에서 대표적인 몇 개를 알아보고자 한다.
+1. Accuracy $$Accuracy = \frac{\text{correctly predicted}}{\text{all dataset}}$$
+Accuracy는 balanced data가 아니라면 좋은 지표로서의 역할을 하기 힘들다. 왜냐하면 A,B,C,D라는 그룹이 있을 때, B~D가 각각 10개의 케이스 밖에 없고 A가 혼자서 500개의 케이스가 있다고 가정한다면 Accuracy 지표는 A 그룹에 의해 좌지우지 될 것이기 때문이다.
+2. Precision  Given a class prediction from the classifier, how likely is to be correct?</description>
+      </item>
+      
+      <item>
+        <title>Fisher Information</title>
+        <link>https://jiwooblog.netlify.app/posts/statistics/statistics/fisher_information/</link>
+        <pubDate>Sun, 07 Mar 2021 10:08:56 +0900</pubDate>
+        
+        <guid>https://jiwooblog.netlify.app/posts/statistics/statistics/fisher_information/</guid>
+        <description>Fisher Information </description>
+      </item>
+      
+      <item>
+        <title>Score Function</title>
+        <link>https://jiwooblog.netlify.app/posts/statistics/statistics/score_function/</link>
+        <pubDate>Sun, 07 Mar 2021 10:08:56 +0900</pubDate>
+        
+        <guid>https://jiwooblog.netlify.app/posts/statistics/statistics/score_function/</guid>
+        <description>Score Function $X \text{ ~ } f(x;\theta)$일 때, score function $s(\theta;x)$은 다음과 같이 정의한다.
+$$\frac{\partial}{\partial\theta}logf(x;\theta) $$
+평균 계산 증명 \begin{align}E\big[s(\theta;x) \big] &amp;amp;= \int\frac{\partial}{\partial\theta}logf(x;\theta)f(x;\theta)\partial x \\&amp;amp;= \int\frac{f&#39;(x;\theta)}{f(x;\theta)}f(x;\theta)\partial x \\&amp;amp;= \frac{\partial}{\partial\theta}\int f&#39;(x;\theta) \\&amp;amp;= \frac{\partial}{\partial\theta}1 = 0\end{align}
+의미 score function은 log likelihood의 기울기를 나타낸다는 데에서 의미가 있다.
+score function의 평균이 0이라는 것의 의미를 그래프를 likelihood 그래프를 상상하여 생각해보자.</description>
       </item>
       
     

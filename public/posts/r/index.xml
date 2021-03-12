@@ -42,7 +42,7 @@
         
         <guid>https://jiwooblog.netlify.app/posts/r/dplyr/</guid>
         <description>dplyr 패키지 훑어보기 1 2  library(tidyverse) library(MASS)   목차  rowwise
-1-1. pmax slice relocate lag, lead  데이터   data  1 2 3 4  tmp &amp;lt;- tibble(x=round(rnorm(n=5, mean=5, sd=1)), y=round(rnorm(n=5, mean=5, sd=3)), z=round(rnorm(n=5, mean=5, sd=5))) tmp   ## # A tibble: 5 x 3## x y z## &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt;## 1 5 4 3## 2 5 3 10## 3 4 0 -1## 4 5 6 8## 5 4 1 41 2  data(survey) glimpse(survey)   ## Rows: 237## Columns: 12## $ Sex &amp;lt;fct&amp;gt; Female, Male, Male, Male, Male, Female, Male, Female, Male, .</description>
+1-1. pmax slice relocate lag, lead  데이터   data  1 2 3 4  tmp &amp;lt;- tibble(x=round(rnorm(n=5, mean=5, sd=1)), y=round(rnorm(n=5, mean=5, sd=3)), z=round(rnorm(n=5, mean=5, sd=5))) tmp   ## # A tibble: 5 x 3## x y z## &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt;## 1 7 4 7## 2 9 1 5## 3 5 8 12## 4 4 3 7## 5 4 6 51 2  data(survey) glimpse(survey)   ## Rows: 237## Columns: 12## $ Sex &amp;lt;fct&amp;gt; Female, Male, Male, Male, Male, Female, Male, Female, Male, .</description>
       </item>
       
       <item>
@@ -65,7 +65,8 @@
 3. blogdown Auto-Knit 끄기 Ctrl+S 단축키로 수시로 저장하는 습관 때문에, Rmd 파일을 작업할 때 knit가 수시로 되어 작업속도에 영향을 미친다.
 이럴 때는 .Rprofile이라는 이름의 파일을 찾아서
  blogdown.knit.on_save = TRUE
- 라는 코드에서 TRUE를 FALSE로 바꿔주어야 한다.</description>
+ 라는 코드에서 TRUE를 FALSE로 바꿔주어야 한다.
+4. 자동정렬 단축키 ctrl + I</description>
       </item>
       
       <item>

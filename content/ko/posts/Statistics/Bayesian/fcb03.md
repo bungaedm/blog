@@ -16,7 +16,8 @@ Likelihood: `$Y|\theta \text{ ~ } binomial(n, \theta) $`
 Posterior: `$\theta|y \text{ ~ } beta(a+y, b+n-y) $` <br>
 a: prior 성공횟수, b: prior 실패횟수, `$\omega$`=a+b: concentration <br>
 `$ E[\theta|y] = \frac{a+y}{a+b+n} = \frac{n}{a+b+n}\times\frac{y}{n} + \frac{a+b}{a+b+n}\times\frac{a}{a+b} $` where `$\frac{y}{n}$` = sample mean, `$\frac{a}{a+b}$` = prior expectation <br>
-Predictive: `$\tilde{y}|y \text{ ~ } beta(a+y+y^{*}, b+n+n^{*}-y-y^{*}) $`
+<!-- Predictive: `$\tilde{y}|y \text{ ~ } beta(a+y+y^{*}, b+n+n^{*}-y-y^{*}) $` -->
+
 
 ### Poisson Model
 Prior: `$\theta \text{ ~ } gamma(a,b) $`

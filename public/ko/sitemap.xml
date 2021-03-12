@@ -3,11 +3,6 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://jiwooblog.netlify.app/posts/statistics/bayesian/gibbs_sampler/</loc>
-    <lastmod>2021-02-23T10:08:56+09:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://jiwooblog.netlify.app/posts/statistics/statistics/central_limit_theorem/</loc>
     <lastmod>2021-02-21T10:08:56+09:00</lastmod>
   </url>
@@ -173,6 +168,11 @@
   </url>
   
   <url>
+    <loc>https://jiwooblog.netlify.app/updates/diary/2021_03/</loc>
+    <lastmod>2021-03-06T00:08:29+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://jiwooblog.netlify.app/posts/statistics/statistics/nonparametric/</loc>
     <lastmod>2021-02-24T10:08:56+09:00</lastmod>
   </url>
@@ -180,6 +180,11 @@
   <url>
     <loc>https://jiwooblog.netlify.app/posts/statistics/statistics/t_test/</loc>
     <lastmod>2021-02-22T10:08:56+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jiwooblog.netlify.app/posts/statistics/statistics/interval/</loc>
+    <lastmod>2021-02-21T10:08:56+09:00</lastmod>
   </url>
   
   <url>
@@ -298,6 +303,11 @@
   </url>
   
   <url>
+    <loc>https://jiwooblog.netlify.app/posts/statistics/bayesian/fcb09/</loc>
+    <lastmod>2021-03-04T10:08:56+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://jiwooblog.netlify.app/posts/dataengineering/fc_part4_5/</loc>
     <lastmod>2021-01-13T10:09:56+09:00</lastmod>
   </url>
@@ -320,6 +330,36 @@
   <url>
     <loc>https://jiwooblog.netlify.app/posts/dataengineering/fc_part5_4/</loc>
     <lastmod>2021-01-13T10:09:56+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jiwooblog.netlify.app/posts/statistics/statistics/performance_measure/</loc>
+    <lastmod>2021-03-07T10:08:56+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jiwooblog.netlify.app/posts/statistics/statistics/fisher_information/</loc>
+    <lastmod>2021-03-07T10:08:56+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jiwooblog.netlify.app/posts/statistics/bayesian/jeffrey_prior/</loc>
+    <lastmod>2021-03-07T10:08:56+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jiwooblog.netlify.app/posts/statistics/statistics/score_function/</loc>
+    <lastmod>2021-03-07T10:08:56+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jiwooblog.netlify.app/posts/statistics/bayesian/empricialbayes/</loc>
+    <lastmod>2021-03-06T10:08:56+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jiwooblog.netlify.app/posts/statistics/bayesian/gibbs_sampler/</loc>
+    <lastmod>2021-02-23T10:08:56+09:00</lastmod>
   </url>
   
   <url>
