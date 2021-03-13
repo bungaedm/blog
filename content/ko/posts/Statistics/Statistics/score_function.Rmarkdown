@@ -10,9 +10,10 @@ weight: 99
 $$\frac{\partial}{\partial\theta}logf(x;\theta) $$
 ### 평균 계산 증명
 \begin{align}
-E\big[s(\theta;x) \big] &= \int\frac{\partial}{\partial\theta}logf(x;\theta)f(x;\theta)\partial x \\
-&= \int\frac{f'(x;\theta)}{f(x;\theta)}f(x;\theta)\partial x \\
-&= \frac{\partial}{\partial\theta}\int f'(x;\theta) \\
+E\big[s(\theta;x) \big] &= \int\bigg[\frac{\partial}{\partial\theta}logf(x;\theta)\bigg]f(x;\theta)dx \\
+&= \int\frac{f'(x;\theta)}{f(x;\theta)}f(x;\theta)dx \\
+&= \int f'(x;\theta)dx \\
+&= \frac{\partial}{\partial\theta}\int f(x;\theta)dx \\
 &= \frac{\partial}{\partial\theta}1 = 0
 \end{align}
 
