@@ -1,0 +1,33 @@
+---
+collapsible: false
+date: "2021-03-10T10:08:56+09:00"
+title: Bias-Variance Tradeoff
+weight: 98
+---
+
+## Bias-Variance Tradeoff
+
+$$\text{let } y = f(x) + \varepsilon, \text{ where } \varepsilon \text{ ~ } N(0, \sigma^2)$$
+
+\begin{align}
+MSE(\hat{y}) &= E[(y-\hat{y})^2] \\
+&= E[(f(x) + \varepsilon - \hat{f}(x))^2] \\
+&= E[(f(x)-\hat{f}(x))^2] + E[\varepsilon^2] + 2E[\varepsilon(f(x) - \hat{f}(x))] \\
+&= E[(f(x) - E(\hat{f}(x)) + E(\hat{f}(x)) - \hat{f}(x) )^2] + \sigma^2 \\
+&= E[(f(x) - E(\hat{f}(x)))^2] + E[(\hat{f}(x)-E(\hat{f}(x)))^2] + 2(f(x) - E(\hat{f}(x)))E[\hat{f}(x) - E(\hat{f}(x))] + \sigma^2 \\
+&= {bias[\hat{f}(x)]}^2 + Var(\hat{f}(x)) + \sigma^2 \\
+&= bias^2(\hat{y}) + Var(\hat{y}) + \sigma^2
+\end{align}
+
+<br>
+
+`$bias^2(\hat{y})$`: 참값과 추정치 평균의 차이
+`$Var(\hat{y})$`: 추정치와 추정치 평균의 차이
+`$\sigma^2$`: irreducible error
+
+---
+<br> 
+<p style='text-align: center; color:gray'> 혹시 궁금한 점이나 잘못된 내용이 있다면, 댓글로 알려주시면 적극 반영하도록 하겠습니다. </p>
+
+<br>
+<br>
