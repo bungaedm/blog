@@ -4,7 +4,7 @@ date: "2021-01-11T10:08:56+09:00"
 description: 데이터 엔지니어링
 draft: false
 title: Data Engineering
-weight: 6
+weight: 7
 ---
 
 ## FactCampus Curriculum
