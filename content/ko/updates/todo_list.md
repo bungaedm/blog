@@ -32,6 +32,9 @@ weight: 1
     4. mice: NA imputation
     5. visNetwork(visNodes, visEdges)
     6. apriori(연관성분석, 장바구니분석)
+    7. xaringan(R로 PPT 만들기)
+    7-1. [참고사이트1](https://yongfu.name/slides/xaringan)
+    7-2. [참고사이트2](https://github.com/issactoast/uiowa-rworkshop)
 
 3. SPSS
     1. 기술통계(데이터 유형, 분포의 이해)

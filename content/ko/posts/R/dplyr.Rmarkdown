@@ -230,5 +230,17 @@ band_members %>% full_join(band_instruments)
 ```
 {{</expand>}}
 
+#### 13. semi_join, anti_join
+{{<expand "semi_join, anti_join 예시">}}
+```{r}
+#이미 조인된 결과값
+band_members %>% inner_join(band_instruments) 
+#band_members 중 join될 값 확인
+band_members %>% semi_join(band_instruments) 
+#band_members 중 join되지 않을 값 확인
+band_members %>% anti_join(band_instruments) 
+```
+{{</expand>}}
+
 ###### 참고
 [1] slice와 relocate 예시는 slack `슬기로운통계생활`을 참고하였습니다.

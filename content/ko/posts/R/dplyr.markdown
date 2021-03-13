@@ -35,11 +35,11 @@ tmp
 ## # A tibble: 5 x 3
 ##       x     y     z
 ##   <dbl> <dbl> <dbl>
-## 1     7     4     7
-## 2     9     1     5
-## 3     5     8    12
-## 4     4     3     7
-## 5     4     6     5
+## 1     5     3     5
+## 2     5     6     1
+## 3     6     6     7
+## 4     5     2     2
+## 5     5     6     2
 ```
 
 ```r
@@ -81,11 +81,11 @@ tmp %>%
 ## # Rowwise: 
 ##       x     y     z   max
 ##   <dbl> <dbl> <dbl> <dbl>
-## 1     7     4     7     7
-## 2     9     1     5     9
-## 3     5     8    12    12
-## 4     4     3     7     7
-## 5     4     6     5     6
+## 1     5     3     5     5
+## 2     5     6     1     6
+## 3     6     6     7     7
+## 4     5     2     2     5
+## 5     5     6     2     6
 ```
 
 ```r
@@ -98,11 +98,11 @@ tmp %>%
 ## # A tibble: 5 x 4
 ##       x     y     z   max
 ##   <dbl> <dbl> <dbl> <dbl>
-## 1     7     4     7    12
-## 2     9     1     5    12
-## 3     5     8    12    12
-## 4     4     3     7    12
-## 5     4     6     5    12
+## 1     5     3     5     7
+## 2     5     6     1     7
+## 3     6     6     7     7
+## 4     5     2     2     7
+## 5     5     6     2     7
 ```
 {{< /expand >}}
 
@@ -120,11 +120,11 @@ tmp %>%
 ## # A tibble: 5 x 4
 ##       x     y     z   max
 ##   <dbl> <dbl> <dbl> <dbl>
-## 1     7     4     7     7
-## 2     9     1     5     9
-## 3     5     8    12    12
-## 4     4     3     7     7
-## 5     4     6     5     6
+## 1     5     3     5     5
+## 2     5     6     1     6
+## 3     6     6     7     7
+## 4     5     2     2     5
+## 5     5     6     2     6
 ```
 {{< /expand >}}
 
@@ -212,27 +212,27 @@ survey %>%
 
 ```
 ##       Sex Wr.Hnd NW.Hnd W.Hnd    Fold Pulse    Clap Exer Smoke Height      M.I
-## 1  Female   20.8   20.7 Right  R on L    NA Neither Freq Never 171.50   Metric
-## 2  Female   17.0   17.0 Right  L on R    79   Right Some Never 163.00   Metric
-## 3    Male   17.7   17.7 Right  L on R    83   Right Freq Never 182.88 Imperial
-## 4    Male   22.5   22.5 Right  L on R    76   Right Freq Occas 177.00   Metric
-## 5  Female   17.0   17.6 Right  L on R    76   Right Some Never 165.00   Metric
-## 6    Male   19.1   19.1 Right Neither    NA   Right Some Never 177.00   Metric
-## 7    Male   21.3   20.8 Right  R on L    65   Right Freq Heavy 179.00   Metric
-## 8  Female   17.5   17.8 Right  R on L    96   Right Some Never     NA     <NA>
-## 9  Female   16.0   16.0 Right Neither    NA   Right Some Never 159.00   Metric
-## 10 Female   18.3   19.0 Right  R on L    NA   Right None Never 165.00   Metric
+## 1  Female   18.0   17.8 Right  L on R    68   Right Some Never 168.90 Imperial
+## 2    Male   19.1   19.1 Right Neither    NA   Right Some Never 177.00   Metric
+## 3    <NA>   19.8   19.0  Left  L on R    73 Neither Freq Never 172.00   Metric
+## 4    Male   19.5   19.7 Right  R on L    72   Right Freq Never     NA     <NA>
+## 5  Female   17.0   17.3 Right  L on R    NA Neither Freq Never 173.00   Metric
+## 6    Male   17.0   17.5 Right  R on L    80   Right Some Regul 179.10   Metric
+## 7    Male   18.8   18.2 Right  L on R    78   Right Freq Never 180.00   Metric
+## 8  Female   17.5   18.4 Right  R on L    88   Right Some Never 162.56 Imperial
+## 9  Female   19.6   19.7 Right  L on R    70   Right Freq Never 178.00   Metric
+## 10 Female   17.6   17.2 Right  L on R    NA   Right Some Never     NA     <NA>
 ##       Age
-## 1  18.500
-## 2  24.667
-## 3  18.833
-## 4  18.250
-## 5  23.583
-## 6  19.917
-## 7  22.833
-## 8  18.667
-## 9  20.833
-## 10 21.083
+## 1  17.083
+## 2  19.917
+## 3  21.500
+## 4  17.417
+## 5  19.167
+## 6  18.667
+## 7  17.500
+## 8  18.167
+## 9  17.500
+## 10 19.917
 ```
 
 ```r
@@ -242,30 +242,30 @@ survey %>%
 ```
 
 ```
-##       Sex Wr.Hnd NW.Hnd W.Hnd    Fold Pulse  Clap Exer Smoke Height      M.I
-## 1  Female   16.9   16.0 Right  L on R    70 Right None Never 158.00   Metric
-## 2    Male   19.1   19.1 Right Neither    NA Right Some Never 177.00   Metric
-## 3    Male   18.0   18.5 Right Neither    90 Right Some Never 175.00   Metric
-## 4    Male   21.0   20.9 Right  R on L    78 Right Freq Never 177.00   Metric
-## 5    Male   18.1   18.2  Left Neither    NA Right Some Never 168.00   Metric
-## 6    Male   18.5   18.5 Right  R on L    65 Right None Never 165.00   Metric
-## 7  Female   16.4   16.5 Right  L on R    90 Right Some Never 152.00   Metric
-## 8    Male   20.0   20.5 Right  R on L    NA Right None Never 187.96 Imperial
-## 9    Male   19.5   19.5 Right  L on R    79 Right Some Never 167.00   Metric
-## 10   Male   18.6   19.6 Right  L on R    71 Right Freq Occas 185.00   Metric
-## 11 Female   18.2   17.5 Right  L on R    70 Right Some Never 165.00   Metric
+##       Sex Wr.Hnd NW.Hnd W.Hnd   Fold Pulse    Clap Exer Smoke Height      M.I
+## 1    Male   18.9   19.1 Right L on R    60 Neither None Never 170.00   Metric
+## 2    Male   21.9   22.2 Right R on L    NA   Right Some Never 187.00   Metric
+## 3  Female   18.2   18.5 Right R on L    NA   Right Some Never 168.00   Metric
+## 4    Male   22.0   22.5 Right L on R    60   Right Some Never 180.00   Metric
+## 5  Female   17.0   17.0 Right L on R    79   Right Some Never 163.00   Metric
+## 6    Male   20.1   20.0 Right R on L    70   Right Some Never 180.00   Metric
+## 7  Female   20.8   20.7 Right R on L    NA Neither Freq Never 171.50   Metric
+## 8    Male   17.5   17.6 Right R on L    84   Right Some Never 160.00   Metric
+## 9  Female   17.5   17.5  Left R on L    83 Neither Some Never 163.00   Metric
+## 10   Male   19.3   19.4 Right R on L    NA   Right Freq Never 180.34 Imperial
+## 11 Female   16.0   16.0 Right L on R    NA   Right Some Never 155.00   Metric
 ##       Age
-## 1  20.500
-## 2  19.917
-## 3  18.750
-## 4  17.917
-## 5  21.167
-## 6  18.500
-## 7  18.333
-## 8  19.667
-## 9  19.250
-## 10 19.333
-## 11 19.667
+## 1  17.750
+## 2  18.917
+## 3  17.083
+## 4  27.333
+## 5  24.667
+## 6  17.167
+## 7  18.500
+## 8  18.583
+## 9  17.250
+## 10 19.833
+## 11 18.750
 ```
 {{</expand>}}
 
@@ -404,7 +404,7 @@ coalesce(x, 0)
 ```
 
 ```
-## [1] 5 3 0 1 4 2 0 0
+## [1] 4 3 1 0 0 5 2 0
 ```
 
 ```r
@@ -440,7 +440,7 @@ recode(tmp_char, a = "Apple")
 ```
 
 ```
-##  [1] "Apple" "b"     "Apple" "c"     "b"     "c"     "c"     "b"     "b"    
+##  [1] "c"     "c"     "b"     "Apple" "c"     "c"     "Apple" "c"     "b"    
 ## [10] "Apple"
 ```
 
@@ -449,7 +449,7 @@ recode(tmp_char, a = "Apple", b = "Banana")
 ```
 
 ```
-##  [1] "Apple"  "Banana" "Apple"  "c"      "Banana" "c"      "c"      "Banana"
+##  [1] "c"      "c"      "Banana" "Apple"  "c"      "c"      "Apple"  "c"     
 ##  [9] "Banana" "Apple"
 ```
 
@@ -458,7 +458,7 @@ recode(tmp_char, a = "Apple", b = "Banana", .default = NA_character_)
 ```
 
 ```
-##  [1] "Apple"  "Banana" "Apple"  NA       "Banana" NA       NA       "Banana"
+##  [1] NA       NA       "Banana" "Apple"  NA       NA       "Apple"  NA      
 ##  [9] "Banana" "Apple"
 ```
 
@@ -469,7 +469,7 @@ recode(tmp_num, `1`=5)
 ```
 
 ```
-##  [1] 2 5 2 5 2 2 2 5 5 3
+##  [1] 3 3 2 2 2 2 3 5 3 5
 ```
 
 ```r
@@ -479,7 +479,7 @@ recode(tmp_char, !!!level_key)
 ```
 
 ```
-##  [1] "apple"  "banana" "apple"  "carrot" "banana" "carrot" "carrot" "banana"
+##  [1] "carrot" "carrot" "banana" "apple"  "carrot" "carrot" "apple"  "carrot"
 ##  [9] "banana" "apple"
 ```
 {{</expand>}}
@@ -765,6 +765,60 @@ band_members %>% full_join(band_instruments)
 ## 2 John  Beatles guitar
 ## 3 Paul  Beatles bass  
 ## 4 Keith <NA>    guitar
+```
+{{</expand>}}
+
+#### 13. semi_join, anti_join
+{{<expand "semi_join, anti_join 예시">}}
+
+```r
+#이미 조인된 결과값
+band_members %>% inner_join(band_instruments) 
+```
+
+```
+## Joining, by = "name"
+```
+
+```
+## # A tibble: 2 x 3
+##   name  band    plays 
+##   <chr> <chr>   <chr> 
+## 1 John  Beatles guitar
+## 2 Paul  Beatles bass
+```
+
+```r
+#band_members 중 join될 값 확인
+band_members %>% semi_join(band_instruments) 
+```
+
+```
+## Joining, by = "name"
+```
+
+```
+## # A tibble: 2 x 2
+##   name  band   
+##   <chr> <chr>  
+## 1 John  Beatles
+## 2 Paul  Beatles
+```
+
+```r
+#band_members 중 join되지 않을 값 확인
+band_members %>% anti_join(band_instruments) 
+```
+
+```
+## Joining, by = "name"
+```
+
+```
+## # A tibble: 1 x 2
+##   name  band  
+##   <chr> <chr> 
+## 1 Mick  Stones
 ```
 {{</expand>}}
 

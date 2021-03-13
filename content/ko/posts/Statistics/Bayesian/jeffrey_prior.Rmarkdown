@@ -21,26 +21,28 @@ p(\phi) &\propto p(\theta) \bigg|\frac{d\theta}{d\phi}\bigg| \\
 ### 2. Jeffrey's prior
 그렇다면 어떻게 해야 변수변환에 강건한 prior를 줄 수 있을까?
 $$\pi(\phi) \propto \sqrt{I(\theta)} $$
-위와 같이 주면 된다. 여기서 `$I(\theta) $`는 Fisher Information을 뜻하며, 아래와 같다.
+위와 같이 주면 된다. 여기서 `$I(\theta) $`는 [Fisher Information](/posts/statistics/statistics/fisher_information/)을 뜻하며, 아래와 같다.
 $$I(\theta) = -E\Big[ \frac{\partial^2}{\partial{\theta}^2}ln L(x|\theta) \Big]$$
 
+### 3. 증명
 이를 한 번 증명해보자. 단, `$\phi = f(\theta), \ f:\text{one-to-one}$`이다.
-$$p(\theta) \propto \sqrt{I(\theta)} \xrightarrow{?} \ p(\phi) \propto \sqrt{I(\phi)}$$
-$$p(\phi) = p(\theta) \bigg| \frac{\partial\theta}{\partial\phi} \bigg|$$
+
 \begin{align}
+p(\theta) \propto \sqrt{I(\theta)} &\xrightarrow{?} \ p(\phi) \propto \sqrt{I(\phi)} \\
+\\
+p(\phi) &= p(\theta) \bigg| \frac{\partial\theta}{\partial\phi} \bigg| \\
+\\
 I(\phi) &= -E\bigg[\frac{\partial^2}{\partial\phi^2}lnL(y|\phi) \bigg] \\
 &= E\bigg[\big(\frac{\partial}{\partial\phi}lnL(y|\phi) \big)^2 \bigg] \\
 &= E\bigg[\big(\frac{\partial}{\partial\theta}lnL(y|\theta) \big)^2 \big(\frac{\partial\theta}{\partial\phi} \big)^2 \bigg] \\ 
-&= I(\theta) \bigg|\frac{\partial\theta}{\partial\phi} \bigg|^2
-\end{align}
-
-\begin{align}
+&= I(\theta) \bigg|\frac{\partial\theta}{\partial\phi} \bigg|^2\\
+\\
 p(\phi) &= p(\theta)\bigg|\frac{\partial\theta}{\partial\phi} \bigg| \\
 &\propto \sqrt{I(\theta)}\bigg|\frac{\partial\theta}{\partial\phi} \bigg| \\
-&=\sqrt{I(\phi)}
+&=\sqrt{I(\phi)} \\
+\\
+\rightarrow p(\phi) &\propto \sqrt{I(\phi)}
 \end{align}
-
-$$\rightarrow p(\phi) \propto \sqrt{I(\phi)} $$
 
 ---
 <br> 

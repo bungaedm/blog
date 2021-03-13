@@ -1,7 +1,7 @@
 ---
 collapsible: false
 date: "2021-03-10T10:08:56+09:00"
-title: Bias-Variance Tradeoff
+title: 편향-분산 Tradeoff
 weight: 98
 ---
 
@@ -21,9 +21,17 @@ MSE(\hat{y}) &= E[(y-\hat{y})^2] \\
 
 <br>
 
-`$bias^2(\hat{y})$`: 참값과 추정치 평균의 차이
-`$Var(\hat{y})$`: 추정치와 추정치 평균의 차이
+`$bias^2(\hat{y})$`: 참값과 추정치 평균의 차이 (간단한 모형일수록 높음)
+`$Var(\hat{y})$`: 추정치와 추정치 평균의 차이 (복잡한 모형일수록 높음)
 `$\sigma^2$`: irreducible error
+
+편향(bias)는 간단한 모형일수록 높으며, 분산(variance)는 복잡한 모형일수록 높다. 이때 `$\sigma^2$`는 줄일 수 없는 오차이다. 그렇다면 적절한 모형 선택과 실험설계를 통해서 과적합을 방지해야 하는데, 이러한 부분은 머신러닝을 하면서 특히 더 주의해야 하는 부분이다.
+
+bias와 variance의 차이가 헷갈린다면 아래의 그림을 보면 훨씬 잘 이해가 될 것이다.
+![bias-variance](images/posts/statistics/bias_variance.png)
+
+###### 참고
+[1] https://www.endtoend.ai/blog/bias-variance-tradeoff-in-reinforcement-learning/
 
 ---
 <br> 
