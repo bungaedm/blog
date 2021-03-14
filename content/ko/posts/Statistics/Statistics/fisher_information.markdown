@@ -7,10 +7,7 @@ weight: 99
 
 ## Fisher Information
  
-Fisher information은 [score function](/posts/statistics/statistics/score_function/)의 **분산**이다. 이 점을 명심해서 의미를 생각해보자.
-
-### 다양한 의미
-아래는 Fisher information을 다양한 꼴로 표현해본 것이다.
+Fisher information은 [score function](/posts/statistics/statistics/score_function/)의 **분산**이다. 이 점을 명심해서 의미를 생각해보자. 아래는 Fisher information을 다양한 꼴로 표현해본 것이다.
 
 `\begin{align}
 I(\theta;x) &= Var(\frac{\partial}{\partial\theta}logf(x;\theta)) \\

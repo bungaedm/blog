@@ -11,21 +11,23 @@ weight: 3
 본 포스팅은 **First Course in Bayesian Statistical Methods**를 참고하였다.
 
 ### Binomial Model
-Prior: `$\theta \text{ ~ } beta(a,b)$`
-Likelihood: `$Y|\theta \text{ ~ } binomial(n, \theta) $`
-Posterior: `$\theta|y \text{ ~ } beta(a+y, b+n-y) $` <br>
+Prior: `$\theta \text{ ~ } Beta(a,b)$`
+Likelihood: `$Y|\theta \text{ ~ } Binomial(n, \theta) $`
+Posterior: `$\theta|y \text{ ~ } Beta(a+y, b+n-y) $` <br>
 a: prior 성공횟수, b: prior 실패횟수, `$\omega$`=a+b: concentration <br>
 `$ E[\theta|y] = \frac{a+y}{a+b+n} = \frac{n}{a+b+n}\times\frac{y}{n} + \frac{a+b}{a+b+n}\times\frac{a}{a+b} $` where `$\frac{y}{n}$` = sample mean, `$\frac{a}{a+b}$` = prior expectation <br>
-<!-- Predictive: `$\tilde{y}|y \text{ ~ } beta(a+y+y^{*}, b+n+n^{*}-y-y^{*}) $` -->
-
+Posterior Predictive  
+`$n^* = 1$`일 때 : `$\tilde{Y}|y \text{ ~ } Ber(\frac{a+y}{a+b+n}) $`
+`$n^* \geq 2$`일 때 : `$p(\tilde{Y}=y^*|y) = \binom{n^*}{y^*}\frac{B(a+y+y^*, b+n+n^*-y-y^*)}{B(a+y, b+n-y)} $` where `$B(\alpha, \beta) = \frac{\Gamma(\alpha)\Gamma(\beta)}{\Gamma(\alpha+\beta)} $`
 
 ### Poisson Model
-Prior: `$\theta \text{ ~ } gamma(a,b) $`
+Prior: `$\theta \text{ ~ } Gamma(a,b) $`
 Likelihood: `$Y_1, ..., Y_n \text{ ~ iid. } Poisson(\theta)$`
-Posterior: `$\theta|y_1, ..., y_n \text{ ~ } gamma(a+\sum_{i=1}^{n}{y_i}, b+n) $` <br>  
+Posterior: `$\theta|y_1, ..., y_n \text{ ~ } Gamma(a+\sum_{i=1}^{n}{y_i}, b+n) $` <br>  
 a: sum of counts from b prior observations, b: number of prior observations <br>
 `$E[\theta|y_1, ..., y_n] = \frac{a+\sum y_i}{b+n} = \frac{b}{b+n}\frac{a}{b} + \frac{n}{b+n}\frac{\sum y_i}{n}$` <br>
-Predictive: `$\tilde{y}|y_1, ..., y_n \text{ ~ } NB(a+\sum y_i, \frac{b+n}{b+n+1}) $`
+Posterior Predictive: `$\tilde{Y}=y^*|y_1, ..., y_n \text{ ~ } NB(a+\sum y_i+y^*, \frac{b+n}{b+n+1}) $`
+단, 여기서 `$Negative Binomial$`은 성공이 아닌 실패횟수를 세는 분포 형태이다. 자세한 내용은 [확률분포 포스팅](/posts/statistics/statistics/probability_distribution/)에서 확인하자.
 
 ### Exponential Family
 exponential family(지수족)의 pdf 또는 pmf는 다음과 같은 형식으로 표현될 수 있어야 한다. `$ p(y_i|\theta) = f(y_i) \ g(\theta) \ exp(\phi(\theta)^Ts(y_i)) $`
