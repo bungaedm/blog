@@ -1,0 +1,78 @@
+---
+collapsible: false
+date: "2021-03-14T10:08:56+09:00"
+description: null
+draft: false
+title: naniar
+weight: 1
+---
+
+# naniar 패키지 훑어보기
+NA 관련해서 직관적으로 깔끔한 그래프로 훑어볼 수 있게 도와주는 패키지이다.  
+본 포스팅은 [해당 사이트](https://naniar.njtierney.com/articles/naniar-visualisation.html)를 적극참고하여 작성하였다.
+
+```{r warning=FALSE, message=FALSE}
+library(tidyverse)
+library(naniar)
+```
+
+## vis_miss
+```{r}
+vis_miss(airquality)
+```
+
+## gg_miss_var
+```{r}
+gg_miss_var(airquality)
+gg_miss_var(airquality, show_pct = TRUE)
+gg_miss_var(airquality, facet = Month)
+```
+
+## gg_miss_case
+```{r}
+gg_miss_case(airquality)
+```
+
+## gg_miss_upset
+```{r}
+gg_miss_upset(riskfactors)
+n_var_miss(riskfactors)
+gg_miss_upset(riskfactors, nsets = n_var_miss(riskfactors)) 
+gg_miss_upset(riskfactors, nsets = 4) #nset: 변수 개수
+gg_miss_upset(riskfactors, nsets = 10, nintersects = 5) #nintersects: 변수조합 수
+```
+
+## geom_miss_point
+ggplot과 응용
+```{r}
+ggplot(airquality, aes(x = Ozone, y = Solar.R)) +
+  geom_point()
+ggplot(airquality, aes(x = Ozone, y = Solar.R)) +
+  geom_miss_point()
+```
+
+## gg_miss_fctfas
+```{r}
+gg_miss_fct(oceanbuoys, year)
+```
+
+## miss_var_summary
+```{r}
+riskfactors %>%
+  group_by(marital) %>%
+  miss_var_summary()
+```
+
+## miss_var_span, gg_miss_span
+```{r}
+miss_var_span(pedestrian, hourly_counts, span_every = 3000)
+gg_miss_span(pedestrian, hourly_counts, span_every = 3000)
+gg_miss_span(pedestrian, hourly_counts, span_every = 3000, facet = sensor_name)
+```
+
+## 그외 다양한 
+```{r}
+gg_miss_case_cumsum(airquality)
+gg_miss_var_cumsum(airquality)
+gg_miss_which(airquality)
+```

@@ -28,8 +28,10 @@ weight: 1
     2-5. rayshader
     2-6. ggmap
     2-7. r4issactoast
+    2-8. naniar(gg_miss_upset)
     3. shiny
-    4. mice: NA imputation
+    4. NA imputation
+    4-1. mice
     5. visNetwork(visNodes, visEdges)
     6. apriori(연관성분석, 장바구니분석)
     7. xaringan(R로 PPT 만들기)

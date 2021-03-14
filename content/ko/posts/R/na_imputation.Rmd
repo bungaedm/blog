@@ -4,7 +4,7 @@ date: "2021-01-23T10:08:56+09:00"
 description: null
 draft: false
 title: NA Imputation
-weight: 1
+weight: 2
 ---
 
 ```{r, echo=FALSE, warning=FALSE, message=FALSE}
