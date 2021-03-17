@@ -15,13 +15,12 @@
     
       
       <item>
-        <title>NA Imputation</title>
-        <link>https://jiwooblog.netlify.app/posts/r/na_imputation/</link>
-        <pubDate>Sat, 23 Jan 2021 10:08:56 +0900</pubDate>
+        <title>시각화</title>
+        <link>https://jiwooblog.netlify.app/posts/r/%EC%8B%9C%EA%B0%81%ED%99%94/</link>
+        <pubDate>Fri, 28 Feb 2020 10:08:56 +0900</pubDate>
         
-        <guid>https://jiwooblog.netlify.app/posts/r/na_imputation/</guid>
-        <description>데이터 설명dataset containing demographic data and laboratory data of 857 patients with acute coronary syndrome(ACS).
-# 변수별 NA값 확인colSums(is.na(acs))## age sex cardiogenicShock entry ## 0 0 0 0 ## Dx EF height weight ## 0 134 93 91 ## BMI obesity TC LDLC ## 93 0 23 24 ## HDLC TG DM HBP ## 23 15 0 0 ## smoking ## 0colSums(is.na(acs))[colSums(is.na(acs))&amp;gt;0]## EF height weight BMI TC LDLC HDLC TG ## 134 93 91 93 23 24 23 15na.</description>
+        <guid>https://jiwooblog.netlify.app/posts/r/%EC%8B%9C%EA%B0%81%ED%99%94/</guid>
+        <description>Visualization</description>
       </item>
       
       <item>
@@ -42,7 +41,7 @@
         
         <guid>https://jiwooblog.netlify.app/posts/r/dplyr/</guid>
         <description>dplyr 패키지 훑어보기 1 2  library(tidyverse) library(MASS)   목차  rowwise
-1-1. pmax slice relocate lag, lead  데이터   data  1 2 3 4  tmp &amp;lt;- tibble(x=round(rnorm(n=5, mean=5, sd=1)), y=round(rnorm(n=5, mean=5, sd=3)), z=round(rnorm(n=5, mean=5, sd=5))) tmp   ## # A tibble: 5 x 3## x y z## &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt;## 1 7 4 7## 2 9 1 5## 3 5 8 12## 4 4 3 7## 5 4 6 51 2  data(survey) glimpse(survey)   ## Rows: 237## Columns: 12## $ Sex &amp;lt;fct&amp;gt; Female, Male, Male, Male, Male, Female, Male, Female, Male, .</description>
+1-1. pmax slice relocate lag, lead  데이터   data  1 2 3 4  tmp &amp;lt;- tibble(x=round(rnorm(n=5, mean=5, sd=1)), y=round(rnorm(n=5, mean=5, sd=3)), z=round(rnorm(n=5, mean=5, sd=5))) tmp   ## # A tibble: 5 x 3## x y z## &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt;## 1 5 3 5## 2 5 6 1## 3 6 6 7## 4 5 2 2## 5 5 6 21 2  data(survey) glimpse(survey)   ## Rows: 237## Columns: 12## $ Sex &amp;lt;fct&amp;gt; Female, Male, Male, Male, Male, Female, Male, Female, Male, .</description>
       </item>
       
       <item>
@@ -66,7 +65,18 @@
 이럴 때는 .Rprofile이라는 이름의 파일을 찾아서
  blogdown.knit.on_save = TRUE
  라는 코드에서 TRUE를 FALSE로 바꿔주어야 한다.
-4. 자동정렬 단축키 ctrl + I</description>
+4. 자동정렬 단축키 ctrl + I
+5. python의 dictionary처럼 사용하기 1 2 3 4 5  # recode: case_when의 특수한 형태로서 데이터를 교체할 때 사용할 수 있을 것이다.</description>
+      </item>
+      
+      <item>
+        <title>NA Imputation</title>
+        <link>https://jiwooblog.netlify.app/posts/r/na_imputation/</link>
+        <pubDate>Sat, 23 Jan 2021 10:08:56 +0900</pubDate>
+        
+        <guid>https://jiwooblog.netlify.app/posts/r/na_imputation/</guid>
+        <description>데이터 설명dataset containing demographic data and laboratory data of 857 patients with acute coronary syndrome(ACS).
+# 변수별 NA값 확인colSums(is.na(acs))## age sex cardiogenicShock entry ## 0 0 0 0 ## Dx EF height weight ## 0 134 93 91 ## BMI obesity TC LDLC ## 93 0 23 24 ## HDLC TG DM HBP ## 23 15 0 0 ## smoking ## 0colSums(is.na(acs))[colSums(is.na(acs))&amp;gt;0]## EF height weight BMI TC LDLC HDLC TG ## 134 93 91 93 23 24 23 15na.</description>
       </item>
       
       <item>

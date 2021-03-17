@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>시각화 on JW Blog</title>
+    <link>https://jiwooblog.netlify.app/posts/r/%EC%8B%9C%EA%B0%81%ED%99%94/</link>
+    <description>Recent content in 시각화 on JW Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ko</language>
+    <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
+    <lastBuildDate>Fri, 28 Feb 2020 10:08:56 +0900</lastBuildDate>
+    
+        <atom:link href="https://jiwooblog.netlify.app/posts/r/%EC%8B%9C%EA%B0%81%ED%99%94/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    
+      
+      <item>
+        <title>naniar</title>
+        <link>https://jiwooblog.netlify.app/posts/r/%EC%8B%9C%EA%B0%81%ED%99%94/naniar/</link>
+        <pubDate>Sun, 14 Mar 2021 10:08:56 +0900</pubDate>
+        
+        <guid>https://jiwooblog.netlify.app/posts/r/%EC%8B%9C%EA%B0%81%ED%99%94/naniar/</guid>
+        <description>naniar 패키지 훑어보기 NA 관련해서 직관적으로 깔끔한 그래프로 훑어볼 수 있게 도와주는 패키지이다.
+본 포스팅은 해당 사이트를 적극참고하여 작성하였다.
+1 2  library(tidyverse) library(naniar)   vis_miss 1  vis_miss(airquality)   gg_miss_var 1  gg_miss_var(airquality)   1  gg_miss_var(airquality, show_pct = TRUE)   1  gg_miss_var(airquality, facet = Month)   gg_miss_case 1  gg_miss_case(airquality)   gg_miss_upset 1  gg_miss_upset(riskfactors)   1  n_var_miss(riskfactors)   ## [1] 241  gg_miss_upset(riskfactors, nsets = n_var_miss(riskfactors))   1  gg_miss_upset(riskfactors, nsets = 4) #nset: 변수 개수   1  gg_miss_upset(riskfactors, nsets = 10, nintersects = 5) #nintersects: 변수조합 수   geom_miss_point ggplot과 응용</description>
+      </item>
+      
+    
+  </channel>
+</rss>

@@ -44,9 +44,10 @@ Belief functions and Probabilities$Be()$는 belief function이라고 하자. �
         
         <guid>https://jiwooblog.netlify.app/posts/statistics/bayesian/fcb03/</guid>
         <description>Chapter 03. One-parameter Models 본 포스팅은 First Course in Bayesian Statistical Methods를 참고하였다.
-Binomial Model Prior: $\theta \text{ ~ } beta(a,b)$
-Likelihood: $Y|\theta \text{ ~ } binomial(n, \theta) $
-Posterior: $\theta|y \text{ ~ } beta(a+y, b+n-y) $ a: prior 성공횟수, b: prior 실패횟수, $\omega$=a+b: concentration $ E[\theta|y] = \frac{a+y}{a+b+n} = \frac{n}{a+b+n}\times\frac{y}{n} + \frac{a+b}{a+b+n}\times\frac{a}{a+b} $ where $\frac{y}{n}$ = sample mean, $\frac{a}{a+b}$ = prior expectation Poisson Model Prior: $\theta \text{ ~ } gamma(a,b) $</description>
+Binomial Model Prior: $\theta \text{ ~ } Beta(a,b)$
+Likelihood: $Y|\theta \text{ ~ } Binomial(n, \theta) $
+Posterior: $\theta|y \text{ ~ } Beta(a+y, b+n-y) $ a: prior 성공횟수, b: prior 실패횟수, $\omega$=a+b: concentration $E[\theta|y] = \frac{a+y}{a+b+n} = \frac{n}{a+b+n}\times\frac{y}{n} + \frac{a+b}{a+b+n}\times\frac{a}{a+b}$ where $\frac{y}{n}$ = sample mean, $\frac{a}{a+b}$ = prior expectation Posterior Predictive
+$n^* = 1$일 때 : $\tilde{Y}|y \text{ ~ } Ber(\frac{a+y}{a+b+n})$</description>
       </item>
       
       <item>

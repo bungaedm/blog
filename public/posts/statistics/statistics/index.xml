@@ -32,7 +32,7 @@
         
         <guid>https://jiwooblog.netlify.app/posts/statistics/statistics/probability_distribution/</guid>
         <description>확률분포(Probability Distribution) 출처: https://artificialnetworkforstarters.readthedocs.io/en/latest/_post/chap6.html  --연속형  정규 분포 T-분포 감마 분포 베타 분포 카이제곱 분포 F-분포 균일 분포
-&amp;hellip;  이산형  이항 분포 베르누이 분포 포아송 분포 기하 분포 음이항 분포 초기하 분포
+&amp;hellip;  이산형  이항 분포 베르누이 분포 포아송 분포 음이항 분포 기하 분포 초기하 분포
 &amp;hellip;  정규 분포(Normal Distribution)   정규분포  $$ \text{X~} N(\mu, \sigma^2) \rightarrow f(x) = \frac{1}{\sqrt{2\pi\sigma^2}} \exp(-\frac{(x-\mu)}{2\sigma^2}^2) $$
 $$ E(X) = \mu, Var(X) = \sigma^2$$   다변수 정규분포(Multivariate Normal Distribution) 관련 포스팅 참고</description>
       </item>
@@ -44,6 +44,19 @@ $$ E(X) = \mu, Var(X) = \sigma^2$$   다변수 정규분포(Multivariate Normal 
         
         <guid>https://jiwooblog.netlify.app/posts/statistics/statistics/mvn/</guid>
         <description>1. Drawing MVN plots with ggplot2 1 2  mu = matrix(c(0,10), ncol=1) invSig = solve(matrix(c(4,10,10,100), ncol=2, byrow=TRUE))   1-1. Vectorize + Outer 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23  dmvlnorm = function(theta, mu, invSig){ (-nrow(mu)/2) * log(2*pi) + 0.5*log(det(invSig)) - 0.5*(t(theta-mu) %*% invSig %*% (theta-mu)) } calc.dens = Vectorize(function(a,b){ theta = c(a,b) exp(dmvlnorm(theta, mu, invSig)) }) A = seq(-5, 5, length=100) B = seq(-15, 40, length=100) dense = outer(A, B, FUN=calc.</description>
+      </item>
+      
+      <item>
+        <title>Exponential Family</title>
+        <link>https://jiwooblog.netlify.app/posts/statistics/statistics/exponential_family/</link>
+        <pubDate>Sun, 07 Mar 2021 10:08:56 +0900</pubDate>
+        
+        <guid>https://jiwooblog.netlify.app/posts/statistics/statistics/exponential_family/</guid>
+        <description>Exponential Family 한국어로는 지수족 또는 지수류라고도 하지만, 영어로 보는 편이 직관적으로 받아들이는 데에 편할 것이다.
+$f(x;\theta) = \begin{cases}exp\big[p(\theta)K(x) + s(x) + q(\theta)\big] &amp;amp; x \in S \\0 &amp;amp; o.w\end{cases} $
+ S does not depend on $\theta$ $p(\theta)$ is a nontrivial continuous function of $\theta \in \Omega$
+3-1. If X is continuous, $K&#39;(x) \neq 0$ and $s(x)$ is continuous function.
+3-2. If X is discrete, $K(x)$ is nontrivial function.</description>
       </item>
       
       <item>
@@ -60,6 +73,15 @@ t검정에서 독립표본 t-검정과 대응표본 t-검정이 있습니다. �
 참고 [1] 연세대학교 심리통계 2019-1 수업자료 [2] https://blog.naver.com/istech7/50152096673
 [3] http://www.incodom.kr/R%ED%99%9C%EC%9A%A9/Wilcoxon_Signed-Rank_Test
 [4] https://dermabae.tistory.com/159</description>
+      </item>
+      
+      <item>
+        <title>ANOVA</title>
+        <link>https://jiwooblog.netlify.app/posts/statistics/statistics/anova/</link>
+        <pubDate>Mon, 22 Feb 2021 10:08:56 +0900</pubDate>
+        
+        <guid>https://jiwooblog.netlify.app/posts/statistics/statistics/anova/</guid>
+        <description>ANOVA ANOVA는 Analysis of Variance의 약자로, 한국어로는 분산 분석이라고 한다. 집단 간 분산과 집단 내 분산을 비교하여 처리효과가 있는지 살펴보는 통계방법이다.</description>
       </item>
       
       <item>
@@ -104,6 +126,16 @@ t검정에서 독립표본 t-검정과 대응표본 t-검정이 있습니다. �
       </item>
       
       <item>
+        <title>편향-분산 Tradeoff</title>
+        <link>https://jiwooblog.netlify.app/posts/statistics/statistics/bias_variance/</link>
+        <pubDate>Wed, 10 Mar 2021 10:08:56 +0900</pubDate>
+        
+        <guid>https://jiwooblog.netlify.app/posts/statistics/statistics/bias_variance/</guid>
+        <description>Bias-Variance Tradeoff $$\text{let } y = f(x) + \varepsilon, \text{ where } \varepsilon \text{ ~ } N(0, \sigma^2)$$
+\begin{align}MSE(\hat{y}) &amp;amp;= E[(y-\hat{y})^2] \\&amp;amp;= E[(f(x) + \varepsilon - \hat{f}(x))^2] \\&amp;amp;= E[(f(x)-\hat{f}(x))^2] + E[\varepsilon^2] + 2E[\varepsilon(f(x) - \hat{f}(x))] \\&amp;amp;= E[(f(x) - E(\hat{f}(x)) + E(\hat{f}(x)) - \hat{f}(x) )^2] + \sigma^2 \\&amp;amp;= E[(f(x) - E(\hat{f}(x)))^2] + E[(\hat{f}(x)-E(\hat{f}(x)))^2] + 2(f(x) - E(\hat{f}(x)))E[\hat{f}(x) - E(\hat{f}(x))] + \sigma^2 \\&amp;amp;= {bias[\hat{f}(x)]}^2 + Var(\hat{f}(x)) + \sigma^2 \\&amp;amp;= bias^2(\hat{y}) + Var(\hat{y}) + \sigma^2\end{align}</description>
+      </item>
+      
+      <item>
         <title>F1 Score</title>
         <link>https://jiwooblog.netlify.app/posts/statistics/statistics/performance_measure/</link>
         <pubDate>Sun, 07 Mar 2021 10:08:56 +0900</pubDate>
@@ -121,7 +153,15 @@ Accuracy는 balanced data가 아니라면 좋은 지표로서의 역할을 하�
         <pubDate>Sun, 07 Mar 2021 10:08:56 +0900</pubDate>
         
         <guid>https://jiwooblog.netlify.app/posts/statistics/statistics/fisher_information/</guid>
-        <description>Fisher Information </description>
+        <description>Fisher Information Fisher information은 score function의 분산이다. 이 점을 명심해서 의미를 생각해보자. 아래는 Fisher information을 다양한 꼴로 표현해본 것이다.
+\begin{align}I(\theta;x) &amp;amp;= Var(\frac{\partial}{\partial\theta}logf(x;\theta)) \\&amp;amp;= E\bigg[\Big(\frac{\partial}{\partial\theta}logf(x;\theta)\Big)^2\bigg] \\&amp;amp;= -E\bigg[\frac{\partial^2}{\partial\theta^2}log(f(x;\theta)\bigg]\end{align}
+계산 증명 위에 대한 자세한 계산 증명은 아래와 같다.
+우선, score function의 평균이 0임을 구하는 것부터 시작한다.
+$$\int \frac{\partial}{\partial\theta}logf(x;\theta)f(x;\theta)=0 $$
+양변을 $\theta$로 미분해준다.
+$$\int\frac{\partial^2}{\partial\theta^2}logf(x;\theta)f(x;\theta)dx + \int\frac{\partial}{\partial\theta}logf(x;\theta)f&#39;(x;\theta)dx = 0 $$
+오른쪽 부분을 우변으로 이항하여 정리해주면 아래와 같다.
+\begin{align}E\bigg[\frac{\partial^2}{\partial\theta^2}logf(x;\theta)\bigg] &amp;amp;= -\int\frac{\partial}{\partial\theta}logf(x;\theta)f&#39;(x;\theta)dx \\ &amp;amp;= -\int\frac{\partial}{\partial\theta}logf(x;\theta)\frac{f&#39;(x;\theta)}{f(x;\theta)}f(x;\theta)dx \\&amp;amp;= -\int\bigg(\frac{\partial}{\partial\theta}logf(x;\theta)\bigg)^2f(x;\theta)dx \\&amp;amp;= -E\bigg[\Big(\frac{\partial}{\partial\theta}logf(x;\theta)\Big)^2\bigg]\end{align}</description>
       </item>
       
       <item>
@@ -132,7 +172,7 @@ Accuracy는 balanced data가 아니라면 좋은 지표로서의 역할을 하�
         <guid>https://jiwooblog.netlify.app/posts/statistics/statistics/score_function/</guid>
         <description>Score Function $X \text{ ~ } f(x;\theta)$일 때, score function $s(\theta;x)$은 다음과 같이 정의한다.
 $$\frac{\partial}{\partial\theta}logf(x;\theta) $$
-평균 계산 증명 \begin{align}E\big[s(\theta;x) \big] &amp;amp;= \int\frac{\partial}{\partial\theta}logf(x;\theta)f(x;\theta)\partial x \\&amp;amp;= \int\frac{f&#39;(x;\theta)}{f(x;\theta)}f(x;\theta)\partial x \\&amp;amp;= \frac{\partial}{\partial\theta}\int f&#39;(x;\theta) \\&amp;amp;= \frac{\partial}{\partial\theta}1 = 0\end{align}
+평균 계산 증명 \begin{align}E\big[s(\theta;x) \big] &amp;amp;= \int\bigg[\frac{\partial}{\partial\theta}logf(x;\theta)\bigg]f(x;\theta)dx \\&amp;amp;= \int\frac{f&#39;(x;\theta)}{f(x;\theta)}f(x;\theta)dx \\&amp;amp;= \int f&#39;(x;\theta)dx \\&amp;amp;= \frac{\partial}{\partial\theta}\int f(x;\theta)dx \\&amp;amp;= \frac{\partial}{\partial\theta}1 = 0\end{align}
 의미 score function은 log likelihood의 기울기를 나타낸다는 데에서 의미가 있다.
 score function의 평균이 0이라는 것의 의미를 그래프를 likelihood 그래프를 상상하여 생각해보자.</description>
       </item>

@@ -3,6 +3,16 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://jiwooblog.netlify.app/posts/r/%EC%8B%9C%EA%B0%81%ED%99%94/naniar/</loc>
+    <lastmod>2021-03-14T10:08:56+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jiwooblog.netlify.app/posts/machinelearning/intro/</loc>
+    <lastmod>2021-03-11T10:08:56+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://jiwooblog.netlify.app/posts/statistics/statistics/central_limit_theorem/</loc>
     <lastmod>2021-02-21T10:08:56+09:00</lastmod>
   </url>
@@ -25,11 +35,6 @@
   <url>
     <loc>https://jiwooblog.netlify.app/posts/python/python_tip/</loc>
     <lastmod>2021-01-31T00:08:29+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jiwooblog.netlify.app/posts/r/na_imputation/</loc>
-    <lastmod>2021-01-23T10:08:56+09:00</lastmod>
   </url>
   
   <url>
@@ -83,6 +88,11 @@
   </url>
   
   <url>
+    <loc>https://jiwooblog.netlify.app/posts/r/%EC%8B%9C%EA%B0%81%ED%99%94/</loc>
+    <lastmod>2020-02-28T10:08:56+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://jiwooblog.netlify.app/posts/yonsei/psychology/lecture/</loc>
     <lastmod>2020-01-28T10:08:56+09:00</lastmod>
   </url>
@@ -128,6 +138,11 @@
   </url>
   
   <url>
+    <loc>https://jiwooblog.netlify.app/posts/r/na_imputation/</loc>
+    <lastmod>2021-01-23T10:08:56+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://jiwooblog.netlify.app/updates/diary/2021_01/</loc>
     <lastmod>2021-01-22T00:08:29+09:00</lastmod>
   </url>
@@ -139,11 +154,6 @@
   
   <url>
     <loc>https://jiwooblog.netlify.app/posts/statistics/bayesian/fcb02/</loc>
-    <lastmod>2021-01-07T10:08:56+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jiwooblog.netlify.app/posts/statistics/linearalgebra/l02/</loc>
     <lastmod>2021-01-07T10:08:56+09:00</lastmod>
   </url>
   
@@ -168,6 +178,11 @@
   </url>
   
   <url>
+    <loc>https://jiwooblog.netlify.app/posts/statistics/statistics/exponential_family/</loc>
+    <lastmod>2021-03-07T10:08:56+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://jiwooblog.netlify.app/updates/diary/2021_03/</loc>
     <lastmod>2021-03-06T00:08:29+09:00</lastmod>
   </url>
@@ -175,6 +190,11 @@
   <url>
     <loc>https://jiwooblog.netlify.app/posts/statistics/statistics/nonparametric/</loc>
     <lastmod>2021-02-24T10:08:56+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jiwooblog.netlify.app/posts/statistics/statistics/anova/</loc>
+    <lastmod>2021-02-22T10:08:56+09:00</lastmod>
   </url>
   
   <url>
@@ -283,8 +303,8 @@
   </url>
   
   <url>
-    <loc>https://jiwooblog.netlify.app/posts/dataengineering/</loc>
-    <lastmod>2021-01-11T10:08:56+09:00</lastmod>
+    <loc>https://jiwooblog.netlify.app/posts/machinelearning/</loc>
+    <lastmod>2021-01-07T10:08:56+09:00</lastmod>
   </url>
   
   <url>
@@ -295,6 +315,11 @@
   <url>
     <loc>https://jiwooblog.netlify.app/posts/dataengineering/fc_part4_3/</loc>
     <lastmod>2021-01-13T10:09:56+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jiwooblog.netlify.app/posts/dataengineering/</loc>
+    <lastmod>2021-01-11T10:08:56+09:00</lastmod>
   </url>
   
   <url>
@@ -330,6 +355,11 @@
   <url>
     <loc>https://jiwooblog.netlify.app/posts/dataengineering/fc_part5_4/</loc>
     <lastmod>2021-01-13T10:09:56+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jiwooblog.netlify.app/posts/statistics/statistics/bias_variance/</loc>
+    <lastmod>2021-03-10T10:08:56+09:00</lastmod>
   </url>
   
   <url>
@@ -398,8 +428,18 @@
   </url>
   
   <url>
+    <loc>https://jiwooblog.netlify.app/tags/project/</loc>
+    <lastmod>2021-01-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://jiwooblog.netlify.app/blog/bigcontest2020/</loc>
     <lastmod>2021-01-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jiwooblog.netlify.app/blog/rhino/</loc>
+    <lastmod>2020-06-23T00:00:00+00:00</lastmod>
   </url>
   
   <url>
