@@ -11,7 +11,7 @@ weight: 1
 ![확률분포 관계도](images/posts/statistics/prob_dist_relation.png)
 <!-- <div style="text-align: center"> 출처: https://artificialnetworkforstarters.readthedocs.io/en/latest/_post/chap6.html </div> -->
 
-##### 연속형
+##### 연속형(Continuous)
 - 정규 분포
 - T-분포
 - 감마 분포
@@ -21,7 +21,7 @@ weight: 1
 - 균일 분포
 ...
 
-##### 이산형
+##### 이산형(Discrete)
 - 이항 분포
 - 베르누이 분포
 - 포아송 분포
