@@ -30,7 +30,7 @@ weight: 1
     2-7. r4issactoast
     2-8. naniar(gg_miss_upset)
     2-9. [gganimate](https://www.youtube.com/watch?v=SnCi0s0e4Io)
-    2-10. [esquisse](https://www.youtube.com/watch?v=FWLxE-ARuO8): 자동 짜주기
+    2-10. [esquisse](https://www.youtube.com/watch?v=FWLxE-ARuO8): 드래그&드롭으로 ggplot 그리기
     3. shiny
     4. NA imputation
     4-1. mice

@@ -7,9 +7,10 @@ weight: 1
 ---
 
 ## 2021년 3월
-| 주문날짜 | 제품명 | 브랜드 | 금액 | 쇼핑몰 |  
-| -------- | ------ | ------ | ---- | ------ |
-| 3.12     | 캉골 트로픽 헌팅캡 504 BEIGE (S사이즈) | 39,647원 | SSG닷컴 |
+| 주문날짜 | 제품명 | 브랜드 | 금액 | 쇼핑몰 | 링크 |
+| -------- | ------ | ------ | ---- | ------ | ---- |
+| 3.12     | 캉골 트로픽 헌팅캡 504 BEIGE (S사이즈) | 캉골 |  39,647원 | SSG닷컴 | [링크](http://www.ssg.com/item/itemView.ssg?itemId=1000054808017&siteNo=6004&salestrNo=6005&tlidSrchWd=%EC%BA%89%EA%B3%A8%20%ED%8A%B8%EB%A1%9C%ED%94%BD%20504%20%ED%97%8C%ED%8C%85%EC%BA%A1%200287BC%EB%B2%A0%EC%9D%B4%EC%A7%80&srchPgNo=1&src_area=ssglist&itemSsgColectYn=Y) | 
+| 3.19     | 인사일런스 구르카 팬츠 Indigo (S 사이즈) | 인사일런스 | 63,000원 | 공홈 | [링크](https://store.musinsa.com/app/goods/1799160) |
 
 ## 2021년 2월
 | 주문날짜 | 제품명 | 브랜드 | 금액 | 쇼핑몰 |  
