@@ -29,6 +29,7 @@ weight: 1
     2-6. ggmap
     2-7. r4issactoast
     2-8. naniar(gg_miss_upset)
+    2-9. [gganimate](https://www.youtube.com/watch?v=SnCi0s0e4Io)
     3. shiny
     4. NA imputation
     4-1. mice
