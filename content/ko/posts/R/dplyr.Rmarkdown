@@ -19,6 +19,15 @@ library(MASS)
 2. slice
 3. relocate
 4. lag, lead
+5. between, near
+6. coalsece
+7. recode
+8. first, last, nth
+9. rownames_to_column, column_to_rownames
+10. bind_rows, bind_cols
+11. mutate_all, mutate_if
+12. inner_join, left_join, right_join, full_join
+13. semi_join, anti_join
 
 ### 데이터
 {{< expand "data" >}}
