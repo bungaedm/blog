@@ -40,7 +40,7 @@ weight: 1
     7-1. [참고사이트1](https://yongfu.name/slides/xaringan)
     7-2. [참고사이트2](https://github.com/issactoast/uiowa-rworkshop)
     8. Rstudio Ligature 적용하기 [참고사이트](https://www.youtube.com/watch?v=Ey-OEPyn3Hc)
-    9. [latex2exp](https://www.youtube.com/watch?v=Gs3OUF6E0JE&list=PLKtLBdGREmMl_feHpXU-xS6BBJDrEWNQh&index=5)
+    9. [latex2exp](https://www.youtube.com/watch?v=Gs3OUF6E0JE&list=PLKtLBdGREmMl_feHpXU-xS6BBJDrEWNQh&index=5): expression 대신 latex문법 활용하기
 
 3. SPSS
     1. 기술통계(데이터 유형, 분포의 이해)
