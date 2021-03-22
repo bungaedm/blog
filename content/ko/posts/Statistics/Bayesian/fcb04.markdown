@@ -70,6 +70,7 @@ mean(y1.mc>y2.mc)
 
 ### 3. Posterior Predictive Model Checking
 
+> We should at least make sure that our model generates predictive datasets `$\tilde{Y}$` that resemble the observed dataset in terms of features that are of interest
 
 ###### 참고
 [1] [FCB code](https://pdhoff.github.io/book/)
