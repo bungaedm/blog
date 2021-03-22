@@ -1,0 +1,116 @@
+---
+collapsible: false
+date: "2021-01-21T10:08:56+09:00"
+description: Normal Model
+draft: false
+title: Normal Model
+weight: 5
+---
+
+## Chapter 05. <br> Normal Model
+본 포스팅은 **First Course in Bayesian Statistical Methods**와 **Bayesian Data Analysis**를 참고하였다.
+
+### [Warm up!](/posts/statistics/statistics/probability_distribution/)
+- Gamma Distribution
+- Inverse Gamma Distribution
+- Scaled Inverse Chi-squared Distribution
+
+### 1. Single Parameter Conjugacy
+평균이나 분산 중 하나만을 모르는 경우
+
+#### 1-1. 평균을 모르는 경우
+Prior: `$\mu \text{ ~ } N(\mu_0, \tau_0^{2})$`
+Likelihood: `$y|\mu \text{ ~ } N(\mu, \sigma^2)$`
+Posterior: `$\mu|y \text{ ~ } N(\mu_n, \tau_n^{2})$`
+
+where `$\frac{1}{\tau_n^{2}} = \frac{1}{\tau_0^{2}} + \frac{n}{\sigma^2}$` and `$\mu = \frac{\frac{1}{\tau_0^{2}}}{\frac{1}{\tau_0^{2}} + \frac{n}{\sigma^2}}\mu_0 + \frac{\frac{n}{\sigma^2}}{\frac{1}{\tau_0^{2}} + \frac{n}{\sigma^2}}\bar{y} $`
+
+#### 1-2. 분산을 모르는 경우
+Prior: `$\sigma^2 \text{ ~ } \chi^{-2}(\nu_0, \sigma_0^2)$`
+Likelihood: `$y|\sigma^2 \text{ ~ } N(\mu, \sigma^2$` 
+Posterior:  `$\sigma^2|y \text{ ~ } \chi^{-2}(\nu_n, \sigma_n^2)$`
+
+where `$\nu_n = \nu_0 + n$` and `$\sigma_n^2 = \frac{\nu_0\sigma_0^2 + ns(y)}{\nu_0 + n}$`  
+c.f. `$s(y) = \frac{1}{n}\sum_{i=1}^{n}(y_i-\mu)^2$`
+
+### 2. Two Parameter
+
+###### marginal distribution 얻는 두 가지 방법
+1. `Integreation`: joint posterior distribution을 구한 후, 관심 없는 모수(nuisance parameter)에 대해 적분
+2. `Simulation`: joint posterior distribution에서 sample을 구한 후, 관심 있는 모수의 분포만 고려(나머지는 무시)
+
+###### 그렇다면 joint posterior distribution은 어떻게 구할까?
+1. marginal and conditional simulation을 통해서 구할 수 있다.
+`$\theta_2 \text{ ~ } \theta_2|y$` and `$\theta_1 | \theta_2, y$`
+`$\rightarrow (\theta_1, \theta_2) \text{ ~ } (\theta_1, \theta_2|y)$`
+
+#### 2-1. noninformative prior
+Prior: `$p(\mu, \sigma^2) \propto (\sigma^2)^{-1} $` (improper prior)
+Likelihood: `$p(y|\mu, \sigma^2) \propto \sigma^{-n}exp(\frac{-1}{2}\sigma^2\sum_{i=1}^{n}(y_i - \mu)^2) $`
+Posterior:
+`\begin{align}
+p(\mu, \sigma^2|y) &\propto p(\mu, \sigma^2) \times p(y|\mu, \sigma^2) \\
+&\propto \sigma^{-n-2}exp\bigg(\frac{-1}{2\sigma^2}\big[(n-1)s^2 + n(\bar{y}-\mu)^2\big]\bigg)
+\end{align}`
+
+이때 posterior는 `$p(\mu,\sigma^2|y) = p(\mu|\sigma^2, y) \times p(\sigma^2 |y)$`이며, 각 분포는 아래와 같이 정리될 수 있다.
+
+`\begin{align}
+\mu|\sigma^2,y &\text{ ~ } N(\bar{y}, \frac{\sigma^2}{n}) \\
+\sigma^2|y &\text{ ~ } \chi^{-2}(n-1, s^2) \\
+\mu, \sigma^2 |y &\text{ ~ } N(\bar{y}, \frac{\sigma^2}{n}) \times \chi^{-2}(n-1, s^2)
+\end{align}`
+
+`$\mu$`의 marginal posterior distribution `$p(\mu|y)$`은 `$\int p(\mu,\sigma^2)d\sigma^2$`를 통해서 구할 수 있다. 그리고 형태는 아래와 같다.
+`$$p(\mu|y) \text{ ~ } t_{n-1}(\bar{y}, \frac{s^2}{n})$$`
+Posterior Predictive: `$\tilde{y}|y \text{ ~ } t(n-1, \bar{y}, (1+\frac{1}{n}s^2))$`
+이는 data의 uncertainty(`$s^2$`)이 추가된 형태라고 해석할 수 있다.
+
+Two parameter Normal model이 중요한 이유는 [다음](/posts/statistics/bayesian/fcb05/#3-frequentist와-bayesian의-차이)을 보면 명확하다. Frequentist와 Bayesian의 기본적인 전제와 입장 차이를 이해한다면, 정보가 없는 prior가 결국 어떠한 결론으로 이어가는지 이해할 수 있다.
+
+#### 2-2. conjugate prior
+Prior: `$p(\mu, \sigma^2) = p(\mu|\sigma^2) \times p(\sigma_0^2) \text{ ~ N-Inv-} \chi^2(\mu_0, \frac{\sigma^2}{k_0}; v_0, \sigma_0^2)$`
+`\begin{align}
+\mu|\sigma^2 &\text{ ~ } N(\mu_0, \frac{\sigma^2}{k_0}) \\
+\sigma^2 &\text{ ~ } \chi^{-2}(v_0, \sigma^2_0) \\
+\rightarrow \mu, \sigma^2 &\propto \sigma^{-1}(\sigma^2)^{-(\frac{v_0}{2}+1)}exp\bigg(\frac{-1}{2\sigma^2}\big[v_0\sigma_0^2 + k_0(\mu_0 - \mu)^2\big]\bigg)
+\end{align}`
+Likelihood: `$p(y|\mu, \sigma^2) \propto \sigma^{-n}exp\bigg(\frac{-1}{2\sigma^2}\sum_{i=1}{n}(y_i-\mu)^2\bigg)$`
+Posterior: `$p(\mu, \sigma^2|y) \text{ ~ N-Inv-}\chi^2(\mu_n, \frac{\sigma_n^2}{k_n}; v_n, \sigma_n^2) $`
+
+`\begin{align}
+\mu_n &= \frac{k_0}{k_0+n}\mu_0 + \frac{n}{k_0+n}\bar{y} \\
+k_n &= k_0 +n \\
+v_n &= v_o + n \\
+v_n\sigma_n^2 &= v_0\sigma_0^2 + (n-1)s^2 + \frac{k_0n}{k_0+n}(\bar{y}-\mu_0)^2 \\
+\rightarrow \text{posterior ss}    &= \text{prior ss} + \text{sample ss} + \text{additional uncerntainty}(\bar{y}-\mu_0)
+\end{align}`
+
+#### 3. Frequentist와 Bayesian의 차이
+**Frequentist**: `parameter를 알 때, 통계량의 분포`에 대해 이야기한다.
+let `$y \text{ ~ } N(\mu, \sigma^2)$`
+1. `$\bar{y} \text{ ~ } N(\mu, \frac{\sigma^2}{n}) $`
+2. `$\frac{(n-1)s^2}{\sigma^2} \text{ ~ } \chi^2(n-1)$`
+3. `$\frac{\bar{y}-\mu}{s/\sqrt{n}}|\mu,\sigma^2 \text{ ~ } t_{n-1}$`
+
+**Bayesian**: `data를 알 때, parameter의 분포`에 대해 이야기한다.
+1. `$\mu \text{ ~ } N(\bar{y}, \frac{\sigma^2}{n})$`
+2. `$\sigma^2 \text{ ~ } \chi^{-2}(n-1, s^2)$`
+3. `$\frac{\mu-\bar{y}}{s/\sqrt{n}}|y \text{ ~ } t_{n-1} $`
+
+만약 Bayesian이 noninformative prior를 가정한다면, 즉 prior가 거의 없다고 생각한다면 frequetist랑 결과가 비슷하게 나오는 것은 당연하다.
+
+#### 4. Multinomial Model
+Likelihood: `$y|\theta \text{ ~ Multinomial}(\theta) \propto \prod_{j=1}^{k}\theta_j^{y_j}$`
+Prior: `$\theta \text{ ~ } Dir(\alpha) \propto \prod_{j=1}^{k}\theta_j^{\alpha_j-1}$`
+Posterior: `$\theta|y \text{ ~ } Dir(\alpha +y) \propto \prod_{j=1}^{k}\theta_j^{\alpha_j-y_j-1}$`
+
+참고로 Multinomial distribution은 이항분포의 확장이며, Dirichlet distribution은 베타분포의 확장이라고 생각하면 쉽다. 왜냐하면 Beta-Binomial 모델에 대해서는 [Chapter3](/posts/statistics/bayesian/fcb03/)에서 이미 충분히 다루었기 때문이다.
+
+---
+
+<br> 
+<p style='text-align: center; color:gray'> 혹시 궁금한 점이나 잘못된 내용이 있다면, 댓글로 알려주시면 적극 반영하도록 하겠습니다. </p>
+
+<br>
+<br>
