@@ -23,15 +23,17 @@ Prior: `$\mu \text{ ~ } N(\mu_0, \tau_0^{2})$`
 Likelihood: `$y|\mu \text{ ~ } N(\mu, \sigma^2)$`
 Posterior: `$\mu|y \text{ ~ } N(\mu_n, \tau_n^{2})$`
 
-where `$\frac{1}{\tau_n^{2}} = \frac{1}{\tau_0^{2}} + \frac{n}{\sigma^2}$` and `$\mu = \frac{\frac{1}{\tau_0^{2}}}{\frac{1}{\tau_0^{2}} + \frac{n}{\sigma^2}}\mu_0 + \frac{\frac{n}{\sigma^2}}{\frac{1}{\tau_0^{2}} + \frac{n}{\sigma^2}}\bar{y} $`
+where `$\frac{1}{\tau_n^{2}} = \frac{1}{\tau_0^{2}} + \frac{n}{\sigma^2}$` and `$\mu_n = \frac{\frac{1}{\tau_0^{2}}}{\frac{1}{\tau_0^{2}} + \frac{n}{\sigma^2}}\mu_0 + \frac{\frac{n}{\sigma^2}}{\frac{1}{\tau_0^{2}} + \frac{n}{\sigma^2}}\bar{y} $`
+
+Posterior Predictive: `$\tilde{y}|y \text{ ~ } N(\mu_n, \sigma^2+\tau_n^{2})$`
 
 #### 1-2. 분산을 모르는 경우
 Prior: `$\sigma^2 \text{ ~ } \chi^{-2}(\nu_0, \sigma_0^2)$`
-Likelihood: `$y|\sigma^2 \text{ ~ } N(\mu, \sigma^2$` 
+Likelihood: `$y|\sigma^2 \text{ ~ } N(\mu, \sigma^2)$` 
 Posterior:  `$\sigma^2|y \text{ ~ } \chi^{-2}(\nu_n, \sigma_n^2)$`
 
 where `$\nu_n = \nu_0 + n$` and `$\sigma_n^2 = \frac{\nu_0\sigma_0^2 + ns(y)}{\nu_0 + n}$`  
-c.f. `$s(y) = \frac{1}{n}\sum_{i=1}^{n}(y_i-\mu)^2$`
+c.f. `$s(y) = \frac{1}{n}\sum_{i=1}^{n}(y_i-\mu)^2$`, 이는 MLE이다(biased estimator). 참고로, 베이지안은 frequentist들의 기준인 unbiasedness를 중요하게 생각하지 않는다.
 
 ### 2. Two Parameter
 
@@ -63,10 +65,10 @@ p(\mu, \sigma^2|y) &\propto p(\mu, \sigma^2) \times p(y|\mu, \sigma^2) \\
 
 `$\mu$`의 marginal posterior distribution `$p(\mu|y)$`은 `$\int p(\mu,\sigma^2)d\sigma^2$`를 통해서 구할 수 있다. 그리고 형태는 아래와 같다.
 `$$p(\mu|y) \text{ ~ } t_{n-1}(\bar{y}, \frac{s^2}{n})$$`
-Posterior Predictive: `$\tilde{y}|y \text{ ~ } t(n-1, \bar{y}, (1+\frac{1}{n}s^2))$`
-이는 data의 uncertainty(`$s^2$`)이 추가된 형태라고 해석할 수 있다.
+Posterior Predictive: `$\tilde{y}|y \text{ ~ } t_{n-1}(\bar{y}, (1+\frac{1}{n}s^2))$`
+이는 posterior과 비교해서, data의 uncertainty(`$s^2$`)이 추가된 형태라고 해석할 수 있다.
 
-Two parameter Normal model이 중요한 이유는 [다음](/posts/statistics/bayesian/fcb05/#3-frequentist와-bayesian의-차이)을 보면 명확하다. Frequentist와 Bayesian의 기본적인 전제와 입장 차이를 이해한다면, 정보가 없는 prior가 결국 어떠한 결론으로 이어가는지 이해할 수 있다.
+Two parameter Normal model이 중요한 이유는 다음 [3. Frequentist와 Bayesian의 차이](/posts/statistics/bayesian/fcb05/#3-frequentist와-bayesian의-차이)을 보면 명확하다. Frequentist와 Bayesian의 기본적인 전제와 입장 차이를 이해한다면, 정보가 없는 prior가 결국 어떠한 결론으로 이어가는지 이해할 수 있다.
 
 #### 2-2. conjugate prior
 Prior: `$p(\mu, \sigma^2) = p(\mu|\sigma^2) \times p(\sigma_0^2) \text{ ~ N-Inv-} \chi^2(\mu_0, \frac{\sigma^2}{k_0}; v_0, \sigma_0^2)$`
