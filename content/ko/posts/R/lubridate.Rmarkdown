@@ -19,7 +19,7 @@ library(lubridate)
 1. parse datetimes
 
 #### 1. parse datetimes
-{{<expand "다양한 형태">}}
+{{<expand "다양한 형태 #1">}}
 ```{r}
 # 다양한 형태가 있다.
 # ymd_hms(), ymd_hm(), ymd_h()
@@ -39,5 +39,16 @@ ymd(20170131)
 mdy("July 4th, 2000")
 dmy("4th of July '99")
 yq("2001: Q3")
+```
+{{</expand>}}
+
+{{<expand "다양한 형태 #2">}}
+```{r}
+today()
+now()
+date_decimal(2021.5) #2021년 5월이 아니라, 2021년의 절반
+fast_strptime('9/1/01', '%y/%m/%d')
+parse_date_time("9/1/01", "ymd") # fast_strptime과 달리, 조금 더 디테일하게 써줘야한다.
+parse_date_time("2009/1/01", "ymd")
 ```
 {{</expand>}}
