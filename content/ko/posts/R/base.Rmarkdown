@@ -1,0 +1,33 @@
+---
+collapsible: false
+date: "2021-03-19T10:08:56+09:00"
+description: null
+draft: false
+title: base
+weight: 4
+---
+
+# base 함수 중 유용한 함수 훑어보기
+
+```{r, message=FALSE, warning=FALSE}
+library(tidyverse)
+library(palmerpenguins)
+```
+
+### 1. split
+{{<expand "split 예시">}}
+```{r}
+#1col기준으로 분리
+penguins %>% split(.$species) -> split1
+
+#2col기준으로 분리
+penguins %>% split(list(.$species, .$island)) -> split2
+
+#10row기준으로 분리(row개수 안맞으면 error)
+splitrow <- rep(1:35, c(rep(10, 34), 4))
+splitrow
+nrow(penguins)
+
+penguins %>% split(splitrow) -> split3
+```
+{{</expand>}}
