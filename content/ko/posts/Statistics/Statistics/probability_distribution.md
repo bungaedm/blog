@@ -114,7 +114,7 @@ $$ E(X) = \frac{\alpha}{\alpha+\beta}, \ Var(X) = \frac{\alpha\beta}{(\alpha+\be
 {{</expand>}}
 
 #### 디리클레 분포(Dirichlet Distribution)
-디리클레 분포는 베타분포의 확장이라고 보면 된다.
+디리클레 분포는 베타분포의 다변량 버전이다.
 {{<expand "디리클레 분포">}}
 $$\theta \text{ ~ } Dirichlet(\alpha) \rightarrow p(\theta) = \frac{1}{B(\alpha)}\prod_{j=1}^{k}\theta_j^{\alpha_j-1} $$
 $$\text{for } B(\alpha) = \frac{\prod\Gamma(\alpha_j)}{\Gamma(\sum \alpha_j)}, \sum_{j=1}^{k}\theta_j=1 $$
