@@ -47,15 +47,32 @@ c.f. `$s(y) = \frac{1}{n}\sum_{i=1}^{n}(y_i-\mu)^2$`, 이는 MLE이다(biased es
 `$\rightarrow (\theta_1, \theta_2) \text{ ~ } (\theta_1, \theta_2|y)$`
 
 #### 2-1. noninformative prior
-Prior: `$p(\mu, \sigma^2) \propto (\sigma^2)^{-1} $` (improper prior)
+Prior: `$p(\mu, \sigma^2) = p(\mu)p(\sigma^2) \propto (\sigma^2)^{-1} $` (독립 가정, improper prior)
 Likelihood: `$p(y|\mu, \sigma^2) \propto \sigma^{-n}exp(\frac{-1}{2}\sigma^2\sum_{i=1}^{n}(y_i - \mu)^2) $`
-Posterior:
+Posterior: `$\mu, \sigma^2 |y \text{ ~ } N(\bar{y}, \frac{\sigma^2}{n}) \times \chi^{-2}(n-1, s^2)$`
+Posterior Predictive: `$\tilde{y}|y \text{ ~ } t_{n-1}(\bar{y}, (1+\frac{1}{n}s^2))$`
+이는 posterior과 비교해서, data의 uncertainty(`$s^2$`)이 추가된 형태라고 해석할 수 있다.
+
+##### Posterior Distribution 구하기 (Noninformative)
+해당 Posterior Distribution을 구하는 과정은 다소 복잡하기 때문에 자세하게 서술해보도록 하겠다.
+우선 시작하기에 앞서, 한마디로 이 과정을 요악한다면 `Conditional Posterior X Marginal`일 것이다. 
+
+STEP1. `$p(\mu|\sigma^2,y)$` `$p(\sigma^2|y)$`의 형태를 파악한다.
+1) `$\mu|\sigma^2,y \text{ ~ } N(\bar{y}, \frac{\sigma^2}{n})$`
+이부분은 위의 [평균을 모르지만, 분산을 아는 경우](/posts/statistics/bayesian/fcb05/#1-1-평균을-모르는-경우)에서 prior precision `$\frac{1}{\tau^2}=0$`으로 주면 위와 같이 나온다. prior precision을 0으로 주는 이유는, non-informative prior를 가정하고 있기 때문이다.
+
+2) `$\sigma^2|y \text{ ~ } \chi^{-2}(n-1, s^2)$`
+이는 아래의 수식을 계산해서 얻을 수 있다.
+
 `\begin{align}
 p(\mu, \sigma^2|y) &\propto p(\mu, \sigma^2) \times p(y|\mu, \sigma^2) \\
-&\propto \sigma^{-n-2}exp\bigg(\frac{-1}{2\sigma^2}\big[(n-1)s^2 + n(\bar{y}-\mu)^2\big]\bigg)
+&\propto \sigma^{-n-2}exp\bigg(\frac{-1}{2\sigma^2}\big[(n-1)s^2 + n(\bar{y}-\mu)^2\big]\bigg) \\
+\rightarrow p(\sigma^2|y) &= \int p(\mu,\sigma^2|y)d\mu 
 \end{align}`
 
-이때 posterior는 `$p(\mu,\sigma^2|y) = p(\mu|\sigma^2, y) \times p(\sigma^2 |y)$`이며, 각 분포는 아래와 같이 정리될 수 있다.
+STEP2. 베이즈룰을 이용하여 posterior distribution을 계산해준다.
+
+위의 과정을 거친다면, 그 결과는 아래와 같이 정리할 수 있다.
 
 `\begin{align}
 \mu|\sigma^2,y &\text{ ~ } N(\bar{y}, \frac{\sigma^2}{n}) \\
@@ -63,10 +80,22 @@ p(\mu, \sigma^2|y) &\propto p(\mu, \sigma^2) \times p(y|\mu, \sigma^2) \\
 \mu, \sigma^2 |y &\text{ ~ } N(\bar{y}, \frac{\sigma^2}{n}) \times \chi^{-2}(n-1, s^2)
 \end{align}`
 
-`$\mu$`의 marginal posterior distribution `$p(\mu|y)$`은 `$\int p(\mu,\sigma^2)d\sigma^2$`를 통해서 구할 수 있다. 그리고 형태는 아래와 같다.
+<br> 
+
+##### Posterior Mean의 Marginal Distribution 구하기
+번외로, `$\mu$`의 marginal posterior distribution `$p(\mu|y)$`은 `$\int p(\mu,\sigma^2)d\sigma^2$`를 통해서 구할 수 있다. 그리고 형태는 아래와 같다.
 `$$p(\mu|y) \text{ ~ } t_{n-1}(\bar{y}, \frac{s^2}{n})$$`
+
+##### Posterior Prediction 구하는 과정
+`\begin{align}
+p(\tilde{y}|y) &= \int\int p(\tilde{y}|\mu,\sigma^2) p(\mu, \sigma^2|y)\ d\mu \ d\sigma^2 \\
+&= \int\int p(\tilde{y}|\mu,\sigma^2) \ p(\mu|\sigma^2,y)\ d\mu \cdot p(\sigma^2|y) \ d\sigma^2 \\ 
+&= \int p(\tilde{y}|\sigma^2) \ p(\sigma^2|y) \ d\sigma^2
+\end{align}`
+
 Posterior Predictive: `$\tilde{y}|y \text{ ~ } t_{n-1}(\bar{y}, (1+\frac{1}{n}s^2))$`
-이는 posterior과 비교해서, data의 uncertainty(`$s^2$`)이 추가된 형태라고 해석할 수 있다.
+이 결과를 바로 위의 Posterior Mean의 marginal 분포와 비교해보는 것이 중요하다.
+왜냐하면 prediction을 할 때에 `$s^2$`, 즉 uncertainty가 추가된다고 해석할 수 있기 때문이다.
 
 Two parameter Normal model이 중요한 이유는 다음 [3. Frequentist와 Bayesian의 차이](/posts/statistics/bayesian/fcb05/#3-frequentist와-bayesian의-차이)을 보면 명확하다. Frequentist와 Bayesian의 기본적인 전제와 입장 차이를 이해한다면, 정보가 없는 prior가 결국 어떠한 결론으로 이어가는지 이해할 수 있다.
 
@@ -85,7 +114,7 @@ Posterior: `$p(\mu, \sigma^2|y) \text{ ~ N-Inv-}\chi^2(\mu_n, \frac{\sigma_n^2}{
 k_n &= k_0 +n \\
 v_n &= v_o + n \\
 v_n\sigma_n^2 &= v_0\sigma_0^2 + (n-1)s^2 + \frac{k_0n}{k_0+n}(\bar{y}-\mu_0)^2 \\
-\rightarrow \text{posterior ss}    &= \text{prior ss} + \text{sample ss} + \text{additional uncerntainty}(\bar{y}-\mu_0)
+\rightarrow \text{posterior ss}    &= \text{prior ss} + \text{sample ss} + \text{additional uncertainty}(\bar{y}-\mu_0)
 \end{align}`
 
 #### 3. Frequentist와 Bayesian의 차이

@@ -25,6 +25,7 @@ weight: 1
 
 ##### 이산형(Discrete)
 - 이항 분포
+- 다항 분포
 - 베르누이 분포
 - 포아송 분포
 - 음이항 분포
@@ -110,6 +111,13 @@ $$\rightarrow f(x) = \frac{(\nu\tau^2/2)^{\nu/2}}{\Gamma(\nu/2)}\left(\frac{1}{x
 $$ \text{X~} Beta(\alpha, \beta) \rightarrow f(x) = \frac{\Gamma(\alpha+\beta)}{\Gamma(\alpha)\Gamma(\beta)}x^{\alpha-1}(1-x)^{\beta-1} $$
 `$\text{for } x\in[0,1], \ \alpha>0, \ \beta>0 $`
 $$ E(X) = \frac{\alpha}{\alpha+\beta}, \ Var(X) = \frac{\alpha\beta}{(\alpha+\beta)^2(\alpha+\beta+1)}, \ mode(X) = \frac{\alpha-1}{\alpha+\beta-2} (\text{단}, \alpha>1, \ \beta>1)  $$
+{{</expand>}}
+
+#### 디리클레 분포(Dirichlet Distribution)
+디리클레 분포는 베타분포의 확장이라고 보면 된다.
+{{<expand "디리클레 분포">}}
+$$\theta \text{ ~ } Dirichlet(\alpha) \rightarrow p(\theta) = \frac{1}{B(\alpha)}\prod_{j=1}^{k}\theta_j^{\alpha_j-1} $$
+$$\text{for } B(\alpha) = \frac{\prod\Gamma(\alpha_j)}{\Gamma(\sum \alpha_j)}, \sum_{j=1}^{k}\theta_j=1 $$
 {{</expand>}}
 
 #### 포아송 분포(Poisson Distribution)
