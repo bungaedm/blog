@@ -11,7 +11,7 @@ weight: 4
 ## Monte Carlo Method
 Monte Carlo Method는 이름은 거창해보이지만 사실 그 방법은 매우 간단하다.
 우선, 사후분포(`$p(\theta|y_1,...,y_n)$`)로부터 S개의 random sample을 뽑는다.
-$$\theta^{1}, ..., \theta^{S} ~ i.i.d p(\theta|y_1, ..., y_n) $$
+$$\theta^{1}, ..., \theta^{S} \ \stackrel{iid}{\sim}   \ p(\theta|y_1, ..., y_n) $$
 그러면 S가 커질수록 {`$\theta^{1}, ..., \theta^{S}$`}는 근사적으로 사후분포(`$p(\theta|y_1,...,y_n)$`)를 따른다.
 이를 통해 `$E[\theta|y_1, ..., y_n]$`, `$Var[\theta|y_1, ..., y_n]$`부터 중앙값, `$\alpha$` percentile 등의 통계량값들을 근사적으로 계산할 수 있다.
 
@@ -69,7 +69,7 @@ Monte Carlo Method를 활용하면 다양한 것들을 할 수 있는데, 그 �
 Step1. sample `$\theta^{(1)},...,\theta^{(S)} \text{ ~ i.i.d}  \ p(\theta|y_1,...,y_n)$`
 Step2. approximate `$p(\tilde{y}|y_1,...,.y_n)$` with `$\sum_{s=1}^{S}p(\tilde{y}|\theta^{(s)})/S$`
 
-위 방법을 통해 `$Pr(\tilde{Y_1}>\tilde{Y_2}|\sum Y_{i,1}=217,\sum Y_{i,2}=66)$`를 근사하는 것도 가능하다. 왜냐하면 `$Pr(\tilde{Y_1}$`와 `$Pr(\tilde{Y_2}$`은 posterior independent하기 때문이다.
+위 방법을 통해 `$Pr(\tilde{Y_1}>\tilde{Y_2}|\sum Y_{i,1}=217,\sum Y_{i,2}=66)$`를 근사하는 것도 가능하다. 왜냐하면 `$Pr(\tilde{Y_1})$`와 `$Pr(\tilde{Y_2})$`은 posterior independent하기 때문이다.
 
 ```{r}
 set.seed(1)
@@ -87,7 +87,7 @@ mean(theta1.mc>theta2.mc)
 
 mean(y1.mc>y2.mc)
 ```
-위 결과를 통해서 예측치의 차이와 모수의 차이가 같지 않다.
+위 결과를 통해서 주의깊게 살펴보아야 할 것은, 예측치의 차이와 모수의 차이가 같지 않다는 점이다.
 
 ###### 아래 세 개 구분하기
 - (1) sampling model: `$Pr(\tilde{Y}=\tilde{y}|\theta)$`
