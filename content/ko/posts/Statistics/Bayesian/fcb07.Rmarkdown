@@ -10,12 +10,11 @@ weight: 7
 본 포스팅은 **First Course in Bayesian Statistical Methods**를 참고하였다.
 
 ### 1. Multivariate Normal Desity
-### 2. Semiconjugate prior distribution for the mean
-### 3. inverse-Wishart Distribution
+univariate model에 대해서 앞선 챕터에서 이야기를 많이 했지만, 사실 현실세계에서는 multivariate인 경우가 훨씬 많다.
 
-### 4. Gibbs Sampling of the mean and covariance
-#### 4-1. Draw yourself Figure 7.1
-
+<!--
+#### 1-1. Bivariate Normal
+{{<expand "Bivariate Case">}}
 ```{r, message=FALSE, warning=FALSE}
 library(tidyverse)
 library(gridExtra)
@@ -24,8 +23,9 @@ library(reshape2)
 library(ash)
 ```
 
-
 ```{r}
+#### 4-1. Draw yourself Figure 7.1
+
 # 초기 설정
 inv <- solve
 MU = matrix(c(50,50), ncol=1)
@@ -38,6 +38,7 @@ calc.dmvn = Vectorize(function(a,b, mu=MU, sigma=SIGMA){
   exp(log.p)
 })
 ```
+
 ```{r}
 # do it at once
 allInOne <- function(corr){
@@ -84,17 +85,122 @@ p2 <- allInOne(corr=0)
 p3 <- allInOne(corr=0.5)
 grid.arrange(p1,p2,p3, nrow=1)
 ```
+{{</expand>}}
+-->
 
+#### 1-2. Multivariate Normal Model
+$$p(\boldsymbol{y}|\boldsymbol{\mu}, \Sigma) = (2\pi)^{-p/2}|\Sigma|^{-1/2}exp\Big(-\frac{1}{2}(\boldsymbol{y}-\boldsymbol{\mu})^T\Sigma^{-1}(\boldsymbol{y}-\boldsymbol{\mu}) \Big) $$
+where 
+$$\boldsymbol{y} = \begin{pmatrix}
+y_1 \\
+y_2 \\
+\vdots \\
+y_p
+\end{pmatrix}$$
+
+$$\boldsymbol{\mu} = \begin{pmatrix}
+\mu_1 \\
+\mu_2 \\
+\vdots \\
+\mu_p
+\end{pmatrix}$$
+
+$$\Sigma = \begin{pmatrix}
+\sigma^2_{1} & \sigma_{1,2} & \cdots & \sigma_{1,p} \\
+\sigma_{2,1} & \sigma^2_{2} & \cdots & \sigma_{2,p} \\
+\vdots & \vdots & & \vdots \\
+\sigma_{p,1} & \cdots & \cdots & \sigma^2_{p}
+\end{pmatrix}$$
+
+### 2. Semiconjugate prior distribution for the mean (known covariance matrix)
+Semiconjugate라고 하는 것은, 두 모수 중 하나가 주어졌을 경우에 conjugate한 경우를 뜻한다.
+여기서는 공분산 행렬이 주어졌을 때, 평균 벡터의 semiiconjugate prior를 구하는 것(조금 더 쉬움)을 먼저 보고 이어서 공분산 행렬의 semiconjugate prior를 구하는 것을 살펴볼 것이다.
+
+**Prior**: `$\boldsymbol{\mu} \text{ ~ } MVN(\boldsymbol{\mu_0}, \Lambda_0)$`
+
+\begin{align}
+p(\boldsymbol{\mu}) &= (2\pi)^{-p/2}|\Lambda_0|^{-1/2}exp\Big(-\frac{1}{2}(\boldsymbol{\mu}-\boldsymbol{\mu_0})^T\Lambda_0^{-1}(\boldsymbol{\mu}-\boldsymbol{\mu_0})\Big) \\
+&\propto exp(-\frac{1}{2}\boldsymbol{\mu}^T\Lambda^{-1}\boldsymbol{\mu} \ + \ \boldsymbol{\mu}^T\Lambda^{-1}_0\boldsymbol{\mu_0}) \\
+&= exp(-\frac{1}{2}\boldsymbol{\mu}^TA_0\boldsymbol{\mu} \ + \ \boldsymbol{\mu}^T\boldsymbol{b_0})
+\end{align}
+
+where `$A_0 = \Lambda^{-1}_0, \boldsymbol{b_0} = \Lambda^{-1}_0\boldsymbol{\mu_0}$`
+
+**Likelihood**: `$Y_1, ..., Y_n|\boldsymbol{\mu},\Sigma \text{ ~ iid } MVN(\boldsymbol{\mu}, \Sigma)$`
+\begin{align}
+p(\boldsymbol{y_1}, ...,\boldsymbol{y_n}|\boldsymbol{\mu},\Sigma) &= \prod^{n}_{i=1} (2\pi)^{-p/2}|\Sigma|^{-1/2}exp\Big(-\frac{1}{2}(\boldsymbol{y_i}-\boldsymbol{\mu})^T\Sigma^{-1}(\boldsymbol{y_i}-\boldsymbol{\mu}) \Big) \\
+&= (2\pi)^{-np/2}|\Sigma|^{-n/2}exp\Big(-\frac{1}{2}\sum_{i=1}^{n}(\boldsymbol{y_i}-\boldsymbol{\mu})^T\Sigma^{-1}(\boldsymbol{y_i}-\boldsymbol{\mu}) \Big) \\
+&\propto exp(-\frac{1}{2}\boldsymbol{\mu}^TA_1\boldsymbol{\mu} \ + \ \boldsymbol{\mu}^T\boldsymbol{b_1})
+\end{align}
+
+where `$A_1 = n\Sigma^{-1}, \boldsymbol{b_1} = n\Sigma^{-1}\boldsymbol{\bar{y}}$`
+
+**Posterior**: `$\boldsymbol{\mu}|\boldsymbol{y_1}, ..., \boldsymbol{y_n}, \Sigma \text{ ~ } MVN(\boldsymbol{\mu_n}, \Lambda_n)$`
+
+\begin{align}
+p(\boldsymbol{\mu}|\boldsymbol{y_1}, ..., \boldsymbol{y_n}, \Sigma) &\propto exp(-\frac{1}{2}\boldsymbol{\mu}^TA_0\boldsymbol{\mu} \ + \ \boldsymbol{\mu}^T\boldsymbol{b_0}) \times exp(-\frac{1}{2}\boldsymbol{\mu}^TA_1\boldsymbol{\mu} \ + \ \boldsymbol{\mu}^T\boldsymbol{b_1}) \\
+&= exp(-\frac{1}{2}\boldsymbol{\mu}^TA_n\boldsymbol{\mu} \ + \ \boldsymbol{\mu}^T\boldsymbol{b_n}) \\
+\\
+\text{where } A_n &= A_0 + A_1 = \Lambda_0^{-1}+n\Sigma^{-1} \\
+\boldsymbol{b_n} &= \boldsymbol{b_0} + \boldsymbol{b_1} = \Lambda_0^{-1}\boldsymbol{\mu_0}+n\Sigma^{-1}\boldsymbol{\bar{y}} \\
+\\
+\rightarrow \Lambda_n^{-1} &= \Lambda_0^{-1}+n\Sigma^{-1} \\
+\boldsymbol{\mu_n} &= (\Lambda_0^{-1}+n\Sigma^{-1})^{-1}(\Lambda_0^{-1}\boldsymbol{\mu_0}+n\Sigma^{-1}\boldsymbol{\bar{y}})
+\end{align}
+
+### 3. Semiconjugate prior distribution for the covariance matrix (known mean)
+이는 상대적으로 복잡한데, 그 이유는 이전과 달리 matrix 형태에다가 prior을 주어야하기 때문이다.
+그래서 구체적인 prior와 likelihood를 이야기하기 앞서서 필요한 두 가지 개념에 대해서 짚고 넘어가도록 하자.
+첫 번째는 inverse-Wishart 분포이며, 다음은 Positive Definite이라는 선형대수 개념이다.
+
+#### 3-1. inverse-Wishart Distribution
+inverse-Wishart Distribution은 공분산 행렬의 semiconjugate prior을 주기 위해서 알아야 하는 함수이다. 낯선 확률분포처럼 보이기도 하지만, 자세히 살펴보면 이는 inverse-Gamma distribution의 다차원 확장 버전에 불과하긴 하다.
+
+#### 3-2. Positive Definite
+Covariance Matrix는 `Positive Definite Matrix`이어야 한다. Positive Definite이라는 
+$$\boldsymbol{x'}\Sigma\boldsymbol{x} > 0 \ \text{ for all vectors} \ \boldsymbol{x}$$
+univariate case에서 분산이 언제나 0 이상이어야 하는 것처럼, 이와 같은 맥락의 조건을 다차원에서 만족하려면 PD(Positive Definite)이어야 한다. 
+만약 공분산 행렬이 Positive Definite하다면, 이는 모든 분산이 0보다 크며 공분산이 -1과 1 사이에 있도록 한다.
+또한, PD는 대칭행렬(symmetric)에서 정의되는 개념이기 때문에, `$\sigma_{i,j} = \sigma_{j,i}$`라는 조건도 자연스럽게 성립한다.
+
+#### 3-2-1. Positive Definite이 되기 위한 조건은?
+다시 한번 말하자면, Positive Definite은 대칭행렬의 특수한 형태이며, `모든 eigenvalue들이 0보다 크다`는 말과 같다.
+여기서 eigenvalue가 0보다 크다는 것은 정확히 무슨 의미일까?
+
+정방행렬을 Spectral Decomposition을 했을 때, `$A = VDV^{-1}$`
+$$A_{p\text{ x }p} = \begin{bmatrix}
+a_1 & \cdots & a_p
+\end{bmatrix} = \begin{bmatrix}
+& & \\
+v_1 & \cdots & v_p\\
+& &
+\end{bmatrix} \begin{bmatrix}
+\lambda_1 & & \\
+& \ddots & \\
+& & \lambda_p
+\end{bmatrix} \begin{bmatrix}
+& & \\
+v_1 & \cdots & v_p\\
+& &
+\end{bmatrix}^{-1}
+$$
+
+### 4. Gibbs Sampling of the mean and covariance
+
+
+
+<!--
+{{<expand "그래프 그리기">}}
 #### 4-2. Draw yourself Figure 7.2
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 ##########
 plot.hdr2d<-function(x,prob=c(.025,.25,.5,.75,.975),bw=c(5,5),
-       cols=gray(  ((length(prob)-1):1)/length(prob)), 
-       xlim=range(x[,1]),ylim=range(x[,2]),...) 
+                     cols=gray(  ((length(prob)-1):1)/length(prob)), 
+                     xlim=range(x[,1]),ylim=range(x[,2]),...) 
 {
-
+  
   #adapted from package hdrcde by Rob J Hyndman and Jochen Einbeck
-
+  
   plot(c(0,0),xlim=xlim,ylim=ylim,type="n",...)
   add.hdr2d(x,prob,bw,cols) 
 }
@@ -103,9 +209,9 @@ plot.hdr2d<-function(x,prob=c(.025,.25,.5,.75,.975),bw=c(5,5),
 
 #########
 add.hdr2d<-function(x,prob=c(.025,.25,.5,.75,.975),bw=c(5,5),
-       cols=gray(  ((length(prob)-1):1)/length(prob)  )) 
+                    cols=gray(  ((length(prob)-1):1)/length(prob)  )) 
 {
-
+  
   require(ash)
   den <- ash2(bin2(x,nbin=round(rep(.5*sqrt(dim(x)[1]),2)) ), bw)
   fxy <- interp.2d(den$x,den$y,den$z,x[,1],x[,2])
@@ -113,15 +219,15 @@ add.hdr2d<-function(x,prob=c(.025,.25,.5,.75,.975),bw=c(5,5),
   index <- (fxy==max(fxy))
   mode <- c(x[index,1],x[index,2])
   .filled.contour(den$x,den$y,den$z,levels=c(falpha,1e10),col=cols ) 
-
+  
 }
 
 
 ##########
 filledcontour<-function(x,y,z,nlevels=10,col=gray( (nlevels:0)/nlevels ),
-                levels=pretty(range(z),nlevels) ) 
+                        levels=pretty(range(z),nlevels) ) 
 {
-   .filled.contour(x,y,z,levels=c(levels,1e10),col=col ) 
+  .filled.contour(x,y,z,levels=c(levels,1e10),col=col ) 
 }              
 ##########
 
@@ -129,34 +235,34 @@ filledcontour<-function(x,y,z,nlevels=10,col=gray( (nlevels:0)/nlevels ),
 #########
 interp.2d<- function(x, y, z, x0, y0)
 {
-    # Bilinear interpolation of function (x,y,z) onto (x0,y0).
-    # Taken from Numerical Recipies (second edition) section 3.6.
-    # Called by hdr.info.2d
-    # Vectorized version of old.interp.2d. 
-    # Contributed by Mrigesh Kshatriya (mkshatriya@zoology.up.ac.za)
-
-    nx <- length(x)
-    ny <- length(y)
-    n0 <- length(x0)
-    z0 <- numeric(length = n0)
-    xr <- diff(range(x))
-    yr <- diff(range(y))
-    xmin <- min(x)
-    ymin <- min(y)
-    j <- ceiling(((nx - 1) * (x0 - xmin))/xr)
-    k <- ceiling(((ny - 1) * (y0 - ymin))/yr)
-    j[j == 0] <- 1
-    k[k == 0] <- 1
-    j[j == nx] <- nx - 1
-    k[k == ny] <- ny - 1
-    v <- (x0 - x[j])/(x[j + 1] - x[j])
-    u <- (y0 - y[k])/(y[k + 1] - y[k]) 
-    AA <- z[cbind(j, k)]
-    BB <- z[cbind(j + 1, k)]
-    CC <- z[cbind(j + 1, k + 1)]
-    DD <- z[cbind(j, k + 1)]
-    z0 <- (1 - v)*(1 - u)*AA + v*(1 - u)*BB + v*u*CC + (1 - v)*u*DD
-    return(z0)
+  # Bilinear interpolation of function (x,y,z) onto (x0,y0).
+  # Taken from Numerical Recipies (second edition) section 3.6.
+  # Called by hdr.info.2d
+  # Vectorized version of old.interp.2d. 
+  # Contributed by Mrigesh Kshatriya (mkshatriya@zoology.up.ac.za)
+  
+  nx <- length(x)
+  ny <- length(y)
+  n0 <- length(x0)
+  z0 <- numeric(length = n0)
+  xr <- diff(range(x))
+  yr <- diff(range(y))
+  xmin <- min(x)
+  ymin <- min(y)
+  j <- ceiling(((nx - 1) * (x0 - xmin))/xr)
+  k <- ceiling(((ny - 1) * (y0 - ymin))/yr)
+  j[j == 0] <- 1
+  k[k == 0] <- 1
+  j[j == nx] <- nx - 1
+  k[k == ny] <- ny - 1
+  v <- (x0 - x[j])/(x[j + 1] - x[j])
+  u <- (y0 - y[k])/(y[k + 1] - y[k]) 
+  AA <- z[cbind(j, k)]
+  BB <- z[cbind(j + 1, k)]
+  CC <- z[cbind(j + 1, k + 1)]
+  DD <- z[cbind(j, k + 1)]
+  z0 <- (1 - v)*(1 - u)*AA + v*(1 - u)*BB + v*u*CC + (1 - v)*u*DD
+  return(z0)
 }
 #########
 ```
@@ -235,6 +341,9 @@ p2 <- data.frame(sample.new) %>%
 
 grid.arrange(p1, p2, nrow=1)
 ```
+{{</expand>}}
+-->
+
 
 ### Conclusion
 <p style='text-align: center'> MVN도 잘 알아두자. inv-Wishart 분포도! </p> <br>
