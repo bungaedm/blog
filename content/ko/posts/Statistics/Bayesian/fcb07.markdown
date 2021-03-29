@@ -175,21 +175,48 @@ univariate case에서 분산이 언제나 0 이상이어야 하는 것처럼, �
 
 정방행렬을 Spectral Decomposition을 했을 때, `$A = VDV^{-1}$`
 `$$A_{p\text{ x }p} = \begin{bmatrix}
-a_1 & \cdots & a_p
+| & & |\\
+a_1 & \cdots & a_p\\
+| & & |\\
 \end{bmatrix} = \begin{bmatrix}
-& & \\
+| & & |\\
 v_1 & \cdots & v_p\\
-& &
+| & & | \\
 \end{bmatrix} \begin{bmatrix}
 \lambda_1 & & \\
 & \ddots & \\
 & & \lambda_p
 \end{bmatrix} \begin{bmatrix}
-& & \\
+| & & |\\
 v_1 & \cdots & v_p\\
-& &
-\end{bmatrix}^{-1}
-$$
+| & & |\\
+\end{bmatrix}^{-1}$$`
+
+eigenvalue가 0보다 크다는 것은, 선형변환을 했을 때 그 기저의 방향이 반대로 바뀌지는 않는다는 것을 의미한다.
+
+#### 3-3. random Covariance Matrix 만들기 
+이는 covariance matrix에 대해 uninformative prior를 주기 위함이다.
+
+`$$\frac{1}{n}\sum_{i=1}^n\boldsymbol{z_iz_i^T} = \frac{1}{n}Z^TZ \\
+\text{where } \boldsymbol{z_iz_i^T} = \begin{pmatrix}
+z_{i,1}^2 & z_{i,1}z_{i,2} & \cdots & z_{i,1}z_{i,p} \\
+z_{i,2}z_{i,1} & z_{i,2}^2 & \cdots & z_{i,2}z_{i,p} \\
+\vdots & & & \vdots \\
+z_{i,p}z_{i,1} & z_{i,p}z_{i,2} & \cdots & z_{i,p}^2
+\end{pmatrix} \\
+`\begin{align}
+\frac{1}{n}\big[Z^TZ\big]_{j,j} &= \frac{1}{n}\sum_{i=1}^{n}z_{i,j}^2 = s_{j,j} = s_j^2\\
+\frac{1}{n}\big[Z^TZ\big]_{j,k} &= \frac{1}{n}\sum_{i=1}^{n}z_{i,j}z_{i,k} = s_{j,k}
+\end{align}$$`
+
+여기서 n > p 이고, 모든 `$\boldsymbol{z_i}$`들이 서로 선형독립이라면, `$Z^TZ$`는 항상 positive definite일 것이다.
+`$$\text{Proof) } \boldsymbol{x}^{T}Z^{T}Z\boldsymbol{x} = (Z\boldsymbol{x})^{T}(Z\boldsymbol{x}) = ||Z\boldsymbol{x}||^2 \ge 0$$`
+
+STEP1. Set `$\nu_0$`(prior sample size), `$\Phi_0$`(prior covariance matrix)
+STEP2. Sample `$\boldsymbol{z_i}, ..., \boldsymbol{z_\nu_0} \ \stackrel{iid}{\sim} \ MVN(\boldsymbol{0}, \Phi_0)$`
+STEP3. Calculate `$Z_TZ = \sum_{i=1}^{\nu_0}\boldsymbol{z_iz_i^T}$`
+STEP4. repeat the procedure S times generating `$Z_i^TZ_i$`
+`${Z_1^TZ_1, Z_2^TZ_2, ..., Z_S^TZ_S} \text{ ~ } Wis(\nu_0, \Phi_0)$`
 
 ### 4. Gibbs Sampling of the mean and covariance
 
