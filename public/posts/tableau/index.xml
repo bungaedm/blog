@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tableau on JW Blog</title>
+    <link>https://jiwooblog.netlify.app/posts/tableau/</link>
+    <description>Recent content in Tableau on JW Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ko</language>
+    <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
+    <lastBuildDate>Sun, 28 Feb 2021 10:08:56 +0900</lastBuildDate>
+    
+        <atom:link href="https://jiwooblog.netlify.app/posts/tableau/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    
+      
+      <item>
+        <title>코로나</title>
+        <link>https://jiwooblog.netlify.app/posts/tableau/corona_map/</link>
+        <pubDate>Tue, 30 Mar 2021 10:08:56 +0900</pubDate>
+        
+        <guid>https://jiwooblog.netlify.app/posts/tableau/corona_map/</guid>
+        <description>Intro 본 포스팅은 WeViz 유튜브를 적극 참고하였습니다.
+시각화에 관심이 있었는데, 해당 연합동아리 소속의 친구에게 추천을 받아서 참고하게 되었습니다.
+결과물  배운점  구글 스프레드시트 GEOCODE 활용법   경도(longitude), 위도(latitude) 자동 추출 기능  MAKELINE, MAKEPOINT 활용법  MAKELINE(MAKEPOINT(30.602101,114.316826), MAKEPOINT([Latitude],[Longitude])) 맵 관리   커스텀 맵 디자인 추가  Reference [1] WeViz 유튜브
+[2] 데이터 출처</description>
+      </item>
+      
+    
+  </channel>
+</rss>

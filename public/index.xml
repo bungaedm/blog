@@ -15,6 +15,18 @@
     
       
       <item>
+        <title>esquisse</title>
+        <link>https://jiwooblog.netlify.app/posts/r/%EC%8B%9C%EA%B0%81%ED%99%94/esquisse/</link>
+        <pubDate>Fri, 19 Mar 2021 10:08:56 +0900</pubDate>
+        
+        <guid>https://jiwooblog.netlify.app/posts/r/%EC%8B%9C%EA%B0%81%ED%99%94/esquisse/</guid>
+        <description>esquisse esquisse는 드래그 앤 드롭(drag &amp;amp; drop)으로 ggplot을 간단하게 그릴 수 있는 획기적인 패키지이다.
+복잡한 커스터마이징은 디테일한 수정이 추가적으로 필요하겠지만, 간단한 특징들을 반복적인 코드수정과 확인과정을 거치기 않고서도 즉각적으로 그래프 모양을 확인할 수 있다는 큰 장점이 있다.
+거의 Tableu 같은 느낌도 든다. 간단한 ggplot 그릴 때 또는 ggplot 입문자가 먼저 거쳐가도 좋을 것 같다.
+1 2 3  library(ggplot2) library(dplyr) library(esquisse)   STEP1. Addins을 클릭하고, ggplot2 builder를 이어서 클릭한다.</description>
+      </item>
+      
+      <item>
         <title>naniar</title>
         <link>https://jiwooblog.netlify.app/posts/r/%EC%8B%9C%EA%B0%81%ED%99%94/naniar/</link>
         <pubDate>Sun, 14 Mar 2021 10:08:56 +0900</pubDate>
@@ -51,8 +63,8 @@
         <pubDate>Sun, 21 Feb 2021 10:08:56 +0900</pubDate>
         
         <guid>https://jiwooblog.netlify.app/posts/statistics/statistics/probability_distribution/</guid>
-        <description>확률분포(Probability Distribution) 출처: https://artificialnetworkforstarters.readthedocs.io/en/latest/_post/chap6.html  --연속형  정규 분포 T-분포 감마 분포 베타 분포 카이제곱 분포 F-분포 균일 분포
-&amp;hellip;  이산형  이항 분포 베르누이 분포 포아송 분포 음이항 분포 기하 분포 초기하 분포
+        <description>확률분포(Probability Distribution) 출처: https://artificialnetworkforstarters.readthedocs.io/en/latest/_post/chap6.html  -- 연속형(Continuous)  정규 분포 T-분포 감마 분포 베타 분포 카이제곱 분포 F-분포 균일 분포 디리클레 분포 위샤트 분포
+&amp;hellip;  이산형(Discrete)  이항 분포 다항 분포 베르누이 분포 포아송 분포 음이항 분포 기하 분포 초기하 분포
 &amp;hellip;  정규 분포(Normal Distribution)   정규분포  $$ \text{X~} N(\mu, \sigma^2) \rightarrow f(x) = \frac{1}{\sqrt{2\pi\sigma^2}} \exp(-\frac{(x-\mu)}{2\sigma^2}^2) $$
 $$ E(X) = \mu, Var(X) = \sigma^2$$   다변수 정규분포(Multivariate Normal Distribution) 관련 포스팅 참고</description>
       </item>
@@ -115,7 +127,7 @@ $$\rightarrow y&#39; = \frac{f&#39;(x)g(x) - f(x)g&#39;(x)}{g^2(x)}$$
         <pubDate>Fri, 22 Jan 2021 00:08:29 +0900</pubDate>
         
         <guid>https://jiwooblog.netlify.app/updates/shopping_list/</guid>
-        <description>2021년 3월    주문날짜 제품명 브랜드 금액 쇼핑몰     3.12 캉골 트로픽 헌팅캡 504 BEIGE (S사이즈) 39,647원 SSG닷컴     2021년 2월    주문날짜 제품명 브랜드 금액 쇼핑몰     2.6 뉴발란스 327 오렌지 뉴발란스 114,000원 크림   2.23 캉골 트로픽 헌팅캡 504 BEIGE (M사이즈, 반품) 캉골 37,850원 인터파크   2.24 19ss easy pants brick 유니폼브릿지 15,000원 에딧에디션   2.</description>
+        <description>2021년 3월    주문날짜 제품명 브랜드 금액 쇼핑몰 링크     3.12 캉골 트로픽 헌팅캡 504 BEIGE (S사이즈) 캉골 39,647원 SSG닷컴 링크   3.19 인사일런스 구르카 팬츠 Indigo (S 사이즈) 인사일런스 63,000원 공홈 링크    2021년 2월    주문날짜 제품명 브랜드 금액 쇼핑몰     2.6 뉴발란스 327 오렌지 뉴발란스 114,000원 크림   2.23 캉골 트로픽 헌팅캡 504 BEIGE (M사이즈, 반품) 캉골 37,850원 인터파크   2.</description>
       </item>
       
       <item>
@@ -198,6 +210,28 @@ Dacon 코드 공유 Factor Analysis Word Cloud_국내 Word Cloud_해외 Cluster 
       </item>
       
       <item>
+        <title>코로나</title>
+        <link>https://jiwooblog.netlify.app/posts/tableau/corona_map/</link>
+        <pubDate>Tue, 30 Mar 2021 10:08:56 +0900</pubDate>
+        
+        <guid>https://jiwooblog.netlify.app/posts/tableau/corona_map/</guid>
+        <description>Intro 본 포스팅은 WeViz 유튜브를 적극 참고하였습니다.
+시각화에 관심이 있었는데, 해당 연합동아리 소속의 친구에게 추천을 받아서 참고하게 되었습니다.
+결과물  배운점  구글 스프레드시트 GEOCODE 활용법   경도(longitude), 위도(latitude) 자동 추출 기능  MAKELINE, MAKEPOINT 활용법  MAKELINE(MAKEPOINT(30.602101,114.316826), MAKEPOINT([Latitude],[Longitude])) 맵 관리   커스텀 맵 디자인 추가  Reference [1] WeViz 유튜브
+[2] 데이터 출처</description>
+      </item>
+      
+      <item>
+        <title>lubridate</title>
+        <link>https://jiwooblog.netlify.app/posts/r/lubridate/</link>
+        <pubDate>Fri, 19 Mar 2021 10:08:56 +0900</pubDate>
+        
+        <guid>https://jiwooblog.netlify.app/posts/r/lubridate/</guid>
+        <description>lubridate 패키지 훑어보기 lubridate는 날짜 데이터를 처리하기 위한 패키지입니다.
+1  library(lubridate)    목차  parse datetimes  1. parse datetimes   다양한 형태 #1  1 2 3 4 5 6 7 8 9 10 11  # 다양한 형태가 있다. # ymd_hms(), ymd_hm(), ymd_h() # ydm_hms(), ydm_hm(), ydm_h() # mdy_hms(), mdy_hm(), mdy_h() # dmy_hms(), dmy_hm(), dmy_h() # ymd(), ydm() # mdy(), myd() # dmy(), dym() # yq() Q for quarter ymd_hms(&amp;#34;2017-11-28T14:02:00&amp;#34;)   ## [1] &amp;quot;2017-11-28 14:02:00 UTC&amp;quot;1  ydm_hms(&amp;#34;2017-22-12 10:00:00&amp;#34;)   ## [1] &amp;quot;2017-12-22 10:00:00 UTC&amp;quot;1  mdy_hms(&amp;#34;11/28/2017 1:02:03&amp;#34;)   ## [1] &amp;quot;2017-11-28 01:02:03 UTC&amp;quot;1  dmy_hms(&amp;#34;1 Jan 2017 23:59:59&amp;#34;)   ## [1] &amp;quot;2017-01-01 23:59:59 UTC&amp;quot;1  ymd(20170131)   ## [1] &amp;quot;2017-01-31&amp;quot;1  mdy(&amp;#34;July 4th, 2000&amp;#34;)   ## [1] &amp;quot;2000-07-04&amp;quot;1  dmy(&amp;#34;4th of July &amp;#39;99&amp;#34;)   ## [1] &amp;quot;1999-07-04&amp;quot;1  yq(&amp;#34;2001: Q3&amp;#34;)   ## [1] &amp;quot;2001-07-01&amp;quot;     다양한 형태 #2  1  today()   ## [1] &amp;quot;2021-03-23&amp;quot;1  now()   ## [1] &amp;quot;2021-03-23 11:24:45 KST&amp;quot;1  date_decimal(2021.</description>
+      </item>
+      
+      <item>
         <title>tidyr</title>
         <link>https://jiwooblog.netlify.app/posts/r/tidyr/</link>
         <pubDate>Sun, 28 Feb 2021 10:08:56 +0900</pubDate>
@@ -233,7 +267,7 @@ Dacon 코드 공유 Factor Analysis Word Cloud_국내 Word Cloud_해외 Cluster 
         
         <guid>https://jiwooblog.netlify.app/posts/r/dplyr/</guid>
         <description>dplyr 패키지 훑어보기 1 2  library(tidyverse) library(MASS)   목차  rowwise
-1-1. pmax slice relocate lag, lead  데이터   data  1 2 3 4  tmp &amp;lt;- tibble(x=round(rnorm(n=5, mean=5, sd=1)), y=round(rnorm(n=5, mean=5, sd=3)), z=round(rnorm(n=5, mean=5, sd=5))) tmp   ## # A tibble: 5 x 3## x y z## &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt;## 1 5 3 5## 2 5 6 1## 3 6 6 7## 4 5 2 2## 5 5 6 21 2  data(survey) glimpse(survey)   ## Rows: 237## Columns: 12## $ Sex &amp;lt;fct&amp;gt; Female, Male, Male, Male, Male, Female, Male, Female, Male, .</description>
+1-1. pmax slice relocate lag, lead between, near coalsece recode first, last, nth rownames_to_column, column_to_rownames bind_rows, bind_cols mutate_all, mutate_if inner_join, left_join, right_join, full_join semi_join, anti_join  데이터   data  1 2 3 4  tmp &amp;lt;- tibble(x=round(rnorm(n=5, mean=5, sd=1)), y=round(rnorm(n=5, mean=5, sd=3)), z=round(rnorm(n=5, mean=5, sd=5))) tmp   ## # A tibble: 5 x 3## x y z## &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt;## 1 6 7 -1## 2 5 4 -2## 3 5 2 6## 4 6 2 12## 5 5 4 21 2  data(survey) glimpse(survey)   ## Rows: 237## Columns: 12## $ Sex &amp;lt;fct&amp;gt; Female, Male, Male, Male, Male, Female, Male, Female, Male, .</description>
       </item>
       
       <item>
@@ -321,7 +355,7 @@ $f(x;\theta) = \begin{cases}exp\big[p(\theta)K(x) + s(x) + q(\theta)\big] &amp;
         <pubDate>Sat, 06 Mar 2021 00:08:29 +0900</pubDate>
         
         <guid>https://jiwooblog.netlify.app/updates/diary/2021_03/</guid>
-        <description>2021.03.06  문득 빈도론자와 베이지안의 논쟁이 쿤과 포퍼의 과학철학 논쟁과 비슷하다는 생각을 했다. 빈도론자는 가설검정이라는 것을 하며 귀무가설과 대립가설을 놓고 검정통계량을 통해 기각하거나 채택을 한다. 반면, 베이지안은 철저하게 베이즈 이론만을 기반으로 하여 분포를 제시하여 가능성을 제시한다. 포퍼가 반증가능성을 이야기했다면, 쿤은 이를 비판하며 패러다임의 전환에 대해 이야기했다.  </description>
+        <description>2021.03.06  문득 빈도론자와 베이지안의 논쟁이 쿤과 포퍼의 과학철학 논쟁과 비슷하다는 생각을 했다. 빈도론자는 가설검정이라는 것을 하며 귀무가설과 대립가설을 놓고 검정통계량을 통해 기각하거나 채택을 한다. 반면, 베이지안은 철저하게 베이즈 이론만을 기반으로 하여 분포를 제시하여 가능성을 제시한다. 포퍼가 반증가능성을 이야기했다면, 쿤은 이를 비판하며 패러다임의 전환에 대해 이야기했다.  2021.03.28  대학원 진학을 하기 위해 어느 정도 고민을 마쳤지만, 생각보다 마음이 덜 잡힌 것 같다. 열품타를 사용하고 있는데 생각보다 좋은 것 같다. 더 잘 활용해보도록 해야겠다.</description>
       </item>
       
       <item>
@@ -446,6 +480,15 @@ $n^* = 1$일 때 : $\tilde{Y}|y \text{ ~ } Ber(\frac{a+y}{a+b+n})$</description>
       </item>
       
       <item>
+        <title>base</title>
+        <link>https://jiwooblog.netlify.app/posts/r/base/</link>
+        <pubDate>Fri, 19 Mar 2021 10:08:56 +0900</pubDate>
+        
+        <guid>https://jiwooblog.netlify.app/posts/r/base/</guid>
+        <description>base 함수 중 유용한 함수 훑어보기 1 2  library(tidyverse) library(palmerpenguins)   1. split   split 예시  1 2 3 4 5 6 7 8 9  #1col기준으로 분리 penguins %&amp;gt;% split(.$species) -&amp;gt; split1 #2col기준으로 분리 penguins %&amp;gt;% split(list(.$species, .$island)) -&amp;gt; split2 #10row기준으로 분리(row개수 안맞으면 error) splitrow &amp;lt;- rep(1:35, c(rep(10, 34), 4)) splitrow   ## [1] 1 1 1 1 1 1 1 1 1 1 2 2 2 2 2 2 2 2 2 2 3 3 3 3 3## [26] 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 5 5 5 5 5 5 5 5 5 5## [51] 6 6 6 6 6 6 6 6 6 6 7 7 7 7 7 7 7 7 7 7 8 8 8 8 8## [76] 8 8 8 8 8 9 9 9 9 9 9 9 9 9 9 10 10 10 10 10 10 10 10 10 10## [101] 11 11 11 11 11 11 11 11 11 11 12 12 12 12 12 12 12 12 12 12 13 13 13 13 13## [126] 13 13 13 13 13 14 14 14 14 14 14 14 14 14 14 15 15 15 15 15 15 15 15 15 15## [151] 16 16 16 16 16 16 16 16 16 16 17 17 17 17 17 17 17 17 17 17 18 18 18 18 18## [176] 18 18 18 18 18 19 19 19 19 19 19 19 19 19 19 20 20 20 20 20 20 20 20 20 20## [201] 21 21 21 21 21 21 21 21 21 21 22 22 22 22 22 22 22 22 22 22 23 23 23 23 23## [226] 23 23 23 23 23 24 24 24 24 24 24 24 24 24 24 25 25 25 25 25 25 25 25 25 25## [251] 26 26 26 26 26 26 26 26 26 26 27 27 27 27 27 27 27 27 27 27 28 28 28 28 28## [276] 28 28 28 28 28 29 29 29 29 29 29 29 29 29 29 30 30 30 30 30 30 30 30 30 30## [301] 31 31 31 31 31 31 31 31 31 31 32 32 32 32 32 32 32 32 32 32 33 33 33 33 33## [326] 33 33 33 33 33 34 34 34 34 34 34 34 34 34 34 35 35 35 351  nrow(penguins)   ## [1] 3441  penguins %&amp;gt;% split(splitrow) -&amp;gt; split3      </description>
+      </item>
+      
+      <item>
         <title>pygame[응용]</title>
         <link>https://jiwooblog.netlify.app/posts/python/pygame_2/</link>
         <pubDate>Thu, 18 Feb 2021 10:09:56 +0900</pubDate>
@@ -464,7 +507,7 @@ $n^* = 1$일 때 : $\tilde{Y}|y \text{ ~ } Ber(\frac{a+y}{a+b+n})$</description>
         <description>Chapter 04. Monte Carlo Approximation 본 포스팅은 First Course in Bayesian Statistical Methods를 참고하였다.
 Monte Carlo Method Monte Carlo Method는 이름은 거창해보이지만 사실 그 방법은 매우 간단하다.
 우선, 사후분포($p(\theta|y_1,...,y_n)$)로부터 S개의 random sample을 뽑는다.
-$$\theta^{1}, &amp;hellip;, \theta^{S} ~ i.i.d p(\theta|y_1, &amp;hellip;, y_n) $$
+$$\theta^{1}, &amp;hellip;, \theta^{S} \ \stackrel{iid}{\sim} \ p(\theta|y_1, &amp;hellip;, y_n) $$
 그러면 S가 커질수록 {$\theta^{1}, ..., \theta^{S}$}는 근사적으로 사후분포($p(\theta|y_1,...,y_n)$)를 따른다.
 이를 통해 $E[\theta|y_1, ..., y_n]$, $Var[\theta|y_1, ..., y_n]$부터 중앙값, $\alpha$ percentile 등의 통계량값들을 근사적으로 계산할 수 있다.
 이때 approximate Monte Carlo Standard error은 $\sqrt{\hat{\sigma}^2/S}$이다.</description>
@@ -487,7 +530,11 @@ $$\theta^{1}, &amp;hellip;, \theta^{S} ~ i.i.d p(\theta|y_1, &amp;hellip;, y_n) 
         
         <guid>https://jiwooblog.netlify.app/posts/statistics/bayesian/fcb05/</guid>
         <description>Chapter 05. Normal Model 본 포스팅은 First Course in Bayesian Statistical Methods와 Bayesian Data Analysis를 참고하였다.
-Warm up! Gamma Distribution Inverse Gamma Distribution Scaled Inverse Chi-squared Distribution Single Parameter Conjugacy unknown ${\sigma}^2$ unknown ${\mu}$ Two Parameter Conjugacy unknown ${\sigma}^2, {\mu}$ semi-conjugacy 혹시 궁금한 점이나 잘못된 내용이 있다면, 댓글로 알려주시면 적극 반영하도록 하겠습니다. </description>
+Warm up!  Gamma Distribution Inverse Gamma Distribution Scaled Inverse Chi-squared Distribution  1. Single Parameter Conjugacy 평균이나 분산 중 하나만을 모르는 경우
+1-1. 평균을 모르는 경우 Prior: $\mu \text{ ~ } N(\mu_0, \tau_0^{2})$
+Likelihood: $y|\mu \text{ ~ } N(\mu, \sigma^2)$
+Posterior: $\mu|y \text{ ~ } N(\mu_n, \tau_n^{2})$
+where $\frac{1}{\tau_n^{2}} = \frac{1}{\tau_0^{2}} + \frac{n}{\sigma^2}$ and $\mu_n = \frac{\frac{1}{\tau_0^{2}}}{\frac{1}{\tau_0^{2}} + \frac{n}{\sigma^2}}\mu_0 + \frac{\frac{n}{\sigma^2}}{\frac{1}{\tau_0^{2}} + \frac{n}{\sigma^2}}\bar{y} $</description>
       </item>
       
       <item>
@@ -528,7 +575,8 @@ artist object 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 
         
         <guid>https://jiwooblog.netlify.app/posts/statistics/bayesian/fcb07/</guid>
         <description>Chapter 07. The Multivariate Normal Model 본 포스팅은 First Course in Bayesian Statistical Methods를 참고하였다.
-1. Multivariate Normal Desity 2. Semiconjugate prior distribution for the mean 3. inverse-Wishart Distribution 4. Gibbs Sampling of the mean and covariance 4-1. Draw yourself Figure 7.1 1 2 3 4 5  library(tidyverse) library(gridExtra) library(MASS) library(reshape2) library(ash)   1 2 3 4 5 6 7 8 9 10 11  # 초기 설정 inv &amp;lt;- solve MU = matrix(c(50,50), ncol=1) SIGMA = matrix(c(64,0,0,144), ncol=2) # MVN pdf calc.</description>
+1. Multivariate Normal Desity univariate model에 대해서 앞선 챕터에서 이야기를 많이 했지만, 사실 현실세계에서는 multivariate인 경우가 훨씬 많다.
+1-1. Bivariate Normal   Bivariate Case  1 2 3 4 5  library(tidyverse) library(gridExtra) library(MASS) library(reshape2) library(ash)   1 2 3 4 5 6 7 8 9 10 11 12 13  #### 4-1. Draw yourself Figure 7.</description>
       </item>
       
       <item>
@@ -726,6 +774,15 @@ score function의 평균이 0이라는 것의 의미를 그래프를 likelihood 
         
         <guid>https://jiwooblog.netlify.app/posts/r/test/</guid>
         <description>.scroll-100 {max-height: 100px;overflow-y: auto;background-color: &#39;white&#39;;}pre {max-height: 300px;overflow-y: auto;background-color: &#39;white&#39;;}pre[class] {max-height: 100px;background-color: &#39;green&#39;;}# plotly```rlibrary(ggplot2)library(plotly)library(gapminder)1 2 3 4 5 6 7 8  p &amp;lt;- gapminder %&amp;gt;% filter(year==1977) %&amp;gt;% ggplot( aes(gdpPercap, lifeExp, size = pop, color=continent)) + geom_point() + scale_x_log10() + theme_bw() ggplotly(p)   {&#34;</description>
+      </item>
+      
+      <item>
+        <title>Natural Scene Categories Revealed in Distributed Patterns of Activity in the Human Brain</title>
+        <link>https://jiwooblog.netlify.app/blog/210312_natural_scene_categorization/</link>
+        <pubDate>Fri, 12 Mar 2021 00:00:00 +0000</pubDate>
+        
+        <guid>https://jiwooblog.netlify.app/blog/210312_natural_scene_categorization/</guid>
+        <description>&lt;p&gt;Natural Scene Categories Revealed in Distributed Patterns of Activity in the Human Brain(Walther, 2009)&lt;/p&gt;</description>
       </item>
       
       <item>

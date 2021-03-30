@@ -15,6 +15,18 @@
     
       
       <item>
+        <title>esquisse</title>
+        <link>https://jiwooblog.netlify.app/posts/r/%EC%8B%9C%EA%B0%81%ED%99%94/esquisse/</link>
+        <pubDate>Fri, 19 Mar 2021 10:08:56 +0900</pubDate>
+        
+        <guid>https://jiwooblog.netlify.app/posts/r/%EC%8B%9C%EA%B0%81%ED%99%94/esquisse/</guid>
+        <description>esquisse esquisse는 드래그 앤 드롭(drag &amp;amp; drop)으로 ggplot을 간단하게 그릴 수 있는 획기적인 패키지이다.
+복잡한 커스터마이징은 디테일한 수정이 추가적으로 필요하겠지만, 간단한 특징들을 반복적인 코드수정과 확인과정을 거치기 않고서도 즉각적으로 그래프 모양을 확인할 수 있다는 큰 장점이 있다.
+거의 Tableu 같은 느낌도 든다. 간단한 ggplot 그릴 때 또는 ggplot 입문자가 먼저 거쳐가도 좋을 것 같다.
+1 2 3  library(ggplot2) library(dplyr) library(esquisse)   STEP1. Addins을 클릭하고, ggplot2 builder를 이어서 클릭한다.</description>
+      </item>
+      
+      <item>
         <title>naniar</title>
         <link>https://jiwooblog.netlify.app/posts/r/%EC%8B%9C%EA%B0%81%ED%99%94/naniar/</link>
         <pubDate>Sun, 14 Mar 2021 10:08:56 +0900</pubDate>

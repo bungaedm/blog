@@ -31,8 +31,8 @@
         <pubDate>Sun, 21 Feb 2021 10:08:56 +0900</pubDate>
         
         <guid>https://jiwooblog.netlify.app/posts/statistics/statistics/probability_distribution/</guid>
-        <description>확률분포(Probability Distribution) 출처: https://artificialnetworkforstarters.readthedocs.io/en/latest/_post/chap6.html  --연속형  정규 분포 T-분포 감마 분포 베타 분포 카이제곱 분포 F-분포 균일 분포
-&amp;hellip;  이산형  이항 분포 베르누이 분포 포아송 분포 음이항 분포 기하 분포 초기하 분포
+        <description>확률분포(Probability Distribution) 출처: https://artificialnetworkforstarters.readthedocs.io/en/latest/_post/chap6.html  -- 연속형(Continuous)  정규 분포 T-분포 감마 분포 베타 분포 카이제곱 분포 F-분포 균일 분포 디리클레 분포 위샤트 분포
+&amp;hellip;  이산형(Discrete)  이항 분포 다항 분포 베르누이 분포 포아송 분포 음이항 분포 기하 분포 초기하 분포
 &amp;hellip;  정규 분포(Normal Distribution)   정규분포  $$ \text{X~} N(\mu, \sigma^2) \rightarrow f(x) = \frac{1}{\sqrt{2\pi\sigma^2}} \exp(-\frac{(x-\mu)}{2\sigma^2}^2) $$
 $$ E(X) = \mu, Var(X) = \sigma^2$$   다변수 정규분포(Multivariate Normal Distribution) 관련 포스팅 참고</description>
       </item>
