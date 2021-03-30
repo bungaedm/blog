@@ -4,14 +4,14 @@ date: "2021-03-30T10:09:56+09:00"
 description: null
 draft: false
 title: 맵 커스텀
-weight: 1
+weight: 2
 ---
 
 ## Intro
 본 포스팅은 [WeViz 유튜브](https://www.youtube.com/watch?v=quZfx68_erE)를 적극 참고하였습니다.
 
 ## 결과물
-{{< img src="/images/posts/tableau/map_custom.png" width="1000px" position="center" >}}
+{{< img src="/images/posts/tableau/map_custom.png" width="1000px" position="center" >}} 
 
 ## 1. 기본 수정
   - [맵] - [맵 계층]
