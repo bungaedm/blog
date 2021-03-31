@@ -1,0 +1,21 @@
+---
+collapsible: false
+date: "2021-03-11T10:08:56+09:00"
+description: Entropy, Cross-Entropy, KL-Divergence
+title: Entropy, KL-Divergence
+weight: 2
+---
+
+## Entropy
+정보량 = 불확실성
+$$H(p) = -\sum_{i=1}p_i log(p_i)$$
+
+## Cross-Entropy
+p에 대해, 전략 Q를 사용했을 때의 불확실성
+$$H(p,q) = -\sum_{i=1}p_i log(q_i)$$
+
+## KL-Divergence
+$$\begin{align}
+KL(p||q) &= \sum_{i=1}p_i log\frac{p_i}{q_i} \\
+&= H(p,q) - H(p)
+\end{align}$$

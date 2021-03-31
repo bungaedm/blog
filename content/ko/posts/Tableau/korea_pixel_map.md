@@ -4,7 +4,7 @@ date: "2021-03-30T10:09:56+09:00"
 description: null
 draft: false
 title: 한국 픽셀맵
-weight: 2
+weight: 1
 ---
 
 ## Intro

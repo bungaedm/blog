@@ -15,6 +15,42 @@
     
       
       <item>
+        <title>생키 차트</title>
+        <link>https://jiwooblog.netlify.app/posts/tableau/sankey_chart/</link>
+        <pubDate>Tue, 30 Mar 2021 10:10:56 +0900</pubDate>
+        
+        <guid>https://jiwooblog.netlify.app/posts/tableau/sankey_chart/</guid>
+        <description>Intro 생키 차트(Sankey Chart)는 흐름(Flow)을 보여주기에 최적화된 차트 형태이다. 예를 들어 지역이나 국가 간의 에너지를 표현하는데에 적합하다.
+  기본 전처리 코드(R)  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21  library(tidyverse) library(xlsx) setwd(&amp;#39;C:/Users/bunga/Desktop/Tableau/data&amp;#39;) data &amp;lt;- read.table(&amp;#39;seoul_park_raw.txt&amp;#39;, header=TRUE, sep=&amp;#39;\t&amp;#39;) data &amp;lt;- as.tibble(data) data &amp;lt;- data %&amp;gt;% mutate(ym = (ym*100)%%100) data &amp;lt;- data %&amp;gt;% select(-total) data &amp;lt;- data[data[&amp;#39;region&amp;#39;] !</description>
+      </item>
+      
+      <item>
+        <title>한국 픽셀맵</title>
+        <link>https://jiwooblog.netlify.app/posts/tableau/korea_pixel_map/</link>
+        <pubDate>Tue, 30 Mar 2021 10:09:56 +0900</pubDate>
+        
+        <guid>https://jiwooblog.netlify.app/posts/tableau/korea_pixel_map/</guid>
+        <description>Intro 본 포스팅은 WeViz 유튜브를 적극 참고하였습니다.
+결과물  1. 팔레트 커스텀 추가 내 태블로 리포지토리 Preferences 파일에 색상 커스텀 추가
+본 결과물에는 해당 참고사이트에서 추천한 색상 조합을 적용하였다.
+2. 색상 참고 사이트 2-1. UI gradients (측정값 그라데이션) UI gradients
+2-2. Adobe Color (차원 색조합) Adobe color
+Reference [1] WeViz 유튜브</description>
+      </item>
+      
+      <item>
+        <title>맵 커스텀</title>
+        <link>https://jiwooblog.netlify.app/posts/tableau/map_custom/</link>
+        <pubDate>Tue, 30 Mar 2021 10:09:55 +0900</pubDate>
+        
+        <guid>https://jiwooblog.netlify.app/posts/tableau/map_custom/</guid>
+        <description>Intro 본 포스팅은 WeViz 유튜브를 적극 참고하였습니다.
+결과물  1. 기본 수정  [맵] - [맵 계층] 스타일 어둡게 변경 기본도, 토지 피복도 체크박스 해제 해안선 체크  2. mapbox 이용하기  mapbox 홈페이지 Studio -&amp;gt; New Style -&amp;gt; Basic(다른 스타일 선택해도 무방)  2-1. 영역 색깔 바꾸기 특정 영역 클릭 후 색깔 변경
+2-2. 폰트 바꾸기 STEP1. 텍스트는 기본적으로 자물쇠 잠금 해제(override) 클릭 후 변경 가능
+STEP2. 특정 레이블을 선택 -&amp;gt; Components -&amp;gt; Typography</description>
+      </item>
+      
+      <item>
         <title>코로나</title>
         <link>https://jiwooblog.netlify.app/posts/tableau/corona_map/</link>
         <pubDate>Tue, 30 Mar 2021 10:08:56 +0900</pubDate>
@@ -22,7 +58,11 @@
         <guid>https://jiwooblog.netlify.app/posts/tableau/corona_map/</guid>
         <description>Intro 본 포스팅은 WeViz 유튜브를 적극 참고하였습니다.
 시각화에 관심이 있었는데, 해당 연합동아리 소속의 친구에게 추천을 받아서 참고하게 되었습니다.
-결과물  배운점  구글 스프레드시트 GEOCODE 활용법   경도(longitude), 위도(latitude) 자동 추출 기능  MAKELINE, MAKEPOINT 활용법  MAKELINE(MAKEPOINT(30.602101,114.316826), MAKEPOINT([Latitude],[Longitude])) 맵 관리   커스텀 맵 디자인 추가  Reference [1] WeViz 유튜브
+결과물  배운점   구글 스프레드시트 GEOCODE 활용법
+ 경도(longitude), 위도(latitude) 자동 추출 기능    MAKELINE, MAKEPOINT 활용법
+MAKELINE(MAKEPOINT(30.602101,114.316826), MAKEPOINT([Latitude],[Longitude]))
+  맵 관리
+ 커스텀 맵 디자인 추가    Reference [1] WeViz 유튜브
 [2] 데이터 출처</description>
       </item>
       
