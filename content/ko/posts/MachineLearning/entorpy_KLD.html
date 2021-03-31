@@ -12,17 +12,48 @@ weight: 2
 <div id="entropy" class="section level2">
 <h2>Entropy</h2>
 <p>정보량 = 불확실성
-<span class="math display">\[H(p) = -\sum_{i=1}p_i log(p_i)\]</span></p>
+<span class="math display">\[\begin{align}
+H(p) &amp;= \sum_{i=1}p_i log\frac{1}{p_i} \\
+&amp;= -\sum_{i=1}p_i log(p_i)
+\end{align}\]</span></p>
+<p>여기서 <code>$\frac{1}{p_i}$</code>는 발생확률의 역수로, 다르게 보면 <code>가능한 결과의 수</code>라고 볼 수 있다.<br />
+그렇기 때문에 <code>$log\frac{1}{p_i}$</code>는 <code>필요한 질문의 수</code>라고 생각할 수 있다.<br />
+합쳐서 생각해보면, 정보량이라고 하는 것은 필요한 질문의 수 x 확률의 총합이라고 생각할 수 있다.</p>
 </div>
 <div id="cross-entropy" class="section level2">
-<h2>Cross-Entropy</h2>
+<h2>Cross Entropy</h2>
 <p>p에 대해, 전략 Q를 사용했을 때의 불확실성
-<span class="math display">\[H(p,q) = -\sum_{i=1}p_i log(q_i)\]</span></p>
+즉, <strong>특정 전략</strong>을 쓸 때, 예상되는 질문개수에 대한 기댓값</p>
+<p>그냥 Entropy와의 차이점은 log 안의 <code>$p_i$</code>가 <code>$q_i$</code>로 바뀌었다는 것이다.
+이것의 의미를 잘 파악해야 한다.</p>
+<p><span class="math display">\[\begin{align}
+H(p,q) &amp;= \sum_{i=1}p_i log\frac{1}{q_i} \\
+&amp;= -\sum_{i=1}p_i log(q_i)
+\end{align}\]</span></p>
+<p>Cross Entropy는 Log Loss 또는 Negative Log Likelihood라고 불리기도 한다.
+즉, Cross Entropy를 최소화하는 것은 log likelihood를 최대화하는 것과 같다.</p>
 </div>
 <div id="kl-divergence" class="section level2">
 <h2>KL-Divergence</h2>
+<p>쿨백-라이블러 발산(Kullback-Leibler Divergence)는 두 확률분포의 차이에서 계산된 엔트로피 차이를 뜻한다.
+참고로, H(p)는 상수값이기 때문에 Cross Entropy를 최소화하는 것은 KLD를 최소하는 것과 같은 task이다.
+즉, KLD를 최소화하는 것은 log likelihood를 최대화하는 것과 같아진다.</p>
 <p><span class="math display">\[\begin{align}
-KL(p||q) &amp;= \sum_{i=1}p_i log\frac{p_i}{q_i} \\
-&amp;= H(p,q) - H(p)
+KL(p||q) &amp;= H(p,q) - H(p) \\
+&amp;= \sum_{i=1}p_i log\frac{p_i}{q_i} \\
+&amp;= -\sum_{i=1}p_i log\frac{q_i}{p_i}
 \end{align}\]</span></p>
+<p>KL-Divergence는 항상 0 이상이다. 직관적으로는 <code>$H(p,q)$</code>의 lower bound가 <code>$H(p)$</code>(상수값)이기 때문이라고 생각할 수 있다. 그리고 이를 증명하고자 한다면, convex function인 -log를 f(x)로 생각하고 Jensen’s inequality로 증명할 수 있다.</p>
+</div>
+<div id="jensen-shannon-divergence" class="section level2">
+<h2>Jensen-Shannon Divergence</h2>
+<p>KL-Divergence는 대칭이 아니다. 즉, p와 q의 위치를 바꿔쓸 수 없다. 그렇기 때문에 거리 개념으로 혼동하면 안된다.<br />
+직관적으로 이해할 때, KL-Divergence는 두 확률분포 간의 거리라고 설명하곤 하지만, 그것이 옳지 않다는 것이다.</p>
+<p>그래도 거리 개념으로 활용하고 싶다면, Jensen-Shannon Divergence를 활용하면 된다.</p>
+<p><span class="math display">\[JSD(p||q) = \frac{1}{2}KL(p||M) + \frac{1}{2}KL(q||M) \\
+\text{where } M = \frac{1}{2}(p+q)\]</span></p>
+<div id="reference" class="section level6">
+<h6>Reference</h6>
+<p>[1] <a href="https://hyunw.kim/blog/2017/10/14/Entropy.html" class="uri">https://hyunw.kim/blog/2017/10/14/Entropy.html</a></p>
+</div>
 </div>
