@@ -1,0 +1,38 @@
+---
+collapsible: false
+date: "2021-02-21T10:08:56+09:00"
+description: null
+draft: false
+title: 중심극한정리
+weight: 1
+---
+
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+
+
+<div id="중심극한정리central-limit-theorem" class="section level1">
+<h1>중심극한정리(Central Limit Theorem)</h1>
+<blockquote>
+<p>모분포가 어떤 분포이든 상관없이, 평균이 <code>$\mu$</code>이고, 분산이 <code>$\sigma^2$</code>인 분포로부터 무작위로 n개의 샘플을 얻는 다고 가정하자. (이때, <code>$\sigma^2 &lt; \infty$</code>라는 조건을 만족한다고 가정하자.)
+n이 충분히 크면, 표본평균의 분포는 평균이 <code>$\mu$</code>이고, 분산이 <code>$\sigma^2/\sqrt{n}$</code>인 정규분포로 근사한다.
+이를 수식으로 표현하면, <code>$Y_n = \frac{\sqrt{n}(\bar{X_n} - \mu)}{\sigma} \stackrel{\cdot}\sim N(0,1) $</code></p>
+</blockquote>
+<p>*주의사항: 표본이 아니라 <code>표본평균</code>의 분포에 대한 이야기이다.</p>
+</div>
+<div id="mgf적률생성함수를-활용한-증명" class="section level1">
+<h1>MGF(적률생성함수)를 활용한 증명</h1>
+<p>우선, 정규분포의 mgf가 아래와 같다는 사실을 인지하고, mgf가 분포결정성을 갖는다는 것을 받아들이고 시작하자.</p>
+<p><span class="math display">\[X \sim N(\mu, \sigma^2) \\
+\rightarrow M(t) = E[e^{tX}] = exp(\mu t + \frac{\sigma^2}{2}t^2) \]</span></p>
+<p><span class="math display">\[\text{Let } W = \frac{\bar{X}-\mu}{\sigma/\sqrt{n}} = \frac{\sum_{i=1}^{n} x_i - n\mu}{\sqrt{n}\sigma} \\
+\text{WTS: } M_W(t) = exp(\frac{t^2}{2}) \]</span></p>
+<p><span class="math display">\[\begin{align}
+M_W(t) &amp;= E[e^{tW}] \\
+&amp;= E\bigg[exp\Big(\frac{t}{\sqrt{n}\sigma}(\sum_{i=1}^{n} x_i - n\mu)\Big)\bigg]\\
+&amp;= E\bigg[exp(\frac{tX}{\sqrt{n}\sigma})\bigg]^n \times E\bigg[-exp(\frac{\mu\sqrt{n}}{\sigma}t)\bigg] \ (\because X_1, ..., X_n \sim i.i.d) \\
+&amp;= \bigg[M_X(\frac{t}{\sqrt{n}\sigma})\bigg]^n \times \bigg[-exp(\frac{\mu\sqrt{n}}{\sigma}t)\bigg] \\
+&amp;= \bigg[exp(\mu \frac{t}{\sqrt{n}\sigma} + \frac{\sigma^2}{2}\frac{t^2}{n\sigma^2}) \bigg]^n \times \bigg[-exp(\frac{\mu\sqrt{n}}{\sigma}t)\bigg] \\
+&amp;= exp\Big(\mu \frac{t\sqrt{n}}{\sigma} + \frac{t^2}{2}\Big) \times \bigg[-exp(\mu \frac{t\sqrt{n}}{\sigma})\bigg] \\
+&amp;= exp\Big(\frac{t^2}{2}\Big)
+\end{align}\]</span></p>
+</div>
