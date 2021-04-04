@@ -32,3 +32,15 @@ tmp_char <- sample(c("a", "b", "c"), 10, replace = TRUE)
 level_key <- c(a = "apple", b = "banana", c = "carrot")
 recode(tmp_char, !!!level_key)
 ```
+
+## 6. Rmarkdown ggplot 그래프에서 한글 출력하기
+```r
+library(extrafont)
+library(showtext)
+
+fond_add('nanum', 'NanumGothic.ttf')
+showtext_auto()
+font_import()
+theme_set(theme_bw(base_family='nanum'))
+```
+- 그런데 code chunk 안에 들어가는 한글에서는 pdf 만들 때 안 나오던데 이거는 어떻게 해야하는지 아직 모르겠다.
