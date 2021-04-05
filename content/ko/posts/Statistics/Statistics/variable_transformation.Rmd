@@ -1,0 +1,18 @@
+---
+collapsible: false
+date: "2021-04-03T10:08:56+09:00"
+description: null
+draft: false
+title: 변수 변환
+weight: 2
+---
+
+## Variable Transformation
+변수변환은 적분할 때 유용하게 쓰인다. 예를 들어, 아래와 같은 경우를 생각해보자.
+
+$$\int_1^5 \frac{2x}{x^2+1}dx$$
+이때는 `$x^2+1 = t$`로 치환해서 적분해주면, `$2xdx = dt$`로 바뀌므로
+
+$$\int_2^{26}\frac{1}{t}dt = \Big[log\ t\Big]_{2}^{26} = log13$$
+
+이렇게 쉽게 구할 수 있다.
