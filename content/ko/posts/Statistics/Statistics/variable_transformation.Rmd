@@ -7,7 +7,10 @@ title: 변수 변환
 weight: 2
 ---
 
-## Variable Transformation
+# Variable Transformation
+### 변수변환
+
+# 1. 적분
 변수변환은 적분할 때 유용하게 쓰인다. 예를 들어, 아래와 같은 경우를 생각해보자.
 
 $$\int_1^5 \frac{2x}{x^2+1}dx$$
@@ -16,3 +19,76 @@ $$\int_1^5 \frac{2x}{x^2+1}dx$$
 $$\int_2^{26}\frac{1}{t}dt = \Big[log\ t\Big]_{2}^{26} = log13$$
 
 이렇게 쉽게 구할 수 있다.
+
+## 2. 확률변수
+하지만 꼭 적분할 때만 변수변환이 유용한 것은 아니다. 베이지안이 prior를 부여할 때 확률변수를 변수변환해가며 생각하는 경우가 있는데, 이에 대해서 아래에서 이야기해보도록 하겠다.
+
+### 2-1. 일변수
+우선은 일변수일 때 예시는 [Jeffrey's Prior](/posts/statistics/bayesian/jeffrey_prior/)를 이야기하는 포스팅에서 살펴보면 될 것이다. 
+
+> 예를 들어, `$p(\theta) \propto 1$`라고 uninformative prior를 주자. 그리고 `$ \phi = exp(\theta)$`라고 가정해보자.
+
+$$\begin{align}
+p(\phi) &= p(\theta) \bigg|\frac{d\theta}{d\phi}\bigg| \\
+&\propto \frac{1}{\phi} \neq 1
+\end{align}$$
+
+### 2-2. 다변수
+이를 다변수로 확장하여 생각해보자. 그러기 위해서는 일단 이변수로 생각해보는 걸 연습하자.
+
+$$p(X, Y) = p(\alpha, \beta) \times |J| \text{ where } J = 
+\begin{vmatrix} 
+\frac{\partial\alpha}{\partial X} & \frac{\partial\alpha}{\partial Y} \\
+\frac{\partial\beta}{\partial X} & \frac{\partial\beta}{\partial Y}
+\end{vmatrix} $$
+Bayesian의 Hierarchical Model 중에서 Beta-Binomial Model의 `$\alpha, \beta$`에 대해 hyperprior를 줄 때, 어떤 모습의 확률을 부여해주어야할지 고민하다가 아래와 같은 hyperprior를 주기로 했다고 한다. 자세한 이야기는 [관련 포스팅](/posts/statistics/bayesian/fcb08/)을 살펴보자. 여기서는 변수변환 그 자체에만 주목해보자.
+
+$$p\Big(log\frac{\alpha}{\beta}, (\alpha+\beta)^{-\frac{1}{2}}\Big) \propto 1$$
+왜 이렇게 hyperprior를 주었는지에 대해서는 차치하고서라도, 일단 이것을 우리는 간단하게 해보자. 그러기 위해서는 이변수 차원에서의 변수변환이 필요하다. `$log\frac{\alpha}{\beta} = X, (\alpha+\beta)^{-\frac{1}{2}} = Y$`라고 생각하고 변수 변환을 해보자. <br> <br>
+
+STEP1. Jacobian(J) 구하기
+
+$$\begin{align}
+X &= log\frac{\alpha}{\beta} \\
+\rightarrow e^X & = \frac{\alpha}{\beta} \\
+\end{align} \\$$
+
+$$\rightarrow \begin{cases}
+\alpha = \beta\cdot e^X \\
+\beta = \alpha\cdot e^{-X}
+\end{cases} \\$$
+
+$$\therefore \begin{cases}
+\frac{\partial\alpha}{\partial X} = \beta\cdot e^X  = \beta \cdot \frac{\alpha}{\beta} = \alpha\\
+\frac{\partial\beta}{\partial X} = -\alpha\cdot e^{-X}  = -\alpha \cdot \frac{\beta}{\alpha} = -\beta
+\end{cases}
+$$
+<br>
+
+$$\begin{align}
+Y &= (\alpha + \beta)^{-\frac{1}{2}} \\
+Y^{-2} &= \alpha + \beta \\
+\therefore \frac{\partial\alpha}{\partial Y} &= \frac{\partial\beta}{\partial Y} = -2\cdot Y^{-3} = -2(\alpha+\beta)^{\frac{3}{2}}
+\end{align}$$
+
+<br>
+
+$$\begin{align}
+\therefore J &= \begin{vmatrix} 
+\frac{\partial\alpha}{\partial X} & \frac{\partial\alpha}{\partial Y} \\
+\frac{\partial\beta}{\partial X} & \frac{\partial\beta}{\partial Y}
+\end{vmatrix} \\
+&= \begin{vmatrix}
+\alpha & -2(\alpha+\beta)^{\frac{3}{2}} \\
+-\beta & -2(\alpha+\beta)^{\frac{3}{2}}
+\end{vmatrix} \\
+&= -2\alpha(\alpha+\beta)^{\frac{3}{2}} -2\beta(\alpha+\beta)^{\frac{3}{2}} \\
+&= -2(\alpha+\beta)^{\frac{5}{2}}
+\end{align}$$
+
+STEP2. 대입하기
+
+$$p\Big(log\frac{\alpha}{\beta}, (\alpha+\beta)^{-\frac{1}{2}}\Big) \propto 1 \\
+p(\alpha, \beta) |J| \propto 1 \\
+p(\alpha, \beta) \cdot 2(\alpha+\beta)^{\frac{5}{2}} \propto 1 \\
+p(\alpha, \beta) \propto (\alpha+\beta)^{-\frac{5}{2}}$$
