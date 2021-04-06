@@ -1710,6 +1710,14 @@
         
         
         <li>
+          <a href="https://jiwooblog.netlify.app/posts/statistics/statistics/variable_transformation/" class="menu__title " data-depth="1">변수 변환</a>
+        </li>
+      
+    
+      
+        
+        
+        <li>
           <a href="https://jiwooblog.netlify.app/posts/statistics/statistics/exponential_family/" class="menu__title " data-depth="1">Exponential Family</a>
         </li>
       
@@ -1974,6 +1982,14 @@
         
         
         <li>
+          <a href="https://jiwooblog.netlify.app/posts/statistics/bayesian/fcb08/" class="menu__title " data-depth="1">Hierarchical Model</a>
+        </li>
+      
+    
+      
+        
+        
+        <li>
           <a href="https://jiwooblog.netlify.app/posts/statistics/bayesian/fcb09/" class="menu__title " data-depth="1">Bayesian Linear Regression</a>
         </li>
       
@@ -2057,7 +2073,7 @@
         
         
         <li>
-          <a href="https://jiwooblog.netlify.app/posts/machinelearning/entropy/" class="menu__title " data-depth="0">Entropy, KL-Divergence</a>
+          <a href="https://jiwooblog.netlify.app/posts/machinelearning/entorpy_kld/" class="menu__title " data-depth="0">Entropy, KL-Divergence</a>
         </li>
       
     
@@ -3131,6 +3147,14 @@
         
         
         <li>
+          <a href="https://jiwooblog.netlify.app/posts/statistics/statistics/variable_transformation/" class="menu__title " data-depth="1">변수 변환</a>
+        </li>
+      
+    
+      
+        
+        
+        <li>
           <a href="https://jiwooblog.netlify.app/posts/statistics/statistics/exponential_family/" class="menu__title " data-depth="1">Exponential Family</a>
         </li>
       
@@ -3395,6 +3419,14 @@
         
         
         <li>
+          <a href="https://jiwooblog.netlify.app/posts/statistics/bayesian/fcb08/" class="menu__title " data-depth="1">Hierarchical Model</a>
+        </li>
+      
+    
+      
+        
+        
+        <li>
           <a href="https://jiwooblog.netlify.app/posts/statistics/bayesian/fcb09/" class="menu__title " data-depth="1">Bayesian Linear Regression</a>
         </li>
       
@@ -3478,7 +3510,7 @@
         
         
         <li>
-          <a href="https://jiwooblog.netlify.app/posts/machinelearning/entropy/" class="menu__title " data-depth="0">Entropy, KL-Divergence</a>
+          <a href="https://jiwooblog.netlify.app/posts/machinelearning/entorpy_kld/" class="menu__title " data-depth="0">Entropy, KL-Divergence</a>
         </li>
       
     
@@ -3664,7 +3696,31 @@
 <span class="nf">recode</span><span class="p">(</span><span class="n">tmp_char</span><span class="p">,</span> <span class="o">!!!</span><span class="n">level_key</span><span class="p">)</span>
 </code></pre></td></tr></table>
 </div>
+</div><h2 id="6-rmarkdown-ggplot-그래프에서-한글-출력하기">6. Rmarkdown ggplot 그래프에서 한글 출력하기</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">library</span><span class="p">(</span><span class="n">extrafont</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">showtext</span><span class="p">)</span>
+
+<span class="nf">fond_add</span><span class="p">(</span><span class="s">&#39;nanum&#39;</span><span class="p">,</span> <span class="s">&#39;NanumGothic.ttf&#39;</span><span class="p">)</span>
+<span class="nf">showtext_auto</span><span class="p">()</span>
+<span class="nf">font_import</span><span class="p">()</span>
+<span class="nf">theme_set</span><span class="p">(</span><span class="nf">theme_bw</span><span class="p">(</span><span class="n">base_family</span><span class="o">=</span><span class="s">&#39;nanum&#39;</span><span class="p">))</span>
+</code></pre></td></tr></table>
 </div>
+</div><ul>
+<li>그런데 code chunk 안에 들어가는 한글에서는 pdf 만들 때 안 나오던데 이거는 어떻게 해야하는지 아직 모르겠다.</li>
+</ul>
+
   </article>
 </div>
       
@@ -3707,6 +3763,7 @@
     <li><a href="#3-blogdown-auto-knit-끄기">3. blogdown Auto-Knit 끄기</a></li>
     <li><a href="#4-자동정렬-단축키">4. 자동정렬 단축키</a></li>
     <li><a href="#5-python의-dictionary처럼-사용하기">5. python의 dictionary처럼 사용하기</a></li>
+    <li><a href="#6-rmarkdown-ggplot-그래프에서-한글-출력하기">6. Rmarkdown ggplot 그래프에서 한글 출력하기</a></li>
   </ul>
 </nav>
   </div>
@@ -3782,7 +3839,7 @@
 
 <script src="//yihui.org/js/math-code.js"></script>
 <script async
-src="//cdnjs.cloudflare.com/ajax/libs/mathjax/3.5.1/MathJax.js?config=TeX-MML-AM_CHTML">
+src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
 </script>
 
 
@@ -3969,7 +4026,7 @@ src="//cdnjs.cloudflare.com/ajax/libs/mathjax/3.5.1/MathJax.js?config=TeX-MML-AM
 
 <script src="//yihui.org/js/math-code.js"></script>
 <script async
-src="//cdnjs.cloudflare.com/ajax/libs/mathjax/3.5.1/MathJax.js?config=TeX-MML-AM_CHTML">
+src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
 </script>
 
 <script>

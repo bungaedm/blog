@@ -25,20 +25,15 @@
       
       <item>
         <title>Entropy, KL-Divergence</title>
-        <link>https://jiwooblog.netlify.app/posts/machinelearning/entropy/</link>
+        <link>https://jiwooblog.netlify.app/posts/machinelearning/entorpy_kld/</link>
         <pubDate>Thu, 11 Mar 2021 10:08:56 +0900</pubDate>
         
-        <guid>https://jiwooblog.netlify.app/posts/machinelearning/entropy/</guid>
-        <description>Entropy 정보량 = 불확실성
-$$H(p) = -\sum_{i=1}p_i log(p_i) $$
-Cross-Entropy p에 대해, 전략 Q를 사용했을 때의 불확실성
-$$H(p,q) = -\sum_{i=1}p_i log(q_i) $$
-KL-Divergence $$
-\begin{aligned}
-KL(p||q) &amp;amp;= \sum_{i=1}p_i log\frac{p_i}{q_i} \
-&amp;amp;= H(p,q) - H(p)
-\end{aligned}
-$$</description>
+        <guid>https://jiwooblog.netlify.app/posts/machinelearning/entorpy_kld/</guid>
+        <description>Entropy정보량 = 불확실성\[\begin{align}H(p) &amp;amp;= \sum_{i=1}p_i log\frac{1}{p_i} \\&amp;amp;= -\sum_{i=1}p_i log(p_i)\end{align}\]
+여기서 $\frac{1}{p_i}$는 발생확률의 역수로, 다르게 보면 가능한 결과의 수라고 볼 수 있다.
+그렇기 때문에 $log\frac{1}{p_i}$는 필요한 질문의 수라고 생각할 수 있다.
+합쳐서 생각해보면, 정보량이라고 하는 것은 필요한 질문의 수 x 확률의 총합이라고 생각할 수 있다.
+Cross Entropyp에 대해, 전략 Q를 사용했을 때의 불확실성즉, 특정 전략을 쓸 때, 예상되는 질문개수에 대한 기댓값</description>
       </item>
       
     

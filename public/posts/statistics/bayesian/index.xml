@@ -101,6 +101,17 @@ where $\frac{1}{\tau_n^{2}} = \frac{1}{\tau_0^{2}} + \frac{n}{\sigma^2}$ and $\m
       </item>
       
       <item>
+        <title>Hierarchical Model</title>
+        <link>https://jiwooblog.netlify.app/posts/statistics/bayesian/fcb08/</link>
+        <pubDate>Sun, 31 Jan 2021 10:08:56 +0900</pubDate>
+        
+        <guid>https://jiwooblog.netlify.app/posts/statistics/bayesian/fcb08/</guid>
+        <description>Chapter 08. Group Comparisons and Hierarchical Modeling본 포스팅은 First Course in Bayesian Statistical Methods를 참고하였다.
+1. Exchangeability &amp;amp; De Finetti’s Theorem이부분에 대해서는 Chapter2에서 이미 다룬 적은 있다. 그래도 이번 챕터의 논리전개에 대해서 정당성을 부여해주기 때문에 한 번 더 복습해보도록 하겠다.
+우선 Exchangeability는 다음과 같이 쓸 수 있다.\[p(y_1, ..., y_n) = p(y_{\pi_{1}}, ..., y_{\pi_{n}})\]그리고 De Finetti’s Theorem은 exchangeability가 만족되면, Conditional Independence를 따른다는 것이었다. (참고로, 그 역은 자명하다.</description>
+      </item>
+      
+      <item>
         <title>Bayesian Linear Regression</title>
         <link>https://jiwooblog.netlify.app/posts/statistics/bayesian/fcb09/</link>
         <pubDate>Thu, 04 Mar 2021 10:08:56 +0900</pubDate>

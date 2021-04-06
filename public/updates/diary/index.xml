@@ -41,6 +41,15 @@
         <description>2021.03.06  문득 빈도론자와 베이지안의 논쟁이 쿤과 포퍼의 과학철학 논쟁과 비슷하다는 생각을 했다. 빈도론자는 가설검정이라는 것을 하며 귀무가설과 대립가설을 놓고 검정통계량을 통해 기각하거나 채택을 한다. 반면, 베이지안은 철저하게 베이즈 이론만을 기반으로 하여 분포를 제시하여 가능성을 제시한다. 포퍼가 반증가능성을 이야기했다면, 쿤은 이를 비판하며 패러다임의 전환에 대해 이야기했다.  2021.03.28  대학원 진학을 하기 위해 어느 정도 고민을 마쳤지만, 생각보다 마음이 덜 잡힌 것 같다. 열품타를 사용하고 있는데 생각보다 좋은 것 같다. 더 잘 활용해보도록 해야겠다.</description>
       </item>
       
+      <item>
+        <title>April 2021</title>
+        <link>https://jiwooblog.netlify.app/updates/diary/2021_04/</link>
+        <pubDate>Thu, 01 Apr 2021 00:08:29 +0900</pubDate>
+        
+        <guid>https://jiwooblog.netlify.app/updates/diary/2021_04/</guid>
+        <description>2021.04.04  올해 4월 1일에 TexLive가 2021년 버전으로 업그레이드되면서 Rmarkdown으로 문서화 작업을 다시 구성하는데에 이틀 정도 애를 먹었다. 한번 까는 까는 데에만 한시간은 족히 걸렸는데, 정확히 무엇이 잘못된지를 몰라서 여러 번 반복했다. 결국 그거 자체는 설치를 잘 한 것이었다. 문제는 install.packages(&#39;tinytex&#39;), library(tinytex)를 안 했다는 것이다&amp;hellip; 내년에 또 업데이트가 된다면 미리미리 알아두고 있어야겠다&amp;hellip;  </description>
+      </item>
+      
     
   </channel>
 </rss>
