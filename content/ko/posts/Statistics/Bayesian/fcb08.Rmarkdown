@@ -8,6 +8,7 @@ weight: 8
 
 ```{r echo=FALSE, warning=FALSE, message=FALSE}
 ### Library
+library(tidyverse)
 library(ggplot2)
 theme_set(theme_minimal())
 library(gridExtra)
@@ -68,7 +69,9 @@ $$p(\theta, \alpha, \beta|y) \propto p(\alpha,\beta) \ \prod_{j=1}^{m}\frac{\Gam
 ### 2-3. hyperprior는 어떻게 주어야 할까?
 결론부터 말하자면,
 $$p(\alpha, \beta) \propto (\alpha+\beta)^{-\frac{5}{2}}$$
-이렇게 준다고 한다.
+이렇게 준다고 한다. 해당 수식에 대한 그래프는 아래와 같은데, 시각적으로 uninformative에 가깝다는 것을 알 수 있다.
+
+![hyperprior](images/posts/bayesian/hyperprior_graph.png)  
 
 이는 원래는 아래와 같은 형태였다.
 $$p\Big(log\frac{\alpha}{\beta}, (\alpha+\beta)^{-\frac{1}{2}}\Big) \propto 1$$

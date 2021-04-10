@@ -14,6 +14,13 @@ weight: 8
 
 ![](/images/posts/bayesian/hierarchical_model.png)
 
+Hierarchical Model은 그룹 간 그리고 그룹 내 variability를 설정하는 데에 유용하다.
+> Hierarchical Model describes both with-in group and between-group variability.
+
+Hierarchical Model은 베이즈 통계가 다른 응용분야에 널리 퍼져 사용되는 결정적 계기가 되었다. 그리고 위의 그림을 통해서 알 수 있듯이, 층이 여러 개 이기 때문에 복잡한 상황에서도 Estimation을 할 수 있다는 장점이 있다.
+
+가장 큰 특징을 간단하게 요약해보자면, 여러 그룹끼리 서로 정보를 주고받는다는 점이다.
+
 ## 1. Exchangeability & De Finetti's Theorem
 이부분에 대해서는 [Chapter2](/posts/statistics/bayesian/fcb02/)에서 이미 다룬 적은 있다. 그래도 이번 챕터의 논리전개에 대해서 정당성을 부여해주기 때문에 한 번 더 복습해보도록 하겠다. 우선 Exchangeability는 다음과 같이 쓸 수 있다.
 `$$p(y_1, ..., y_n) = p(y_{\pi_{1}}, ..., y_{\pi_{n}})$$`
@@ -54,7 +61,9 @@ p(\psi|y) = \frac{p(\theta,\psi|y)}{p(\theta|\psi, y)}$$`
 ### 2-3. hyperprior는 어떻게 주어야 할까?
 결론부터 말하자면,
 `$$p(\alpha, \beta) \propto (\alpha+\beta)^{-\frac{5}{2}}$$`
-이렇게 준다고 한다.
+이렇게 준다고 한다. 해당 수식에 대한 그래프는 아래와 같은데, 시각적으로 uninformative에 가깝다는 것을 알 수 있다.
+
+![hyperprior](images/posts/bayesian/hyperprior_graph.png)  
 
 이는 원래는 아래와 같은 형태였다.
 `$$p\Big(log\frac{\alpha}{\beta}, (\alpha+\beta)^{-\frac{1}{2}}\Big) \propto 1$$`
@@ -96,7 +105,7 @@ p1
 
 <img src="/ko/posts/Statistics/Bayesian/fcb08_files/figure-html/unnamed-chunk-2-1.png" width="672" />
 
-#### 2) Marginal Distribution of `$\alpha, \beta$`
+#### 2) Marginal Distribution of alpha & beta
 
 ```r
 ### Hierarchical model using theta's prior: beta(alpha,beta)
@@ -122,7 +131,43 @@ p2
 
 <img src="/ko/posts/Statistics/Bayesian/fcb08_files/figure-html/unnamed-chunk-3-1.png" width="672" />
 
-#### 3) 95% posterior interval, uninformative `$\alpha, \beta$` prior
+
+
+```r
+title_alpha <- TeX('Marginal Posterior of $\\alpha$|y')
+title_beta <- TeX('Marginal Posterior of $\\beta$|y')
+
+marg_alpha <- df_marg %>%
+    group_by(alpha) %>% 
+    summarise(marg = sum(posterior)) %>% 
+    ggplot(aes(x=alpha,y=marg)) + geom_line(size=2, color='cornflowerblue') +
+    labs(x=TeX('$\\alpha$'), y= TeX('p($\\alpha$|y)'), title=title_alpha)
+```
+
+```
+## `summarise()` ungrouping output (override with `.groups` argument)
+```
+
+```r
+marg_beta <- df_marg %>%
+    group_by(beta) %>% 
+    summarise(marg = sum(posterior)) %>% 
+    ggplot(aes(x=beta,y=marg)) + geom_line(size=2, color='darkgreen') +
+    labs(x=TeX('$\\beta$'), y= TeX('p($\\beta$|y)'), title=title_beta)
+```
+
+```
+## `summarise()` ungrouping output (override with `.groups` argument)
+```
+
+```r
+grid.arrange(marg_alpha, marg_beta, ncol=2)
+```
+
+<img src="/ko/posts/Statistics/Bayesian/fcb08_files/figure-html/unnamed-chunk-4-1.png" width="672" />
+
+
+#### 3) 95% posterior interval, uninformative prior(`$\alpha, \beta$`)
 
 ```r
 # Grid sampling to generate posterior samples of alpha, beta
@@ -158,10 +203,10 @@ p3 = ggplot(DF, aes(x=ybar, ymin=lb, ymax=ub))+
 p3
 ```
 
-<img src="/ko/posts/Statistics/Bayesian/fcb08_files/figure-html/unnamed-chunk-4-1.png" width="672" />
+<img src="/ko/posts/Statistics/Bayesian/fcb08_files/figure-html/unnamed-chunk-5-1.png" width="672" />
 
 #### 4) 1과 3 비교해보기
-<img src="/ko/posts/Statistics/Bayesian/fcb08_files/figure-html/unnamed-chunk-5-1.png" width="672" />
+<img src="/ko/posts/Statistics/Bayesian/fcb08_files/figure-html/unnamed-chunk-6-1.png" width="672" />
 
 
 ## 3. Hierarchical Normal
@@ -169,6 +214,10 @@ p3
 
 ### Conclusion
 <p style='text-align: center'> Prior의 Prior, HyperPrior를 활용하여 보다 설득력 있는 모델을 만들어보자! </p> <br>
+
+###### Reference
+[1] FCB
+[2] ESC 2021-1 Spring 세션
 
 ---
 <br> 
