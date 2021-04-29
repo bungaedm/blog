@@ -17,12 +17,44 @@ n이 충분히 크면, 표본평균의 분포는 평균이 `$\mu$`이고, 분산
 # MGF(적률생성함수)를 활용한 증명
 우선, 정규분포의 mgf가 아래와 같다는 사실을 인지하고, mgf가 분포결정성을 갖는다는 것을 받아들이고 시작하자.
 
+
+
+**정규분포의 MGF**
 $$X \sim N(\mu, \sigma^2) \\
 \rightarrow M(t) = E[e^{tX}] = exp(\mu t + \frac{\sigma^2}{2}t^2) $$
+
+**정의**
+$$\text{Let } Z_i = \frac{X_i-\mu}{\sigma}, m(t) = mgf_{Z_1}(t) \\
+\text{and notice that } E(Z_i) = 0, Var(Z_i) = 1$$
 
 $$\text{Let } W = \frac{\bar{X}-\mu}{\sigma/\sqrt{n}} = \frac{\sum_{i=1}^{n} x_i - n\mu}{\sqrt{n}\sigma} \\
 \text{WTS: } M_W(t) = exp(\frac{t^2}{2}) $$
 
+**증명**
+$$\begin{align}
+mgf_{\frac{\bar{X}-\mu}{\sigma/\sqrt{n}}}(t) &= mgf_{\sqrt{n}\sqrt{\bar{Z}}}(t) \ (\because \bar{Z} = \frac{\sum X_i - n\mu}{n\sigma} = \frac{\bar{X}-\mu}{\sigma}) \\
+&= E\Big[exp(t\sqrt{n}\bar{Z})\Big] \\
+&= E\bigg[exp\Big(\frac{t}{\sqrt{n}}(Z_1 + \cdots = Z_n)\Big)\bigg] \\
+&= \bigg(E[exp(\frac{t}{\sqrt{n}}Z_1)]\bigg)^n \ (\because iid) \\
+&= \Big[m(\frac{t}{\sqrt{n}})\Big]^n
+\end{align}$$
+
+$$1) \ log(1+A) = A - \frac{1}{2}A^2 + \frac{1}{3}A^3 - \frac{1}{4}A^4 + \cdots \\
+2) \ m(0) = 1, m'(0) = E(Z_1) = 0, m''(0) = E(Z_1^2) = Var(Z_1) = 1$$
+
+$$\begin{align}
+\therefore log \ mgf_{\sqrt{n}\sqrt{\bar{Z}}} &= n \cdot log \ m(\frac{t}{\sqrt{n}}) \\ 
+&= n \cdot log (m(0)+ \frac{m'(0)}{1!}\frac{t}{\sqrt{n}} + \frac{m''(0)}{2!}\frac{t^2}{n} + o(\frac{1}{n})) \\
+&= n \cdot log (1+\frac{t^2}{2n} + o(\frac{1}{n})) \\
+&= n \cdot (\frac{t^2}{2n} + o(\frac{1}{n}) - \frac{1}{2}\Big(\frac{t^2}{2n} + o(\frac{1}{n})\Big)^2 + \cdots) \\
+&= n \cdot \Big(\frac{t^2}{2n} + o(\frac{1}{n})\Big) \\
+&= \frac{1}{2}t^2 + o(1) \\
+\therefore mgf_{\frac{\bar{X}-\mu}{\sigma/\sqrt{n}}}(t) &\stackrel{n\rightarrow\infty}\rightarrow exp(\frac{1}{2}t^2)
+\end{align}$$
+
+
+
+<!--
 $$\begin{align}
 M_W(t) &= E[e^{tW}] \\
 &= E\bigg[exp\Big(\frac{t}{\sqrt{n}\sigma}(\sum_{i=1}^{n} x_i - n\mu)\Big)\bigg]\\
@@ -32,3 +64,4 @@ M_W(t) &= E[e^{tW}] \\
 &= exp\Big(\mu \frac{t\sqrt{n}}{\sigma} + \frac{t^2}{2}\Big) \times \bigg[-exp(\mu \frac{t\sqrt{n}}{\sigma})\bigg] \\
 &= exp\Big(\frac{t^2}{2}\Big)
 \end{align}$$
+-->
