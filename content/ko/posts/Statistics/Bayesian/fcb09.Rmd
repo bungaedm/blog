@@ -6,21 +6,38 @@ title: Bayesian Linear Regression
 weight: 9
 ---
 
-## Chapter 09. <br> The Multivariate Normal Model
+```{r, message=FALSE, echo=FALSE, warning=FALSE}
+library(tidyverse)
+library(MASS)
+```
+
+## Chapter 09. <br> Linear Regression
 본 포스팅은 **First Course in Bayesian Statistical Methods**를 참고하였다.
 
 ### 1. Linear Regression Model
-$$\hat{\beta} \sim N(\beta, \sigma^2(X^TX)^{-1})$$
-$$\begin{align}
+Linear Regression Model: a particular type of smoothly changing model for `$p(y|\boldsymbol{x})$` that specifies that the conditional expectation `$E[Y|\boldsymbol{x}]$` has a form that is linear in a set of parameters
+
+$$\int yp(y|\boldsymbol{x})dy = E[Y|\boldsymbol{x}] = \beta_1x_1 + \cdots + \beta_px_p = \boldsymbol{\beta}^T\boldsymbol{x}$$
+
+Normal Linear Regression Model: 기존 Linear Regression Model에 추가해서, 아래의 조건이 추가된 것
+$$\epsilon_1, ..., \epsilon_n \stackrel{i.i.d}\sim N(0,\sigma^2) \\
+Y_i = \boldsymbol{\beta}^T\boldsymbol{x}_i + \epsilon_i \\
+\boldsymbol{y|X,\beta},\sigma^2 \sim MVN(\boldsymbol{X\beta}, \sigma^2\boldsymbol{I})$$
+
+**1-1. `$\beta$` 추정(OLS)**
+$$\begin{align} \hat{\beta} &\sim N(\beta, \sigma^2(X^TX)^{-1}) \\
+
+\\
+
 \arg \min_\beta \sum e_i^2 &= \arg \min_\beta(Y-X\beta)^T(Y-X\beta)\\
 &= \frac{d}{d\beta}(Y^TY -\beta^TX^TY-Y^TX\beta+\beta^TX^TX\beta) \\
 &= -2Y^TX+2\beta^TX^TX \\
 &\stackrel{let}= 0 \\
 \rightarrow X^TX\beta &= X^TY\\
-\rightarrow \hat{\beta} &= (X^TX)^{-1}X^TY
-\end{align}$$
+\rightarrow \hat{\beta} &= (X^TX)^{-1}X^TY \\
 
-$$\begin{align}
+\\
+
 E(\hat{\beta}) &= E((X^TX)^{-1}X^TY) \\
 &= (X^TX)^{-1}X^TE(Y) \\
 &= (X^TX)^{-1}X^TX\beta \\
@@ -29,17 +46,53 @@ E(\hat{\beta}) &= E((X^TX)^{-1}X^TY) \\
 Cov(\hat{\beta}) &= Cov((X^TX)^{-1}X^TY) \\
 &= (X^TX)^{-1}X^TCov(Y)\Big((X^TX)^{-1}X^T\Big)^T \\
 &= \sigma^2 (X^TX)^{-1}X^TX(X^TX)^{-1} \\
-&= \sigma^2 (X^TX)^{-1}
-\end{align}$$
+&= \sigma^2 (X^TX)^{-1} \end{align}$$
+
+**1-2. `$\sigma^2$` 추정(OLS)**
+여기서 `$\sigma^2$`는 아래의 과정을 통해 추정된다.
+
+$$\hat{\sigma}^2_{ols} = \frac{SSR}{n-p} = \frac{\sum (y_i-X_i\hat{\beta}_{ols})^2}{n-p} \\
+\text{proof) }\frac{SSR}{\sigma^2} \sim \chi^2(n-p) \\
+E(SSR) = (n-p)\sigma^2 \\
+\therefore \hat{\sigma}^2_{ols} = \frac{SSR}{n-p}$$
+
+1-1)과 1-2)를 종합해서 해석해보자면, `$\hat{\beta}_{ols}$`의 분산은 `$\sigma^2 (X^TX)^{-1}$`에다가 `$\sigma^2$` 대신에 `$\hat{\sigma}^2_{ols}$`을 대입한 것의 대각원소로 추정하면 된다. 그리고 이것을 루트 취해주면, 각 베타원소들의 standard error를 알 수 있게 된다. 이를 통해서 각 계수의 유의성을 생각해볼 수 있다.
+
+**1-3. Conjugacy 복습**
+
+**1-3-1. Matching Trick**
+$$\begin{align} p(y|\mu,\Sigma) &\propto exp(-\frac{1}{2}(y-\mu)^T\Sigma^{-1}(y-\mu)) \\
+&\propto exp(-\frac{1}{2}y^T\Sigma^{-1}y + y^T\Sigma^{-1}\mu) \end{align}$$
+
+**1-3-2. Scaled Inverse Gamma distribution**
+$$\text{X~} \chi^{-2}(\nu, \tau^2) = \Gamma^{-1}(\nu/2, \nu\tau^2/2) \\
+\rightarrow f(x) = \frac{(\nu\tau^2/2)^{\nu/2}}{\Gamma(\nu/2)}\left(\frac{1}{x}\right)^{\nu/2+1}exp(-\frac{\nu\tau^2}{2x}) $$
+`$\sigma^2 \sim \chi^2(\nu_0, \sigma^2_0)$`으로 prior를 주게 된다면, `$\nu_o$`는 prior size와 같은 의미를 갖고 `$\sigma^2_0$`는 prior variance로서의 의미를 갖는다.
 
 ### 2. Bayesian estimation for a regression model
+
+#### 2-1. Semi-conjugate prior (independent prior)
+semi-conjugate: prior와 conditional posterior가 같은 분포
+\
+- **Slopes `$\beta$`**  
+likelihood: `$p(y, \beta, \sigma^2) = p(\beta)p(\sigma^2)p(y|\beta,\sigma^2)$`  
+prior: `$\beta \sim N(\beta_0, \Sigma_0)$`  
+posterior: `$\beta|y,X,\sigma^2 \sim N(\beta_n, \Sigma_0)$`  
+where `$\beta_n = \Sigma_n(\Sigma_0^{-1}\beta_0 + X^Ty/\sigma^2), \Sigma_n = (\Sigma_0^{-1} + X^TX/\sigma^2)^{-1}$`
+\
+\
+- **Error Variance `$\sigma^2$`**  
+likelihood: `$p(y, \beta, \sigma^2) = p(\beta)p(\sigma^2)p(y|\beta,\sigma^2)$`  
+prior: `$\sigma^2 \sim \Gamma^{-1}(\frac{\nu_0}{2}, \frac{\nu_0\sigma^2_0}{2})$`  
+posterior: `$\sigma^2|y,X,\beta \sim \Gamma^{-1}(\frac{\nu_n}{2}, \frac{\nu_n\sigma^2_n}{2})$`  
+where `$\nu_n = \nu_0+n, \sigma^2_n = \frac{1}{\nu_n}(\nu_0\sigma^2_0 + SSR(\beta))$`
+
+
+
+
 ### 3. Model Selection
 
-```{r, message=FALSE, warning=FALSE}
-library(tidyverse)
-library(MASS)
-```
-
+<!--
 {{<expand "Code Example">}}
 ```{r}
 ## Data load 
@@ -83,3 +136,4 @@ gather(as.data.frame(BETA)) %>%
   theme(legend.position = 'None')
 ```
 {{</expand>}}
+-->
