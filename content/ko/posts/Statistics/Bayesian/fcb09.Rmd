@@ -10,11 +10,34 @@ weight: 9
 본 포스팅은 **First Course in Bayesian Statistical Methods**를 참고하였다.
 
 ### 1. Linear Regression Model
+$$\hat{\beta} \sim N(\beta, \sigma^2(X^TX)^{-1})$$
+$$\begin{align}
+\arg \min_\beta \sum e_i^2 &= \arg \min_\beta(Y-X\beta)^T(Y-X\beta)\\
+&= \frac{d}{d\beta}(Y^TY -\beta^TX^TY-Y^TX\beta+\beta^TX^TX\beta) \\
+&= -2Y^TX+2\beta^TX^TX \\
+&\stackrel{let}= 0 \\
+\rightarrow X^TX\beta &= X^TY\\
+\rightarrow \hat{\beta} &= (X^TX)^{-1}X^TY
+\end{align}$$
+
+$$\begin{align}
+E(\hat{\beta}) &= E((X^TX)^{-1}X^TY) \\
+&= (X^TX)^{-1}X^TE(Y) \\
+&= (X^TX)^{-1}X^TX\beta \\
+&= \beta \\
+
+Cov(\hat{\beta}) &= Cov((X^TX)^{-1}X^TY) \\
+&= (X^TX)^{-1}X^TCov(Y)\Big((X^TX)^{-1}X^T\Big)^T \\
+&= \sigma^2 (X^TX)^{-1}X^TX(X^TX)^{-1} \\
+&= \sigma^2 (X^TX)^{-1}
+\end{align}$$
+
 ### 2. Bayesian estimation for a regression model
 ### 3. Model Selection
 
 ```{r, message=FALSE, warning=FALSE}
 library(tidyverse)
+library(MASS)
 ```
 
 {{<expand "Code Example">}}

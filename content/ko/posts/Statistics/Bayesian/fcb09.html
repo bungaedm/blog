@@ -1,0 +1,89 @@
+---
+date: "2021-03-04T10:08:56+09:00"
+description: null
+draft: false
+title: Bayesian Linear Regression
+weight: 9
+---
+
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+
+
+<div id="chapter-09.-the-multivariate-normal-model" class="section level2">
+<h2>Chapter 09. <br> The Multivariate Normal Model</h2>
+<p>본 포스팅은 <strong>First Course in Bayesian Statistical Methods</strong>를 참고하였다.</p>
+<div id="linear-regression-model" class="section level3">
+<h3>1. Linear Regression Model</h3>
+<p><span class="math display">\[\hat{\beta} \sim N(\beta, \sigma^2(X^TX)^{-1})\]</span>
+<span class="math display">\[\begin{align}
+\arg \min_\beta \sum e_i^2 &amp;= \arg \min_\beta(Y-X\beta)^T(Y-X\beta)\\
+&amp;= \frac{d}{d\beta}(Y^TY -\beta^TX^TY-Y^TX\beta+\beta^TX^TX\beta) \\
+&amp;= -2Y^TX+2\beta^TX^TX \\
+&amp;\stackrel{let}= 0 \\
+\rightarrow X^TX\beta &amp;= X^TY\\
+\rightarrow \hat{\beta} &amp;= (X^TX)^{-1}X^TY
+\end{align}\]</span></p>
+<p>$$<span class="math display">\[\begin{align}
+E(\hat{\beta}) &amp;= E((X^TX)^{-1}X^TY) \\
+&amp;= (X^TX)^{-1}X^TE(Y) \\
+&amp;= (X^TX)^{-1}X^TX\beta \\
+&amp;= \beta \\
+
+Cov(\hat{\beta}) &amp;= Cov((X^TX)^{-1}X^TY) \\
+&amp;= (X^TX)^{-1}X^TCov(Y)\Big((X^TX)^{-1}X^T\Big)^T \\
+&amp;= \sigma^2 (X^TX)^{-1}X^TX(X^TX)^{-1} \\
+&amp;= \sigma^2 (X^TX)^{-1}
+\end{align}\]</span>$$</p>
+</div>
+<div id="bayesian-estimation-for-a-regression-model" class="section level3">
+<h3>2. Bayesian estimation for a regression model</h3>
+</div>
+<div id="model-selection" class="section level3">
+<h3>3. Model Selection</h3>
+<pre class="r"><code>library(tidyverse)
+library(MASS)</code></pre>
+<p>{{&lt;expand “Code Example”&gt;}}</p>
+<pre class="r"><code>## Data load 
+data = dget(&#39;https://www2.stat.duke.edu/~pdh10/FCBS/Inline/yX.o2uptake&#39;)
+y = data[,1]
+X = data[,-1]
+inv = solve
+
+## set prior
+g = length(y)
+nu0 = 1
+s20 = summary(lm(y~-1+X))$sigma^2
+n = length(y)
+p = ncol(X)
+
+## MCMC setup
+S = 1000
+set.seed(2021)
+BETA = matrix(NA, nrow=S, ncol=p)
+sigma2 = matrix(NA, nrow=S, ncol=1)
+BETA[1,] = inv(t(X) %*% X) %*% t(X) %*% y
+sigma2[1,] = s20
+
+## gibbs sampling
+nun = nu0 + n
+betan = (g/(g+1)) * inv(t(X) %*% X) %*% t(X) %*% y
+for(s in 2:S){
+  s2n = nu0*s20 + t(y-X%*%BETA[s-1,]) %*% (y-X%*%BETA[s-1,])
+  sigma2[s,] = 1/rgamma(1, shape=nun/2, rate=s2n/2)
+  
+  Sigman = (g/(g+1)) * sigma2[s,] * inv(t(X) %*% X)
+  BETA[s,] = MASS::mvrnorm(n=1, betan, Sigman)
+}
+
+## graph
+colnames(BETA) = colnames(X)
+gather(as.data.frame(BETA)) %&gt;% 
+  ggplot(aes(y=value, fill=key)) + geom_histogram() +
+  coord_flip() + facet_wrap(~key, scales=&#39;free_x&#39;) +
+  ggtitle(&#39;Posterior samples of Beta&#39;) +
+  theme(legend.position = &#39;None&#39;)</code></pre>
+<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<p><img src="/ko/posts/Statistics/Bayesian/fcb09_files/figure-html/unnamed-chunk-2-1.png" width="672" />
+{{</expand>}}</p>
+</div>
+</div>
