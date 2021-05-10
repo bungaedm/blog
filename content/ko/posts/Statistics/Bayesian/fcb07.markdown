@@ -377,7 +377,7 @@ Gibbs sampling은 full conditional distribution을 통해 차례대로 모수를
 
 STEP1. Full conditional distribution을 확보한다.
 - `$\boldsymbol{\mu}|\boldsymbol{y_1}, ..., \boldsymbol{y_n}, \Sigma \sim MVN(\boldsymbol{\mu_n}, \Lambda_n)$`
-- `$\Sigma|\boldsymbol{y_1, ..., y_n} \sim \text{inv-}Wis(\nu_0+n, [S_0+S_\mu]^{-1})$`
+- `$\Sigma|\boldsymbol{y_1, ..., y_n}, \boldsymbol{\mu} \sim \text{inv-}Wis(\nu_0+n, [S_0+S_\mu]^{-1})$`
 
 STEP2. 차례대로 업데이트하면서 joint posterior distribution `$\boldsymbol{\mu},\Sigma|\boldsymbol{y_1}, ..., \boldsymbol{y_n}$`을 구한다.
 

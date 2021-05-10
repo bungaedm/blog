@@ -75,19 +75,93 @@ $$\text{X~} \chi^{-2}(\nu, \tau^2) = \Gamma^{-1}(\nu/2, \nu\tau^2/2) \\
 semi-conjugate: prior와 conditional posterior가 같은 분포
 \
 - **Slopes `$\beta$`**  
-likelihood: `$p(y, \beta, \sigma^2) = p(\beta)p(\sigma^2)p(y|\beta,\sigma^2)$`  
+likelihood: `$\boldsymbol{y|X,\beta},\sigma^2 \sim MVN(\boldsymbol{X\beta}, \sigma^2\boldsymbol{I})$`  
 prior: `$\beta \sim N(\beta_0, \Sigma_0)$`  
 posterior: `$\beta|y,X,\sigma^2 \sim N(\beta_n, \Sigma_0)$`  
 where `$\beta_n = \Sigma_n(\Sigma_0^{-1}\beta_0 + X^Ty/\sigma^2), \Sigma_n = (\Sigma_0^{-1} + X^TX/\sigma^2)^{-1}$`
 \
+(posterior 유도 증명)
+$$\begin{align}
+p(\beta|y,\sigma^2) &\propto p(y|\beta,\sigma^2)p(\beta) \\
+&\propto exp(-\frac{1}{2\sigma^2}(y^Ty - 2\beta^TX^Ty + \beta^TX^TX\beta) - \frac{1}{2}(\beta^T\Sigma_0^{-1}\beta - 2\beta^T\Sigma_0^{-1}\beta_0)) \\
+&\propto exp\Big(-\frac{1}{2}\beta^T(X^TX/\sigma^2 + \Sigma_0^{-1})\beta + \beta^T(X^Ty/\sigma^2 + \Sigma_0^{-1}\beta_0)\Big) \\
+\therefore \Sigma_n^{-1} &= X^TX/\sigma^2 + \Sigma_0^{-1} \\
+\beta_n &= \Sigma_n(X^Ty/\sigma^2 + \Sigma_0^{-1}\beta_0)
+\end{align}$$
+
 \
 - **Error Variance `$\sigma^2$`**  
-likelihood: `$p(y, \beta, \sigma^2) = p(\beta)p(\sigma^2)p(y|\beta,\sigma^2)$`  
+likelihood: `$\boldsymbol{y|X,\beta},\sigma^2 \sim MVN(\boldsymbol{X\beta}, \sigma^2\boldsymbol{I})$`    
 prior: `$\sigma^2 \sim \Gamma^{-1}(\frac{\nu_0}{2}, \frac{\nu_0\sigma^2_0}{2})$`  
 posterior: `$\sigma^2|y,X,\beta \sim \Gamma^{-1}(\frac{\nu_n}{2}, \frac{\nu_n\sigma^2_n}{2})$`  
 where `$\nu_n = \nu_0+n, \sigma^2_n = \frac{1}{\nu_n}(\nu_0\sigma^2_0 + SSR(\beta))$`
+\
+(posterior 유도 증명)
+$$\begin{align}
+p(\sigma^2|y, \beta) &\propto p(\sigma^2)p(y|\beta,\sigma^2)\\
+&\propto (\frac{1}{\sigma^2})^{\nu_0/2+1}exp(-\frac{\nu_0\sigma^2_0}{2\sigma^2})(\frac{1}{\sigma^2})^{n/2}exp(-\frac{SSR(\beta)}{2\sigma^2}) \\
+&= (\frac{1}{\sigma^2})^{(\nu_0+n)/2+1}exp(-\frac{\nu_0\sigma^2_0+SSR(\beta)}{2\sigma^2}) \\
+\therefore \nu_n &= \nu_0+n \\
+\sigma^2_n &= (\nu_0\sigma^2_0+SSR(\beta))/\nu_n
+\end{align}$$
 
+#### 2-2. Full-conjugate prior (dependent prior)
+$$\begin{align}
+p(\beta,\sigma^2|y) &= p(\beta|\sigma^2,y) \ p(\sigma^2|y) \\
+&\propto p(\beta|\sigma^2,y)p(\sigma^2)p(y|\sigma^2) \\
+\end{align}$$
 
+위에서 각각에 대한 분포는 아래와 같다.
+$$\begin{align}
+\beta|y,\sigma^2 &\sim N(\frac{g}{g+1}\hat{\beta}_{mle},\frac{g}{g+1}Var(\hat{\beta}_{mle})) \\
+\sigma^2 &\sim \chi^{-2}(\nu_0, \sigma^2_0) \\
+p(y|\sigma^2) &= \int p(y|\beta,\sigma^2)p(\beta|\sigma^2)d\beta 
+\end{align}$$
+
+여기서 integral 안에 있는 것을 자세히 살펴보면 아래와 같다.
+$$\begin{align}
+p(y|\beta,\sigma^2)p(\beta|\sigma^2) &= \Big(\frac{1}{2\pi\sigma^2}\Big)^{n/2}exp(-\frac{1}{2}(y-X\beta)^T(y-X\beta)) \times \Big(\frac{1}{2\pi}\Big)^{p/2}|g\sigma^2(X^TX)^{-1}|^{-\frac{1}{2}}exp(-\frac{1}{2g\sigma^2}\beta^TX^TX\beta) \\ &\because \beta \sim N(\beta_0=0, \Sigma_0 = g\sigma^2(X^TX)^{-1}) \\
+\end{align}$$
+
+그러므로 다시 돌아와서 작성해보자면
+$$\begin{align}
+p(y|\sigma^2) &= \int p(y|\beta,\sigma^2)p(\beta|\sigma^2)d\beta \\
+&\propto \Big(\frac{1}{\sigma^2}\Big)^{n/2}|g\sigma^2(X^TX)^{-1}|^{-\frac{1}{2}}exp(-\frac{1}{2\sigma^2}y^Ty)\int exp(\frac{1}{\sigma^2}\beta^TX^Ty - \frac{1}{2\sigma^2}(1+\frac{1}{g})\beta^TX^TX\beta)d\beta
+\end{align}$$
+
+이중에서 맨 마지막에 위치한 `$(1+\frac{1}{g})\beta^TX^TX\beta$`를 자세히 보자.  
+여기서 `$m, V$`는 각각 `$\beta|y,\sigma^2$`(posterior)의 평균과 분산이라고 하자. 이를 활용하여 해당 부분을 조작해보면 아래와 같이 나온다.  
+$$\begin{align}
+(1+\frac{1}{g})\beta^TX^TX\beta &= \frac{g+1}{g} \times \Bigg((\beta-m)^TX^TX(\beta-m) + 2m^TX^TX\beta -m^TX^TXm  \Bigg) \\
+(1) \frac{g+1}{g}(\beta-m)^TX^TX(\beta-m) &= \sigma^2(\beta-m)^TV^{-1}(\beta-m)\\
+(2) \frac{g+1}{g}2m^TX^TX\beta &= 2\beta^TX^Ty \\
+(3) \frac{g+1}{g}m^TX^TXm &= \sigma^2m^TV^{-1}m \\
+\therefore (1+\frac{1}{g})\beta^TX^TX\beta &= \sigma^2(\beta-m)^TV^{-1}(\beta-m) + 2\beta^TX^Ty - \sigma^2m^TV^{-1}m
+\end{align}$$
+
+$$\begin{align}
+p(y|\sigma^2) &= \int p(y|\beta,\sigma^2)p(\beta|\sigma^2)d\beta \\
+&\propto \Big(\frac{1}{\sigma^2}\Big)^{n/2}|g\sigma^2(X^TX)^{-1}|^{-\frac{1}{2}}exp(-\frac{1}{2\sigma^2}y^Ty + \frac{1}{2}m^TV^{-1}m)\int exp\Big(-\frac{1}{2}(\beta-m)^TV^{-1}(\beta-m)\Big)d\beta \\
+&= \Big(\frac{1}{\sigma^2}\Big)^{n/2}|g\sigma^2(X^TX)^{-1}|^{-\frac{1}{2}} exp\big(-\frac{1}{2\sigma^2}(y^Ty - \sigma^2m^TV^{-1}m)\big) \ (2\pi)^{n/2}|\frac{g}{g+1}\sigma^2(X^TX)^{-1}|^{\frac{1}{2}} \\
+&\propto \Big(\frac{1}{\sigma^2}\Big)^{n/2}(1+g)^{-p/2}exp\big(-\frac{1}{2\sigma^2}SSR(g)\big) \\
+&\text{where } SSR(g) = y^Ty - \sigma^2m^TV^{-1}m = y^T\Big(I - \frac{g}{g+1}X(X^TX)^{-1}X^T\Big)y
+\end{align}$$
+
+여기서 위와 마찬가지로, g가 클수록 약한 prior를 뜻한다. 그렇기 때문에 g를 무한대로 보내게 되면, `$SSR(g) \rightarrow SSR(\hat{\beta}_{mle})$`
+
+$$\begin{align}
+p(\sigma^2|y) &\propto p(\sigma^2)p(y|\sigma^2) \\
+&\propto \Big(\frac{1}{\sigma^2}\Big)^{(\nu_0+n)/2+1}exp(-\frac{\nu_0\sigma^2_0 + SSR(g)}{2\sigma^2}) \\
+\therefore \sigma^2|y &\sim \chi^{-2}(\nu_0+n, \frac{\nu_0\sigma^2_0 + SSR(g)}{\nu_0+n})
+\end{align}$$
+
+Full-conjugate prior를 통해 구한 posterior를 정리하자면 아래와 같다.
+$$
+\sigma^2|y \sim \chi^{-2}(\nu_0+n, \frac{\nu_0\sigma^2_0 + SSR(g)}{\nu_0+n}) \\
+\beta|y,\sigma^2 \sim N(\frac{g}{g+1}\hat{\beta}_{mle},\frac{g}{g+1}Var(\hat{\beta}_{mle})) \\
+\text{where } Var(\hat{\beta}_{mle}) = \sigma^2(X^TX)^{-1}
+$$
+Gibbs sampling이 아닌, Monte Carlo Approximation을 통해서 효율적으로 joint posterior distribution을 구할 수 있다. 이 부분에서 semi-conjugate prior와 큰 차이가 있다고 할 수 있다.
 
 
 ### 3. Model Selection
