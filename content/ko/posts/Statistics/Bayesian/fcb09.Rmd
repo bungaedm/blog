@@ -165,7 +165,6 @@ Gibbs sampling이 아닌, Monte Carlo Approximation을 통해서 효율적으로
 
 
 ### 3. Model Selection
-
 <!--
 {{<expand "Code Example">}}
 ```{r}
