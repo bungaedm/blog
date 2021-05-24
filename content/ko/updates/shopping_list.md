@@ -14,6 +14,7 @@ weight: 1
 | 05.10 | Tarr 44 Olive Toltoise | 애쉬컴팩트 | 62,220원 | 무신사 | | 
 | 05.22 | 수아레 린넨 바지(카키&블랙) | 수아레 | 35,640원 | W컨셉 | | 
 | 05.24 | 반투명 글라스 화병 & 화이트 나시 | H&M | 4,220원 | H*M | | 
+| 05.24 | Boom 3D(Audio Equalizer for Windows) | Boom 3D | 4,220원 | Boom 3D | | 
 
 
 ## 2021년 4월
