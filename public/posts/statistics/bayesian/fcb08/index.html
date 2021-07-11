@@ -1114,7 +1114,7 @@
     "datePublished": "2021-01-31T10:08:56+09:00",
     "dateModified": "2021-01-31T10:08:56+09:00",
     "url" : "https://jiwooblog.netlify.app/posts/statistics/bayesian/fcb08/",
-    "description": "Chapter 08. Group Comparisons and Hierarchical Modeling\r본 포스팅은 First Course in Bayesian Statistical Methods를 참고하였다. 1. Exchangeability \u0026amp; De Finetti’s Theorem\r이부분에 대해서 …",
+    "description": "Chapter 08. Group Comparisons and Hierarchical Modeling 본 포스팅은 First Course in Bayesian Statistical Methods를 참고하였다. Hierarchical Model은 그룹 간 그리고 그룹 내 variability …",
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "https://jiwooblog.netlify.app/"
@@ -3673,67 +3673,284 @@
   
 
   <article class="single__contents" data-dir="ltr">
-    
-<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
-
-
-<div id="chapter-08.-group-comparisons-and-hierarchical-modeling" class="section level1">
-<h1>Chapter 08. <br> Group Comparisons and Hierarchical Modeling</h1>
+    <h1 id="chapter-08-br-group-comparisons-and-hierarchical-modeling">Chapter 08. <br> Group Comparisons and Hierarchical Modeling</h1>
 <p>본 포스팅은 <strong>First Course in Bayesian Statistical Methods</strong>를 참고하였다.</p>
-<div id="exchangeability-de-finettis-theorem" class="section level2">
-<h2>1. Exchangeability &amp; De Finetti’s Theorem</h2>
-<p>이부분에 대해서는 <a href="/posts/statistics/bayesian/fcb02/">Chapter2</a>에서 이미 다룬 적은 있다. 그래도 이번 챕터의 논리전개에 대해서 정당성을 부여해주기 때문에 한 번 더 복습해보도록 하겠다.</p>
-<p>우선 Exchangeability는 다음과 같이 쓸 수 있다.
-<span class="math display">\[p(y_1, ..., y_n) = p(y_{\pi_{1}}, ..., y_{\pi_{n}})\]</span>
-그리고 De Finetti’s Theorem은 exchangeability가 만족되면, Conditional Independence를 따른다는 것이었다. (참고로, 그 역은 자명하다.) 이때 조건으로는 small sample from large population이라고 한다. (자세한 것은 FCB를 읽어보자.)</p>
+<p><p class="md__image">
+  <img src="/images/posts/bayesian/hierarchical_model.png" alt=""  />
+</p></p>
+<p>Hierarchical Model은 그룹 간 그리고 그룹 내 variability를 설정하는 데에 유용하다.</p>
+<blockquote>
+<p>Hierarchical Model describes both with-in group and between-group variability.</p>
+</blockquote>
+<p>Hierarchical Model은 베이즈 통계가 다른 응용분야에 널리 퍼져 사용되는 결정적 계기가 되었다. 그리고 위의 그림을 통해서 알 수 있듯이, 층이 여러 개 이기 때문에 복잡한 상황에서도 Estimation을 할 수 있다는 장점이 있다.</p>
+<p>가장 큰 특징을 간단하게 요약해보자면, 여러 그룹끼리 서로 정보를 주고받는다는 점이다.</p>
+<h2 id="1-exchangeability--de-finettis-theorem">1. Exchangeability &amp; De Finetti&rsquo;s Theorem</h2>
+<p>이부분에 대해서는 <a href="/posts/statistics/bayesian/fcb02/">Chapter2</a>에서 이미 다룬 적은 있다. 그래도 이번 챕터의 논리전개에 대해서 정당성을 부여해주기 때문에 한 번 더 복습해보도록 하겠다. 우선 Exchangeability는 다음과 같이 쓸 수 있다.<br />
+<code>$$p(y_1, ..., y_n) = p(y_{\pi_{1}}, ..., y_{\pi_{n}})$$</code><br />
+그리고 De Finetti&rsquo;s Theorem은 exchangeability가 만족되면, Conditional Independence를 따른다는 것이었다. (참고로, 그 역은 자명하다.) 이때 조건으로는 small sample from large population이라고 한다. (자세한 것은 FCB를 읽어보자.)</p>
+<h2 id="2-hierarchical-beta-binomial">2. Hierarchical Beta-Binomial</h2>
+<h3 id="2-1-posterior-종류-정리">2-1. Posterior 종류 정리</h3>
+<h6 id="joint-posterior">Joint Posterior</h6>
+<p><code>$$\begin{align} p(\theta,\psi |y) &amp;\propto p(y|\theta, \psi) \ p(\theta, \psi) \\ &amp;= p(y|\theta) \ p(\theta, \psi) \\  &amp;= p(y|\theta) \ p(\theta| \psi) \ p(\psi) \end{align}$$</code></p>
+<h6 id="conditional-posterior">Conditional Posterior</h6>
+<p><code>$$\begin{align} p(\theta | \psi, y) &amp;\propto p(y, \psi|\theta) \ p(\theta) \\ &amp;= p(y|\theta,\psi) \ p(\psi|\theta) \ p(\theta) \\  &amp;= p(y|\theta) \ p(\theta, \psi) \\ &amp;= p(y|\theta) \ p(\theta| \psi) \ p(\psi) \end{align}$$</code></p>
+<p>Joint Posterior와 Conditional Posterior 각각의 마지막끼리 같다는 사실에 주목해보자.</p>
+<h6 id="marginal-posterior">Marginal Posterior</h6>
+<p><code>$$p(\psi|y) = \int_\Theta p(\theta, \psi | y)d\theta \\ p(\psi|y) = \frac{p(\theta,\psi|y)}{p(\theta|\psi, y)}$$</code><br />
+둘 중 편한 것으로 계산한다.</p>
+<h3 id="2-2-간단-정리">2-2. 간단 정리</h3>
+<p><code>$$p(\theta, \alpha, \beta|y) \propto p(\alpha,\beta) \ \prod_{j=1}^{m}\frac{\Gamma(\alpha+\beta)}{\Gamma(\alpha)\Gamma(\beta)}\theta_j^{\alpha-1}(1-\theta_j)^{\beta-1} \ \prod_{j=1}^{m}\theta_j^{y_j}(1-\theta_j)^{n_j-y_j}$$</code></p>
+<p>3층: hyperprior <code>$\psi$</code><br />
+2층: <code>$\theta_j|\psi \sim Beta(\alpha,\beta)$</code><br />
+1층: <code>$y_j|\theta_j \sim Binom(n_j, \theta_j)$</code></p>
+<h3 id="2-3-hyperprior는-어떻게-주어야-할까">2-3. hyperprior는 어떻게 주어야 할까?</h3>
+<p>결론부터 말하자면,<br />
+<code>$$p(\alpha, \beta) \propto (\alpha+\beta)^{-\frac{5}{2}}$$</code><br />
+이렇게 준다고 한다. 해당 수식에 대한 그래프는 아래와 같은데, 시각적으로 uninformative에 가깝다는 것을 알 수 있다.</p>
+<p><p class="md__image">
+  <img src="/images/posts/bayesian/hyperprior_graph.png" alt="hyperprior"  />
+</p></p>
+<p>이는 원래는 아래와 같은 형태였다.<br />
+<code>$$p\Big(log\frac{\alpha}{\beta}, (\alpha+\beta)^{-\frac{1}{2}}\Big) \propto 1$$</code><br />
+변수변환을 통해 유도하는 과정은 <a href="/posts/statistics/statistics/variable_transformation/">변수변환</a> 포스팅에 자세하게 설명되어 있다. 그래서 결론적으로 아래와 같이 쓸 수 있다.</p>
+<p><code>$$\rightarrow p(\theta, \alpha, \beta|y) \propto (\alpha+\beta)^{-\frac{5}{2}} \ \prod_{j=1}^{m}\frac{\Gamma(\alpha+\beta)}{\Gamma(\alpha)\Gamma(\beta)}\theta_j^{\alpha-1}(1-\theta_j)^{\beta-1} \ \prod_{j=1}^{m}\theta_j^{y_j}(1-\theta_j)^{n_j-y_j}$$</code></p>
+<h3 id="2-4-예시">2-4. 예시</h3>
+<p>FCB 책에 나온 종양 쥐(Rat Tumor) 예시를 살펴보자.<br />
+<p class="md__image">
+  <img src="/images/posts/bayesian/hierarchical_betabinomial2.jpg" alt=""  />
+</p></p>
+<h4 id="1-95-posterior-interval">1) 95% Posterior interval</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="c1">### Raw data</span>
+<span class="n">num_diseased</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">2</span><span class="p">,</span>
+                  <span class="m">2</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">5</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">5</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">7</span><span class="p">,</span><span class="m">7</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">9</span><span class="p">,</span><span class="m">10</span><span class="p">,</span><span class="m">4</span><span class="p">,</span><span class="m">4</span><span class="p">,</span><span class="m">4</span><span class="p">,</span><span class="m">4</span><span class="p">,</span><span class="m">4</span><span class="p">,</span><span class="m">4</span><span class="p">,</span><span class="m">4</span><span class="p">,</span><span class="m">10</span><span class="p">,</span><span class="m">4</span><span class="p">,</span><span class="m">4</span><span class="p">,</span><span class="m">4</span><span class="p">,</span><span class="m">5</span><span class="p">,</span><span class="m">11</span><span class="p">,</span><span class="m">12</span><span class="p">,</span>
+                  <span class="m">5</span><span class="p">,</span><span class="m">5</span><span class="p">,</span><span class="m">6</span><span class="p">,</span><span class="m">5</span><span class="p">,</span><span class="m">6</span><span class="p">,</span><span class="m">6</span><span class="p">,</span><span class="m">6</span><span class="p">,</span><span class="m">6</span><span class="p">,</span><span class="m">16</span><span class="p">,</span><span class="m">15</span><span class="p">,</span><span class="m">15</span><span class="p">,</span><span class="m">9</span><span class="p">,</span><span class="m">4</span><span class="p">)</span>
+<span class="n">num_of_obs</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">20</span><span class="p">,</span><span class="m">20</span><span class="p">,</span><span class="m">20</span><span class="p">,</span><span class="m">20</span><span class="p">,</span><span class="m">20</span><span class="p">,</span><span class="m">20</span><span class="p">,</span><span class="m">20</span><span class="p">,</span><span class="m">19</span><span class="p">,</span><span class="m">19</span><span class="p">,</span><span class="m">19</span><span class="p">,</span><span class="m">19</span><span class="p">,</span><span class="m">18</span><span class="p">,</span><span class="m">18</span><span class="p">,</span><span class="m">17</span><span class="p">,</span><span class="m">20</span><span class="p">,</span><span class="m">20</span><span class="p">,</span><span class="m">20</span><span class="p">,</span><span class="m">20</span><span class="p">,</span><span class="m">19</span><span class="p">,</span><span class="m">19</span><span class="p">,</span><span class="m">18</span><span class="p">,</span><span class="m">18</span><span class="p">,</span><span class="m">25</span><span class="p">,</span><span class="m">24</span><span class="p">,</span>
+                <span class="m">23</span><span class="p">,</span><span class="m">20</span><span class="p">,</span><span class="m">20</span><span class="p">,</span><span class="m">20</span><span class="p">,</span><span class="m">20</span><span class="p">,</span><span class="m">20</span><span class="p">,</span><span class="m">20</span><span class="p">,</span><span class="m">10</span><span class="p">,</span><span class="m">49</span><span class="p">,</span><span class="m">19</span><span class="p">,</span><span class="m">46</span><span class="p">,</span><span class="m">27</span><span class="p">,</span><span class="m">17</span><span class="p">,</span><span class="m">49</span><span class="p">,</span><span class="m">47</span><span class="p">,</span><span class="m">20</span><span class="p">,</span><span class="m">20</span><span class="p">,</span><span class="m">13</span><span class="p">,</span><span class="m">48</span><span class="p">,</span><span class="m">50</span><span class="p">,</span><span class="m">20</span><span class="p">,</span><span class="m">20</span><span class="p">,</span><span class="m">20</span><span class="p">,</span><span class="m">20</span><span class="p">,</span>
+                <span class="m">20</span><span class="p">,</span><span class="m">20</span><span class="p">,</span><span class="m">20</span><span class="p">,</span><span class="m">48</span><span class="p">,</span><span class="m">19</span><span class="p">,</span><span class="m">19</span><span class="p">,</span><span class="m">19</span><span class="p">,</span><span class="m">22</span><span class="p">,</span><span class="m">46</span><span class="p">,</span><span class="m">49</span><span class="p">,</span><span class="m">20</span><span class="p">,</span><span class="m">20</span><span class="p">,</span><span class="m">23</span><span class="p">,</span><span class="m">19</span><span class="p">,</span><span class="m">22</span><span class="p">,</span><span class="m">20</span><span class="p">,</span><span class="m">20</span><span class="p">,</span><span class="m">20</span><span class="p">,</span><span class="m">52</span><span class="p">,</span><span class="m">46</span><span class="p">,</span><span class="m">47</span><span class="p">,</span><span class="m">24</span><span class="p">,</span><span class="m">14</span><span class="p">)</span>
+
+<span class="c1">### Data frame</span>
+<span class="n">DF</span> <span class="o">&lt;-</span> <span class="nf">data.frame</span><span class="p">(</span><span class="nf">cbind</span><span class="p">(</span><span class="n">num_diseased</span><span class="p">,</span><span class="n">num_of_obs</span><span class="p">))</span>
+<span class="nf">colnames</span><span class="p">(</span><span class="n">DF</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;y&#34;</span><span class="p">,</span><span class="s">&#34;n&#34;</span><span class="p">)</span>
+<span class="n">DF</span><span class="o">$</span><span class="n">ybar</span> <span class="o">=</span> <span class="n">DF</span><span class="o">$</span><span class="n">y</span><span class="o">/</span><span class="n">DF</span><span class="o">$</span><span class="n">n</span>
+
+<span class="c1">### theta&#39;s uniform prior: beta(1,1)</span>
+<span class="n">DF</span><span class="o">$</span><span class="n">postmean</span> <span class="o">=</span> <span class="p">(</span><span class="n">DF</span><span class="o">$</span><span class="n">y</span> <span class="o">+</span> <span class="m">1</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">DF</span><span class="o">$</span><span class="n">n</span> <span class="o">+</span> <span class="m">1</span><span class="p">)</span>
+<span class="n">DF</span><span class="o">$</span><span class="n">lb</span> <span class="o">=</span> <span class="nf">mapply</span><span class="p">(</span><span class="nf">function</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span> <span class="nf">qbeta</span><span class="p">(</span><span class="m">0.025</span><span class="p">,</span> <span class="n">y</span> <span class="o">+</span> <span class="m">1</span><span class="p">,</span> <span class="n">n</span> <span class="o">-</span> <span class="n">y</span> <span class="o">+</span> <span class="m">1</span><span class="p">),</span> <span class="n">DF</span><span class="o">$</span><span class="n">y</span><span class="p">,</span> <span class="n">DF</span><span class="o">$</span><span class="n">n</span><span class="p">)</span>
+<span class="n">DF</span><span class="o">$</span><span class="n">ub</span> <span class="o">=</span> <span class="nf">mapply</span><span class="p">(</span><span class="nf">function</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span> <span class="nf">qbeta</span><span class="p">(</span><span class="m">1</span> <span class="o">-</span> <span class="m">0.025</span><span class="p">,</span> <span class="n">y</span> <span class="o">+</span> <span class="m">1</span><span class="p">,</span> <span class="n">n</span> <span class="o">-</span> <span class="n">y</span> <span class="o">+</span> <span class="m">1</span><span class="p">),</span> <span class="n">DF</span><span class="o">$</span><span class="n">y</span><span class="p">,</span> <span class="n">DF</span><span class="o">$</span><span class="n">n</span><span class="p">)</span>
+<span class="n">title1</span> <span class="o">=</span> <span class="nf">expression</span><span class="p">(</span><span class="nf">paste</span><span class="p">(</span><span class="s">&#34;95% Posterior interval, &#34;</span><span class="p">,</span> <span class="nf">beta</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">),</span> <span class="s">&#34; prior&#34;</span><span class="p">))</span>
+<span class="n">p1</span> <span class="o">=</span> <span class="nf">ggplot</span><span class="p">(</span><span class="n">DF</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">ybar</span><span class="p">,</span> <span class="n">ymin</span> <span class="o">=</span> <span class="n">lb</span><span class="p">,</span> <span class="n">ymax</span> <span class="o">=</span> <span class="n">ub</span><span class="p">))</span> <span class="o">+</span>
+    <span class="nf">geom_linerange</span><span class="p">()</span> <span class="o">+</span> <span class="nf">geom_point</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">y</span> <span class="o">=</span> <span class="n">postmean</span><span class="p">))</span> <span class="o">+</span>
+    <span class="nf">geom_abline</span><span class="p">(</span><span class="n">slope</span> <span class="o">=</span> <span class="m">1</span><span class="p">,</span> <span class="n">intercept</span> <span class="o">=</span> <span class="m">0</span><span class="p">)</span> <span class="o">+</span>
+    <span class="nf">labs</span><span class="p">(</span><span class="n">title</span> <span class="o">=</span> <span class="n">title1</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="s">&#34;observed mean&#34;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s">&#34;posterior mean&#34;</span><span class="p">)</span>
+<span class="n">p1</span>
+</code></pre></td></tr></table>
 </div>
-<div id="hierarchical-beta-binomial" class="section level2">
-<h2>2. Hierarchical Beta-Binomial</h2>
-<p>FCB 책에 나온 종양 쥐(Rat Tumor) 예시를 살펴보자.</p>
+</div><p><img src="/ko/posts/Statistics/Bayesian/fcb08_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<h4 id="2-marginal-distribution-of-alpha--beta">2) Marginal Distribution of alpha &amp; beta</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="c1">### Hierarchical model using theta&#39;s prior: beta(alpha,beta)</span>
+<span class="n">griddens</span> <span class="o">=</span> <span class="m">1e2</span>
+<span class="n">A</span> <span class="o">=</span> <span class="nf">seq</span><span class="p">(</span><span class="m">0.5</span><span class="p">,</span> <span class="m">6</span><span class="p">,</span> <span class="n">length.out</span> <span class="o">=</span> <span class="n">griddens</span><span class="p">)</span>
+<span class="n">B</span> <span class="o">=</span> <span class="nf">seq</span><span class="p">(</span><span class="m">3</span><span class="p">,</span> <span class="m">33</span><span class="p">,</span> <span class="n">length.out</span> <span class="o">=</span> <span class="n">griddens</span><span class="p">)</span>
+<span class="n">cA</span> <span class="o">=</span> <span class="nf">rep</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">each</span> <span class="o">=</span> <span class="nf">length</span><span class="p">(</span><span class="n">B</span><span class="p">))</span>
+<span class="n">cB</span> <span class="o">=</span> <span class="nf">rep</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="nf">length</span><span class="p">(</span><span class="n">A</span><span class="p">))</span>
+<span class="n">lpfun</span> <span class="o">=</span> <span class="nf">function</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">n</span><span class="p">){</span> <span class="c1"># marginal posterior</span>
+    <span class="p">(</span><span class="m">-5</span><span class="o">/</span><span class="m">2</span><span class="p">)</span><span class="o">*</span> <span class="nf">log</span><span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="p">)</span> <span class="o">+</span> <span class="nf">sum</span><span class="p">(</span><span class="nf">lgamma</span><span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="p">)</span> <span class="o">-</span> <span class="nf">lgamma</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">-</span> <span class="nf">lgamma</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="o">+</span> <span class="nf">lgamma</span><span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">y</span><span class="p">)</span> <span class="o">+</span> <span class="nf">lgamma</span><span class="p">(</span><span class="n">b</span><span class="o">+</span><span class="n">n</span><span class="o">-</span><span class="n">y</span><span class="p">)</span> <span class="o">-</span> <span class="nf">lgamma</span><span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="o">+</span><span class="n">n</span><span class="p">))}</span>
+<span class="n">lp</span> <span class="o">=</span> <span class="nf">mapply</span><span class="p">(</span><span class="n">lpfun</span><span class="p">,</span> <span class="n">cA</span><span class="p">,</span> <span class="n">cB</span><span class="p">,</span> <span class="n">MoreArgs</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span><span class="n">DF</span><span class="o">$</span><span class="n">y</span><span class="p">,</span> <span class="n">DF</span><span class="o">$</span><span class="n">n</span><span class="p">))</span>
+<span class="n">df_marg</span> <span class="o">=</span> <span class="nf">data.frame</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span> <span class="n">cA</span><span class="p">,</span> <span class="n">beta</span><span class="o">=</span> <span class="n">cB</span><span class="p">,</span> <span class="n">posterior</span> <span class="o">=</span> <span class="nf">exp</span><span class="p">(</span><span class="n">lp</span><span class="p">)</span><span class="o">/</span><span class="nf">sum</span><span class="p">(</span><span class="nf">exp</span><span class="p">(</span><span class="n">lp</span><span class="p">)))</span> <span class="c1"># posterior prob.합이 1이 되도록 조정</span>
+<span class="n">title2</span> <span class="o">=</span> <span class="nf">TeX</span><span class="p">(</span><span class="s">&#39;The marginal of $\\alpha$ and $\\beta$&#39;</span><span class="p">)</span>
+<span class="n">p2</span> <span class="o">=</span> <span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">df_marg</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">alpha</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">beta</span><span class="p">))</span><span class="o">+</span>
+    <span class="nf">geom_raster</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">fill</span> <span class="o">=</span> <span class="n">posterior</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span> <span class="n">posterior</span><span class="p">),</span> <span class="n">interpolate</span><span class="o">=</span> <span class="bp">T</span><span class="p">)</span><span class="o">+</span>
+    <span class="nf">geom_contour</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">z</span><span class="o">=</span> <span class="n">posterior</span><span class="p">),</span> <span class="n">color</span> <span class="o">=</span> <span class="s">&#39;black&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span> <span class="m">0.2</span><span class="p">)</span><span class="o">+</span>
+    <span class="nf">coord_cartesian</span><span class="p">(</span><span class="n">xlim</span><span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">5</span><span class="p">),</span> <span class="n">ylim</span><span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">4</span><span class="p">,</span><span class="m">26</span><span class="p">))</span><span class="o">+</span>
+    <span class="nf">labs</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="nf">TeX</span><span class="p">(</span><span class="s">&#39;$\\alpha$&#39;</span><span class="p">),</span> <span class="n">y</span><span class="o">=</span> <span class="nf">TeX</span><span class="p">(</span><span class="s">&#39;$\\beta$&#39;</span><span class="p">),</span> <span class="n">title</span><span class="o">=</span> <span class="n">title2</span><span class="p">)</span><span class="o">+</span>
+    <span class="nf">scale_fill_gradient</span><span class="p">(</span><span class="n">low</span><span class="o">=</span> <span class="s">&#34;cornflowerblue&#34;</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span> <span class="s">&#34;navy&#34;</span><span class="p">,</span> <span class="n">guide</span><span class="o">=</span> <span class="bp">F</span><span class="p">)</span><span class="o">+</span>
+    <span class="nf">scale_alpha</span><span class="p">(</span><span class="n">range</span><span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">1</span><span class="p">),</span> <span class="n">guide</span><span class="o">=</span><span class="bp">F</span><span class="p">)</span>
+<span class="n">p2</span>
+</code></pre></td></tr></table>
 </div>
-<div id="hierarchical-normal" class="section level2">
-<h2>3. Hierarchical Normal</h2>
-<p><span class="math display">\[\begin{forest}
-for tree={
-  edge={-&gt;,&gt;=latex},
-  parent anchor=south,
-  child anchor=north,
-  content format={\ensuremath{\forestoption{content}}},
-  }
-[{\mu,\sigma^{2}},name=level0
-  [\theta_{1},name=level1
-    [y_{1},name=level2]
-  ]
-  [\theta_{2}
-    [y_{2}]
-  ]
-  [\cdots,edge={draw=none}
-    [\cdots,edge={draw=none}]
-  ]
-  [\theta_{k}
-    [y_{k}]
-  ]
-]
-\foreach \Name/\Label in {level2/parameters,level1/observations,level0/model}
-  \node[anchor=east] at ([xshift=-30pt]\Name) {\Label};   
-\end{forest}
-\]</span></p>
-<div id="conclusion" class="section level3">
-<h3>Conclusion</h3>
-<p style="text-align: center">
-Prior의 Prior, HyperPrior를 활용하여 보다 설득력 있는 모델을 만들어보자!
-</p>
-<p><br></p>
+</div><p><img src="/ko/posts/Statistics/Bayesian/fcb08_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="n">title_alpha</span> <span class="o">&lt;-</span> <span class="nf">TeX</span><span class="p">(</span><span class="s">&#39;Marginal Posterior of $\\alpha$|y&#39;</span><span class="p">)</span>
+<span class="n">title_beta</span> <span class="o">&lt;-</span> <span class="nf">TeX</span><span class="p">(</span><span class="s">&#39;Marginal Posterior of $\\beta$|y&#39;</span><span class="p">)</span>
+
+<span class="n">marg_alpha</span> <span class="o">&lt;-</span> <span class="n">df_marg</span> <span class="o">%&gt;%</span>
+    <span class="nf">group_by</span><span class="p">(</span><span class="n">alpha</span><span class="p">)</span> <span class="o">%&gt;%</span> 
+    <span class="nf">summarise</span><span class="p">(</span><span class="n">marg</span> <span class="o">=</span> <span class="nf">sum</span><span class="p">(</span><span class="n">posterior</span><span class="p">))</span> <span class="o">%&gt;%</span> 
+    <span class="nf">ggplot</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">alpha</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="n">marg</span><span class="p">))</span> <span class="o">+</span> <span class="nf">geom_line</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="m">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">&#39;cornflowerblue&#39;</span><span class="p">)</span> <span class="o">+</span>
+    <span class="nf">labs</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="nf">TeX</span><span class="p">(</span><span class="s">&#39;$\\alpha$&#39;</span><span class="p">),</span> <span class="n">y</span><span class="o">=</span> <span class="nf">TeX</span><span class="p">(</span><span class="s">&#39;p($\\alpha$|y)&#39;</span><span class="p">),</span> <span class="n">title</span><span class="o">=</span><span class="n">title_alpha</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><pre><code>## `summarise()` ungrouping output (override with `.groups` argument)
+</code></pre><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="n">marg_beta</span> <span class="o">&lt;-</span> <span class="n">df_marg</span> <span class="o">%&gt;%</span>
+    <span class="nf">group_by</span><span class="p">(</span><span class="n">beta</span><span class="p">)</span> <span class="o">%&gt;%</span> 
+    <span class="nf">summarise</span><span class="p">(</span><span class="n">marg</span> <span class="o">=</span> <span class="nf">sum</span><span class="p">(</span><span class="n">posterior</span><span class="p">))</span> <span class="o">%&gt;%</span> 
+    <span class="nf">ggplot</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">beta</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="n">marg</span><span class="p">))</span> <span class="o">+</span> <span class="nf">geom_line</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="m">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">&#39;darkgreen&#39;</span><span class="p">)</span> <span class="o">+</span>
+    <span class="nf">labs</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="nf">TeX</span><span class="p">(</span><span class="s">&#39;$\\beta$&#39;</span><span class="p">),</span> <span class="n">y</span><span class="o">=</span> <span class="nf">TeX</span><span class="p">(</span><span class="s">&#39;p($\\beta$|y)&#39;</span><span class="p">),</span> <span class="n">title</span><span class="o">=</span><span class="n">title_beta</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><pre><code>## `summarise()` ungrouping output (override with `.groups` argument)
+</code></pre><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">grid.arrange</span><span class="p">(</span><span class="n">marg_alpha</span><span class="p">,</span> <span class="n">marg_beta</span><span class="p">,</span> <span class="n">ncol</span><span class="o">=</span><span class="m">2</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><img src="/ko/posts/Statistics/Bayesian/fcb08_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<h4 id="3-95-posterior-interval-uninformative-prioralpha-beta">3) 95% posterior interval, uninformative prior(<code>$\alpha, \beta$</code>)</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="c1"># Grid sampling to generate posterior samples of alpha, beta</span>
+<span class="c1"># (re)settings</span>
+<span class="n">DF</span> <span class="o">&lt;-</span> <span class="nf">data.frame</span><span class="p">(</span><span class="nf">cbind</span><span class="p">(</span><span class="n">num_diseased</span><span class="p">,</span><span class="n">num_of_obs</span><span class="p">))</span>
+<span class="nf">colnames</span><span class="p">(</span><span class="n">DF</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;y&#34;</span><span class="p">,</span><span class="s">&#34;n&#34;</span><span class="p">)</span>
+<span class="n">DF</span><span class="o">$</span><span class="n">ybar</span> <span class="o">=</span> <span class="n">DF</span><span class="o">$</span><span class="n">y</span><span class="o">/</span><span class="n">DF</span><span class="o">$</span><span class="n">n</span>
+<span class="n">DF</span><span class="o">$</span><span class="n">postmean</span> <span class="o">=</span> <span class="n">DF</span><span class="o">$</span><span class="n">ub</span> <span class="o">=</span> <span class="n">DF</span><span class="o">$</span><span class="n">lb</span> <span class="o">=</span> <span class="nf">rep</span><span class="p">(</span><span class="kc">NA</span><span class="p">,</span> <span class="nf">nrow</span><span class="p">(</span><span class="n">DF</span><span class="p">))</span>
+<span class="n">Nsamp</span> <span class="o">=</span> <span class="m">1e3</span>
+<span class="nf">set.seed</span><span class="p">(</span><span class="m">101</span><span class="p">)</span>
+
+<span class="c1"># sample alpha, beta</span>
+<span class="n">samp_idx</span> <span class="o">=</span> <span class="nf">sample</span><span class="p">(</span><span class="nf">length</span><span class="p">(</span><span class="n">df_marg</span><span class="o">$</span><span class="n">posterior</span><span class="p">),</span>
+                  <span class="n">size</span> <span class="o">=</span> <span class="n">Nsamp</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="bp">T</span><span class="p">,</span> <span class="n">prob</span> <span class="o">=</span> <span class="n">df_marg</span><span class="o">$</span><span class="n">posterior</span><span class="p">)</span>
+<span class="n">samp_A</span> <span class="o">=</span> <span class="n">cA[samp_idx]</span>
+<span class="n">samp_B</span> <span class="o">=</span> <span class="n">cB[samp_idx]</span>
+
+<span class="c1"># sample theta_j for each j</span>
+<span class="nf">for</span><span class="p">(</span><span class="n">i</span> <span class="n">in</span> <span class="m">1</span><span class="o">:</span><span class="nf">nrow</span><span class="p">(</span><span class="n">DF</span><span class="p">)){</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">DF</span><span class="o">$</span><span class="n">n[i]</span><span class="p">;</span> <span class="n">y</span> <span class="o">=</span> <span class="n">DF</span><span class="o">$</span><span class="n">y[i]</span>
+    <span class="n">theta_j</span> <span class="o">=</span> <span class="nf">mapply</span><span class="p">(</span><span class="nf">function</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="nf">rbeta</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="n">y</span><span class="o">+</span><span class="n">a</span><span class="p">,</span> <span class="n">n</span><span class="o">-</span><span class="n">y</span><span class="o">+</span><span class="n">b</span><span class="p">),</span>
+                     <span class="n">samp_A</span><span class="p">,</span> <span class="n">samp_B</span><span class="p">,</span> <span class="n">MoreArgs</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="n">n</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">))</span>
+    <span class="n">DF</span><span class="o">$</span><span class="n">lb[i]</span> <span class="o">=</span> <span class="nf">quantile</span><span class="p">(</span><span class="n">theta_j</span><span class="p">,</span> <span class="m">0.025</span><span class="p">)</span>
+    <span class="n">DF</span><span class="o">$</span><span class="n">ub[i]</span> <span class="o">=</span> <span class="nf">quantile</span><span class="p">(</span><span class="n">theta_j</span><span class="p">,</span> <span class="m">1-0.025</span><span class="p">)</span>
+    <span class="n">DF</span><span class="o">$</span><span class="n">postmean[i]</span> <span class="o">=</span> <span class="nf">mean</span><span class="p">(</span><span class="n">theta_j</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="c1"># 95% posterior interval</span>
+<span class="n">title3</span> <span class="o">=</span> <span class="nf">TeX</span><span class="p">(</span><span class="s">&#39;95% posterior interval, uninformative $\\alpha$, $\\beta$ prior&#39;</span><span class="p">)</span>
+<span class="n">p3</span> <span class="o">=</span> <span class="nf">ggplot</span><span class="p">(</span><span class="n">DF</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">ybar</span><span class="p">,</span> <span class="n">ymin</span><span class="o">=</span><span class="n">lb</span><span class="p">,</span> <span class="n">ymax</span><span class="o">=</span><span class="n">ub</span><span class="p">))</span><span class="o">+</span>
+    <span class="nf">geom_linerange</span><span class="p">()</span><span class="o">+</span><span class="nf">geom_point</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">postmean</span><span class="p">))</span><span class="o">+</span><span class="nf">geom_abline</span><span class="p">(</span><span class="n">slope</span> <span class="o">=</span> <span class="m">1</span><span class="p">,</span> <span class="n">intercept</span> <span class="o">=</span> <span class="m">0</span><span class="p">)</span><span class="o">+</span>
+    <span class="nf">labs</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="n">title3</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s">&#34;observed mean&#34;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s">&#34;posterior mean&#34;</span><span class="p">)</span>
+<span class="n">p3</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><img src="/ko/posts/Statistics/Bayesian/fcb08_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<h4 id="4-1과-3-비교해보기">4) 1과 3 비교해보기</h4>
+<p><img src="/ko/posts/Statistics/Bayesian/fcb08_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<h2 id="3-hierarchical-normal">3. Hierarchical Normal</h2>
+<h3 id="conclusion">Conclusion</h3>
+<p style='text-align: center'> Prior의 Prior, HyperPrior를 활용하여 보다 설득력 있는 모델을 만들어보자! </p> <br>
+<h6 id="reference">Reference</h6>
+<p>[1] FCB<br />
+[2] ESC 2021-1 Spring 세션</p>
 <hr />
+<br> 
+<p style='text-align: center; color:gray'> 혹시 궁금한 점이나 잘못된 내용이 있다면, 댓글로 알려주시면 적극 반영하도록 하겠습니다. </p>
 <br>
-<p style="text-align: center; color:gray">
-혹시 궁금한 점이나 잘못된 내용이 있다면, 댓글로 알려주시면 적극 반영하도록 하겠습니다.
-</p>
-<p><br>
-<br></p>
-</div>
-</div>
-</div>
+<br>
 
   </article>
 </div>
@@ -3770,7 +3987,39 @@ Prior의 Prior, HyperPrior를 활용하여 보다 설득력 있는 모델을 만
         <div class="toc">
   <h6 class="toc__label">목차</h6>
   <div class="toc__body">
-    
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-exchangeability--de-finettis-theorem">1. Exchangeability &amp; De Finetti&rsquo;s Theorem</a></li>
+    <li><a href="#2-hierarchical-beta-binomial">2. Hierarchical Beta-Binomial</a>
+      <ul>
+        <li><a href="#2-1-posterior-종류-정리">2-1. Posterior 종류 정리</a>
+          <ul>
+            <li></li>
+          </ul>
+        </li>
+        <li><a href="#2-2-간단-정리">2-2. 간단 정리</a></li>
+        <li><a href="#2-3-hyperprior는-어떻게-주어야-할까">2-3. hyperprior는 어떻게 주어야 할까?</a></li>
+        <li><a href="#2-4-예시">2-4. 예시</a>
+          <ul>
+            <li><a href="#1-95-posterior-interval">1) 95% Posterior interval</a></li>
+            <li><a href="#2-marginal-distribution-of-alpha--beta">2) Marginal Distribution of alpha &amp; beta</a></li>
+            <li><a href="#3-95-posterior-interval-uninformative-prioralpha-beta">3) 95% posterior interval, uninformative prior(<code>$\alpha, \beta$</code>)</a></li>
+            <li><a href="#4-1과-3-비교해보기">4) 1과 3 비교해보기</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#3-hierarchical-normal">3. Hierarchical Normal</a>
+      <ul>
+        <li><a href="#conclusion">Conclusion</a>
+          <ul>
+            <li></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
   </div>
 </div>
       

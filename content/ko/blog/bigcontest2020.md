@@ -1,7 +1,6 @@
 ---
 author: 손지우
 date: "2021-01-04"
-tags: null
 title: 빅콘테스트 NS Shop+ 홈쇼핑 실적 예측
 tags:
 - project

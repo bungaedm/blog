@@ -4080,7 +4080,7 @@ STEP4. repeat the procedure S times generating <code>$Z_i^TZ_i$</code><br />
 <p>STEP1. Full conditional distribution을 확보한다.</p>
 <ul>
 <li><code>$\boldsymbol{\mu}|\boldsymbol{y_1}, ..., \boldsymbol{y_n}, \Sigma \sim MVN(\boldsymbol{\mu_n}, \Lambda_n)$</code></li>
-<li><code>$\Sigma|\boldsymbol{y_1, ..., y_n} \sim \text{inv-}Wis(\nu_0+n, [S_0+S_\mu]^{-1})$</code></li>
+<li><code>$\Sigma|\boldsymbol{y_1, ..., y_n}, \boldsymbol{\mu} \sim \text{inv-}Wis(\nu_0+n, [S_0+S_\mu]^{-1})$</code></li>
 </ul>
 <p>STEP2. 차례대로 업데이트하면서 joint posterior distribution <code>$\boldsymbol{\mu},\Sigma|\boldsymbol{y_1}, ..., \boldsymbol{y_n}$</code>을 구한다.</p>
 <h4 id="4-1-na-imputation">4-1. NA imputation</h4>

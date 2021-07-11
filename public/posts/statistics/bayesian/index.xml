@@ -106,9 +106,10 @@ where $\frac{1}{\tau_n^{2}} = \frac{1}{\tau_0^{2}} + \frac{n}{\sigma^2}$ and $\m
         <pubDate>Sun, 31 Jan 2021 10:08:56 +0900</pubDate>
         
         <guid>https://jiwooblog.netlify.app/posts/statistics/bayesian/fcb08/</guid>
-        <description>Chapter 08. Group Comparisons and Hierarchical Modeling본 포스팅은 First Course in Bayesian Statistical Methods를 참고하였다.
-1. Exchangeability &amp;amp; De Finetti’s Theorem이부분에 대해서는 Chapter2에서 이미 다룬 적은 있다. 그래도 이번 챕터의 논리전개에 대해서 정당성을 부여해주기 때문에 한 번 더 복습해보도록 하겠다.
-우선 Exchangeability는 다음과 같이 쓸 수 있다.\[p(y_1, ..., y_n) = p(y_{\pi_{1}}, ..., y_{\pi_{n}})\]그리고 De Finetti’s Theorem은 exchangeability가 만족되면, Conditional Independence를 따른다는 것이었다. (참고로, 그 역은 자명하다.</description>
+        <description>Chapter 08. Group Comparisons and Hierarchical Modeling 본 포스팅은 First Course in Bayesian Statistical Methods를 참고하였다.
+Hierarchical Model은 그룹 간 그리고 그룹 내 variability를 설정하는 데에 유용하다.
+ Hierarchical Model describes both with-in group and between-group variability.
+ Hierarchical Model은 베이즈 통계가 다른 응용분야에 널리 퍼져 사용되는 결정적 계기가 되었다. 그리고 위의 그림을 통해서 알 수 있듯이, 층이 여러 개 이기 때문에 복잡한 상황에서도 Estimation을 할 수 있다는 장점이 있다.</description>
       </item>
       
       <item>
@@ -117,8 +118,10 @@ where $\frac{1}{\tau_n^{2}} = \frac{1}{\tau_0^{2}} + \frac{n}{\sigma^2}$ and $\m
         <pubDate>Thu, 04 Mar 2021 10:08:56 +0900</pubDate>
         
         <guid>https://jiwooblog.netlify.app/posts/statistics/bayesian/fcb09/</guid>
-        <description>Chapter 09. The Multivariate Normal Model 본 포스팅은 First Course in Bayesian Statistical Methods를 참고하였다.
-1. Linear Regression Model 2. Bayesian estimation for a regression model 3. Model Selection 1  library(tidyverse)     Code Example  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39  ## Data load  data = dget(&amp;#39;https://www2.</description>
+        <description>Chapter 09. Linear Regression본 포스팅은 First Course in Bayesian Statistical Methods를 참고하였다.
+1. Linear Regression ModelLinear Regression Model: a particular type of smoothly changing model for $p(y|\boldsymbol{x})$ that specifies that the conditional expectation $E[Y|\boldsymbol{x}]$ has a form that is linear in a set of parameters
+\[\int yp(y|\boldsymbol{x})dy = E[Y|\boldsymbol{x}] = \beta_1x_1 + \cdots + \beta_px_p = \boldsymbol{\beta}^T\boldsymbol{x}\]
+Normal Linear Regression Model: 기존 Linear Regression Model에 추가해서, 아래의 조건이 추가된 것\[\epsilon_1, .</description>
       </item>
       
       <item>

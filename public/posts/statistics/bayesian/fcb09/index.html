@@ -1114,7 +1114,7 @@
     "datePublished": "2021-03-04T10:08:56+09:00",
     "dateModified": "2021-03-04T10:08:56+09:00",
     "url" : "https://jiwooblog.netlify.app/posts/statistics/bayesian/fcb09/",
-    "description": "Chapter 09. The Multivariate Normal Model 본 포스팅은 First Course in Bayesian Statistical Methods를 참고하였다. 1. Linear Regression Model 2. Bayesian estimation for a regression …",
+    "description": "Chapter 09. Linear Regression\r본 포스팅은 First Course in Bayesian Statistical Methods를 참고하였다. 1. Linear Regression Model\rLinear Regression Model: a particular type of …",
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "https://jiwooblog.netlify.app/"
@@ -3673,20 +3673,149 @@
   
 
   <article class="single__contents" data-dir="ltr">
-    <h2 id="chapter-09-br-the-multivariate-normal-model">Chapter 09. <br> The Multivariate Normal Model</h2>
+    
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+
+
+<div id="chapter-09.-linear-regression" class="section level2">
+<h2>Chapter 09. <br> Linear Regression</h2>
 <p>본 포스팅은 <strong>First Course in Bayesian Statistical Methods</strong>를 참고하였다.</p>
-<h3 id="1-linear-regression-model">1. Linear Regression Model</h3>
-<h3 id="2-bayesian-estimation-for-a-regression-model">2. Bayesian estimation for a regression model</h3>
-<h3 id="3-model-selection">3. Model Selection</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">library</span><span class="p">(</span><span class="n">tidyverse</span><span class="p">)</span>
-</code></pre></td></tr></table>
+<div id="linear-regression-model" class="section level3">
+<h3>1. Linear Regression Model</h3>
+<p>Linear Regression Model: a particular type of smoothly changing model for <code>$p(y|\boldsymbol{x})$</code> that specifies that the conditional expectation <code>$E[Y|\boldsymbol{x}]$</code> has a form that is linear in a set of parameters</p>
+<p><span class="math display">\[\int yp(y|\boldsymbol{x})dy = E[Y|\boldsymbol{x}] = \beta_1x_1 + \cdots + \beta_px_p = \boldsymbol{\beta}^T\boldsymbol{x}\]</span></p>
+<p>Normal Linear Regression Model: 기존 Linear Regression Model에 추가해서, 아래의 조건이 추가된 것
+<span class="math display">\[\epsilon_1, ..., \epsilon_n \stackrel{i.i.d}\sim N(0,\sigma^2) \\
+Y_i = \boldsymbol{\beta}^T\boldsymbol{x}_i + \epsilon_i \\
+\boldsymbol{y|X,\beta},\sigma^2 \sim MVN(\boldsymbol{X\beta}, \sigma^2\boldsymbol{I})\]</span></p>
+<p><strong>1-1. <code>$\beta$</code> 추정(OLS)</strong>
+$$<span class="math display">\[\begin{align} \hat{\beta} &amp;\sim N(\beta, \sigma^2(X^TX)^{-1}) \\
+
+\\
+
+\arg \min_\beta \sum e_i^2 &amp;= \arg \min_\beta(Y-X\beta)^T(Y-X\beta)\\
+&amp;= \frac{d}{d\beta}(Y^TY -\beta^TX^TY-Y^TX\beta+\beta^TX^TX\beta) \\
+&amp;= -2Y^TX+2\beta^TX^TX \\
+&amp;\stackrel{let}= 0 \\
+\rightarrow X^TX\beta &amp;= X^TY\\
+\rightarrow \hat{\beta} &amp;= (X^TX)^{-1}X^TY \\
+
+\\
+
+E(\hat{\beta}) &amp;= E((X^TX)^{-1}X^TY) \\
+&amp;= (X^TX)^{-1}X^TE(Y) \\
+&amp;= (X^TX)^{-1}X^TX\beta \\
+&amp;= \beta \\
+
+Cov(\hat{\beta}) &amp;= Cov((X^TX)^{-1}X^TY) \\
+&amp;= (X^TX)^{-1}X^TCov(Y)\Big((X^TX)^{-1}X^T\Big)^T \\
+&amp;= \sigma^2 (X^TX)^{-1}X^TX(X^TX)^{-1} \\
+&amp;= \sigma^2 (X^TX)^{-1} \end{align}\]</span>$$</p>
+<p><strong>1-2. <code>$\sigma^2$</code> 추정(OLS)</strong>
+여기서 <code>$\sigma^2$</code>는 아래의 과정을 통해 추정된다.</p>
+<p><span class="math display">\[\hat{\sigma}^2_{ols} = \frac{SSR}{n-p} = \frac{\sum (y_i-X_i\hat{\beta}_{ols})^2}{n-p} \\
+\text{proof) }\frac{SSR}{\sigma^2} \sim \chi^2(n-p) \\
+E(SSR) = (n-p)\sigma^2 \\
+\therefore \hat{\sigma}^2_{ols} = \frac{SSR}{n-p}\]</span></p>
+<p>1-1)과 1-2)를 종합해서 해석해보자면, <code>$\hat{\beta}_{ols}$</code>의 분산은 <code>$\sigma^2 (X^TX)^{-1}$</code>에다가 <code>$\sigma^2$</code> 대신에 <code>$\hat{\sigma}^2_{ols}$</code>을 대입한 것의 대각원소로 추정하면 된다. 그리고 이것을 루트 취해주면, 각 베타원소들의 standard error를 알 수 있게 된다. 이를 통해서 각 계수의 유의성을 생각해볼 수 있다.</p>
+<p><strong>1-3. Conjugacy 복습</strong></p>
+<p><strong>1-3-1. Matching Trick</strong>
+<span class="math display">\[\begin{align} p(y|\mu,\Sigma) &amp;\propto exp(-\frac{1}{2}(y-\mu)^T\Sigma^{-1}(y-\mu)) \\
+&amp;\propto exp(-\frac{1}{2}y^T\Sigma^{-1}y + y^T\Sigma^{-1}\mu) \end{align}\]</span></p>
+<p><strong>1-3-2. Scaled Inverse Gamma distribution</strong>
+<span class="math display">\[\text{X~} \chi^{-2}(\nu, \tau^2) = \Gamma^{-1}(\nu/2, \nu\tau^2/2) \\
+\rightarrow f(x) = \frac{(\nu\tau^2/2)^{\nu/2}}{\Gamma(\nu/2)}\left(\frac{1}{x}\right)^{\nu/2+1}exp(-\frac{\nu\tau^2}{2x}) \]</span>
+<code>$\sigma^2 \sim \chi^2(\nu_0, \sigma^2_0)$</code>으로 prior를 주게 된다면, <code>$\nu_o$</code>는 prior size와 같은 의미를 갖고 <code>$\sigma^2_0$</code>는 prior variance로서의 의미를 갖는다.</p>
 </div>
-</div><div class="expand">
+<div id="bayesian-estimation-for-a-regression-model" class="section level3">
+<h3>2. Bayesian estimation for a regression model</h3>
+<div id="semi-conjugate-prior-independent-prior" class="section level4">
+<h4>2-1. Semi-conjugate prior (independent prior)</h4>
+<p>semi-conjugate: prior와 conditional posterior가 같은 분포<br />
+- <strong>Slopes <code>$\beta$</code></strong><br />
+likelihood: <code>$\boldsymbol{y|X,\beta},\sigma^2 \sim MVN(\boldsymbol{X\beta}, \sigma^2\boldsymbol{I})$</code><br />
+prior: <code>$\beta \sim N(\beta_0, \Sigma_0)$</code><br />
+posterior: <code>$\beta|y,X,\sigma^2 \sim N(\beta_n, \Sigma_0)$</code><br />
+where <code>$\beta_n = \Sigma_n(\Sigma_0^{-1}\beta_0 + X^Ty/\sigma^2), \Sigma_n = (\Sigma_0^{-1} + X^TX/\sigma^2)^{-1}$</code><br />
+(posterior 유도 증명)
+<span class="math display">\[\begin{align}
+p(\beta|y,\sigma^2) &amp;\propto p(y|\beta,\sigma^2)p(\beta) \\
+&amp;\propto exp(-\frac{1}{2\sigma^2}(y^Ty - 2\beta^TX^Ty + \beta^TX^TX\beta) - \frac{1}{2}(\beta^T\Sigma_0^{-1}\beta - 2\beta^T\Sigma_0^{-1}\beta_0)) \\
+&amp;\propto exp\Big(-\frac{1}{2}\beta^T(X^TX/\sigma^2 + \Sigma_0^{-1})\beta + \beta^T(X^Ty/\sigma^2 + \Sigma_0^{-1}\beta_0)\Big) \\
+\therefore \Sigma_n^{-1} &amp;= X^TX/\sigma^2 + \Sigma_0^{-1} \\
+\beta_n &amp;= \Sigma_n(X^Ty/\sigma^2 + \Sigma_0^{-1}\beta_0)
+\end{align}\]</span></p>
+<p><br />
+- <strong>Error Variance <code>$\sigma^2$</code></strong><br />
+likelihood: <code>$\boldsymbol{y|X,\beta},\sigma^2 \sim MVN(\boldsymbol{X\beta}, \sigma^2\boldsymbol{I})$</code><br />
+prior: <code>$\sigma^2 \sim \Gamma^{-1}(\frac{\nu_0}{2}, \frac{\nu_0\sigma^2_0}{2})$</code><br />
+posterior: <code>$\sigma^2|y,X,\beta \sim \Gamma^{-1}(\frac{\nu_n}{2}, \frac{\nu_n\sigma^2_n}{2})$</code><br />
+where <code>$\nu_n = \nu_0+n, \sigma^2_n = \frac{1}{\nu_n}(\nu_0\sigma^2_0 + SSR(\beta))$</code><br />
+(posterior 유도 증명)
+<span class="math display">\[\begin{align}
+p(\sigma^2|y, \beta) &amp;\propto p(\sigma^2)p(y|\beta,\sigma^2)\\
+&amp;\propto (\frac{1}{\sigma^2})^{\nu_0/2+1}exp(-\frac{\nu_0\sigma^2_0}{2\sigma^2})(\frac{1}{\sigma^2})^{n/2}exp(-\frac{SSR(\beta)}{2\sigma^2}) \\
+&amp;= (\frac{1}{\sigma^2})^{(\nu_0+n)/2+1}exp(-\frac{\nu_0\sigma^2_0+SSR(\beta)}{2\sigma^2}) \\
+\therefore \nu_n &amp;= \nu_0+n \\
+\sigma^2_n &amp;= (\nu_0\sigma^2_0+SSR(\beta))/\nu_n
+\end{align}\]</span></p>
+</div>
+<div id="full-conjugate-prior-dependent-prior" class="section level4">
+<h4>2-2. Full-conjugate prior (dependent prior)</h4>
+<p><span class="math display">\[\begin{align}
+p(\beta,\sigma^2|y) &amp;= p(\beta|\sigma^2,y) \ p(\sigma^2|y) \\
+&amp;\propto p(\beta|\sigma^2,y)p(\sigma^2)p(y|\sigma^2) \\
+\end{align}\]</span></p>
+<p>위에서 각각에 대한 분포는 아래와 같다.
+<span class="math display">\[\begin{align}
+\beta|y,\sigma^2 &amp;\sim N(\frac{g}{g+1}\hat{\beta}_{mle},\frac{g}{g+1}Var(\hat{\beta}_{mle})) \\
+\sigma^2 &amp;\sim \chi^{-2}(\nu_0, \sigma^2_0) \\
+p(y|\sigma^2) &amp;= \int p(y|\beta,\sigma^2)p(\beta|\sigma^2)d\beta 
+\end{align}\]</span></p>
+<p>여기서 integral 안에 있는 것을 자세히 살펴보면 아래와 같다.
+<span class="math display">\[\begin{align}
+p(y|\beta,\sigma^2)p(\beta|\sigma^2) &amp;= \Big(\frac{1}{2\pi\sigma^2}\Big)^{n/2}exp(-\frac{1}{2}(y-X\beta)^T(y-X\beta)) \times \Big(\frac{1}{2\pi}\Big)^{p/2}|g\sigma^2(X^TX)^{-1}|^{-\frac{1}{2}}exp(-\frac{1}{2g\sigma^2}\beta^TX^TX\beta) \\ &amp;\because \beta \sim N(\beta_0=0, \Sigma_0 = g\sigma^2(X^TX)^{-1}) \\
+\end{align}\]</span></p>
+<p>그러므로 다시 돌아와서 작성해보자면
+<span class="math display">\[\begin{align}
+p(y|\sigma^2) &amp;= \int p(y|\beta,\sigma^2)p(\beta|\sigma^2)d\beta \\
+&amp;\propto \Big(\frac{1}{\sigma^2}\Big)^{n/2}|g\sigma^2(X^TX)^{-1}|^{-\frac{1}{2}}exp(-\frac{1}{2\sigma^2}y^Ty)\int exp(\frac{1}{\sigma^2}\beta^TX^Ty - \frac{1}{2\sigma^2}(1+\frac{1}{g})\beta^TX^TX\beta)d\beta
+\end{align}\]</span></p>
+<p>이중에서 맨 마지막에 위치한 <code>$(1+\frac{1}{g})\beta^TX^TX\beta$</code>를 자세히 보자.<br />
+여기서 <code>$m, V$</code>는 각각 <code>$\beta|y,\sigma^2$</code>(posterior)의 평균과 분산이라고 하자. 이를 활용하여 해당 부분을 조작해보면 아래와 같이 나온다.<br />
+<span class="math display">\[\begin{align}
+(1+\frac{1}{g})\beta^TX^TX\beta &amp;= \frac{g+1}{g} \times \Bigg((\beta-m)^TX^TX(\beta-m) + 2m^TX^TX\beta -m^TX^TXm  \Bigg) \\
+(1) \frac{g+1}{g}(\beta-m)^TX^TX(\beta-m) &amp;= \sigma^2(\beta-m)^TV^{-1}(\beta-m)\\
+(2) \frac{g+1}{g}2m^TX^TX\beta &amp;= 2\beta^TX^Ty \\
+(3) \frac{g+1}{g}m^TX^TXm &amp;= \sigma^2m^TV^{-1}m \\
+\therefore (1+\frac{1}{g})\beta^TX^TX\beta &amp;= \sigma^2(\beta-m)^TV^{-1}(\beta-m) + 2\beta^TX^Ty - \sigma^2m^TV^{-1}m
+\end{align}\]</span></p>
+<p><span class="math display">\[\begin{align}
+p(y|\sigma^2) &amp;= \int p(y|\beta,\sigma^2)p(\beta|\sigma^2)d\beta \\
+&amp;\propto \Big(\frac{1}{\sigma^2}\Big)^{n/2}|g\sigma^2(X^TX)^{-1}|^{-\frac{1}{2}}exp(-\frac{1}{2\sigma^2}y^Ty + \frac{1}{2}m^TV^{-1}m)\int exp\Big(-\frac{1}{2}(\beta-m)^TV^{-1}(\beta-m)\Big)d\beta \\
+&amp;= \Big(\frac{1}{\sigma^2}\Big)^{n/2}|g\sigma^2(X^TX)^{-1}|^{-\frac{1}{2}} exp\big(-\frac{1}{2\sigma^2}(y^Ty - \sigma^2m^TV^{-1}m)\big) \ (2\pi)^{n/2}|\frac{g}{g+1}\sigma^2(X^TX)^{-1}|^{\frac{1}{2}} \\
+&amp;\propto \Big(\frac{1}{\sigma^2}\Big)^{n/2}(1+g)^{-p/2}exp\big(-\frac{1}{2\sigma^2}SSR(g)\big) \\
+&amp;\text{where } SSR(g) = y^Ty - \sigma^2m^TV^{-1}m = y^T\Big(I - \frac{g}{g+1}X(X^TX)^{-1}X^T\Big)y
+\end{align}\]</span></p>
+<p>여기서 위와 마찬가지로, g가 클수록 약한 prior를 뜻한다. 그렇기 때문에 g를 무한대로 보내게 되면, <code>$SSR(g) \rightarrow SSR(\hat{\beta}_{mle})$</code></p>
+<p><span class="math display">\[\begin{align}
+p(\sigma^2|y) &amp;\propto p(\sigma^2)p(y|\sigma^2) \\
+&amp;\propto \Big(\frac{1}{\sigma^2}\Big)^{(\nu_0+n)/2+1}exp(-\frac{\nu_0\sigma^2_0 + SSR(g)}{2\sigma^2}) \\
+\therefore \sigma^2|y &amp;\sim \chi^{-2}(\nu_0+n, \frac{\nu_0\sigma^2_0 + SSR(g)}{\nu_0+n})
+\end{align}\]</span></p>
+<p>Full-conjugate prior를 통해 구한 posterior를 정리하자면 아래와 같다.
+<span class="math display">\[
+\sigma^2|y \sim \chi^{-2}(\nu_0+n, \frac{\nu_0\sigma^2_0 + SSR(g)}{\nu_0+n}) \\
+\beta|y,\sigma^2 \sim N(\frac{g}{g+1}\hat{\beta}_{mle},\frac{g}{g+1}Var(\hat{\beta}_{mle})) \\
+\text{where } Var(\hat{\beta}_{mle}) = \sigma^2(X^TX)^{-1}
+\]</span>
+Gibbs sampling이 아닌, Monte Carlo Approximation을 통해서 효율적으로 joint posterior distribution을 구할 수 있다. 이 부분에서 semi-conjugate prior와 큰 차이가 있다고 할 수 있다.</p>
+</div>
+</div>
+<div id="model-selection" class="section level3">
+<h3>3. Model Selection</h3>
+<!--
+<div class="expand">
   <button type="button" class="expand__button" aria-label="Expand Button">
     <span class="expand-icon expand-icon__right">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M9.29 15.88L13.17 12 9.29 8.12c-.39-.39-.39-1.02 0-1.41.39-.39 1.02-.39 1.41 0l4.59 4.59c.39.39.39 1.02 0 1.41L10.7 17.3c-.39.39-1.02.39-1.41 0-.38-.39-.39-1.03 0-1.42z"/></svg>
@@ -3783,6 +3912,9 @@
 
   </div>
 </div>
+-->
+</div>
+</div>
 
   </article>
 </div>
@@ -3819,17 +3951,7 @@
         <div class="toc">
   <h6 class="toc__label">목차</h6>
   <div class="toc__body">
-    <nav id="TableOfContents">
-  <ul>
-    <li><a href="#chapter-09-br-the-multivariate-normal-model">Chapter 09. <br> The Multivariate Normal Model</a>
-      <ul>
-        <li><a href="#1-linear-regression-model">1. Linear Regression Model</a></li>
-        <li><a href="#2-bayesian-estimation-for-a-regression-model">2. Bayesian estimation for a regression model</a></li>
-        <li><a href="#3-model-selection">3. Model Selection</a></li>
-      </ul>
-    </li>
-  </ul>
-</nav>
+    
   </div>
 </div>
       

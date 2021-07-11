@@ -3689,19 +3689,44 @@ n이 충분히 크면, 표본평균의 분포는 평균이 <code>$\mu$</code>이
 <div id="mgf적률생성함수를-활용한-증명" class="section level1">
 <h1>MGF(적률생성함수)를 활용한 증명</h1>
 <p>우선, 정규분포의 mgf가 아래와 같다는 사실을 인지하고, mgf가 분포결정성을 갖는다는 것을 받아들이고 시작하자.</p>
-<p><span class="math display">\[X \sim N(\mu, \sigma^2) \\
+<p><strong>정규분포의 MGF</strong>
+<span class="math display">\[X \sim N(\mu, \sigma^2) \\
 \rightarrow M(t) = E[e^{tX}] = exp(\mu t + \frac{\sigma^2}{2}t^2) \]</span></p>
+<p><strong>정의</strong>
+<span class="math display">\[\text{Let } Z_i = \frac{X_i-\mu}{\sigma}, m(t) = mgf_{Z_1}(t) \\
+\text{and notice that } E(Z_i) = 0, Var(Z_i) = 1\]</span></p>
 <p><span class="math display">\[\text{Let } W = \frac{\bar{X}-\mu}{\sigma/\sqrt{n}} = \frac{\sum_{i=1}^{n} x_i - n\mu}{\sqrt{n}\sigma} \\
 \text{WTS: } M_W(t) = exp(\frac{t^2}{2}) \]</span></p>
-<p><span class="math display">\[\begin{align}
-M_W(t) &amp;= E[e^{tW}] \\
-&amp;= E\bigg[exp\Big(\frac{t}{\sqrt{n}\sigma}(\sum_{i=1}^{n} x_i - n\mu)\Big)\bigg]\\
-&amp;= E\bigg[exp(\frac{tX}{\sqrt{n}\sigma})\bigg]^n \times E\bigg[-exp(\frac{\mu\sqrt{n}}{\sigma}t)\bigg] \ (\because X_1, ..., X_n \sim i.i.d) \\
-&amp;= \bigg[M_X(\frac{t}{\sqrt{n}\sigma})\bigg]^n \times \bigg[-exp(\frac{\mu\sqrt{n}}{\sigma}t)\bigg] \\
-&amp;= \bigg[exp(\mu \frac{t}{\sqrt{n}\sigma} + \frac{\sigma^2}{2}\frac{t^2}{n\sigma^2}) \bigg]^n \times \bigg[-exp(\frac{\mu\sqrt{n}}{\sigma}t)\bigg] \\
-&amp;= exp\Big(\mu \frac{t\sqrt{n}}{\sigma} + \frac{t^2}{2}\Big) \times \bigg[-exp(\mu \frac{t\sqrt{n}}{\sigma})\bigg] \\
-&amp;= exp\Big(\frac{t^2}{2}\Big)
+<p><strong>증명</strong>
+<span class="math display">\[\begin{align}
+mgf_{\frac{\bar{X}-\mu}{\sigma/\sqrt{n}}}(t) &amp;= mgf_{\sqrt{n}\sqrt{\bar{Z}}}(t) \ (\because \bar{Z} = \frac{\sum X_i - n\mu}{n\sigma} = \frac{\bar{X}-\mu}{\sigma}) \\
+&amp;= E\Big[exp(t\sqrt{n}\bar{Z})\Big] \\
+&amp;= E\bigg[exp\Big(\frac{t}{\sqrt{n}}(Z_1 + \cdots = Z_n)\Big)\bigg] \\
+&amp;= \bigg(E[exp(\frac{t}{\sqrt{n}}Z_1)]\bigg)^n \ (\because iid) \\
+&amp;= \Big[m(\frac{t}{\sqrt{n}})\Big]^n
 \end{align}\]</span></p>
+<p><span class="math display">\[1) \ log(1+A) = A - \frac{1}{2}A^2 + \frac{1}{3}A^3 - \frac{1}{4}A^4 + \cdots \\
+2) \ m(0) = 1, m&#39;(0) = E(Z_1) = 0, m&#39;&#39;(0) = E(Z_1^2) = Var(Z_1) = 1\]</span></p>
+<p><span class="math display">\[\begin{align}
+\therefore log \ mgf_{\sqrt{n}\sqrt{\bar{Z}}} &amp;= n \cdot log \ m(\frac{t}{\sqrt{n}}) \\ 
+&amp;= n \cdot log (m(0)+ \frac{m&#39;(0)}{1!}\frac{t}{\sqrt{n}} + \frac{m&#39;&#39;(0)}{2!}\frac{t^2}{n} + o(\frac{1}{n})) \\
+&amp;= n \cdot log (1+\frac{t^2}{2n} + o(\frac{1}{n})) \\
+&amp;= n \cdot (\frac{t^2}{2n} + o(\frac{1}{n}) - \frac{1}{2}\Big(\frac{t^2}{2n} + o(\frac{1}{n})\Big)^2 + \cdots) \\
+&amp;= n \cdot \Big(\frac{t^2}{2n} + o(\frac{1}{n})\Big) \\
+&amp;= \frac{1}{2}t^2 + o(1) \\
+\therefore mgf_{\frac{\bar{X}-\mu}{\sigma/\sqrt{n}}}(t) &amp;\stackrel{n\rightarrow\infty}\rightarrow exp(\frac{1}{2}t^2)
+\end{align}\]</span></p>
+<!--
+$$\begin{align}
+M_W(t) &= E[e^{tW}] \\
+&= E\bigg[exp\Big(\frac{t}{\sqrt{n}\sigma}(\sum_{i=1}^{n} x_i - n\mu)\Big)\bigg]\\
+&= E\bigg[exp(\frac{tX}{\sqrt{n}\sigma})\bigg]^n \times E\bigg[-exp(\frac{\mu\sqrt{n}}{\sigma}t)\bigg] \ (\because X_1, ..., X_n \sim i.i.d) \\
+&= \bigg[M_X(\frac{t}{\sqrt{n}\sigma})\bigg]^n \times \bigg[-exp(\frac{\mu\sqrt{n}}{\sigma}t)\bigg] \\
+&= \bigg[exp(\mu \frac{t}{\sqrt{n}\sigma} + \frac{\sigma^2}{2}\frac{t^2}{n\sigma^2}) \bigg]^n \times \bigg[-exp(\frac{\mu\sqrt{n}}{\sigma}t)\bigg] \\
+&= exp\Big(\mu \frac{t\sqrt{n}}{\sigma} + \frac{t^2}{2}\Big) \times \bigg[-exp(\mu \frac{t\sqrt{n}}{\sigma})\bigg] \\
+&= exp\Big(\frac{t^2}{2}\Big)
+\end{align}$$
+-->
 </div>
 
   </article>

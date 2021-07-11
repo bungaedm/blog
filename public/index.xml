@@ -157,6 +157,15 @@ $$\rightarrow y&#39; = \frac{f&#39;(x)g(x) - f(x)g&#39;(x)}{g^2(x)}$$
       </item>
       
       <item>
+        <title>January 2021</title>
+        <link>https://jiwooblog.netlify.app/updates/diary/2021_01/</link>
+        <pubDate>Fri, 22 Jan 2021 00:08:29 +0900</pubDate>
+        
+        <guid>https://jiwooblog.netlify.app/updates/diary/2021_01/</guid>
+        <description>2021.1.30  또 다시 보니 11.18달러 과금으로 계속 증가하고 있어서 이것저것 최대한 삭제하고 계정도 해지했다. 90일 동안 또 다시 과금이 되는지 지속적으로 살펴봐야겠다. 그리고 해지한 메일 계정으로는 다시 계정 개설이 안된다길래 hanmail.net으로 수정한 후 삭제했다. 참고사이트는 두 곳을 참고했다. 참고사이트1, 참고사이트2 제발 다음에는 과금 안 되길&amp;hellip;AWS는 너무 어려운 것 같다. 나중에 AWS에 조금 더 관심이 생기면 참고사이트2의 다양한 포스트들을 참고해도 좋을 것 같다.  2021.1.15  다시 보니 10.68달러 과금으로 증가해있어서 얼른 RDS를 삭제했다.</description>
+      </item>
+      
+      <item>
         <title>To Do List</title>
         <link>https://jiwooblog.netlify.app/updates/todo_list/</link>
         <pubDate>Fri, 22 Jan 2021 00:08:29 +0900</pubDate>
@@ -179,7 +188,7 @@ $$\rightarrow y&#39; = \frac{f&#39;(x)g(x) - f(x)g&#39;(x)}{g^2(x)}$$
         <pubDate>Fri, 22 Jan 2021 00:08:29 +0900</pubDate>
         
         <guid>https://jiwooblog.netlify.app/updates/shopping_list/</guid>
-        <description>2021년 3월    주문날짜 제품명 브랜드 금액 쇼핑몰 링크     3.12 캉골 트로픽 헌팅캡 504 BEIGE (S사이즈) 캉골 39,647원 SSG닷컴 링크   3.19 인사일런스 구르카 팬츠 Indigo (S 사이즈) 인사일런스 63,000원 공홈 링크    2021년 2월    주문날짜 제품명 브랜드 금액 쇼핑몰     2.6 뉴발란스 327 오렌지 뉴발란스 114,000원 크림   2.23 캉골 트로픽 헌팅캡 504 BEIGE (M사이즈, 반품) 캉골 37,850원 인터파크   2.</description>
+        <description>2021년 6월    주문날짜 제품명 브랜드 금액 쇼핑몰 비고     06.13 스톤 팔찌 이자벨마랑 56,005원 미스터포터    06.15 플뢰르 드 패츌리(오드 퍼퓸) 40ml 자라 32,000원 자라    06.19 자자나스 반팔 L 자바나스 19,600원 자바나스 우주형 선물   06.28 생로랑 팔찌 YSL $117.6 ln-cc     2021년 5월    주문날짜 제품명 브랜드 금액 쇼핑몰 비고     05.</description>
       </item>
       
       <item>
@@ -373,15 +382,6 @@ Dacon 코드 공유 Factor Analysis Word Cloud_국내 Word Cloud_해외 Cluster 
       </item>
       
       <item>
-        <title>January 2021</title>
-        <link>https://jiwooblog.netlify.app/updates/diary/2021_01/</link>
-        <pubDate>Fri, 22 Jan 2021 00:08:29 +0900</pubDate>
-        
-        <guid>https://jiwooblog.netlify.app/updates/diary/2021_01/</guid>
-        <description>2021.1.30  또 다시 보니 11.18달러 과금으로 계속 증가하고 있어서 이것저것 최대한 삭제하고 계정도 해지했다. 90일 동안 또 다시 과금이 되는지 지속적으로 살펴봐야겠다. 그리고 해지한 메일 계정으로는 다시 계정 개설이 안된다길래 hanmail.net으로 수정한 후 삭제했다. 참고사이트는 두 곳을 참고했다. 참고사이트1, 참고사이트2 제발 다음에는 과금 안 되길&amp;hellip;AWS는 너무 어려운 것 같다. 나중에 AWS에 조금 더 관심이 생기면 참고사이트2의 다양한 포스트들을 참고해도 좋을 것 같다.  2021.1.15  다시 보니 10.68달러 과금으로 증가해있어서 얼른 RDS를 삭제했다.</description>
-      </item>
-      
-      <item>
         <title>SQL 기초 (SQLite)</title>
         <link>https://jiwooblog.netlify.app/posts/dataengineering/fc_part2_2/</link>
         <pubDate>Mon, 11 Jan 2021 10:09:56 +0900</pubDate>
@@ -552,7 +552,7 @@ $n^* = 1$일 때 : $\tilde{Y}|y \text{ ~ } Ber(\frac{a+y}{a+b+n})$</description>
         <pubDate>Thu, 01 Apr 2021 00:08:29 +0900</pubDate>
         
         <guid>https://jiwooblog.netlify.app/updates/diary/2021_04/</guid>
-        <description>2021.04.04  올해 4월 1일에 TexLive가 2021년 버전으로 업그레이드되면서 Rmarkdown으로 문서화 작업을 다시 구성하는데에 이틀 정도 애를 먹었다. 한번 까는 까는 데에만 한시간은 족히 걸렸는데, 정확히 무엇이 잘못된지를 몰라서 여러 번 반복했다. 결국 그거 자체는 설치를 잘 한 것이었다. 문제는 install.packages(&#39;tinytex&#39;), library(tinytex)를 안 했다는 것이다&amp;hellip; 내년에 또 업데이트가 된다면 미리미리 알아두고 있어야겠다&amp;hellip;  </description>
+        <description>2021.04.04  올해 4월 1일에 TexLive가 2021년 버전으로 업그레이드되면서 Rmarkdown으로 문서화 작업을 다시 구성하는데에 이틀 정도 애를 먹었다. 한번 까는 까는 데에만 한시간은 족히 걸렸는데, 정확히 무엇이 잘못된지를 몰라서 여러 번 반복했다. 결국 그거 자체는 설치를 잘 한 것이었다. 문제는 install.packages(&#39;tinytex&#39;), library(tinytex)를 안 했다는 것이다&amp;hellip; 내년에 또 업데이트가 된다면 미리미리 알아두고 있어야겠다&amp;hellip;  2012.04.09  졸업요건 확인을 마쳤다. 오전까지 &amp;lsquo;제2외국어이수여부&amp;rsquo;가 빈칸이어서 전화를 했는데, 그사이에 P로 되어있었다.  </description>
       </item>
       
       <item>
@@ -645,6 +645,15 @@ artist object 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 
       </item>
       
       <item>
+        <title>July 2021</title>
+        <link>https://jiwooblog.netlify.app/updates/diary/2021_07/</link>
+        <pubDate>Thu, 01 Jul 2021 00:08:29 +0900</pubDate>
+        
+        <guid>https://jiwooblog.netlify.app/updates/diary/2021_07/</guid>
+        <description>2021.07.03  연남동에서 내츄럴 와인을 처음으로 마셔보았다. (위치: 로제 드 미네)   RUE DE LA SOIF Rose Pet Nat: 자몽맛 와인    L&amp;rsquo;indolent: 당도 있는 화이트와인    2021.07.06  첫번째. 신촌 소담식당 / 클로리스  2021.07.10  두번째. 연희동 시오 / 떼뮤즐렛(페델리에 로제)  </description>
+      </item>
+      
+      <item>
         <title>MVN</title>
         <link>https://jiwooblog.netlify.app/posts/statistics/bayesian/fcb07/</link>
         <pubDate>Sun, 31 Jan 2021 10:08:56 +0900</pubDate>
@@ -671,9 +680,10 @@ artist object 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 
         <pubDate>Sun, 31 Jan 2021 10:08:56 +0900</pubDate>
         
         <guid>https://jiwooblog.netlify.app/posts/statistics/bayesian/fcb08/</guid>
-        <description>Chapter 08. Group Comparisons and Hierarchical Modeling본 포스팅은 First Course in Bayesian Statistical Methods를 참고하였다.
-1. Exchangeability &amp;amp; De Finetti’s Theorem이부분에 대해서는 Chapter2에서 이미 다룬 적은 있다. 그래도 이번 챕터의 논리전개에 대해서 정당성을 부여해주기 때문에 한 번 더 복습해보도록 하겠다.
-우선 Exchangeability는 다음과 같이 쓸 수 있다.\[p(y_1, ..., y_n) = p(y_{\pi_{1}}, ..., y_{\pi_{n}})\]그리고 De Finetti’s Theorem은 exchangeability가 만족되면, Conditional Independence를 따른다는 것이었다. (참고로, 그 역은 자명하다.</description>
+        <description>Chapter 08. Group Comparisons and Hierarchical Modeling 본 포스팅은 First Course in Bayesian Statistical Methods를 참고하였다.
+Hierarchical Model은 그룹 간 그리고 그룹 내 variability를 설정하는 데에 유용하다.
+ Hierarchical Model describes both with-in group and between-group variability.
+ Hierarchical Model은 베이즈 통계가 다른 응용분야에 널리 퍼져 사용되는 결정적 계기가 되었다. 그리고 위의 그림을 통해서 알 수 있듯이, 층이 여러 개 이기 때문에 복잡한 상황에서도 Estimation을 할 수 있다는 장점이 있다.</description>
       </item>
       
       <item>
@@ -692,8 +702,10 @@ artist object 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 
         <pubDate>Thu, 04 Mar 2021 10:08:56 +0900</pubDate>
         
         <guid>https://jiwooblog.netlify.app/posts/statistics/bayesian/fcb09/</guid>
-        <description>Chapter 09. The Multivariate Normal Model 본 포스팅은 First Course in Bayesian Statistical Methods를 참고하였다.
-1. Linear Regression Model 2. Bayesian estimation for a regression model 3. Model Selection 1  library(tidyverse)     Code Example  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39  ## Data load  data = dget(&amp;#39;https://www2.</description>
+        <description>Chapter 09. Linear Regression본 포스팅은 First Course in Bayesian Statistical Methods를 참고하였다.
+1. Linear Regression ModelLinear Regression Model: a particular type of smoothly changing model for $p(y|\boldsymbol{x})$ that specifies that the conditional expectation $E[Y|\boldsymbol{x}]$ has a form that is linear in a set of parameters
+\[\int yp(y|\boldsymbol{x})dy = E[Y|\boldsymbol{x}] = \beta_1x_1 + \cdots + \beta_px_p = \boldsymbol{\beta}^T\boldsymbol{x}\]
+Normal Linear Regression Model: 기존 Linear Regression Model에 추가해서, 아래의 조건이 추가된 것\[\epsilon_1, .</description>
       </item>
       
       <item>
