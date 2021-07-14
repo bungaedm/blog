@@ -15,6 +15,33 @@
     
       
       <item>
+        <title>Real Number</title>
+        <link>https://jiwooblog.netlify.app/posts/mathmaticalanalysis/2_real_number/</link>
+        <pubDate>Sun, 11 Jul 2021 10:08:56 +0900</pubDate>
+        
+        <guid>https://jiwooblog.netlify.app/posts/mathmaticalanalysis/2_real_number/</guid>
+        <description>실수 Real Number 내용 구성  Field Order  </description>
+      </item>
+      
+      <item>
+        <title>Tableau 꿀팁</title>
+        <link>https://jiwooblog.netlify.app/posts/tableau/tableau_tip/</link>
+        <pubDate>Sun, 11 Jul 2021 10:08:56 +0900</pubDate>
+        
+        <guid>https://jiwooblog.netlify.app/posts/tableau/tableau_tip/</guid>
+        <description>1. 추천 사이트  태블로 기초 기능 (네이버 블로그)  </description>
+      </item>
+      
+      <item>
+        <title>다중 측정값 활용</title>
+        <link>https://jiwooblog.netlify.app/posts/tableau/multiple_measure/</link>
+        <pubDate>Sun, 11 Jul 2021 10:08:56 +0900</pubDate>
+        
+        <guid>https://jiwooblog.netlify.app/posts/tableau/multiple_measure/</guid>
+        <description>다중 측정값 활용 Reference [1] 유튜브 PLANIT DATAV</description>
+      </item>
+      
+      <item>
         <title>생키 차트</title>
         <link>https://jiwooblog.netlify.app/posts/tableau/sankey_chart/</link>
         <pubDate>Tue, 30 Mar 2021 10:10:56 +0900</pubDate>
@@ -268,6 +295,16 @@ Gauss-Jordan Elimination  확장행렬을 기약행사다리꼴(RREF, reduced ro
         <description>NH투자증권 Y&amp;amp;Z세대 투자자 프로파일링 본 대회는 NH투자증권에서 주최한 대회로, 2020년 급격하게 늘어난 20~30대 투자자들에 대한 분석을 하고 이를 시각화하는 것이 주목적이었다.
 코드가 상당히 복잡한 관계로 Dacon에 코드공유한 링크와 이미지 일부를 올리는 것으로 포스팅을 대체하고자 한다.
 Dacon 코드 공유 Factor Analysis Word Cloud_국내 Word Cloud_해외 Cluster Polygon Cluster Characteristics Idea Table Idea Sample Domain Knowledge 1. 해외주식 소수점 거래  현재 신한금융투자, 한국투자증권에서 실현 중 의결권, 배당권을 빼고 소수점 거래 가능! (ex.</description>
+      </item>
+      
+      <item>
+        <title>LUP &amp; MSP</title>
+        <link>https://jiwooblog.netlify.app/posts/mathmaticalanalysis/3_lup_msp/</link>
+        <pubDate>Sun, 11 Jul 2021 10:08:56 +0900</pubDate>
+        
+        <guid>https://jiwooblog.netlify.app/posts/mathmaticalanalysis/3_lup_msp/</guid>
+        <description>LUP &amp;amp; MSP completeness에 대해서 알아보자
+내용 구성  LUP (Least Upper Bound Property) MSP (Monotone Sequence Property)  </description>
       </item>
       
       <item>
@@ -873,6 +910,15 @@ score function의 평균이 0이라는 것의 의미를 그래프를 likelihood 
         
         <guid>https://jiwooblog.netlify.app/posts/r/test/</guid>
         <description>.scroll-100 {max-height: 100px;overflow-y: auto;background-color: &#39;white&#39;;}pre {max-height: 300px;overflow-y: auto;background-color: &#39;white&#39;;}pre[class] {max-height: 100px;background-color: &#39;green&#39;;}# plotly```rlibrary(ggplot2)library(plotly)library(gapminder)1 2 3 4 5 6 7 8  p &amp;lt;- gapminder %&amp;gt;% filter(year==1977) %&amp;gt;% ggplot( aes(gdpPercap, lifeExp, size = pop, color=continent)) + geom_point() + scale_x_log10() + theme_bw() ggplotly(p)   {&#34;</description>
+      </item>
+      
+      <item>
+        <title>차를 맛보는 여인</title>
+        <link>https://jiwooblog.netlify.app/blog/210711_the_lady_tasting_tea/</link>
+        <pubDate>Sun, 04 Jul 2021 00:00:00 +0000</pubDate>
+        
+        <guid>https://jiwooblog.netlify.app/blog/210711_the_lady_tasting_tea/</guid>
+        <description>&lt;p&gt;[독후감] 차를 맛보는 여인&lt;/p&gt;</description>
       </item>
       
       <item>

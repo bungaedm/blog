@@ -15,6 +15,24 @@
     
       
       <item>
+        <title>Tableau 꿀팁</title>
+        <link>https://jiwooblog.netlify.app/posts/tableau/tableau_tip/</link>
+        <pubDate>Sun, 11 Jul 2021 10:08:56 +0900</pubDate>
+        
+        <guid>https://jiwooblog.netlify.app/posts/tableau/tableau_tip/</guid>
+        <description>1. 추천 사이트  태블로 기초 기능 (네이버 블로그)  </description>
+      </item>
+      
+      <item>
+        <title>다중 측정값 활용</title>
+        <link>https://jiwooblog.netlify.app/posts/tableau/multiple_measure/</link>
+        <pubDate>Sun, 11 Jul 2021 10:08:56 +0900</pubDate>
+        
+        <guid>https://jiwooblog.netlify.app/posts/tableau/multiple_measure/</guid>
+        <description>다중 측정값 활용 Reference [1] 유튜브 PLANIT DATAV</description>
+      </item>
+      
+      <item>
         <title>생키 차트</title>
         <link>https://jiwooblog.netlify.app/posts/tableau/sankey_chart/</link>
         <pubDate>Tue, 30 Mar 2021 10:10:56 +0900</pubDate>
