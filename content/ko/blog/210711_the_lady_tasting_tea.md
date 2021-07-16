@@ -20,3 +20,6 @@ tags:
 - CLT: Lindeberg-Levy
 - U-statistics: Hoeffding
 - Goodness of fit test, 가설검정: Pearson
+
+3. 베이즈 통계
+- '이후'의 조건으로 '이전'의 확률을 계산한다?!
