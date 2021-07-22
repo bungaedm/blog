@@ -12,7 +12,26 @@ weight: 1
 
 ## 1. Linear Equations
 ## 2. Best Approximation
+### 2-1. Overdetermined linear systems
+Orthogonality is a generalization of perpendicularity.
+The range of any linear operator is a subspace of the co-domain.
+### 2-2. Best approximation by a polynomial
 ## 3. Diagonalization
+## 4. Summary
+앞으로 나올 개념들 정리
+1. vector space
+2. field
+3. subspace
+4. spanning set
+5. basis
+6. linear operator
+7. kernel, range
+8. norm
+9. inner product
+10. orthogonal vectors
+11. projection
+12. coupled vs. decoupled systems
+13. eigenvalues and eigenvectors
 
 ### Conclusion
 <p style='text-align: center'> 기본 개념 정의 확실하게 알아두자. </p> 
