@@ -27,11 +27,12 @@ $$IR(Imbalance Ratio) = \frac{\text{# of Majority class}}{\text{# of Minority cl
 
 
 ### 2-3. Bayes Rule 
-$$\delta_B(x) = I{p(x) \be 1/2}$$
+$$\delta_B(x) = I\big( p(x) \geq 1/2 \big)$$
 
 ## 3. Quantile Classifier
-- Densitiy-based approach
-- q*-classifier
+### 3-1. q*-classifier
+이는 Density-based approach이다. 이는 크게 두 가지 장점이 있다. 첫번째는 TPR과 TNR을 최대화한다는 점이다. 두번째는 cost-weighted Bayes classifier과 같이 작동함으로써 weighted risk를 최소화해준다.
+
 - Response-based sampling 
 - q*-classifier is invariant to response-based sampling
 
