@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Linear Algebra on JW Blog</title>
+    <link>https://jiwooblog.netlify.app/posts/linearalgebra/</link>
+    <description>Recent content in Linear Algebra on JW Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ko</language>
+    <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
+    <lastBuildDate>Wed, 07 Jul 2021 10:08:56 +0900</lastBuildDate>
+    
+        <atom:link href="https://jiwooblog.netlify.app/posts/linearalgebra/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    
+      
+      <item>
+        <title>Chapter01</title>
+        <link>https://jiwooblog.netlify.app/posts/linearalgebra/chapter01/</link>
+        <pubDate>Wed, 07 Jul 2021 10:08:56 +0900</pubDate>
+        
+        <guid>https://jiwooblog.netlify.app/posts/linearalgebra/chapter01/</guid>
+        <description>Chapter 01. Some problems posed on vector spaces 본 포스팅은 Finite Dimensional Linear Algebra (Gokenbach)를 참고하였다.
+1. Linear Equations 2. Best Approximation 2-1. Overdetermined linear systems Orthogonality is a generalization of perpendicularity.
+The range of any linear operator is a subspace of the co-domain.
+2-2. Best approximation by a polynomial 3. Diagonalization 4. Summary 앞으로 나올 개념들 정리
+ vector space field subspace spanning set basis linear operator kernel, range norm inner product orthogonal vectors projection coupled vs.</description>
+      </item>
+      
+      <item>
+        <title>Chapter02</title>
+        <link>https://jiwooblog.netlify.app/posts/linearalgebra/chapter02/</link>
+        <pubDate>Sat, 10 Jul 2021 10:08:56 +0900</pubDate>
+        
+        <guid>https://jiwooblog.netlify.app/posts/linearalgebra/chapter02/</guid>
+        <description>Chapter 02. Fields and Vector Spaces 본 포스팅은 Finite Dimensional Linear Algebra (Gokenbach)를 참고하였다.
+Conclusion 해석학을 배울 필요가 있을지도? 혹시 궁금한 점이나 잘못된 내용이 있다면, 댓글로 알려주시면 적극 반영하도록 하겠습니다. </description>
+      </item>
+      
+    
+  </channel>
+</rss>

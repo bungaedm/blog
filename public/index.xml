@@ -42,6 +42,19 @@
       </item>
       
       <item>
+        <title>Chapter01</title>
+        <link>https://jiwooblog.netlify.app/posts/linearalgebra/chapter01/</link>
+        <pubDate>Wed, 07 Jul 2021 10:08:56 +0900</pubDate>
+        
+        <guid>https://jiwooblog.netlify.app/posts/linearalgebra/chapter01/</guid>
+        <description>Chapter 01. Some problems posed on vector spaces 본 포스팅은 Finite Dimensional Linear Algebra (Gokenbach)를 참고하였다.
+1. Linear Equations 2. Best Approximation 2-1. Overdetermined linear systems Orthogonality is a generalization of perpendicularity.
+The range of any linear operator is a subspace of the co-domain.
+2-2. Best approximation by a polynomial 3. Diagonalization 4. Summary 앞으로 나올 개념들 정리
+ vector space field subspace spanning set basis linear operator kernel, range norm inner product orthogonal vectors projection coupled vs.</description>
+      </item>
+      
+      <item>
         <title>생키 차트</title>
         <link>https://jiwooblog.netlify.app/posts/tableau/sankey_chart/</link>
         <pubDate>Tue, 30 Mar 2021 10:10:56 +0900</pubDate>
@@ -215,7 +228,7 @@ $$\rightarrow y&#39; = \frac{f&#39;(x)g(x) - f(x)g&#39;(x)}{g^2(x)}$$
         <pubDate>Fri, 22 Jan 2021 00:08:29 +0900</pubDate>
         
         <guid>https://jiwooblog.netlify.app/updates/shopping_list/</guid>
-        <description>2021년 6월    주문날짜 제품명 브랜드 금액 쇼핑몰 비고     06.13 스톤 팔찌 이자벨마랑 56,005원 미스터포터    06.15 플뢰르 드 패츌리(오드 퍼퓸) 40ml 자라 32,000원 자라    06.19 자자나스 반팔 L 자바나스 19,600원 자바나스 우주형 선물   06.28 생로랑 팔찌 YSL $117.6 ln-cc     2021년 5월    주문날짜 제품명 브랜드 금액 쇼핑몰 비고     05.</description>
+        <description>2021년 7월    주문날짜 제품명 브랜드 금액 쇼핑몰 비고     07.09 오픈카라셔츠 검정/옐로우 비슬로우 퍼플 64,000원 무신사    07.15 후드 플리츠 스웨트셔츠 자라 15,000원 자라 공홈     2021년 6월    주문날짜 제품명 브랜드 금액 쇼핑몰 비고     06.13 스톤 팔찌 이자벨마랑 56,005원 미스터포터    06.15 플뢰르 드 패츌리(오드 퍼퓸) 40ml 자라 32,000원 자라    06.</description>
       </item>
       
       <item>
@@ -305,6 +318,16 @@ Dacon 코드 공유 Factor Analysis Word Cloud_국내 Word Cloud_해외 Cluster 
         <guid>https://jiwooblog.netlify.app/posts/mathmaticalanalysis/3_lup_msp/</guid>
         <description>LUP &amp;amp; MSP completeness에 대해서 알아보자
 내용 구성  LUP (Least Upper Bound Property) MSP (Monotone Sequence Property)  </description>
+      </item>
+      
+      <item>
+        <title>Chapter02</title>
+        <link>https://jiwooblog.netlify.app/posts/linearalgebra/chapter02/</link>
+        <pubDate>Sat, 10 Jul 2021 10:08:56 +0900</pubDate>
+        
+        <guid>https://jiwooblog.netlify.app/posts/linearalgebra/chapter02/</guid>
+        <description>Chapter 02. Fields and Vector Spaces 본 포스팅은 Finite Dimensional Linear Algebra (Gokenbach)를 참고하였다.
+Conclusion 해석학을 배울 필요가 있을지도? 혹시 궁금한 점이나 잘못된 내용이 있다면, 댓글로 알려주시면 적극 반영하도록 하겠습니다. </description>
       </item>
       
       <item>
