@@ -3,9 +3,6 @@ author: 손지우
 date: "2021-10-03"
 tags: null
 title: A Random Forests Quantile Classifier for Class Imbalanced Data
-tags:
-- Statistics
-- Machine Learning
 ---
 
 O’Brien, R., & Ishwaran, H. (2019). A random forests quantile classifier for class imbalanced data. Pattern recognition, 90, 232-249.
@@ -49,37 +46,72 @@ $$IR = \frac{\text{# of Majority class}}{\text{# of Minority class}}$$
 
 ### 2-3. Bayes Decision Rule 
 $$\delta_B(x) = I\big( p(x) \geq 1/2 \big)$$
-참고로 여기서 `$p(x) = P(Y=1 | X=x)$`이다. 이는 IR이 커지면 문제가 된다. `$p(x)$`가 0에 가까우면 해당 classifier는 Majority 클래스로 예측하게 되는데, 일반적으로 다수의 원소가 속해있는 클래스로 예측하도록 `$p(x)$`가 0에 가깝게 되는 경우가 많기 때문이다.
+참고로 여기서 `$p(x) = P(Y=1 | X=x)$`이다. 이는 IR이 커지면 문제가 된다. `$p(x)$`가 0에 가까우면 해당 classifier는 Majority 클래스로 예측하게 되는데, 일반적으로 다수의 원소가 속해있는 클래스로 예측하도록 `$p(x)$`가 0에 가깝게 되는 경우가 많기 때문이다. 그리고 이때 Bayes error는 아래와 같이 0에 가깝게 나오므로 마치 완벽한 분류기처럼 착각될 수 있다.
+$$r(\delta_B) = E[\min\{p(X), 1-p(X)\}] = E[p(X)] \approx 0$$
 
 ## 3. Q*-Classifier
 ### 3-1. Quantile classifier
 $$\delta_q(x) = I\big( p(x) \geq q \big), \ 0<q<1$$
-quantile classifer가 무엇인지 이해하면, 해당 논문의 핵심 포인트인 q*-classifier을 이해할 수 있다. 이는 알고리즘적으로 데이터 불균형 문제를 해결하고자 하는 축에 속하며, Density-based approach라고 할 수 있다.
+quantile classifer가 무엇인지 이해하면, 해당 논문의 핵심 포인트인 q*-classifier을 이해할 수 있다.
 
 해당 방법론은 크게 두 가지 장점이 있다. 첫번째는 **TPR과 TNR을 최대화한다**는 점이다. 두번째는 cost-weighted Bayes classifier과 같이 작동함으로써 **weighted risk를 최소화**해준다.
 
-$$r(\delta, \ell_0, \ell_1) = E\Big[\ell_{0}1_{(\hat{\delta}(X)=1, Y=0)} + \ell_{1}1_{(\hat{\delta}(X)=0, Y=1)}\Big]$$
+$$r(\hat{\delta}, \ell_0, \ell_1) = E\Big[\ell_{0}1_{(\hat{\delta}(X)=1, Y=0)} + \ell_{1}1_{(\hat{\delta}(X)=0, Y=1)}\Big]$$
 
 여기서 `$\ell_0$`와 `$\ell_1$`은 각각 Majority 원소 또는 Minority 원소를 잘못 분류할 때의 cost이며, 모두 양수이다.
 
 cost-weighted risk의 관점에서 보면, 최적의 classifier는 cost-weighted Bayes rule을 활용하는 것인데, 이는 아래와 같이 나타낼 수 있다.
 $$\delta_{WB}(x) = 1_{\big(p(x) \geq \frac{\ell_0}{\ell_0 + \ell_1}\big)}$$
 
+### Theorem 1.
 이것이 최적인 이유는 모든 분류기에 대해서 `$r(\delta_{WB}, \ell_0, \ell_1) \leq r(\hat{\delta}, \ell_0, \ell_1)$`를 만족하며, 그 리스크가 아래를 만족하기 때문이다.
 $$r(\delta_{WB}, \ell_0, \ell_1) = E\Big[min\Big(\ell_1p(X), \ell_0(1-p(X))\Big)\Big]$$
+이에 대한 증명은 논문 Appendix1에 정리되어있으며, 추후 추가 서술하도록 하겠다.
 
-- Density-based approach
+### 3-2. q*-classifier
+$$\delta_D(x) = 1_{\big(\Delta_D(x) \geq 1\big)}
+\text{, where } \Delta_D(x) = \frac{f_{X|Y}(x|1)}{f_{X|Y}(x|0)} = \frac{p(x)(1-\pi)}{(1-p(x))\pi}$$
+
+여기서 `$\delta_{q*}(x) = I\big(p(x) \geq \pi \big) = \delta_D(x)$`를 `q*-classifier`라고 부른다. 이는 알고리즘적으로 데이터 불균형 문제를 해결하고자 하는 방법에 속하며, Density-based approach라고 할 수 있다. 왜냐하면 data density를 활용하여 클래스를 분류하기 때문이다.
+
+cf. Density-based approach
 $$\delta_D(x) = 1_{\big(f_{X|Y}(x|1) \geq f_{X|Y}(x|0)\big)}$$
-여기서 주목해야 할 점은 conditional density of the response 가 아니라 conditional density of the features(`$f_{X|Y}$`)를 활용했다는 점이다. 이로 인해 소수 클래스의 prevalance 효과를 제거할 수 있습니다.
+여기서 주목해야 할 점은 conditional density of the response (`$p(x)$`)가 아니라 conditional density of the features(`$f_{X|Y}$`)를 활용했다는 점이다. 이로 인해 소수 클래스의 prevalance 효과를 제거할 수 있다.
 
+
+### Theorem 2.
+q*-classifier는 `TNR+TPR optimal`이다. (이에 대한 자세한 내용은 아래에 나와있다.) 뿐만 아니라, cost-weighted Bayes rule을 사용하는데, `$\ell_0 = \pi$`이고, `$\ell_1=(1-\pi)$`이다. 그렇게 하면 marginal 그리고 conditional imbalanced 상태에서 `weighted risk가 모두 0에 가깝게 나온다`. 이를 수식으로 표현하면 아래와 같다. 우변에 있는 (`$\pi$`)는 marginally imbalanced한 상황에서도, conditionally imbalanced한 상황에서도 모두 0에 가까워야 한다는 사실을 알아두자.
+
+\begin{align}
+r(\delta_{q*}, \pi, 1-\pi) &= E[\min\{(1-\pi)p(X), \pi(1-p(X))\}] \\
+&\leq E[\pi(1-p(X))] \\ 
+&\leq \pi
+\end{align}
+
+다시 돌아와서, `TNR+TPR optimal에 대한 증명`은 아래와 같다. 참고로, FPR = 1-TNR, FNR = 1-TPR이므로, TNR와 TPR을 최대화하는 것은 FPR과 FNR을 최소화하는 것과 같다.
+
+\begin{align}
+FPR(\hat{\delta}) &+ FNR(\hat{\delta})\\
+&= P\{\hat{\delta}(X)=1|Y=0\} + P\{\hat{\delta}(X)=0|Y=1\} \\
+&= \frac{P\{\hat{\delta}(X)=1, Y=0\}}{P(Y=0)} + \frac{P\{\hat{\delta}(X)=0, Y=1\}}{P(Y=1)} \\
+&= E\Big[\frac{1\{\hat{\delta}(X)=1, Y=0\}}{\ell_1} + \frac{1\{\hat{\delta}(X)=0, Y=1\}}{\ell_0}\Big]
+\end{align}
+
+위에 `$\ell_0\ell_1$`을 곱해주면 아래의 식을 최소화해주는 것과 같다.
+$$E\Big[\ell_{0}1_{(\hat{\delta}(X)=1, Y=0)} + \ell_{1}1_{(\hat{\delta}(X)=0, Y=1)}\Big]$$
+그리고 이는 3-1.에서 보았듯이 weighted risk와 완전하게 같은 형태이다.
+
+특징: q*-classifier is invariant to response-based sampling
 - Response-based sampling
-- q*-classifier is invariant to response-based sampling
+def) where data values are selected with probability that depend only on the value of Y and not X.
+
 
 ## 4. Performance
 - G-mean
 - TNR+TPR optimal
 TNR(True Negative Rate)와 TPR(True Positive Rate)의 합을 최대화시켜주는 분류기를 `TNR+TPR optimal`이라고 부른다.
-
+$$TPR = \frac{TP}{TP+FN}, \ TNR = \frac{TN}{TN+FP}$$
+참고로 기본 Bayes Rule을 활용한 분류기는 TNR은 1에 가깝지만, TPR은 0에 가깝게 나온다는 한계가 있다.
 
 ## 5. Comparison to BRF
 - Why RFQ is better
