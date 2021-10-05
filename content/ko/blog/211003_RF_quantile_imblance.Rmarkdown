@@ -247,7 +247,7 @@ get.imbalanced.performance(o.rfq)
 
 -->
 
-## 8. Discussion -->
+## 8. Discussion
 high complexity, high imbalancedness, high dimensionality에서 RFQ가 효과적이었다.
 BRF가 아직 계산이 더 빠르기는 하지만 큰 차이는 아니다. 심지어 Theorem 4에 의해 subsampling을 한다면 computational load도 줄이면서 TNR+TPR optimal은 놓치지 않을 수 있다.
 

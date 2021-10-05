@@ -254,7 +254,7 @@ print(o.rfq)
 ##            Frequency of class labels: 148, 46
 ##                      Number of trees: 3000
 ##            Forest terminal node size: 1
-##        Average no. of terminal nodes: 27.18333
+##        Average no. of terminal nodes: 27.38267
 ## No. of variables tried at each split: 6
 ##               Total no. of variables: 32
 ##        Resampling used to grow trees: swor
@@ -264,19 +264,19 @@ print(o.rfq)
 ##                       Splitting rule: gini *random*
 ##        Number of random split points: 10
 ##                     Imbalanced ratio: 3.217391
-##                         (OOB) G-mean: 0.5243764
-##         (OOB) Normalized Brier score: 73.51027 
-##                            (OOB) AUC: 55.46416 
-##                     (OOB) Error rate: 0.4756236
+##                         (OOB) G-mean: 0.5280054
+##         (OOB) Normalized Brier score: 73.33872 
+##                            (OOB) AUC: 56.26469 
+##                     (OOB) Error rate: 0.4719946
 ## 
 ## Confusion matrix:
 ## 
 ##           predicted
 ##   observed  N  R class.error
-##          N 72 76      0.5135
+##          N 73 75      0.5068
 ##          R 20 26      0.4348
 ## 
-## 	Overall (OOB) error rate: 47.562359%
+## 	Overall (OOB) error rate: 47.199464%
 ```
 
 
@@ -289,38 +289,38 @@ plot(o.rfq, plots.one.page = FALSE)
 ```
 ## 
 ##                       Importance   Relative Imp
-## pnodes                    0.0223         0.6384
-## tsize                     0.0206         0.5883
-## worst_concavepoints       0.0174         0.4969
-## SE_radius                 0.0051         0.1449
-## mean_area                 0.0051         0.1449
-## SE_perimeter              0.0037         0.1045
-## mean_fractaldim           0.0037         0.1045
-## worst_symmetry            0.0000         0.0000
-## worst_concavity           0.0000         0.0000
+## worst_concavepoints       0.0420         1.0000
+## worst_fractaldim          0.0207         0.4931
+## mean_texture              0.0207         0.4931
+## pnodes                    0.0184         0.4381
+## tsize                     0.0147         0.3492
+## mean_compactness          0.0110         0.2610
+## worst_symmetry            0.0103         0.2441
+## worst_radius              0.0049         0.1164
+## mean_radius               0.0049         0.1164
+## worst_concavity           0.0036         0.0864
+## SE_texture                0.0036         0.0864
+## mean_area                 0.0036         0.0864
+## worst_perimeter           0.0011         0.0265
+## SE_area                   0.0011         0.0265
+## SE_perimeter              0.0011         0.0265
 ## mean_symmetry             0.0000         0.0000
-## mean_concavepoints        0.0000         0.0000
-## mean_texture              0.0000         0.0000
-## SE_area                  -0.0025        -0.0719
-## worst_area               -0.0045        -0.1276
-## SE_concavepoints         -0.0063        -0.1792
-## mean_compactness         -0.0063        -0.1792
-## SE_compactness           -0.0072        -0.2068
-## SE_fractaldim            -0.0100        -0.2857
-## SE_smoothness            -0.0100        -0.2857
-## mean_concavity           -0.0100        -0.2857
-## worst_texture            -0.0108        -0.3092
-## SE_symmetry              -0.0108        -0.3092
-## worst_perimeter          -0.0122        -0.3484
-## SE_texture               -0.0137        -0.3914
-## worst_compactness        -0.0160        -0.4576
-## mean_perimeter           -0.0160        -0.4576
-## mean_radius              -0.0160        -0.4576
-## worst_fractaldim         -0.0210        -0.6008
-## worst_smoothness         -0.0236        -0.6738
-## SE_concavity             -0.0282        -0.8073
-## mean_smoothness          -0.0294        -0.8415
-## worst_radius             -0.0350        -1.0000
+## SE_symmetry              -0.0036        -0.0858
+## SE_concavity             -0.0036        -0.0858
+## SE_radius                -0.0047        -0.1121
+## SE_concavepoints         -0.0064        -0.1514
+## SE_compactness           -0.0064        -0.1514
+## mean_smoothness          -0.0064        -0.1514
+## mean_concavity           -0.0072        -0.1710
+## worst_area               -0.0086        -0.2036
+## worst_compactness        -0.0101        -0.2394
+## mean_fractaldim          -0.0101        -0.2394
+## worst_texture            -0.0137        -0.3269
+## SE_fractaldim            -0.0137        -0.3269
+## worst_smoothness         -0.0162        -0.3848
+## mean_concavepoints       -0.0174        -0.4137
+## mean_perimeter           -0.0237        -0.5635
+## SE_smoothness            -0.0311        -0.7398
 ```
 
 ```r
@@ -329,11 +329,11 @@ get.imbalanced.performance(o.rfq)
 
 ```
 ##  n.majority  n.minority      iratio   threshold        sens        spec 
-## 148.0000000  46.0000000   3.2173913   0.2371134   0.5652174   0.4864865 
+## 148.0000000  46.0000000   3.2173913   0.2371134   0.5652174   0.4932432 
 ##        prec       brier         auc          F1    balanced pr.auc.rand 
-##   0.2549020   0.7351027   0.5546416   0.3513514   0.5258519   0.2371134 
+##   0.2574257   0.7333872   0.5626469   0.3537415   0.5292303   0.2371134 
 ##      pr.auc       gmean 
-##   0.3384274   0.5243764
+##   0.3299499   0.5280054
 ```
 <!--
 ## 8. Comparison to Boosting
@@ -341,7 +341,7 @@ get.imbalanced.performance(o.rfq)
 
 -->
 
-## 8. Discussion -->
+## 8. Discussion
 high complexity, high imbalancedness, high dimensionality에서 RFQ가 효과적이었다.
 BRF가 아직 계산이 더 빠르기는 하지만 큰 차이는 아니다. 심지어 Theorem 4에 의해 subsampling을 한다면 computational load도 줄이면서 TNR+TPR optimal은 놓치지 않을 수 있다.
 
