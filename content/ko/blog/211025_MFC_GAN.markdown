@@ -1,0 +1,15 @@
+---
+author: 손지우
+date: "2021-10-25"
+tags: null
+title: MFC_GAN / Class-imbalanced dataset classification using Multiple Fake Generative Adversarial Network
+---
+
+Ali-Gombe, A., & Elyan, E. (2019). MFC-GAN: class-imbalanced dataset classification using multiple fake class generative adversarial network. Neurocomputing, 361, 212-221.
+<!--more-->
+
+## In Short
+
+## 1. Introduction
+
+## 2.
