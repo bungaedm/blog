@@ -12,4 +12,55 @@ Ali-Gombe, A., & Elyan, E. (2019). MFC-GAN: class-imbalanced dataset classificat
 
 ## 1. Introduction
 
-## 2.
+## 2. Related Works
+
+## 3. Method
+augment training data (data-level approach)
+![Objective1](images/posts/paper/mfc_gan/objective1.jpg)
+![Objective2](images/posts/paper/mfc_gan/objective2.jpg)
+
+## 4. Experiments
+![Algorithm](images/posts/paper/mfc_gan/algorithm.jpg)
+
+### 4-1. Experimental set-up
+0) 라이브러리: `tensorflow 1.0`, `Keras 2.0`
+1) 비교모델: SMOTE, AC-GAN, FSC-GAN, 원데이터
+2) 공통 분류분석기: CNN
+3) 결과비교기준:
+  - 주관적: plausibility of sample(i.e., visual inspection)
+  - 객관적: 다양한 지표들을 통해 분류결과 성능 비교
+
+### 4-2. Dataset
+데이터: MNIST, E-MNIST, SVHN, CIFAR-10
+- 대부분 강제로 imbalanced data로 만들어주고나서 활용함(특정 클래스 임의로 선택 후 undersampling)
+- `MNIST`: 2개의 클래스를 임의로 골라 원데이터의 1%(50개)씩만 활용 (run마다 다른 클래스 선택)
+- `E-MNIST`: 총 81만 여개 샘플에서, 62개 클래스 중 21개의 클래스에 해당하는 샘플들이 각각 3000개 이하이다. 즉, 이미 imbalanced이다. 여기서 가장 적은 10개의 클래스를 활용하였다. (*G, K, Q, f, j, k, m, p, s, y*)
+- `SVHN`: MNIST처럼 2개의 클래스에서 50개씩만 사용하여 강제로 imbalanced를 만들어주었다. (*1*,*2*)
+- `CIFAR-10`: 10개 클래스 중 두 개의 클래스에서 1000개 중에서 50개씩만 활용하였다. 즉, 강제로 imbalanced를 만들어주었다. (*Aeroplane*, *Automobile*)
+
+## 4-3. Image Generation
+![Figure1](images/posts/paper/mfc_gan/figure1.jpg)
+
+### 4-4. Image Classification
+`CNN`을 공통 분류분석기로 활용하였다.
+- MNIST, E-MNIST, SVHN: 3 layers with softmax activation layer (2 convolution layers, 3x3 kernels with 2x2 max-pooling, two filter maps, fully connected layer), ReLuactivated, 0.5 dropout ratio, Adadelta optimizer
+- CIFAR-10: 3 convolution layers, 0.2 dropout ratio, SGD optimizer 
+
+## 5. Results
+![Figure2](images/posts/paper/mfc_gan/figure2.jpg)
+![Figure3](images/posts/paper/mfc_gan/figure3.jpg)
+![Figure4](images/posts/paper/mfc_gan/figure4.jpg)
+![Figure5](images/posts/paper/mfc_gan/figure5.jpg)
+
+1. 생성된 사진의 퀄리티가 우수함
+딱 보더라도 MFC-GAN이 훨씬 우수한 성능으로 이미지를 만들어냄을 눈으로 확인할 수 있다. 특히 (c)를 보면, unlabeled가 5만개였는데도 성능이 괜찮게 나왔다.
+
+2. 컴퓨팅 효율성
+또한, FSC-GAN은 500 epoch가 필요한 데에 비해, MFC-GAN은 50 epoch만을 필요로 했다. 즉, data augmentation에는 MFC-GAN이 보다 우수함을 알 수 있었다.
+
+3. 
+
+# ---
+
+## Critical Point (MY OWN OPINION)
+E-MINST, SVHN, CIFAR-10에서 다른 클래스가 minority class로서 선정이 되었다면 어떻게 결과가 달라졌을지 알 수가 없다. 선택된 클래스의 특성에 따른 결과가 아니라고 결론 지을 수가 없다는 한계점이 있다.
