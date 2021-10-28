@@ -16,8 +16,27 @@ Ali-Gombe, A., & Elyan, E. (2019). MFC-GAN: class-imbalanced dataset classificat
 
 ## 3. Method
 augment training data (data-level approach)
+
+### 3-1. Objective Function
 ![Objective1](images/posts/paper/mfc_gan/objective1.jpg)
+
+`$L_s$`: to estimate the sampling loss, which represents the probability of the sample being real or fake
+`$L_{cd}$`: to estimate the classification losses over the discriminator
+`$L_{cg}$`: to estimate the classification losses over the generator
+
+`$L_{cd}$` means that the discriminator classifies samples as real or fake with associated class
+`$L_{cs}$` means that the generator classifies fake samples as real classes
+
+generator: to maximize the difference of `$L_s$` and `$L_{cg}$`
+discriminator: to maximize the sum of `$L_s$` and `$L_{cd}$`
+
 ![Objective2](images/posts/paper/mfc_gan/objective2.jpg)
+label이 없는 경우에는 위와 같이 Vanilla GAN처럼 작동하게 된다. 하지만 본 연구에서는 크게 다뤄지지 않을 것이다.
+
+### 3-2. MFC-GAN vs. FSC-GAN
+MFC-GAN: generator is penalized according to how far the generated sample is from the **real class label**
+FSC-GAN: generator is penalized according to how far the generated sample is from the **fake class label**
+=> this promoted early convergence of MFC-GAN
 
 ## 4. Experiments
 ![Algorithm](images/posts/paper/mfc_gan/algorithm.jpg)
@@ -38,7 +57,7 @@ augment training data (data-level approach)
 - `SVHN`: MNIST처럼 2개의 클래스에서 50개씩만 사용하여 강제로 imbalanced를 만들어주었다. (*1*,*2*)
 - `CIFAR-10`: 10개 클래스 중 두 개의 클래스에서 1000개 중에서 50개씩만 활용하였다. 즉, 강제로 imbalanced를 만들어주었다. (*Aeroplane*, *Automobile*)
 
-## 4-3. Image Generation
+### 4-3. Image Generation
 ![Figure1](images/posts/paper/mfc_gan/figure1.jpg)
 
 ### 4-4. Image Classification
@@ -56,11 +75,26 @@ augment training data (data-level approach)
 딱 보더라도 MFC-GAN이 훨씬 우수한 성능으로 이미지를 만들어냄을 눈으로 확인할 수 있다. 특히 (c)를 보면, unlabeled가 5만개였는데도 성능이 괜찮게 나왔다.
 
 2. 컴퓨팅 효율성
-또한, FSC-GAN은 500 epoch가 필요한 데에 비해, MFC-GAN은 50 epoch만을 필요로 했다. 즉, data augmentation에는 MFC-GAN이 보다 우수함을 알 수 있었다.
+FSC-GAN은 500 epoch가 필요한 데에 비해, MFC-GAN은 50 epoch만을 필요로 했다. 즉, data augmentation에는 MFC-GAN이 보다 우수함을 알 수 있었다.
 
-3. 
+3. 객관적 성능지표에서도 우수함
+MFC-GAN에서 민감도, balanced accuracy, G-mean 모두 높게 나타났다. 이에 반해, FSC-GAN은 모든 경우에서 성능 향상으로 이어지지 않았다.
+특정 상황에서는 SMOTE가 더 우수한 듯 보이기는 했지만, 이는 단순히 소수 집단에 대해 샘플이 더 많기 때문일 거라고 추측된다. 왜냐하면 샘플 수가 적은 클래스에 대해서는 성능이 안 좋은 것이 확인되었기 때문이다.
+
+## 6. Discussion
+
+**The fidelity and diversity of MFC-GAN minority samples made classification easier for the CNN. The diversity of generated samples indicates no sign of mode collapse in the model.**
+
+한계점 1. CIFAR-10에서의 부족한 성능
+Table3에서 알 수 있듯이, CIFAR-10에서는 모든 모델들이 성능이 좋지 않게 나타났다. 이는 32x32라는 작은 이미지 사이즈에 비해 많은 정보량이 들어가있는 분류작업이기 때문이라고 보인다. (그래도 그중에서 그나마 MFC-GAN이 낫기는 했다.)
+
+한계점2. 특정 클래스에서의 부족한 성능
+특정 클래스에 대해서는 모든 모델들이 모두 성능이 안 좋게 나타났다. E-MNIST의 경우에는 **m**과 **s**가 이에 해당한다. 이는 s가 5, S, 2, z와 비슷하기 때문이라고 저자들은 보고 있다.
 
 # ---
 
 ## Critical Point (MY OWN OPINION)
-E-MINST, SVHN, CIFAR-10에서 다른 클래스가 minority class로서 선정이 되었다면 어떻게 결과가 달라졌을지 알 수가 없다. 선택된 클래스의 특성에 따른 결과가 아니라고 결론 지을 수가 없다는 한계점이 있다.
+
+1. E-MINST, SVHN, CIFAR-10에서 다른 클래스가 minority class로서 선정이 되었다면 어떻게 결과가 달라졌을지 알 수가 없다. 선택된 클래스의 특성에 따른 결과가 아니라고 결론 지을 수가 없다는 한계점이 있다.
+
+2. 기본 CNN 모형 말고 ResNet나 YOLO와 같이 다른 architecture를 사용했으면 어땠을까라는 생각이 있다.
