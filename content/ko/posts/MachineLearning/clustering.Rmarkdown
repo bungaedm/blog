@@ -8,6 +8,8 @@ weight: 3
 
 # Clusetring
 
+주어진 데이터의 특성을 고려해서 데이터 집단을 정의하고, 데이터 집단을 대표할 수 있는 대표점을 찾는 과정이다.
+
 ## 1. K-Means Clustering
 ![Kmeans](images/posts/machine_learning/kmeansClustering.gif)
 
@@ -64,9 +66,27 @@ Step 3. 나무의 뿌리가 만들어질 때까지 Step2를 계속한다. 또는
 {{<expand "장단점">}}
 장점 1. 클래스 수를 미리 결정하지 않으며, 오히려 원하는 클래스 개수에 따라 정할 수 있다.
 장점 2. 데이터의 계층적 구조를 잘 반영한다.
+장점 3. 불균형데이터에 대해 좋다(?, [5])
 단점 1. K-Means나 GMM에 비해 계산량이 크다.
 {{</expand>}}
 
-## 참고사이트
+## 6. Deep Clustering for Unsupervised Learning of Visual Features
+unsupervised learning 모델(k-means)에서 나오는 pseudo label(cluster index)를 pre-training모델에 fine-tuning을 시킨다.
+
+![DeepClustering](images/posts/machine_learning/deep_clustering.PNG)
+
+### 6-1. Main
+1. Conv Top layer를 이용해 클러스터링 알고리즘(K-Means)을 사용
+2. Pseudo Label를 생성해 Fine-Tuning
+
+### 6-2. Detail
+1. Sobel filter를 통해 edge 검출
+2. Feature map 차원 축소 (PCA)
+3. Pseudo Label를 생성할 때 균등 샘플링
+
+## 참고자료
 [1] https://zinniastop.blogspot.com/2019/10/5.html
 [2] https://astralworld58.tistory.com/58
+[3] https://www.youtube.com/watch?v=cCwzxVwfrgM
+[4] http://dsba.korea.ac.kr/seminar/?mod=document&uid=28
+[5] https://towardsdatascience.com/clustering-analyses-with-highly-imbalanced-datasets-27e486cd82a4
