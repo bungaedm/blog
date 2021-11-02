@@ -9,16 +9,12 @@ Ali-Gombe, A., & Elyan, E. (2019). MFC-GAN: class-imbalanced dataset classificat
 <!--more-->
 
 ## In Short
-Data Augmentation with Multiclass Fakes
+Data Geneation(Augmentation) with Multiclass Fakes
 
 ## 1. Introduction
 Since both minority and majority classes come from **the same distribution**, these classes share some common features.
 => Features learned from majority classes should aid in learning the minority classes.
 => Class conditioned generation will focus the model into sampling minority classes.
-
-### 1-1. More & Further
-- Few-Shot Classifier GAN (FSC-GAN)
-Ali-Gombe, A., Elyan, E., Savoye, Y., & Jayne, C. (2018, July). Few-shot classifier GAN. In 2018 International Joint Conference on Neural Networks (IJCNN) (pp. 1-8). IEEE.
 
 ## 2. Related Works
 
@@ -34,28 +30,39 @@ SMOTE와 같이 기존에 유명한 방식들은 극단적으로 불균형인 �
 ### 2-3. GAN의 발전
 minority class data를 생성하기 위해서 C-GAN(Conditional GAN)이 잠재적 해결방안이 될 수는 있지만, 완벽하지는 않다. 이처럼 vanilla GAN이나 AC-GAN들도 데이터가 불균형한 상태에서는 minority sample을 생성하는 데에 있어서 효과적이지 못했다. DCGAN이나 MelanoGAN은 효과적이기는 했으나, multiclass가 아닌 binary case에서였다.
 
-결론적으로, 기존에 제시된 방법들은 크게 불균형한 상황에서는 데이터 생성에 효과적이지 못했다. 즉, 충분히 다양한 데이터를 만들어내지 못했다(not enough data variance). 이에 반해 `MFC-GAN`은 보다 간단한 방법으로 특정 클래스에 해당하는 데이터 샘플을 생성할 수 있다.
+{{< alert theme="danger" dir="ltr" >}}
+결론적으로, 기존에 제시된 방법들은 크게 불균형한 상황에서는 데이터 생성에 효과적이지 못했다. 즉, 충분히 다양한 데이터를 만들어내지 못했다(not enough data variance). 이에 반해 **MFC-GAN**은 보다 간단한 방법으로 **특정 클래스에 해당하는 데이터 샘플을 생성할 수 있다.**
+{{</ alert >}}
 
 ## 3. Method
 GAN은 기본적으로 두 가지 종류의 학습데이터를 사용한다. 하나는 기존의 학습데이터에 있는 원본데이터이고, 나머지 하나는 Generator가 생성한 샘플들(fake)이다.
 
-10개의 클래스가 있다고 했을 때, 원래는 one-hot encoding 방식으로 1000000000로 표시했다. 하지만 여기서는 fake image에 대한 label도 따로 신경써주어야 한다. 그렇기 때문에 real image는 10000000000000000000로 표시하고, 이에 해당하는 fake image의 label은 00000000001000000000로 표시한다.
+10개의 클래스가 있다고 했을 때, 원래는 one-hot encoding 방식으로 1000000000로 표시했다. **하지만 여기서는 fake image에 대한 label도 따로 신경써준다.** 그렇기 때문에 real image는 10000000000000000000로 표시하고, 이에 해당하는 fake image의 label은 00000000001000000000로 표시한다.
 
 ### 3-1. Objective Function
 ![Objective1](images/posts/paper/mfc_gan/objective1.jpg)
 
-`$L_s$`: to estimate the sampling loss, which represents the probability of the sample being real or fake
-`$L_{cd}$`: to estimate the classification losses over the discriminator
-`$L_{cg}$`: to estimate the classification losses over the generator
+`$L_s$`: to estimate the **sampling loss**, which represents the probability of the sample being real or fake
+`$L_{cd}$`: to estimate the **classification loss** over the discriminator
+`$L_{cg}$`: to estimate the **classification loss** over the generator
 
 `$L_{cd}$` means that the discriminator classifies samples as real or fake with associated class
-`$L_{cs}$` means that the generator classifies fake samples as real classes
+`$L_{cg}$` means that the generator classifies fake samples as real classes
 
-generator: to maximize the difference of `$L_s$` and `$L_{cg}$`
-discriminator: to maximize the sum of `$L_s$` and `$L_{cd}$`
+generator: to maximize the **difference** of `$L_s$` and `$L_{cg}$`
+discriminator: to maximize the **sum** of `$L_s$` and `$L_{cd}$`
+
+MFC-GAN generator is sampled using **a noise vector conditioned on real class labels**
 
 ![Objective2](images/posts/paper/mfc_gan/objective2.jpg)
-label이 없는 경우에는 위와 같이 Vanilla GAN처럼 작동하게 된다. 하지만 본 연구에서는 크게 다뤄지지 않을 것이다.
+
+label이 없는 경우에는 위와 같이 Vanilla GAN처럼 작동하게 된다.
+
+{{< alert theme="danger" dir="ltr" >}}
+**[핵심 POINT]**
+본 논문의 핵심은 discriminator이다. 가령, AC-GAN의 discriminator는 `$L_{cd}$`가 아니라 `$L_{cg}$`와 `$L_s$`의 합을 최대화하는 것이 목표이다.
+{{< /alert >}}
+
 
 ### 3-2. MFC-GAN vs. FSC-GAN
 MFC-GAN: generator is penalized according to how far the generated sample is from the **real class label**
@@ -81,8 +88,13 @@ FSC-GAN: generator is penalized according to how far the generated sample is fro
 - `SVHN`: MNIST처럼 2개의 클래스에서 50개씩만 사용하여 강제로 imbalanced를 만들어주었다. (*1*,*2*)
 - `CIFAR-10`: 10개 클래스 중 두 개의 클래스에서 1000개 중에서 50개씩만 활용하였다. 즉, 강제로 imbalanced를 만들어주었다. (*Aeroplane*, *Automobile*)
 
+MNIST와 E-MNIST의 경우에는 FSC-GAN의 구조를 차용하였고, SVHN과 CIFAR-10에서는 AC-GAN의 구조를 사용하였다. 그리고, AC-GAN, FSC-GAN, MFC-GAN 모두의 경우에 공정한 비교를 위해 spectral weight normalization을 생성기와 분류기 모두에 추가해주었다. 
+
 ### 4-3. Image Generation
 ![Figure1](images/posts/paper/mfc_gan/figure1.jpg)
+
+- network switcher의 의미
+Depending on the availability of labels, the network switcher feature enables both models to alternate between two training modes. The switcher is a piece-wise function that oscillates between supervised and unsupervised training.
 
 ### 4-4. Image Classification
 `CNN`을 공통 분류분석기로 활용하였다.
@@ -121,3 +133,16 @@ Table3에서 알 수 있듯이, CIFAR-10에서는 모든 모델들이 성능이 
 1. E-MINST, SVHN, CIFAR-10에서 다른 클래스가 minority class로서 선정이 되었다면 어떻게 결과가 달라졌을지 알 수가 없다. 선택된 클래스의 특성에 따른 결과가 아니라고 결론 지을 수가 없다는 한계점이 있다.
 
 2. 기본 CNN 모형 말고 ResNet나 YOLO와 같이 다른 architecture를 사용했으면 어땠을까라는 생각이 있다.
+
+# ---
+
+## 참고사이트
+[1] [Spectral Normalization(1)](https://keunwoochoi.blogspot.com/2018/01/spectral-normalization-for-generative.html)
+[2] [Spectral Normalization(2)](https://jonathan-hui.medium.com/gan-spectral-normalization-893b6a4e8f53)
+
+## Further Study Needed
+- [1] Few-Shot Classifier GAN (FSC-GAN)
+Ali-Gombe, A., Elyan, E., Savoye, Y., & Jayne, C. (2018, July). Few-shot classifier GAN. In 2018 International Joint Conference on Neural Networks (IJCNN) (pp. 1-8). IEEE.
+- [2] Advanced GANs
+[사이트1](https://ratsgo.github.io/generative%20model/2018/01/30/genmodels/)
+[사이트2](https://ratsgo.github.io/generative%20model/2017/12/21/gans/)
