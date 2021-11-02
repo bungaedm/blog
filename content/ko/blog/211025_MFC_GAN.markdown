@@ -9,13 +9,37 @@ Ali-Gombe, A., & Elyan, E. (2019). MFC-GAN: class-imbalanced dataset classificat
 <!--more-->
 
 ## In Short
+Data Augmentation with Multiclass Fakes
 
 ## 1. Introduction
+Since both minority and majority classes come from **the same distribution**, these classes share some common features.
+=> Features learned from majority classes should aid in learning the minority classes.
+=> Class conditioned generation will focus the model into sampling minority classes.
+
+### 1-1. More & Further
+- Few-Shot Classifier GAN (FSC-GAN)
+Ali-Gombe, A., Elyan, E., Savoye, Y., & Jayne, C. (2018, July). Few-shot classifier GAN. In 2018 International Joint Conference on Neural Networks (IJCNN) (pp. 1-8). IEEE.
 
 ## 2. Related Works
 
+### 2-1. Mutliclass에 대한 관심 부족
+binary classification에 대해서는 연구가 많이 이루어졌지만, 이에 비해 multiclass classification에는 상대적으로 관심이 적었다. 그럼에도 이와 관련된 선행연구들이 있긴 한데, 예를 들어서 multi-class decomposition, Class Rectification Loss(CRL), mean squared false error 등이 있다.
+- CRL: it performs hard mining of the minority class is each each batch forcing the model to create a boundary for each minority class with a hard positive and negative threshold.
+- LMLE(Large Margin Local Embedding): it employs clustering among classes to maintain the structure of the minroity data.
+=> 하지만 위의 두 방법론은 데이터가 클 경우 계산량이 너무 많아진다는 단점들이 있다.
+
+### 2-2. SMOTE
+SMOTE와 같이 기존에 유명한 방식들은 극단적으로 불균형인 데이터에 대해서는 비효율적이라고 알려져있다.
+
+### 2-3. GAN의 발전
+minority class data를 생성하기 위해서 C-GAN(Conditional GAN)이 잠재적 해결방안이 될 수는 있지만, 완벽하지는 않다. 이처럼 vanilla GAN이나 AC-GAN들도 데이터가 불균형한 상태에서는 minority sample을 생성하는 데에 있어서 효과적이지 못했다. DCGAN이나 MelanoGAN은 효과적이기는 했으나, multiclass가 아닌 binary case에서였다.
+
+결론적으로, 기존에 제시된 방법들은 크게 불균형한 상황에서는 데이터 생성에 효과적이지 못했다. 즉, 충분히 다양한 데이터를 만들어내지 못했다(not enough data variance). 이에 반해 `MFC-GAN`은 보다 간단한 방법으로 특정 클래스에 해당하는 데이터 샘플을 생성할 수 있다.
+
 ## 3. Method
-augment training data (data-level approach)
+GAN은 기본적으로 두 가지 종류의 학습데이터를 사용한다. 하나는 기존의 학습데이터에 있는 원본데이터이고, 나머지 하나는 Generator가 생성한 샘플들(fake)이다.
+
+10개의 클래스가 있다고 했을 때, 원래는 one-hot encoding 방식으로 1000000000로 표시했다. 하지만 여기서는 fake image에 대한 label도 따로 신경써주어야 한다. 그렇기 때문에 real image는 10000000000000000000로 표시하고, 이에 해당하는 fake image의 label은 00000000001000000000로 표시한다.
 
 ### 3-1. Objective Function
 ![Objective1](images/posts/paper/mfc_gan/objective1.jpg)
@@ -78,8 +102,7 @@ FSC-GAN: generator is penalized according to how far the generated sample is fro
 FSC-GAN은 500 epoch가 필요한 데에 비해, MFC-GAN은 50 epoch만을 필요로 했다. 즉, data augmentation에는 MFC-GAN이 보다 우수함을 알 수 있었다.
 
 3. 객관적 성능지표에서도 우수함
-MFC-GAN에서 민감도, balanced accuracy, G-mean 모두 높게 나타났다. 이에 반해, FSC-GAN은 모든 경우에서 성능 향상으로 이어지지 않았다.
-특정 상황에서는 SMOTE가 더 우수한 듯 보이기는 했지만, 이는 단순히 소수 집단에 대해 샘플이 더 많기 때문일 거라고 추측된다. 왜냐하면 샘플 수가 적은 클래스에 대해서는 성능이 안 좋은 것이 확인되었기 때문이다.
+`MFC-GAN`에서 민감도, balanced accuracy, G-mean 모두 높게 나타났다. 이에 반해, `FSC-GAN`은 모든 경우에서 성능 향상으로 이어지지 않았다. 특정 상황에서는 `SMOTE`가 더 우수한 듯 보이기는 했지만, 이는 단순히 소수 집단에 대해 샘플이 더 많기 때문일 거라고 추측된다. 왜냐하면 샘플 수가 적은 클래스에 대해서는 성능이 안 좋은 것이 확인되었기 때문이다.
 
 ## 6. Discussion
 
