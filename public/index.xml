@@ -15,6 +15,17 @@
     
       
       <item>
+        <title>기본개념 정리</title>
+        <link>https://jiwooblog.netlify.app/posts/statistics/network/tip/</link>
+        <pubDate>Sun, 07 Nov 2021 10:08:56 +0900</pubDate>
+        
+        <guid>https://jiwooblog.netlify.app/posts/statistics/network/tip/</guid>
+        <description>1. Scale-free Network Scale-free Network는 Random Network와 달리 Power Law 분포를 따른다. 여기서 scale은 노드를 랜덤하게 선택했을 때 평균적으로 얻어지는 안정적인 degree를 뜻한다. 그러므로 random network에서는 평균 근처로 scale을 구할 수 있지만, scale-free network는 power law 분포를 따르기 때문에 분산값이 무한대가 되므로 scale이 없게 된다. 그래서 scale-free network라고 불린다.
+2. Assortativity 자유도가 높은 것은 높은 것끼리, 낮은 것은 낮은 것끼리
+참고사이트  Scale-free Network Assortativity  </description>
+      </item>
+      
+      <item>
         <title>Real Number</title>
         <link>https://jiwooblog.netlify.app/posts/mathmaticalanalysis/2_real_number/</link>
         <pubDate>Sun, 11 Jul 2021 10:08:56 +0900</pubDate>
@@ -311,6 +322,20 @@ Dacon 코드 공유 Factor Analysis Word Cloud_국내 Word Cloud_해외 Cluster 
       </item>
       
       <item>
+        <title>MST</title>
+        <link>https://jiwooblog.netlify.app/posts/statistics/network/minumum_spanning_tree/</link>
+        <pubDate>Sun, 07 Nov 2021 10:08:56 +0900</pubDate>
+        
+        <guid>https://jiwooblog.netlify.app/posts/statistics/network/minumum_spanning_tree/</guid>
+        <description>Minimum Spanning Tree Need to connect all nodes to the tree in the smallest possible way
+1, 만드는 법 Kruskal&amp;rsquo;s algorithm에 따라서 만든다. (자세한 예시는 참고사이트[1] 참고하기)
+2. 규칙 및 특징 규칙1. Check each node is connected and no breaks in the tree.
+규칙2. Don&amp;rsquo;t add an edge if it doesn&amp;rsquo;t improve connectivity.
+특징1. There may be more than one MST.
+참고사이트 [1] Youtube</description>
+      </item>
+      
+      <item>
         <title>LUP &amp; MSP</title>
         <link>https://jiwooblog.netlify.app/posts/mathmaticalanalysis/3_lup_msp/</link>
         <pubDate>Sun, 11 Jul 2021 10:08:56 +0900</pubDate>
@@ -461,6 +486,21 @@ Conclusion 해석학을 배울 필요가 있을지도? 혹시 궁금한 점이�
         <description>Chapter 02. Belief, Probability and Exchangeability본 포스팅은 First Course in Bayesian Statistical Methods를 참고하였다.이번 장의 목표는 independence와 exchangeability를 이해하는 것이다. 이를 바탕으로 de Finetti’s theorem이 Bayesian에 갖는 의의를 이해한다면, 베이즈 통계를 공부할 준비가 된 것이다.
 Belief functions and Probabilities$Be()$는 belief function이라고 하자. 예를 들어, $Be(F) &amp;gt; Be(G)$는 G보다 F를 더 믿는다고 해석하면 된다. F, G, H를 아래와 같은 각각의 상황이라고 가정해보자.
 F : 좌파 후보자를 투표하는 경우 G : 소득이 하위 10%에 속하는 경우 H : 대도시에 거주하는 경우</description>
+      </item>
+      
+      <item>
+        <title>Clustering</title>
+        <link>https://jiwooblog.netlify.app/posts/machinelearning/clustering/</link>
+        <pubDate>Thu, 28 Oct 2021 10:08:56 +0900</pubDate>
+        
+        <guid>https://jiwooblog.netlify.app/posts/machinelearning/clustering/</guid>
+        <description>Clusetring 주어진 데이터의 특성을 고려해서 데이터 집단을 정의하고, 데이터 집단을 대표할 수 있는 대표점을 찾는 과정이다.
+1. K-Means Clustering Step 1. 클래스 개수 결정 &amp;amp; 중심점 무작위 선택
+Step 2. 가장 가까운 클래스에 데이터를 배정
+Step 3. 클래스 중심점 재계산
+Step 4. 수렴할 때까지 Step 2~3 반복
+  장단점  단점 1. 클래스 개수를 미리 결정하여야 한다.
+단점 2. 이상치들로 인해 평균값을 기준으로 하는 것이 옳지 않을 수 있다. 이때는 중앙값을 사용하는 K-Medians를 활용해볼 수 있다.</description>
       </item>
       
       <item>
@@ -933,6 +973,42 @@ score function의 평균이 0이라는 것의 의미를 그래프를 likelihood 
         
         <guid>https://jiwooblog.netlify.app/posts/r/test/</guid>
         <description>.scroll-100 {max-height: 100px;overflow-y: auto;background-color: &#39;white&#39;;}pre {max-height: 300px;overflow-y: auto;background-color: &#39;white&#39;;}pre[class] {max-height: 100px;background-color: &#39;green&#39;;}# plotly```rlibrary(ggplot2)library(plotly)library(gapminder)1 2 3 4 5 6 7 8  p &amp;lt;- gapminder %&amp;gt;% filter(year==1977) %&amp;gt;% ggplot( aes(gdpPercap, lifeExp, size = pop, color=continent)) + geom_point() + scale_x_log10() + theme_bw() ggplotly(p)   {&#34;</description>
+      </item>
+      
+      <item>
+        <title>Delving into Deep Imbalanced Regression</title>
+        <link>https://jiwooblog.netlify.app/blog/211122_imbalanced_regression/</link>
+        <pubDate>Sun, 21 Nov 2021 00:00:00 +0000</pubDate>
+        
+        <guid>https://jiwooblog.netlify.app/blog/211122_imbalanced_regression/</guid>
+        <description>&lt;p&gt;Yang, Y., Zha, K., Chen, Y. C., Wang, H., &amp;amp; Katabi, D. (2021). Delving into Deep Imbalanced Regression. arXiv preprint arXiv:2102.09554.&lt;/p&gt;</description>
+      </item>
+      
+      <item>
+        <title>SAS Workshop</title>
+        <link>https://jiwooblog.netlify.app/blog/211118_sasworkshop/</link>
+        <pubDate>Thu, 04 Nov 2021 00:00:00 +0000</pubDate>
+        
+        <guid>https://jiwooblog.netlify.app/blog/211118_sasworkshop/</guid>
+        <description>SAS Workshop 211118 SAS Workshop 대우관 415호(국제회의실)</description>
+      </item>
+      
+      <item>
+        <title>MFC_GAN / Class-imbalanced dataset classification using Multiple Fake Generative Adversarial Network</title>
+        <link>https://jiwooblog.netlify.app/blog/211025_mfc_gan/</link>
+        <pubDate>Mon, 25 Oct 2021 00:00:00 +0000</pubDate>
+        
+        <guid>https://jiwooblog.netlify.app/blog/211025_mfc_gan/</guid>
+        <description>&lt;p&gt;Ali-Gombe, A., &amp;amp; Elyan, E. (2019). MFC-GAN: class-imbalanced dataset classification using multiple fake class generative adversarial network. Neurocomputing, 361, 212-221.&lt;/p&gt;</description>
+      </item>
+      
+      <item>
+        <title>A Random Forests Quantile Classifier for Class Imbalanced Data</title>
+        <link>https://jiwooblog.netlify.app/blog/211003_rf_quantile_imblance/</link>
+        <pubDate>Sun, 03 Oct 2021 00:00:00 +0000</pubDate>
+        
+        <guid>https://jiwooblog.netlify.app/blog/211003_rf_quantile_imblance/</guid>
+        <description>&lt;p&gt;O’Brien, R., &amp;amp; Ishwaran, H. (2019). A random forests quantile classifier for class imbalanced data. Pattern recognition, 90, 232-249.&lt;/p&gt;</description>
       </item>
       
       <item>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>네트워크통계분석 on JW Blog</title>
+    <link>https://jiwooblog.netlify.app/posts/statistics/network/</link>
+    <description>Recent content in 네트워크통계분석 on JW Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ko</language>
+    <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
+    <lastBuildDate>Sun, 14 Nov 2021 10:08:56 +0900</lastBuildDate>
+    
+        <atom:link href="https://jiwooblog.netlify.app/posts/statistics/network/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    
+      
+      <item>
+        <title>기본개념 정리</title>
+        <link>https://jiwooblog.netlify.app/posts/statistics/network/tip/</link>
+        <pubDate>Sun, 07 Nov 2021 10:08:56 +0900</pubDate>
+        
+        <guid>https://jiwooblog.netlify.app/posts/statistics/network/tip/</guid>
+        <description>1. Scale-free Network Scale-free Network는 Random Network와 달리 Power Law 분포를 따른다. 여기서 scale은 노드를 랜덤하게 선택했을 때 평균적으로 얻어지는 안정적인 degree를 뜻한다. 그러므로 random network에서는 평균 근처로 scale을 구할 수 있지만, scale-free network는 power law 분포를 따르기 때문에 분산값이 무한대가 되므로 scale이 없게 된다. 그래서 scale-free network라고 불린다.
+2. Assortativity 자유도가 높은 것은 높은 것끼리, 낮은 것은 낮은 것끼리
+참고사이트  Scale-free Network Assortativity  </description>
+      </item>
+      
+      <item>
+        <title>MST</title>
+        <link>https://jiwooblog.netlify.app/posts/statistics/network/minumum_spanning_tree/</link>
+        <pubDate>Sun, 07 Nov 2021 10:08:56 +0900</pubDate>
+        
+        <guid>https://jiwooblog.netlify.app/posts/statistics/network/minumum_spanning_tree/</guid>
+        <description>Minimum Spanning Tree Need to connect all nodes to the tree in the smallest possible way
+1, 만드는 법 Kruskal&amp;rsquo;s algorithm에 따라서 만든다. (자세한 예시는 참고사이트[1] 참고하기)
+2. 규칙 및 특징 규칙1. Check each node is connected and no breaks in the tree.
+규칙2. Don&amp;rsquo;t add an edge if it doesn&amp;rsquo;t improve connectivity.
+특징1. There may be more than one MST.
+참고사이트 [1] Youtube</description>
+      </item>
+      
+    
+  </channel>
+</rss>

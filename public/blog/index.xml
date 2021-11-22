@@ -7,12 +7,48 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ko</language>
     <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
-    <lastBuildDate>Sun, 04 Jul 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 21 Nov 2021 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="https://jiwooblog.netlify.app/blog/index.xml" rel="self" type="application/rss+xml" />
     
     
     
+      
+      <item>
+        <title>Delving into Deep Imbalanced Regression</title>
+        <link>https://jiwooblog.netlify.app/blog/211122_imbalanced_regression/</link>
+        <pubDate>Sun, 21 Nov 2021 00:00:00 +0000</pubDate>
+        
+        <guid>https://jiwooblog.netlify.app/blog/211122_imbalanced_regression/</guid>
+        <description>&lt;p&gt;Yang, Y., Zha, K., Chen, Y. C., Wang, H., &amp;amp; Katabi, D. (2021). Delving into Deep Imbalanced Regression. arXiv preprint arXiv:2102.09554.&lt;/p&gt;</description>
+      </item>
+      
+      <item>
+        <title>SAS Workshop</title>
+        <link>https://jiwooblog.netlify.app/blog/211118_sasworkshop/</link>
+        <pubDate>Thu, 04 Nov 2021 00:00:00 +0000</pubDate>
+        
+        <guid>https://jiwooblog.netlify.app/blog/211118_sasworkshop/</guid>
+        <description>SAS Workshop 211118 SAS Workshop 대우관 415호(국제회의실)</description>
+      </item>
+      
+      <item>
+        <title>MFC_GAN / Class-imbalanced dataset classification using Multiple Fake Generative Adversarial Network</title>
+        <link>https://jiwooblog.netlify.app/blog/211025_mfc_gan/</link>
+        <pubDate>Mon, 25 Oct 2021 00:00:00 +0000</pubDate>
+        
+        <guid>https://jiwooblog.netlify.app/blog/211025_mfc_gan/</guid>
+        <description>&lt;p&gt;Ali-Gombe, A., &amp;amp; Elyan, E. (2019). MFC-GAN: class-imbalanced dataset classification using multiple fake class generative adversarial network. Neurocomputing, 361, 212-221.&lt;/p&gt;</description>
+      </item>
+      
+      <item>
+        <title>A Random Forests Quantile Classifier for Class Imbalanced Data</title>
+        <link>https://jiwooblog.netlify.app/blog/211003_rf_quantile_imblance/</link>
+        <pubDate>Sun, 03 Oct 2021 00:00:00 +0000</pubDate>
+        
+        <guid>https://jiwooblog.netlify.app/blog/211003_rf_quantile_imblance/</guid>
+        <description>&lt;p&gt;O’Brien, R., &amp;amp; Ishwaran, H. (2019). A random forests quantile classifier for class imbalanced data. Pattern recognition, 90, 232-249.&lt;/p&gt;</description>
+      </item>
       
       <item>
         <title>차를 맛보는 여인</title>
