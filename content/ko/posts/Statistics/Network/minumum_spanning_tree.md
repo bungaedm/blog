@@ -3,8 +3,8 @@ collapsible: false
 date: "2021-11-07T10:08:56+09:00"
 description: Minimum Spanning Tree
 draft: false
-title: Minimum Spanning Tree
-weight: 1
+title: MST
+weight: 2
 ---
 
 ## Minimum Spanning Tree
