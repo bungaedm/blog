@@ -17,8 +17,24 @@ Imbalanced **Regression**, not classification
 ## 2. Related Work
 
 ### 2-1. Imbalanced Classification
+1. Data-level 
+- ROS (Random Oversampling)
+- RUS (Random Undersampling)
+- SMOTE
+- GAN (CGAN, FSC-GAN, [MFC-GAN](https://jiwooblog.netlify.app/blog/211025_mfc_gan/))
+
+2. Algorithm-level
+- Inverse frequency weight
+- Square root weight
+- Focal Loss
+- Two Stage Training
 
 ### 2-2. Imbalanced Regression
+불균형 연속형 데이터 특징
+1. 불균형/균형 경계가 뚜렷하지 않음.
+2. 
+
+위와 같은 특징 때문에 불균형 연속형 데이터의 경우에는 [imbalanced classification](blog/211122_imbalanced_regression/#2-1-imbalanced-classification)처럼 resampling 또는 reweighting 방법을 적용하기 어렵다.
 
 
 ## 3. Methods
