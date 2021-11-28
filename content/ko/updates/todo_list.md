@@ -17,6 +17,8 @@ weight: 1
     4. [ESC 2020_FALL] NLP 논문 따라해보기
     5. [ESC 2020_SPRING] 행복지수 예측
             - 배운 점: 해석 시 Domain Knowledge의 중요성, FA의 효과
+    6. [ESC 2021_SPRING] 아파트 경매가격 예측 경진대회
+            - 배운 점: 타겟 변수 변경, Platt's probability, Bayesian Linear Regression
 
 2. R 다양한 기능들 정리
     1. dpylr: group_by, summarise, mutate, select, filter
