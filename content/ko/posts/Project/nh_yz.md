@@ -6,14 +6,53 @@ title: YZ 투자자 프로파일링
 weight: 1
 ---
 
+## DACON
 ## NH투자증권 Y&Z세대 투자자 프로파일링
 
-본 대회는 NH투자증권에서 주최한 대회로, 2020년 급격하게 늘어난 20~30대 투자자들에 대한 분석을 하고 이를 <span style='background-color: #ffbf00'>시각화</span>하는 것이 주목적이었다.
+본 대회는 `DACON`에서 NH투자증권에서 주최한 대회로, 2020년 급격하게 늘어난 20~30대 투자자들에 대한 분석을 하고 이를 <span style='background-color: #ffbf00'>시각화</span>하는 것이 주목적이었다.
 
 코드가 상당히 복잡한 관계로 Dacon에 코드공유한 링크와 이미지 일부를 올리는 것으로 포스팅을 대체하고자 한다.
 
 ##### [Dacon 코드 공유](https://dacon.io/competitions/official/235663/codeshare/2209?page=5&dtype=recent&ptype=pub)
 
+![slide1](images/posts/project/nh_yz/Slide1.PNG)
+![slide2](images/posts/project/nh_yz/Slide2.PNG)
+![slide3](images/posts/project/nh_yz/Slide3.PNG)
+![slide4](images/posts/project/nh_yz/Slide4.PNG)
+![slide5](images/posts/project/nh_yz/Slide5.PNG)
+![slide6](images/posts/project/nh_yz/Slide6.PNG)
+![slide7](images/posts/project/nh_yz/Slide7.PNG)
+![slide8](images/posts/project/nh_yz/Slide8.PNG)
+![slide9](images/posts/project/nh_yz/Slide9.PNG)
+![slide10](images/posts/project/nh_yz/Slide10.PNG)
+![slide11](images/posts/project/nh_yz/Slide11.PNG)
+![slide12](images/posts/project/nh_yz/Slide12.PNG)
+![slide13](images/posts/project/nh_yz/Slide13.PNG)
+![slide14](images/posts/project/nh_yz/Slide14.PNG)
+![slide15](images/posts/project/nh_yz/Slide15.PNG)
+![slide16](images/posts/project/nh_yz/Slide16.PNG)
+![slide17](images/posts/project/nh_yz/Slide17.PNG)
+![slide18](images/posts/project/nh_yz/Slide18.PNG)
+![slide19](images/posts/project/nh_yz/Slide19.PNG)
+![slide20](images/posts/project/nh_yz/Slide20.PNG)
+![slide21](images/posts/project/nh_yz/Slide21.PNG)
+![slide22](images/posts/project/nh_yz/Slide22.PNG)
+![slide23](images/posts/project/nh_yz/Slide23.PNG)
+![slide24](images/posts/project/nh_yz/Slide24.PNG)
+![slide25](images/posts/project/nh_yz/Slide25.PNG)
+![slide26](images/posts/project/nh_yz/Slide26.PNG)
+![slide27](images/posts/project/nh_yz/Slide27.PNG)
+![slide28](images/posts/project/nh_yz/Slide28.PNG)
+![slide29](images/posts/project/nh_yz/Slide29.PNG)
+![slide30](images/posts/project/nh_yz/Slide30.PNG)
+![slide31](images/posts/project/nh_yz/Slide31.PNG)
+![slide32](images/posts/project/nh_yz/Slide32.PNG)
+![slide33](images/posts/project/nh_yz/Slide33.PNG)
+![slide34](images/posts/project/nh_yz/Slide34.PNG)
+![slide35](images/posts/project/nh_yz/Slide35.PNG)
+![slide36](images/posts/project/nh_yz/Slide36.PNG)
+
+<!--
 ### Factor Analysis
 ![Factor Analysis](images/posts/nh_yz/Factor_Analysis_Diagram.png)
 
@@ -34,6 +73,7 @@ weight: 1
 
 ### Idea Sample
 ![Idea Sample](images/posts/nh_yz/idea_sample.png)
+-->
 
 ---
 
