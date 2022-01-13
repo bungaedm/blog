@@ -7,6 +7,26 @@ title: Javascript 기초
 weight: 1
 ---
 
+## 0. 기본 설정
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Momentum</title>
+</head>
+<body>
+    <div>
+        <h1 class='hello'>Grab me!</h1>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
+```
+
 ## 1. list 만들기 & 원소 추가
 ```javascript
 const daysOfWeek = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat'];
@@ -24,8 +44,13 @@ console.log(daysOfWeek);
 const hellos = document.getElementsByClassName('hello');
 console.log(hellos);
 
-const title = document.querySelector('h1');
-console.log(title);
+const title = document.querySelector('#hello h1'); // ID
+const title = document.querySelector('.hello h1'); // class
+console.log(title); 
+
+const title = document.querySelector('div.hello:first-child h1');
+console.dir(title);
+title.style.color = 'blue';
 ```
 
 - getElementsByClassName() : 많은 element를 가져올때 씀(array를 반환)
@@ -39,3 +64,17 @@ console.log(title);
 - querySelector("#hello); 와 getElementById("hello"); 는 같은 일을 하는 것임
 하지만 후자는 하위요소 가져오는 것을 못하므로 전자만 쓸거다
 (출처: https://nomadcoders.co/javascript-for-beginners/lectures/2892)
+
+
+## 3. 이벤트
+```javascript
+const title = document.querySelector('div.hello:first-child h1');
+
+function handleTitleClick(){
+    console.log('title was clicked!');
+}
+
+title.addEventListener('click', handleTitleClick);
+```
+
+- 버튼이 아니어도, h1여도 클릭이 가능하다!
