@@ -70,11 +70,24 @@ title.style.color = 'blue';
 ```javascript
 const title = document.querySelector('div.hello:first-child h1');
 
-function handleTitleClick(){
-    console.log('title was clicked!');
+function handleTitleClick() {
+    // console.log('title was clicked!');
+    title.style.color = 'blue';
+}
+
+function handleMouseEnter() {
+    // console.log('mouse is here!');
+    title.innerText = 'Mouse is here!';
+}
+
+function handleMouseLeave() {
+    // console.log('mouse is leaving');
+    title.innerText = 'Mouse is gone!';
 }
 
 title.addEventListener('click', handleTitleClick);
+title.addEventListener('mouseenter', handleMouseEnter);
+title.addEventListener('mouseleave', handleMouseLeave);
 ```
 
 - 버튼이 아니어도, h1여도 클릭이 가능하다!
