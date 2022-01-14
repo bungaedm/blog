@@ -7,6 +7,8 @@ title: Javascript 기초
 weight: 1
 ---
 
+본 포스팅은 [노마드 코더](https://nomadcoders.co/javascript-for-beginners/lectures)를 참고하여 공부하고 정리하였다.
+
 ## 0. 기본 설정
 ```html
 <!DOCTYPE html>
@@ -68,26 +70,146 @@ title.style.color = 'blue';
 
 ## 3. 이벤트
 ```javascript
-const title = document.querySelector('div.hello:first-child h1');
+const h1 = document.querySelector('div.hello:first-child h1');
 
 function handleTitleClick() {
     // console.log('title was clicked!');
-    title.style.color = 'blue';
+    h1.style.color = 'blue';
 }
 
 function handleMouseEnter() {
     // console.log('mouse is here!');
-    title.innerText = 'Mouse is here!';
+    h1.innerText = 'Mouse is here!';
 }
 
 function handleMouseLeave() {
     // console.log('mouse is leaving');
-    title.innerText = 'Mouse is gone!';
+    h1.innerText = 'Mouse is gone!';
 }
 
-title.addEventListener('click', handleTitleClick);
-title.addEventListener('mouseenter', handleMouseEnter);
-title.addEventListener('mouseleave', handleMouseLeave);
+function handleWindowResize() {
+    document.body.style.backgroundColor = 'tomato';
+}
+
+function handleWindowCopy() {
+    alert('copier!');
+}
+
+function handleWindowOffline() {
+    alert('SOS no WIFI');
+}
+
+function handleWindowOnline() {
+    alert('ALL GOOD');
+}
+
+h1.addEventListener('click', handleTitleClick);
+h1.addEventListener('mouseenter', handleMouseEnter);
+h1.addEventListener('mouseleave', handleMouseLeave);
+// title.onclick = handleTitleClick;
+// title.onmouseenter = handleMouseEnter;
+
+window.addEventListener('resize', handleWindowResize);
+window.addEventListener('copy', handleWindowCopy);
+window.addEventListener('offline', handleWindowOffline);
+window.addEventListener('Online', handleWindowOnline);
 ```
 
 - 버튼이 아니어도, h1여도 클릭이 가능하다!
+
+## 4. CSS in Javascript
+
+```javascript
+const h1 = document.querySelector('div.hello:first-child h1');
+
+function handleTitleClick() {
+    const currentColor = h1.style.color;
+    let newColor;
+    if(currentColor === 'blue'){
+        newColor = 'tomato';
+    } else {
+        newColor = 'blue';
+    }
+    h1.style.color = newColor;
+}
+
+h1.addEventListener('click', handleTitleClick);
+```
+
+{{< codes javascript css >}}
+  {{< code >}}
+  ```javascript
+    const h1 = document.querySelector('div.hello:first-child h1');
+    
+    function handleTitleClick() {
+        if (h1.className === 'active') {
+            h1.className = '';
+        } else {
+            h1.className = 'active';
+        }
+    
+    }
+    
+    h1.addEventListener('click', handleTitleClick);
+  ```
+  {{< /code >}}
+  {{< code >}}
+  ```css
+    body {
+        background-color: beige;
+    }
+    
+    h1 {
+        color: cornflowerblue;
+        transition: color .5s ease-in-out;
+    }
+
+    .active {
+        color: tomato;
+    }
+  ```
+  {{< /code >}}
+{{< /codes >}}
+
+```javascript
+const h1 = document.querySelector('div.hello:first-child h1');
+
+function handleTitleClick() {
+    h1.classList.toggle('clicked') // 아래 코드와 같다.
+    // const clickedClass = 'clicked';
+    // if (h1.classList.contains(clickedClass)) {
+    //     h1.classList.remove(clickedClass);
+    // } else {
+    //     h1.classList.add(clickedClass);
+    // }
+}
+
+h1.addEventListener('click', handleTitleClick);
+```
+
+## 4. Input Values
+{{< codes javascript html >}}
+  {{< code >}}
+  ```javascript
+    const loginInput = document.querySelector('#login-form input');
+    const loginButton = document.querySelector('#login-form button');
+    
+    function onLoginBtnClick() {
+        console.log(loginInput.value);
+    }
+    
+    loginButton.addEventListener('click', onLoginBtnClick);
+  ```
+  {{< /code >}}
+  {{< code >}}
+  ```html
+    <body>
+    <div id='login-form'>
+        <input type='text' placeholder='What is your name?' />
+        <button>Log In</button>
+    </div>
+    <script src="app.js"></script>
+</body>
+  ```
+  {{< /code >}}
+{{< /codes >}}
