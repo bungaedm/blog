@@ -187,7 +187,7 @@ function handleTitleClick() {
 h1.addEventListener('click', handleTitleClick);
 ```
 
-## 4. Input Values
+## 4-0. Input Values
 {{< codes javascript html >}}
   {{< code >}}
   ```javascript
@@ -213,3 +213,63 @@ h1.addEventListener('click', handleTitleClick);
   ```
   {{< /code >}}
 {{< /codes >}}
+
+## 4-1. Form Submission
+
+```html
+<body>
+    <form id='login-form'>
+        <input required maxlength="15" type='text' placeholder='What is your name?' />
+        <!-- <button>Log In</button> -->
+        <input type='submit' value='Log In' />
+    </form>
+    <script src="app.js"></script>
+</body>
+```
+
+- input의 유횽성을 검사하기 위해서는 input이 form 안에 있어야 한다.
+
+## 4-2. Events
+
+```javascript
+const loginForm = document.querySelector('#login-form');
+const loginInput = document.querySelector('#login-form input');
+
+function onLoginSubmit(event) {
+  event.preventDefault();
+  console.log(loginInput.value);
+}
+
+loginForm.addEventListener('submit', onLoginSubmit);
+```
+
+```javascript
+function onLoginSubmit(event) {
+  event.preventDefault();
+  const username = loginInput.value;
+  loginForm.classList.add('hidden');
+  console.log(username);
+}
+```
+
+## 4-3. 사라지는 로그인 Form 만들기
+
+```css
+.hidden {
+  display: none;
+}
+```
+
+```javascript
+const loginForm = document.querySelector('#login-form');
+const loginInput = document.querySelector('#login-form input');
+
+function onLoginSubmit(event) {
+  event.preventDefault();
+  const username = loginInput.value;
+  loginForm.classList.add('hidden');
+  console.log(username);
+}
+
+loginForm.addEventListener('submit', onLoginSubmit);
+```
