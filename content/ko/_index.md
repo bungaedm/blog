@@ -44,14 +44,15 @@ sections:
   body:
     color: white
     description:
-      저는 **심리학**과 **통계학**을 공부하고 있는 대학생입니다. <br>
+      저는 **통계학**과 **심리학**을 공부하고 있는 대학원생입니다. <br>
       현재는 데이터분석에 관심이 생겨서 다양한 도전을 해보고 있습니다. <br> <br>
-      **2013~2014** | 심리학 동아리장 / 하나고 LIOM Look Into Our Minds 운영 <br>
-      **2015~2015** | 심리학 학술모임장 / 연세대 심리학 학술소모임 Psy-World 설립 및 운영 <br>
-      **2015~2017** | KSCY 한국청소년학술대회 / 인문계열 컨퍼런스 총괄 및 헤드 퍼실리테이터 <br>
-      **2016~2021** | 응용통계학과 이중전공 <br>
+      **2021~NOW** | **연세대 통계데이터사이언스학과(대학원)** 재학 <br>
+      **2020~2021** | ESC / 연세대학교 통계학회 학술부 및 총무 <br>
       **2017~2019** | 대한민국 공군 / RAPCON Radar Approach Control <br>
-      **2020~2021** | ESC / 연세대학교 통계학회 학술부 및 총무
+      **2016~2021** | 응용통계학과 이중전공 <br>
+      **2015~2017** | KSCY 한국청소년학술대회 / 인문계열 컨퍼런스 총괄 및 헤드 퍼실리테이터 <br>
+      **2015~2015** | 심리학 학술모임장 / 연세대 심리학 학술소모임 Psy-World 설립 및 운영 <br>
+      **2013~2014** | 심리학 동아리장 / 하나고 LIOM Look Into Our Minds 운영 <br>
     image: images/section/brain3.png
     imagePosition: left
     subtitle: Who am I?
@@ -82,7 +83,7 @@ sections:
   - button:
       bgcolor: '#ffbf00'
       color: white
-      link: https://www.instagram.com/j__ji.woo
+      link: https://www.instagram.com/5on_jiwoo
       name: Link
       size: large
       target: _blank
@@ -174,7 +175,7 @@ footer:
     applySinglePageCss: false
     markdown: |
       ## Jiwoo Son
-      Copyright © 2021. All rights reserved.
+      Copyright © 2022. All rights reserved.
   # sections:
   # - links:
   #   - link: https://gohugo.io/

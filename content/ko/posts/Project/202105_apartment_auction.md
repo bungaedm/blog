@@ -1,13 +1,13 @@
 ---
-date: "2021-01-02T10:08:56+09:00"
+date: "2021-05-03T10:08:56+09:00"
 description: null
 draft: false
 title: 아파트 경매가격 예측
-weight: 2
+weight: 1
 ---
 
 # ESC 2021 SPRING Final Project
-- 분석기간: 2020 May ~ 2020 June
+- 분석기간: 2021 May ~ 2021 June
 - 연세대학교 통계학회 ESC 2021년 봄학기에 진행한 파이널 프로젝트 내용이다. 베이지안 회귀분석 코딩 파트를 맡았다.
 
 ## My Role

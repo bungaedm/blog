@@ -1,9 +1,9 @@
 ---
-date: "2021-01-02T10:08:56+09:00"
+date: "2020-05-02T10:08:56+09:00"
 description: null
 draft: false
 title: 행복지수 예측
-weight: 3
+weight: 1
 ---
 
 # ESC 2020 SPRING Final Project
