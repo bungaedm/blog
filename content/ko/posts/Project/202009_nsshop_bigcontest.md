@@ -4,6 +4,7 @@ description: null
 draft: false
 title: NS Shop+ 홈쇼핑
 weight: 1
+collapsible: true
 ---
 
 ## [BigContest] NS Shop+ 홈쇼핑 실적 예측
@@ -58,7 +59,8 @@ weight: 1
 3. 학습데이터에 존재하지 않는 정보가 평가데이터에 존재했다.
 4. 코로나로 인한 영향을 계산하기 어려웠다. 
 
-## Best Broadcasting Schedule Suggestion
+## Result
+**Best Broadcasting Schedule Suggestion**
 1. 상품군별 PRIME TIME 선정
   - Prime Time이란, 해당 상품군이 가장 인기있는 시간대를 의미한다.
 2. 상품군별 추천 상품
@@ -66,46 +68,49 @@ weight: 1
   - 구매수량에 영향을 받는 상품들은 비교적 애매한 시간대에 배치한다.
   - EX) 의류의 경우, prime time에 사치품(다운코트, 밍크코트)을 판매하고, 그외 시간대에는 기본 아이템(플리스 자켓, 티셔츠)을 판매한다.
 
+---
+
 ## Presentation
-![nsshop02](images/posts/project/nsshop_bigcontest/NS홈쇼핑실적예측-02.png)
-![nsshop03](images/posts/project/nsshop_bigcontest/NS홈쇼핑실적예측-03.png)
-![nsshop04](images/posts/project/nsshop_bigcontest/NS홈쇼핑실적예측-04.png)
-![nsshop05](images/posts/project/nsshop_bigcontest/NS홈쇼핑실적예측-05.png)
-![nsshop06](images/posts/project/nsshop_bigcontest/NS홈쇼핑실적예측-06.png)
-![nsshop07](images/posts/project/nsshop_bigcontest/NS홈쇼핑실적예측-07.png)
-![nsshop08](images/posts/project/nsshop_bigcontest/NS홈쇼핑실적예측-08.png)
-![nsshop09](images/posts/project/nsshop_bigcontest/NS홈쇼핑실적예측-09.png)
-![nsshop10](images/posts/project/nsshop_bigcontest/NS홈쇼핑실적예측-10.png)
-![nsshop11](images/posts/project/nsshop_bigcontest/NS홈쇼핑실적예측-11.png)
-![nsshop12](images/posts/project/nsshop_bigcontest/NS홈쇼핑실적예측-12.png)
-![nsshop13](images/posts/project/nsshop_bigcontest/NS홈쇼핑실적예측-13.png)
-![nsshop14](images/posts/project/nsshop_bigcontest/NS홈쇼핑실적예측-14.png)
-![nsshop15](images/posts/project/nsshop_bigcontest/NS홈쇼핑실적예측-15.png)
-![nsshop16](images/posts/project/nsshop_bigcontest/NS홈쇼핑실적예측-16.png)
-![nsshop17](images/posts/project/nsshop_bigcontest/NS홈쇼핑실적예측-17.png)
-![nsshop18](images/posts/project/nsshop_bigcontest/NS홈쇼핑실적예측-18.png)
-![nsshop19](images/posts/project/nsshop_bigcontest/NS홈쇼핑실적예측-19.png)
-![nsshop20](images/posts/project/nsshop_bigcontest/NS홈쇼핑실적예측-20.png)
-![nsshop21](images/posts/project/nsshop_bigcontest/NS홈쇼핑실적예측-21.png)
-![nsshop22](images/posts/project/nsshop_bigcontest/NS홈쇼핑실적예측-22.png)
-![nsshop23](images/posts/project/nsshop_bigcontest/NS홈쇼핑실적예측-23.png)
-![nsshop24](images/posts/project/nsshop_bigcontest/NS홈쇼핑실적예측-24.png)
-![nsshop25](images/posts/project/nsshop_bigcontest/NS홈쇼핑실적예측-25.png)
-![nsshop26](images/posts/project/nsshop_bigcontest/NS홈쇼핑실적예측-26.png)
-![nsshop27](images/posts/project/nsshop_bigcontest/NS홈쇼핑실적예측-27.png)
-![nsshop28](images/posts/project/nsshop_bigcontest/NS홈쇼핑실적예측-28.png)
-![nsshop29](images/posts/project/nsshop_bigcontest/NS홈쇼핑실적예측-29.png)
-![nsshop30](images/posts/project/nsshop_bigcontest/NS홈쇼핑실적예측-30.png)
-![nsshop31](images/posts/project/nsshop_bigcontest/NS홈쇼핑실적예측-31.png)
-![nsshop32](images/posts/project/nsshop_bigcontest/NS홈쇼핑실적예측-32.png)
-![nsshop33](images/posts/project/nsshop_bigcontest/NS홈쇼핑실적예측-33.png)
-![nsshop34](images/posts/project/nsshop_bigcontest/NS홈쇼핑실적예측-34.png)
-![nsshop35](images/posts/project/nsshop_bigcontest/NS홈쇼핑실적예측-35.png)
-![nsshop36](images/posts/project/nsshop_bigcontest/NS홈쇼핑실적예측-36.png)
-![nsshop37](images/posts/project/nsshop_bigcontest/NS홈쇼핑실적예측-37.png)
-![nsshop38](images/posts/project/nsshop_bigcontest/NS홈쇼핑실적예측-38.png)
-![nsshop39](images/posts/project/nsshop_bigcontest/NS홈쇼핑실적예측-39.png)
-![nsshop40](images/posts/project/nsshop_bigcontest/NS홈쇼핑실적예측-40.png)
+{{< expand "Presentation Slides. Click to expand." >}}![nsshop02](images/posts/project/nsshop_bigcontest/NS홈쇼핑실적예측-02.png)
+  ![nsshop03](images/posts/project/nsshop_bigcontest/NS홈쇼핑실적예측-03.png)
+  ![nsshop04](images/posts/project/nsshop_bigcontest/NS홈쇼핑실적예측-04.png)
+  ![nsshop05](images/posts/project/nsshop_bigcontest/NS홈쇼핑실적예측-05.png)
+  ![nsshop06](images/posts/project/nsshop_bigcontest/NS홈쇼핑실적예측-06.png)
+  ![nsshop07](images/posts/project/nsshop_bigcontest/NS홈쇼핑실적예측-07.png)
+  ![nsshop08](images/posts/project/nsshop_bigcontest/NS홈쇼핑실적예측-08.png)
+  ![nsshop09](images/posts/project/nsshop_bigcontest/NS홈쇼핑실적예측-09.png)
+  ![nsshop10](images/posts/project/nsshop_bigcontest/NS홈쇼핑실적예측-10.png)
+  ![nsshop11](images/posts/project/nsshop_bigcontest/NS홈쇼핑실적예측-11.png)
+  ![nsshop12](images/posts/project/nsshop_bigcontest/NS홈쇼핑실적예측-12.png)
+  ![nsshop13](images/posts/project/nsshop_bigcontest/NS홈쇼핑실적예측-13.png)
+  ![nsshop14](images/posts/project/nsshop_bigcontest/NS홈쇼핑실적예측-14.png)
+  ![nsshop15](images/posts/project/nsshop_bigcontest/NS홈쇼핑실적예측-15.png)
+  ![nsshop16](images/posts/project/nsshop_bigcontest/NS홈쇼핑실적예측-16.png)
+  ![nsshop17](images/posts/project/nsshop_bigcontest/NS홈쇼핑실적예측-17.png)
+  ![nsshop18](images/posts/project/nsshop_bigcontest/NS홈쇼핑실적예측-18.png)
+  ![nsshop19](images/posts/project/nsshop_bigcontest/NS홈쇼핑실적예측-19.png)
+  ![nsshop20](images/posts/project/nsshop_bigcontest/NS홈쇼핑실적예측-20.png)
+  ![nsshop21](images/posts/project/nsshop_bigcontest/NS홈쇼핑실적예측-21.png)
+  ![nsshop22](images/posts/project/nsshop_bigcontest/NS홈쇼핑실적예측-22.png)
+  ![nsshop23](images/posts/project/nsshop_bigcontest/NS홈쇼핑실적예측-23.png)
+  ![nsshop24](images/posts/project/nsshop_bigcontest/NS홈쇼핑실적예측-24.png)
+  ![nsshop25](images/posts/project/nsshop_bigcontest/NS홈쇼핑실적예측-25.png)
+  ![nsshop26](images/posts/project/nsshop_bigcontest/NS홈쇼핑실적예측-26.png)
+  ![nsshop27](images/posts/project/nsshop_bigcontest/NS홈쇼핑실적예측-27.png)
+  ![nsshop28](images/posts/project/nsshop_bigcontest/NS홈쇼핑실적예측-28.png)
+  ![nsshop29](images/posts/project/nsshop_bigcontest/NS홈쇼핑실적예측-29.png)
+  ![nsshop30](images/posts/project/nsshop_bigcontest/NS홈쇼핑실적예측-30.png)
+  ![nsshop31](images/posts/project/nsshop_bigcontest/NS홈쇼핑실적예측-31.png)
+  ![nsshop32](images/posts/project/nsshop_bigcontest/NS홈쇼핑실적예측-32.png)
+  ![nsshop33](images/posts/project/nsshop_bigcontest/NS홈쇼핑실적예측-33.png)
+  ![nsshop34](images/posts/project/nsshop_bigcontest/NS홈쇼핑실적예측-34.png)
+  ![nsshop35](images/posts/project/nsshop_bigcontest/NS홈쇼핑실적예측-35.png)
+  ![nsshop36](images/posts/project/nsshop_bigcontest/NS홈쇼핑실적예측-36.png)
+  ![nsshop37](images/posts/project/nsshop_bigcontest/NS홈쇼핑실적예측-37.png)
+  ![nsshop38](images/posts/project/nsshop_bigcontest/NS홈쇼핑실적예측-38.png)
+  ![nsshop39](images/posts/project/nsshop_bigcontest/NS홈쇼핑실적예측-39.png)
+  ![nsshop40](images/posts/project/nsshop_bigcontest/NS홈쇼핑실적예측-40.png)
+{{< /expand >}}
 
 <br>
 <br>

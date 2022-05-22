@@ -37,7 +37,7 @@ weight: 1
 
 ## Presentation
 
-![slide1](images/posts/project/apartment_auction/Slide1.PNG)
+<!--![slide1](images/posts/project/apartment_auction/Slide1.PNG)-->
 ![slide2](images/posts/project/apartment_auction/Slide2.PNG)
 ![slide3](images/posts/project/apartment_auction/Slide3.PNG)
 ![slide4](images/posts/project/apartment_auction/Slide4.PNG)
