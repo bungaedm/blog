@@ -4,7 +4,6 @@ description: null
 draft: false
 title: 택배회사직원 지각시간
 weight: 1
-collapsible: true
 ---
 
 ## 택배회사직원 지각시간 분석

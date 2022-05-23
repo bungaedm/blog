@@ -4,7 +4,6 @@ description: null
 draft: false
 title: NS Shop+ 홈쇼핑
 weight: 1
-collapsible: true
 ---
 
 ## [BigContest] NS Shop+ 홈쇼핑 실적 예측

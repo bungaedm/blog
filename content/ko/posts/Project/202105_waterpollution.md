@@ -4,7 +4,6 @@ description: null
 draft: false
 title: 수질오염총량관리제 인식
 weight: 1
-collapsible: true
 ---
 
 ## 수질오염총량관리제 시행에 대한 지역주민 인식 분석

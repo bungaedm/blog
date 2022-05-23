@@ -4,7 +4,6 @@ description: null
 draft: false
 title: 큰돌고래 네트워크
 weight: 1
-collapsible: true
 ---
 
 ## 큰돌고래 상호작용 네트워크분석
