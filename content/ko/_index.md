@@ -118,13 +118,28 @@ sections:
 - bgcolor: '#ffbf00'
   body:
     description:
-      1. 수소차 충전소 입지 추천  
+      1. [행복지수 예측](/posts/project/202005_happiness_index/)
       
-      2. NH투자증권 Y&Z세대 투자자 프로파일링  
+      2. [수소차 충전소 입지 추천](/posts/project/202006_hydrogen_car/)
       
-      3. 심리 성향 예측 AI 경진대회
+      3. [NS Shop+ 홈쇼핑 매출 예측](/posts/project/202009_nsshop_bigcontest/) (빅콘테스트 챔피언스리그)
       
-      4. 홈쇼핑 매출 예측 (빅콘테스트 챔피언스리그)
+      4. [NH투자증권 Y&Z세대 투자자 프로파일링](/posts/project/202011_nh_yz/) (Dacon)
+      
+      5. [아파트 경매가격 예측](/posts/project/202105_apartment_auction/)
+      
+      6. [빅맥과 노동가치](/posts/project/202105_bigmac/)
+      
+      7. [수질오염총량관리제 시행에 대한 지역주민 인식 분석](/posts/project/202105_waterpollution/)
+      
+      8. [택배회사직원 지각시간](/posts/project/202106_delivery_lateness/)
+      
+      9. [큰돌고래 상호작용 네트워크분석](/posts/project/202112_dolphin_network/)
+      
+      10. [아파트 경매가격 예측2](/posts/project/202112_apartment_auction2/)
+      
+      11. [효돌 사용자 군집화](/posts/project/202112_hyodol/)
+      
     image: images/section/keyboard.png
     imagePosition: left
     # subtitle: Projects

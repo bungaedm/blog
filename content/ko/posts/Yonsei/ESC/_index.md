@@ -12,7 +12,7 @@ weight: 3
 2020 Spring: 학술부
 2020 Summer: 총무(임원)
 2020 Fall: 총무(임원)
-2020 Winter: 학술부(예정)
+2020 Winter: 학술부
 
 ---
 
