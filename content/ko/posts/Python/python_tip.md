@@ -15,3 +15,10 @@ weight: 1
 ## 3. 검색 팁
 구글링 시, 뒤에 'towards data science' 또는 'medium' 붙이기  
 하루 열람 제한이 있는데, 더 읽고 싶은 경우는 Chrome 시크릿 모드를 활용하면 제한이 풀린다. 
+
+## 4. Matplotlib 한글 깨짐 현상 해결
+```python
+font_path = "C:/Windows/Fonts/NGULIM.TTF"
+font = font_manager.FontProperties(fname=font_path).get_name()
+rc('font', family=font)
+```
