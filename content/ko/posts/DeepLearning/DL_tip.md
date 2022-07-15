@@ -8,5 +8,9 @@ weight: 1
 
 # 1. 추천 사이트
 
-## 1-1. Anomaly Detection
-1. [AnoGAN](https://sensibilityit.tistory.com/506)
+## 1-1. GAN
+1. [GAN](https://memesoo99.tistory.com/26): GAN에 대한 전반적인 설명
+1. [DCGAN](https://memesoo99.tistory.com/32): GAN + Deep Convolution
+
+## 1-2. Anomaly Detection
+1. [AnoGAN](https://sensibilityit.tistory.com/506): 정상데이터로 학습시킨 DCGAN을 활용하여 Anomaly Detection
