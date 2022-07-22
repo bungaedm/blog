@@ -15,7 +15,8 @@ Schlegl, T., Seeböck, P., Waldstein, S. M., Schmidt-Erfurth, U., & Langs, G. (2
 Semi-supervised Anomaly Detection, 근데 GAN을 곁들인. (솔직히 unsupervised는 아니다.)
 
 ## 1. Introduction
-![AnoGAN](images/posts/deep_learning/AnoGAN/AnoGAN.JPG)
+![AnoGAN2](images/posts/deep_learning/AnoGAN/AnoGAN2.JPG)
+![AnoGAN1](images/posts/deep_learning/AnoGAN/AnoGAN.JPG)
 
 정상데이터만으로 `DCGAN`을 학습시킨 후, image space에서 latent space로의 mapping을 base로 하는 새로운 anoamly score를 제안한 방법론
 
@@ -31,6 +32,7 @@ DCGAN: Deep Convolutional Generative Adversarial Networks
 
 ### 2-2. t-SNE embedding
 ![tsne](images/posts/deep_learning/AnoGAN/tsne.JPG)
+
 t-distributed stochastic neighbor embedding
 
 ## 3. Methods
