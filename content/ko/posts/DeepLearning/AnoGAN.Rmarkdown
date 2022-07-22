@@ -16,7 +16,7 @@ Semi-supervised Anomaly Detection, 근데 GAN을 곁들인. (솔직히 unsupervi
 
 ## 1. Introduction
 ![AnoGAN2](images/posts/deep_learning/AnoGAN/AnoGAN2.JPG)
-![AnoGAN1](images/posts/deep_learning/AnoGAN/AnoGAN.JPG)
+![AnoGAN1g](images/posts/deep_learning/AnoGAN/AnoGAN.JPG)
 
 정상데이터만으로 `DCGAN`을 학습시킨 후, image space에서 latent space로의 mapping을 base로 하는 새로운 anoamly score를 제안한 방법론
 
