@@ -9,7 +9,8 @@ weight: 1
 # 1. 추천 사이트
 
 ## 1-1. GAN
-1. [GAN](https://memesoo99.tistory.com/26): GAN에 대한 전반적인 설명
+1. [GAN(1)](https://memesoo99.tistory.com/26): GAN에 대한 전반적인 설명
+1. [GAN(2)](https://www.samsungsds.com/kr/insights/generative-adversarial-network-ai-2.html): GAN에 대한 수학적 설명
 1. [DCGAN](https://memesoo99.tistory.com/32): GAN + Deep Convolution
 
 ## 1-2. Anomaly Detection
