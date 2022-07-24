@@ -44,3 +44,8 @@ font_import()
 theme_set(theme_bw(base_family='nanum'))
 ```
 - 그런데 code chunk 안에 들어가는 한글에서는 pdf 만들 때 안 나오던데 이거는 어떻게 해야하는지 아직 모르겠다.
+
+## 7. 반복문에서 tidyverse 변수명 처리
+```r
+variable_name = rlang::ensym(variable_name)
+```
