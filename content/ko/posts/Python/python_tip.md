@@ -22,3 +22,11 @@ font_path = "C:/Windows/Fonts/NGULIM.TTF"
 font = font_manager.FontProperties(fname=font_path).get_name()
 rc('font', family=font)
 ```
+
+## 5. Jupyter Notebook 셀 크기 조정
+```python
+from IPython.core.display import display, HTML
+display(HTML("<style>.container { width:60% !important; }</style>"))
+```
+
+여기서 60%를 모니터 크기에 따라 80~100%로 바꾸어서 사용하면 된다 
