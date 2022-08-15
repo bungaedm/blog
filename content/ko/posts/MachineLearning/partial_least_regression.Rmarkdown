@@ -3,7 +3,7 @@ collapsible: false
 date: "2022-03-15T10:08:56+09:00"
 description: Partial Least Regression
 title: Partial Least Regression
-weight: 3
+weight: 2
 ---
 
 # Partial Leaset Regression

@@ -3,7 +3,7 @@ collapsible: false
 date: "2021-10-28T10:08:56+09:00"
 description: Clustering
 title: Clustering
-weight: 3
+weight: 2
 ---
 
 # Clusetring

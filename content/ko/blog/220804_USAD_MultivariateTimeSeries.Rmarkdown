@@ -54,7 +54,7 @@ AE2: (1) input 복원 & (2) AE1이 복원한 데이터와 input 구별
 $$
 \begin{align}
 &\min_{AE_1} \frac{1}{n}||X - AE_1(X)||_2 + (1-\frac{1}{n})||X - AE_2(AE_1(X))||_2 \\
-&\min_{AE_2} \frac{1}{n}||X - AE_1(X)||_2 - (1-\frac{1}{n})||X - AE_2(AE_1(X))||_2
+&\min_{AE_2} \frac{1}{n}||X - AE_2(X)||_2 - (1-\frac{1}{n})||X - AE_2(AE_1(X))||_2
 \end{align}
 $$
 
