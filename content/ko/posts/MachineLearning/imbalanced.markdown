@@ -54,4 +54,4 @@ SMOTE는 `Synthetic Minority Oversampling Technique`의 약자이다. ADASYN처�
 # ---
 
 ## Reference
-[1] [Youtube 영상](https://datascienceschool.net/03%20machine%20learning/14.02%20%EB%B9%84%EB%8C%80%EC%B9%AD%20%EB%8D%B0%EC%9D%B4%ED%84%B0%20%EB%AC%B8%EC%A0%9C.html#smote-enn)
+[1] [참고사이트](https://datascienceschool.net/03%20machine%20learning/14.02%20%EB%B9%84%EB%8C%80%EC%B9%AD%20%EB%8D%B0%EC%9D%B4%ED%84%B0%20%EB%AC%B8%EC%A0%9C.html#smote-enn)
