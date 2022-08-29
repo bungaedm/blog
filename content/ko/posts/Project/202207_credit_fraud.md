@@ -7,7 +7,7 @@ weight: 1
 ---
 
 # 신용카드 사기거래 탐지 AI 경진대회
-- 분석기간: 2022 July ~ 2022 October
+- 분석기간: 2022 July ~ 2022 August
 - 본 대회는 `DACON`에서 매월 주최하는 경진대회 중 하나이다. 
 - 본 대회의 핵심은 `Unsupervised Anomaly Detection`이었다. Validation Data에는 Class가 주어지기는 했지만, 단순통계정보 외에는 정보를 사용할 수는 없는 것이 규정이었다. Train Data에서 어떤 것이 사기거래 데이터인지 모르는 상태에서 찾아내는 것이 어려운 부분이었다.
 - [대회 링크](https://dacon.io/competitions/official/235930/overview/description)
