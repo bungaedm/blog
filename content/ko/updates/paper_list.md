@@ -11,7 +11,7 @@ weight: 1
 ### 1-1. Done
 |  Title  |  Year  |  Arthor  |  Journal  |    ETC.   |
 | :-----: | :----: | :------: | :-------: | :-------: |
-| Geometric SMOTE a geometrically enhanced drop-in replacement for SMOTE | 2019 | Douzas, G., & Bacao, F. | Information Sciences |  |
+| Geometric SMOTE a geometrically enhanced drop-in replacement for SMOTE | 2019 | Douzas, G., & Bacao, F. | Information Sciences | [참고](https://towardsdatascience.com/handling-imbalanced-data-using-geometric-smote-770b49d5c7b5)  |
 | Smote for regession | 2013 | Torgo, L., Ribeiro, R. P., Pfahringer, B., & Branco, P. | Progress in Artificial Intelligence. | 
 | Delving into deep imbalanced regression | 2021 | Yang, Y., Zha, K., Chen, Y., Wang, H., & Katabi, D. | PMLR | ICML |
 | A random forests quantile classifier for class imbalanced data | 2019 | O’Brien, R., & Ishwaran, H. | Pattern recognition | |
@@ -30,5 +30,6 @@ weight: 1
 1. Chen, B., Xia, S., Chen, Z., Wang, B., & Wang, G. (2021). RSMOTE: A self-adaptive robust SMOTE for imbalanced problems with label noise. Information Sciences, 553, 397-428.
 1. Kamycki, K., Kapuscinski, T., & Oszust, M. (2019). Data augmentation with suboptimal warping for time-series classification. Sensors, 20(1), 98.
 1. Dablain, D., Krawczyk, B., & Chawla, N. V. (2022). DeepSMOTE: Fusing deep learning and SMOTE for imbalanced data. IEEE Transactions on Neural Networks and Learning Systems.
+1. Torgo, L., & Ribeiro, R. (2007, September). Utility-based regression. In European conference on principles of data mining and knowledge discovery (pp. 597-604). Springer, Berlin, Heidelberg.
 
 ## 2. Anomaly Detection
