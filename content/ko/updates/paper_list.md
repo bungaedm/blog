@@ -31,5 +31,8 @@ weight: 1
 1. Kamycki, K., Kapuscinski, T., & Oszust, M. (2019). Data augmentation with suboptimal warping for time-series classification. Sensors, 20(1), 98.
 1. Dablain, D., Krawczyk, B., & Chawla, N. V. (2022). DeepSMOTE: Fusing deep learning and SMOTE for imbalanced data. IEEE Transactions on Neural Networks and Learning Systems.
 1. Torgo, L., & Ribeiro, R. (2007, September). Utility-based regression. In European conference on principles of data mining and knowledge discovery (pp. 597-604). Springer, Berlin, Heidelberg.
+1. Branco, P., Torgo, L., & Ribeiro, R. P. (2017, October). SMOGN: a pre-processing approach for imbalanced regression. In First international workshop on learning with imbalanced domains: Theory and applications (pp. 36-50). PMLR.
+1. Branco, P., Torgo, L., & Ribeiro, R. P. (2019). Pre-processing approaches for imbalanced distributions in regression. Neurocomputing, 343, 76-99.
+1. Xia, S., Zheng, Y., Wang, G., He, P., Li, H., & Chen, Z. (2021). Random space division sampling for label-noisy classification or imbalanced classification. IEEE Transactions on Cybernetics.
 
 ## 2. Anomaly Detection
