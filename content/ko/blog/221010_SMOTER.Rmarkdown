@@ -15,3 +15,37 @@ SMOTE를 회귀분석에 맞게 바꾼 알고리즘이다.
 
 ## 1. Introduction
 Regression 상황에서도 불균형데이터에 해결책이 필요하다.
+
+## 2. Problem Formulation
+
+### 2-1. Utility-based Regression
+$$\begin{aligned}
+U^{P}_{\phi}(\hat{y},y) &= B_{\phi}(\hat{y},y) - C_{\phi}(\hat{y},y) \\
+&= \phi(y) \cdot (1-\Gamma_B(\hat{y},y)) - \phi^P(\hat{y},y) \cdot \Gamma_C(\hat{y},y)
+\end{aligned}$$
+
+$B_{\phi}(\hat{y},y), C_{\phi}(\hat{y},y), \Gamma_B(\hat{y},y), \Gamma_C(\hat{y},y)$는 각각 benefit과 cost와 관련된 함수들이다.
+
+### 2-2. Precision and Recall for Regression
+
+$$\text{recall} = \frac{\sum_{i:\hat{z_i}=1, z_i=1}(1+u_i)}{\sum_{i:z_i=1}(1+\phi(y_i))}$$
+$$\text{precision} = \frac{\sum_{i:\hat{z_i}=1, z_i=1}(1+u_i)}{\sum_{i:\hat{z_i}=1,z_i=1} \Big(1+\phi(y_i)\Big) + \sum_{i:\hat{z_i}=1,z_i=0}\Big(2-p\big(\phi(y_i)\big)\Big)}$$
+$$\text{F1-score} = \frac{(\beta^2+1) \cdot precision \cdot recall}{\beta^2 \cdot precision \cdot recall}$$
+
+## 3. Sampling Approaches 
+
+### 3-1. Under-sampling common values
+
+### 3-2. SMOTE for regression
+![algorithm1](images/posts/blog/smote_for_regression/algorithm1.PNG)
+![algorithm2](images/posts/blog/smote_for_regression/algorithm2.PNG)
+
+## 4. Experimental Evaluation
+
+## 5. Conclusions
+
+# ---
+
+## Critical Point (MY OWN OPINION)
+
+# ---
