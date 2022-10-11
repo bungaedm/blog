@@ -1,0 +1,17 @@
+---
+author: 손지우
+date: "2022-10-10"
+tags: null
+title: SMOTE for Regression
+---
+
+Torgo, L., Ribeiro, R.P., Pfahringer, B., Branco, P. (2013). SMOTE for Regression. In: Correia, L., Reis, L.P., Cascalho, J. (eds) Progress in Artificial Intelligence. EPIA 2013. Lecture Notes in Computer Science(), vol 8154. Springer, Berlin, Heidelberg.
+<!--more-->
+
+## In Short
+SMOTE를 회귀분석에 맞게 바꾼 알고리즘이다.
+
+참고로, 위 저자들은 해당 논문이 나오기 6년 전인 2007년에 **Utility-based Regression**이라는 논문을 썼었고, 여기서 그들이 제안한 개념인 **relevance**를 활용하여 `SMOTER`를 제안하고 있다.
+
+## 1. Introduction
+Regression 상황에서도 불균형데이터에 해결책이 필요하다.
