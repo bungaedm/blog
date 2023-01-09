@@ -13,26 +13,35 @@ weight: 1
 (유의사항) `2. 개별 함수`의 함수들을 순차적으로 정의한 후에 전체 함수(`youtube_crawling`)를 정의해야 실행이 된다.
 ```python
 def youtube_crawling(channel_name, csv_name, export=True, verbose=True):
-    # Selenium Option Setting
-    options = set_selenium_option()
-    
-    # Extract Video Links by crawling
-    today_video_link_list = youtube_video_list(channel_name, options)
-    
-    # Today & Yesterdat to string
+    ###########################################
+    # Check
+    ###########################################
+    # Today & Yesterday date to string
     today_str, yesterday_str = make_date_str()
-    
-    # Load previously crawled data
-    previous_df = previous_csv(csv_name, yesterday_str)
     
     # Check if today's crawling already exists
     if os.path.isfile('result\\' + csv_name + '_' + today_str + '.csv'):
         print('이미 오늘자 파일이 존재합니다.')
         return
     
-    # Update crawling data
-    df = update_video_info(previous_df, today_video_link_list)
+    ###########################################
+    # Crawling
+    ###########################################
+    # Selenium Option Setting
+    options = set_selenium_option()
     
+    # Extract Video Links by crawling
+    today_video_link_list, subscriber = youtube_video_list_subscriber(channel_name, options)
+    
+    # Load previously crawled data
+    previous_df = previous_csv(csv_name, yesterday_str)
+    
+    # Update crawling data
+    df = update_video_info(previous_df, today_video_link_list, subscriber)
+    
+    ###########################################
+    # Export & Print
+    ###########################################
     if export:
         df.to_csv('result/' + csv_name + '_' + today_str + '.csv', index=False)
     if verbose:
@@ -94,7 +103,7 @@ def set_selenium_option():
 ```
 {{</expand>}}
 
-### Step 3. Youtube 영상 리스트 크롤링
+### Step 3. Youtube 영상 리스트 및 구독자수 크롤링
 {{<expand "Code">}}
 ```python
 def scrollToEnd():
@@ -121,7 +130,7 @@ def scrollToEnd():
 
 {{<expand "Code">}}
 ```python
-def youtube_video_list(channel_name, selenium_option):
+def youtube_video_list_subscriber(channel_name, selenium_option):
     # Channel URL
     channel_url = 'https://www.youtube.com/' + channel_name + '/videos'
     
@@ -145,8 +154,21 @@ def youtube_video_list(channel_name, selenium_option):
     for sample in sample_list:
         video_link = sample.get_attribute_list('href')[0]
         video_link_list.append('https://youtube.com'+video_link)
-        
-    return video_link_list
+
+    # 구독자 수 추출
+    subscriber = soup.find_all(id='subscriber-count')[0].text
+    scale = subscriber[-2:-1]
+    if scale == '만':
+        subscriber = re.sub(r'[^0-9.]', '', subscriber)
+        subscriber = np.float_(subscriber)*10000
+    elif scale == '천':
+        subscriber = re.sub(r'[^0-9.]', '', subscriber)
+        subscriber = np.float_(subscriber)*1000
+    else:
+        subscriber = subscriber[:-1]
+    subscriber = int(np.round(subscriber))
+    
+    return video_link_list, subscriber
 ```
 {{</expand>}}
 
@@ -172,7 +194,7 @@ def previous_csv(csv_name, yesterday_str):
         df = pd.read_csv('result/' + csv_name + '_' + yesterday_str + '.csv')
     except:
         print('이전 파일이 없습니다.')
-        df_columns=['crawl_datetime', 'channel', 'title', 'length', 'views', 'publish_date',
+        df_columns=['crawl_datetime', 'channel', 'subscriber', 'title', 'length', 'views', 'publish_date',
                     'video_url','thumbnail_url', 'keywords', 'description']
         df = pd.DataFrame(columns=df_columns)
     
@@ -181,9 +203,11 @@ def previous_csv(csv_name, yesterday_str):
 {{</expand>}}
 
 ### Step 6. Pytube 활용하기
+제목, 영상길이, 게시자, 게시날짜, 조회수, 키워드, 설명, 썸네일 등의 정보를 간단하게 얻을 수 있다. pytube 중에서 Channel이라는 class가 있는데, 2023년 1월 9일 기준으로는 주요 함수(ex. 업로드 영상들의 URL 반환하는 함수)들에서 empty list만 리턴하는 문제가 있다. 해당 문제가 해결이 된다면, `Step3. Youtube 영상 리스트 크롤링` 과정이 단순화될 수 있다. 
+
 {{<expand "Code">}}
 ```python
-def update_video_info(df, video_link_list, verbose=True) :
+def update_video_info(df, video_link_list, subscriber, verbose=True) :
     print('--------------------------------------------------------------------------')
     today_datetime = datetime.today()
     for idx, url in enumerate(video_link_list):
@@ -195,7 +219,7 @@ def update_video_info(df, video_link_list, verbose=True) :
             print('{} / 영상: {}개'.format(youtube.author, len(video_link_list)))
 
         # 개별 영상 정보
-        new = [today_datetime, youtube.author, youtube.title, youtube.length, youtube.views, youtube.publish_date.date(),
+        new = [today_datetime, youtube.author, subscriber, youtube.title, youtube.length, youtube.views, youtube.publish_date.date(),
                youtube.watch_url, youtube.thumbnail_url, youtube.keywords, youtube.description]
         df_new = pd.DataFrame([new], index=[idx], columns=df.columns)
         df = pd.concat([df, df_new])
@@ -205,6 +229,51 @@ def update_video_info(df, video_link_list, verbose=True) :
             print('{}번째 영상정보 정리 완료!'.format(idx+1))
     print('\n')
     return df
+```
+{{</expand>}}
+
+{{<expand "All arguments">}}
+```python
+# example URL
+url = 'https://www.youtube.com/watch?v=Ktw22y8VFHs'
+youtube = YouTube(url)
+
+# All arguments
+youtube.age_restricted
+youtube.allow_oauth_cache
+youtube.author
+youtube.bypass_age_gate
+youtube.caption_tracks
+youtube.captions
+youtube.channel_id
+youtube.channel_url
+youtube.check_availability
+youtube.description
+youtube.embed_html
+youtube.embed_url
+youtube.fmt_streams
+youtube.from_id
+youtube.initial_data
+youtube.js
+youtube.js_url
+youtube.keywords
+youtube.length
+youtube.metadata
+youtube.publish_date
+youtube.rating
+youtube.register_on_complete_callback
+youtube.register_on_progress_callback
+youtube.stream_monostate
+youtube.streaming_data
+youtube.streams
+youtube.thumbnail_url
+youtube.title
+youtube.use_oauth
+youtube.vid_info
+youtube.video_id
+youtube.views
+youtube.watch_html
+youtube.watch_url
 ```
 {{</expand>}}
 
