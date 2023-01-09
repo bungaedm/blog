@@ -1,5 +1,5 @@
 ---
-date: "2022-11-11T00:08:29+09:00"
+date: "2021-11-11T00:08:29+09:00"
 description: null
 draft: false
 title: Onehot Encoding 역변환

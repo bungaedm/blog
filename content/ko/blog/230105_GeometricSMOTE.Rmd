@@ -36,31 +36,33 @@ Douzas, G., & Bacao, F. (2019). Geometric SMOTE a geometrically enhanced drop-in
 ### 4-1. G-SMOTE Algorithm
 
 ### 4-2. Functions
-`Surface`
-`Hyperball`
-`Vectors`
-`Truncate`
-`Deform`
-`Translate`
+
+`Surface` `Hyperball` `Vectors` `Truncate` `Deform` `Translate`
 
 ### 4-3. Justification of the Algorithm
 
-1. $S_{gen}$
-
+1.  $S_{gen}$
 
 ## 5. Research Methodology
 
 ### 5-1. Experimental Data
+
 ### 5-2. Evaluation Measures
+
 ### 5-3. Machine Learning Algorithms
+
 ### 5-4. Experimental Procedure
+
 ### 5-5. Software Implementation
 
 ## 6. Results and Discussion
 
-### 6-1. Comparative Presentation 
+### 6-1. Comparative Presentation
+
 ### 6-2. Statistical Analysis
+
 ### 6-3. G-SMOTE taxonomy
+
 ### 6-4. Analysis and Tuning of optimal hyper-parameters
 
 ## 7. Conclusions
