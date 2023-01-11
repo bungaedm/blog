@@ -8,6 +8,7 @@ title: Geometric SMOTE
 Douzas, G., & Bacao, F. (2019). Geometric SMOTE a geometrically enhanced drop-in replacement for SMOTE. Information Sciences, 501, 118-135. <!--more-->
 
 ## In Short
+SMOTE의 data generation 파트를 geometrically 확장한 oversampling 알고리즘
 
 ## 1. Introduction
 데이터불균형 문제는 언제나 중요한 문제이다.
