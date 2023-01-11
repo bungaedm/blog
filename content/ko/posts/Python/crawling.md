@@ -127,7 +127,6 @@ def scrollToEnd():
 ```
 {{</expand>}}
 
-
 {{<expand "Code">}}
 ```python
 def youtube_video_list_subscriber(channel_name, selenium_option):
