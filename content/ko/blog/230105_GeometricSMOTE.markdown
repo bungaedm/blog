@@ -229,4 +229,4 @@ minority, 그리고 높은 절댓값의 truncation, deformation hyperparameter�
 
 1. IR(불균형도)만 보는 것이 아니라 R(변수수 대비 샘플수)를 기준으로도 사후분석을 해볼 필요가 있다는 것을 배웠다.
 
-1. G-SMOTE와 별개로, Related Works를 읽다보니 within-class 불균형에 주목하고 manifold structure를 보존하고자 하는 `SOMO`라는 논문을 알게 되었다. 나중에 읽어봐야겠다.
+1. G-SMOTE와 별개로, Related Works를 읽다보니 within-class 불균형에 주목하고 manifold structure를 보존하고자 하는 `SOMO`라는 논문을 알게 되었다.
