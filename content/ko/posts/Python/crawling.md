@@ -16,42 +16,52 @@ def youtube_crawling(channel_name, csv_name, export=True, verbose=True):
     ###########################################
     # Check
     ###########################################
-    # Today & Yesterday date to string
-    today_str, yesterday_str = make_date_str()
-    
+    # Today date to string
+    today_str = make_date_str()
+
     # Check if today's crawling already exists
-    if os.path.isfile('result\\' + csv_name + '_' + today_str + '.csv'):
-        print('이미 오늘자 파일이 존재합니다.')
+    if os.path.isfile('result\\\\' + csv_name + '_' + today_str + '.csv'):
+        print(csv_name + ' 이미 오늘자 파일이 존재합니다.')
         return
-    
+
     ###########################################
     # Crawling
     ###########################################
     # Selenium Option Setting
     options = set_selenium_option()
-    
-    # Extract Video Links by crawling
+
+    # Extract (1) Video Links, (2) Subscribers by crawling
     today_video_link_list, subscriber = youtube_video_list_subscriber(channel_name, options)
-    
+
     # Load previously crawled data
-    previous_df = previous_csv(csv_name, yesterday_str)
-    
+    previous_df = previous_csv(csv_name)
+
     # Update crawling data
     df = update_video_info(previous_df, today_video_link_list, subscriber)
-    
+
     ###########################################
     # Export & Print
     ###########################################
+    # Export
     if export:
         df.to_csv('result/' + csv_name + '_' + today_str + '.csv', index=False)
+    
+    # Print Log
+    latest_date = get_latest_date(csv_name)
     if verbose:
         new_video_links = set(today_video_link_list) - set(previous_df['video_url'])
         deleted_video_links = set(previous_df['video_url']) - set(today_video_link_list)
         print('오늘({}) 크롤링 영상 개수: {}개'.format(today_str, len(today_video_link_list)))
-        print('어제({}) 크롤링 영상 개수: {}개 (전체 {}행)'.format(yesterday_str, len(np.unique(previous_df['title'])), previous_df.shape[0]))
+        print('최근({}) 크롤링 영상 개수: {}개 (전체 {}행)'.format(latest_date, len(np.unique(previous_df['title'])), previous_df.shape[0]))
         print('새로 업로드 된 영상 개수: {}개'.format(len(new_video_links)))
         print('삭제된 영상 개수: {}개'.format(len(deleted_video_links)))
         print(date.today(), '영상정보 저장 완료')
+
+    ###########################################
+    # Delete Previous File
+    ###########################################    
+    if export:
+        delete_previous_csv(csv_name, latest_date)
 ```
 
 ## 2. 개별 함수
@@ -63,6 +73,8 @@ import os
 import time
 import pandas as pd
 import numpy as np
+import re
+import send2trash
 from datetime import date, datetime
 
 from bs4 import BeautifulSoup
@@ -83,13 +95,13 @@ warnings.filterwarnings(action='ignore')
 def set_selenium_option():
     global options
     # Setting
-    os.chdir('C:\\Users\\bunga\\Desktop\\python\\youtube')
+    os.chdir('C:\\\\Users\\\\bunga\\\\Desktop\\\\python\\\\youtube')
     options = webdriver.ChromeOptions()
     user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36'
-    
+
     # Option Control
     options.add_argument('user-agent=' + user_agent)
-    options.add_argument('headless') # 창을 띄우지 않습니다
+    options.add_argument('headless')  # 창을 띄우지 않습니다
     options.add_argument('window-size=1920x1080')
     options.add_argument('disable-gpu')
     options.add_argument('disable-infobars')
@@ -98,7 +110,7 @@ def set_selenium_option():
     options.add_argument('--blink-settings=imagesEnabled=false') # 브라우저에서 이미지 로딩을 하지 않습니다.
     options.add_argument('incognito') # 시크릿모드의 브라우저가 실행됩니다.
     options.add_argument('--start-maximized')
-    
+
     return options
 ```
 {{</expand>}}
@@ -184,19 +196,34 @@ def make_date_str():
 ```
 {{</expand>}}
 
+{{<expand "Code">}}    
+```python
+def get_latest_date(csv_name):
+    try:
+        file_list = [filename for filename in os.listdir(path='result\\\\') if filename.startswith(csv_name)]
+        date_list = [int(filename[-12:-4]) for filename in file_list]
+        latest_date = np.max(date_list)
+        return str(latest_date)
+    except:
+        return 'X'
+```
+{{</expand>}}
+
 ### Step 5. 이전일자 csv 불러오기
 {{<expand "Code">}}
 ```python
-def previous_csv(csv_name, yesterday_str):
-    # 어제자 csv 불러오기 (없으면 빈 데이터프레임 만들기)
+def previous_csv(csv_name):
+    # 최근 csv 불러오기 (없으면 빈 데이터프레임 만들기)
     try: 
-        df = pd.read_csv('result/' + csv_name + '_' + yesterday_str + '.csv')
+        latest_date = get_latest_date(csv_name)
+        latest_filename = csv_name + '_'+ latest_date + '.csv'
+        df = pd.read_csv('result/' + latest_filename)
     except:
         print('이전 파일이 없습니다.')
         df_columns=['crawl_datetime', 'channel', 'subscriber', 'title', 'length', 'views', 'publish_date',
                     'video_url','thumbnail_url', 'keywords', 'description']
         df = pd.DataFrame(columns=df_columns)
-    
+
     return df
 ```
 {{</expand>}}
@@ -206,7 +233,7 @@ def previous_csv(csv_name, yesterday_str):
 
 {{<expand "Code">}}
 ```python
-def update_video_info(df, video_link_list, subscriber, verbose=True) :
+def update_video_info(df, video_link_list, subscriber, verbose=True):
     print('--------------------------------------------------------------------------')
     today_datetime = datetime.today()
     for idx, url in enumerate(video_link_list):
@@ -273,6 +300,16 @@ youtube.video_id
 youtube.views
 youtube.watch_html
 youtube.watch_url
+```
+{{</expand>}}
+
+### Step 7. 이전 csv 지우기
+{{<expand "Code">}}
+```python
+def delete_previous_csv(csv_name, latest_date):
+    if latest_date != 'X': # 이전 파일이 없는 경우
+        latest_filename = csv_name + '_'+ latest_date + '.csv'
+        send2trash.send2trash('result/' + latest_filename)
 ```
 {{</expand>}}
 
