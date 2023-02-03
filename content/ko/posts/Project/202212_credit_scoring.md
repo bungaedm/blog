@@ -9,6 +9,7 @@ weight: 1
 ## 2030 개인신용평가모형 개발
 - 분석기간: 2022 December ~ 2023 January
 - 2022연세데이터사이언스경진대회에 참여하여 진행한 프로젝트이다.
+- 팀원 간 정보 공유 및 기록을 위하여 [노션](https://www.notion.so/65eab74ebe4b424b80b03e6da4acdf09) 페이지를 만들어두었다.
 
 ## 1. Domain Knowledge
 ### 1-1. 금융리스크
@@ -104,3 +105,48 @@ EL = PD X EAD X LGD
     (1) 증빙소득
     (2) 비금융거래 성실납부실적 등록
 {{</expand>}}
+
+## 2. What I Have Learned
+1. GLMM
+Generalized Linear Mixed Model
+
+2. 빅데이터 활용 경험
+3400만 행 x 153개 열의 데이터는 17GB가 넘는 큰 데이터.
+RAM 64GB의 데스크톱으로도 모델 학습 어려움.
+
+## 3. Presentation
+![Slide01](images/posts/project/202212_credit_scoring/슬라이드1.PNG)
+![Slide02](images/posts/project/202212_credit_scoring/슬라이드2.PNG)
+![Slide03](images/posts/project/202212_credit_scoring/슬라이드3.PNG)
+![Slide04](images/posts/project/202212_credit_scoring/슬라이드4.PNG)
+![Slide05](images/posts/project/202212_credit_scoring/슬라이드5.PNG)
+![Slide06](images/posts/project/202212_credit_scoring/슬라이드6.PNG)
+![Slide07](images/posts/project/202212_credit_scoring/슬라이드7.PNG)
+![Slide08](images/posts/project/202212_credit_scoring/슬라이드8.PNG)
+![Slide09](images/posts/project/202212_credit_scoring/슬라이드9.PNG)
+![Slide10](images/posts/project/202212_credit_scoring/슬라이드10.PNG)
+![Slide11](images/posts/project/202212_credit_scoring/슬라이드11.PNG)
+![Slide12](images/posts/project/202212_credit_scoring/슬라이드12.PNG)
+![Slide13](images/posts/project/202212_credit_scoring/슬라이드13.PNG)
+![Slide14](images/posts/project/202212_credit_scoring/슬라이드14.PNG)
+![Slide15](images/posts/project/202212_credit_scoring/슬라이드15.PNG)
+![Slide16](images/posts/project/202212_credit_scoring/슬라이드16.PNG)
+![Slide17](images/posts/project/202212_credit_scoring/슬라이드17.PNG)
+![Slide18](images/posts/project/202212_credit_scoring/슬라이드18.PNG)
+![Slide19](images/posts/project/202212_credit_scoring/슬라이드19.PNG)
+![Slide20](images/posts/project/202212_credit_scoring/슬라이드20.PNG)
+![Slide21](images/posts/project/202212_credit_scoring/슬라이드21.PNG)
+![Slide22](images/posts/project/202212_credit_scoring/슬라이드22.PNG)
+![Slide23](images/posts/project/202212_credit_scoring/슬라이드23.PNG)
+![Slide24](images/posts/project/202212_credit_scoring/슬라이드24.PNG)
+![Slide25](images/posts/project/202212_credit_scoring/슬라이드25.PNG)
+![Slide26](images/posts/project/202212_credit_scoring/슬라이드26.PNG)
+![Slide27](images/posts/project/202212_credit_scoring/슬라이드27.PNG)
+![Slide28](images/posts/project/202212_credit_scoring/슬라이드28.PNG)
+![Slide29](images/posts/project/202212_credit_scoring/슬라이드29.PNG)
+![Slide30](images/posts/project/202212_credit_scoring/슬라이드30.PNG)
+![Slide31](images/posts/project/202212_credit_scoring/슬라이드31.PNG)
+![Slide32](images/posts/project/202212_credit_scoring/슬라이드32.PNG)
+![Slide33](images/posts/project/202212_credit_scoring/슬라이드33.PNG)
+![Slide34](images/posts/project/202212_credit_scoring/슬라이드34.PNG)
+![Slide35](images/posts/project/202212_credit_scoring/슬라이드35.PNG)
