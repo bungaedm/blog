@@ -32,7 +32,7 @@ U^{P}_{\phi}(\hat{y},y) &= B_{\phi}(\hat{y},y) - C_{\phi}(\hat{y},y) \\
 `$$\text{precision} = \frac{\sum_{i:\hat{z_i}=1, z_i=1}(1+u_i)}{\sum_{i:\hat{z_i}=1,z_i=1} \Big(1+\phi(y_i)\Big) + \sum_{i:\hat{z_i}=1,z_i=0}\Big(2-p\big(\phi(y_i)\big)\Big)} \\
 \text{where p is a weight differentiating the types of errors}$$`
 
-`$$\text{F1-score} = \frac{(\beta^2+1) \cdot precision \cdot recall}{\beta^2 \cdot precision \cdot recall}$$`
+`$$\text{F1-score} = \frac{(\beta^2+1) \cdot precision \cdot recall}{\beta^2 \cdot precision + recall}$$`
 
 ## 3. Sampling Approaches 
 
