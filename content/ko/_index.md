@@ -44,15 +44,26 @@ sections:
   body:
     color: white
     description:
-      저는 **통계학**과 **심리학**을 공부하고 있는 대학원생입니다. <br>
-      현재는 데이터분석에 관심이 생겨서 다양한 도전을 해보고 있습니다. <br> <br>
-      **2021~NOW** | **연세대 통계데이터사이언스학과(대학원)** 재학 <br>
-      **2020~2021** | ESC / 연세대학교 통계학회 학술부 및 총무 <br>
-      **2017~2019** | 대한민국 공군 / RAPCON Radar Approach Control <br>
-      **2016~2021** | 응용통계학과 이중전공 <br>
-      **2015~2017** | KSCY 한국청소년학술대회 / 인문계열 컨퍼런스 총괄 및 헤드 퍼실리테이터 <br>
-      **2015~2015** | 심리학 학술모임장 / 연세대 심리학 학술소모임 Psy-World 설립 및 운영 <br>
-      **2013~2014** | 심리학 동아리장 / 하나고 LIOM Look Into Our Minds 운영 <br>
+      저는 **통계학**과 **심리학**에 관심있는 대학원생입니다. <br> <br>
+      *Activity* <br>
+      **2022.07~2022.08** | KT 인턴 (컨버전스연구소 AI Edu Tech Project S-TF) <br>
+      **2022.03~NOW** | BK21 데이터사이언스연구소 <br>
+      **2021.09~NOW** | DM(Data Mining) Lab (김현중 교수님) <br>
+      **2021.09~NOW** | **연세대 통계데이터사이언스학과(대학원)** <br>
+      **2020.03~2021.08** | 연세대학교 통계학회 ESC 학술부 및 총무 <br>
+      **2019.03~2019.12** | 통계청 대학생 기자단 <br>
+      **2017.03~2019.02** | 대한민국 공군 / RAPCON Radar Approach Control <br>
+      **2016.09~2016.12** | 성격사회심리학 연구실 RA (서은국 교수님) <br>
+      **2016.03~2016.09** | 멋쟁이사자처럼 4기 <br>
+      **2015.03~2017.08** | KSCY 한국청소년학술대회 인문계열 컨퍼런스 총괄 및 헤드 퍼실리테이터 <br>
+      **2015.06~2015.11** | 심리학 학술모임장 / 연세대 심리학 학술소모임 Psy-World 설립 및 운영 <br>
+      **2013.03~2014.02** | 심리학 동아리장 / 하나고 LIOM Look Into Our Minds 운영 <br> <br>
+      *Awards* <br>
+      **2023.06** | 한국데이터마이닝학회 SAS학생논문경진대회 우수상 <br>
+      **2023.02** | 연세대학교 빅데이터분석 경진대회 최우수상 <br>
+      **2021.12** | 연세대학교 빅데이터분석 경진대회 우수상 <br>
+      **2021.01** | NH투자증권 Y&Z 투자자 프로파일링 시각화 경진대회 입선상 (공동 5위) <br>
+      **2015.12** | 연세대학교 Freshman Seminar 창업 101 최우수상 <br>
     image: images/section/brain3.png
     imagePosition: left
     subtitle: Who am I?
@@ -122,7 +133,7 @@ sections:
       
       2. [수소차 충전소 입지 추천](/posts/project/202006_hydrogen_car/)
       
-      3. [NS Shop+ 홈쇼핑 매출 예측](/posts/project/202009_nsshop_bigcontest/) (빅콘테스트 챔피언스리그)
+      3. [NS Shop+ 홈쇼핑 매출 예측](/posts/project/202009_nsshop_bigcontest/) (BigContest 챔피언스리그)
       
       4. [NH투자증권 Y&Z세대 투자자 프로파일링](/posts/project/202011_nh_yz/) (Dacon)
       
@@ -138,7 +149,13 @@ sections:
       
       10. [아파트 경매가격 예측2](/posts/project/202112_apartment_auction2/)
       
-      11. [효돌 사용자 군집화](/posts/project/202112_hyodol/)
+      11. [효돌 사용자 군집화](/posts/project/202112_hyodol/) (2021 연세빅데이터분석경진대회)
+      
+      12. [신용카드 사기거래 탐지](/posts/project/202207_credit_fraud/) (Dacon)
+      
+      13. [AI Edu 맞춤형 학습법 제공 모델](/posts/project/202207_kt_internship/) (KT)
+      
+      14. [20대 금융사각지대 완화 신용평가모형 개선안](/posts/project/202212_credit_scoring/) (2022 연세빅데이터분석경진대회)
       
     image: images/section/keyboard.png
     imagePosition: left
@@ -190,7 +207,7 @@ footer:
     applySinglePageCss: false
     markdown: |
       ## Jiwoo Son
-      Copyright © 2022. All rights reserved.
+      Copyright © 2023. All rights reserved.
   # sections:
   # - links:
   #   - link: https://gohugo.io/
