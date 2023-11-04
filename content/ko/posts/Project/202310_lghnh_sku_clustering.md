@@ -15,3 +15,8 @@ weight: 1
 
 ### 1-2. 반제품
 
+# ---
+
+## 2. What I Have Learned
+
+### 2-1. 
