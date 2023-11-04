@@ -114,7 +114,6 @@ EL = PD X EAD X LGD
 Generalized Linear Mixed Model
 본 데이터는 36개월동안 매월말 반복측정된 패널데이터였다. 또한, 주제와 관련하여 연령대별 특징을 잘 보정해줄 필요가 있었기에 GLMM이 가장 적절한 모델이라고 판단하였다. `R`에는 `nlme`, `lme4`, `brms` 등 glmm을 구현하는 다양한 패키지들이 있다. 해당 패키지들을 모두 사용해보았는데, 이중에서 `glmmTMB`라는 패키지를 최종적으로 선택하게 되었다. 이 패키지를 사용한 이유는, temporal autocorrelation와 crossed random effect를 동시에 고려하면서 계산할 수 있는 패키지였기 때문이다. GLMM과 관련하여 공부한 내용은 [노션 개인블로그 페이지](https://www.notion.so/668ea143e2c140dbaae3299ed5883936?v=77a6fcb0d889454f8572a625ac78ac38&p=4b273ec4dde94ee3a4f1317a5144624a&pm=s)에 정리해두었고, 참고한 자료는 [해당 노션 페이지](https://www.notion.so/6a60a83713b94540a94480d12e370d88?v=b9a472ba358340ec923f866113361ff4&p=6e6d0f0aa5f84ab0b6395d2a5831034c&pm=s)에 정리해두었다.
 
-
 ### 2. 빅데이터 활용 경험
 3400만 행 x 153개 열의 데이터는 17GB가 넘는 큰 데이터.
 만 명 내외의 샘플로 모델을 학습하더라도, 복잡한 모델의 경우에는 RAM 64GB의 데스크톱으로도 모델 학습 어려웠다.
