@@ -28,7 +28,7 @@ weight: 1
 `NER`은 한국어로 `개체명 인식`이다. 해당 방식을 통해서, 전처리된 자재명 중에서 어떤 것이 브랜드인지, 브랜드라인지, 제품종류인지, 제품상세인지 구분하는 모델을 학습할 우 있었다. `spaCy`라는 알고리즘을 활용하였다. 한국어 뉴스로 학습한 사전학습모델을 fine-tuning하여 적용하였다. 무엇보다, 직접 훈련데이터를 며칠간 만들어서 학습시킨 것이 개인적으로 유의미한 경험이었다. spaCy를 보다 다양한 과제에서 활용할 수 있을 것 같은데, 이를 위해서는 추후에 추가적인 공부가 뒷받침된다면 더욱 좋을 것 같다.
 
 ### 2-2. Streamlit
-`Streamlit`은 python에서 분석한 것들을 쉽게 웹에 띄울 수 있는 프레임워크이다. `R`의 `shiny`와 같이 대시보드를 만드는 역할이라고 보면 된다. 또한, 커뮤니티가 적당히 활발하여 [dynamic filters](https://github.com/arsentievalex/streamlit-dynamic-filters)와 같은 기능들을 활용하여 대시보드를 고도화할 수 있었다. 이외에도 [streamlit-extras](https://extras.streamlit.app/)에서 유용한 추가기능들을 살펴볼 수 있었다.
+`Streamlit`은 python에서 분석한 것들을 쉽게 웹에 띄울 수 있는 프레임워크이다. `R`의 `shiny`와 같이 대시보드를 만드는 역할이라고 보면 된다. 또한, 커뮤니티가 적당히 활발하여 [dynamic filters](https://github.com/arsentievalex/streamlit-dynamic-filters)와 같은 기능들을 활용하여 대시보드를 고도화할 수 있었다. 이외에도 [streamlit-extras](https://extras.streamlit.app/)에서 유용한 추가기능들을 살펴볼 수 있었다. 특히 아래의 코드에서 `edited_df`는 대시보드 상에서 dataframe을 수정할 수 있게 해주는 것이었어서 유용하게 활용했다.
 
 ```python
 edited_df = st.experimental_data_editor(df)
@@ -37,6 +37,8 @@ st.markdown(f"Your favorite command is **{favorite_command}** 🎈")
 ```
 
 [Streamlit Gallery](https://streamlit.io/gallery)를 보면 다양한 형식의 예시들을 확인할 수 있다. 대부분 github을 통해서 코드를 공유 중이니, 개발 시 참고하면 좋을 듯 하다. 나아가, streamlit 공식홈페이지에서 github과 연동하여 개인당 3개까지 무료로 배포를 할 수 있다. 용량과 같은 측면에서 일부 제한이 있기는 하지만, 그래도 유용하게 활용 가능할 것 같다. 만약 3개를 초과해서 활용해서 한다면, netlify를 추후에 이용해도 좋지 않을까 싶다.
+
+개인적으로 가장 큰 어려움이자 배움이 되었던 것은, session_state를 설정하고 캐시데이터를 관리하는 것이었다. 특정 버튼을 누르면 초기화가 되는데, 전체가 초기화되는 것을 막고 대시보드의 성능을 고도화하기 위해서 적지 않은 시간을 투자했던 경험이 유의미했다. 이는 추후 React와 같은 프론트 프레임워크에 대해 공부를 시작하는 데에 자극제가 되어주었다.
 
 ## 3. Result
 https://lghnh-internship.streamlit.app/
