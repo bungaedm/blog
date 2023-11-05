@@ -33,7 +33,6 @@ weight: 1
 ```python
 edited_df = st.experimental_data_editor(df)
 favorite_command = edited_df.loc[edited_df["rating"].idxmax()]["command"]
-st.markdown(f"Your favorite command is **{favorite_command}** 🎈")
 ```
 
 [Streamlit Gallery](https://streamlit.io/gallery)를 보면 다양한 형식의 예시들을 확인할 수 있다. 대부분 github을 통해서 코드를 공유 중이니, 개발 시 참고하면 좋을 듯 하다. 나아가, streamlit 공식홈페이지에서 github과 연동하여 개인당 3개까지 무료로 배포를 할 수 있다. 용량과 같은 측면에서 일부 제한이 있기는 하지만, 그래도 유용하게 활용 가능할 것 같다. 만약 3개를 초과해서 활용해서 한다면, netlify를 추후에 이용해도 좋지 않을까 싶다.
