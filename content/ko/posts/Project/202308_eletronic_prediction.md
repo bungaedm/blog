@@ -13,6 +13,8 @@ weight: 1
 ## 1. What I Have Learned
 
 ### 1-1. Prophet
+![prophet](images/posts/project/202308_electronic/prophet.png)
+
 `Prophet`은 Meta(구 Facebook)에서 배포한 시계열 예측 모델이다. 세부적으로 여러 argument를 지정해줄 수 있지만, 기본적으로 weekly, monthly trend 등을 잘 파악해줄 수 있는 모델이다. 유의미한 변수가 없는 경우 잘 활용해볼 수 있는 모델이라고 생각한다.
 
 ### 1-2. XGBoost
