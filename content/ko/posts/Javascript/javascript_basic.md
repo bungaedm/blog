@@ -7,7 +7,7 @@ title: Javascript 기초
 weight: 1
 ---
 
-본 포스팅은 [노마드 코더](https://nomadcoders.co/javascript-for-beginners/lectures)를 참고하여 공부하고 정리하였다.
+본 포스팅은 [노마드 코더](https://nomadcoders.co/javascript-for-beginners/lectures)를 참고하여 공부하고 정리하였습니다.
 
 ## 0. 기본 설정
 ```html
