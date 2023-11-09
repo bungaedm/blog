@@ -40,6 +40,7 @@ favorite_command = edited_df.loc[edited_df["rating"].idxmax()]["command"]
 개인적으로 가장 큰 어려움이자 배움이 되었던 것은, session_state를 설정하고 캐시데이터를 관리하는 것이었다. 특정 버튼을 누르면 초기화가 되는데, 전체가 초기화되는 것을 막고 대시보드의 성능을 고도화하기 위해서 적지 않은 시간을 투자했던 경험이 유의미했다. 이는 추후 React와 같은 프론트 프레임워크에 대해 공부를 시작하는 데에 자극제가 되어주었다.
 
 ## 3. Result
+![streamlit_example](images/posts/project/202310_lghnh_sku_clustering/lghnh_timeline.PNG)
 https://lghnh-internship.streamlit.app/
 
 보안상의 문제로, 최종발표자료 및 대시보드를 직접 반출할 수는 없었다. 대신, 두 달 간 어떤 순서로 '유사제품 군집화' 모델을 개발해왔는지에 대해 Streamlit을 통해 타임라인으로 작성해보았다. 자세한 내용은 위 링크를 통해서 확인 가능하다.
