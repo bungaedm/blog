@@ -41,6 +41,7 @@ favorite_command = edited_df.loc[edited_df["rating"].idxmax()]["command"]
 
 ## 3. Result
 ![streamlit_example](images/posts/project/202310_lghnh_sku_clustering/lghnh_timeline.PNG)
+
 https://lghnh-internship.streamlit.app/
 
 보안상의 문제로, 최종발표자료 및 대시보드를 직접 반출할 수는 없었다. 대신, 두 달 간 어떤 순서로 '유사제품 군집화' 모델을 개발해왔는지에 대해 Streamlit을 통해 타임라인으로 작성해보았다. 자세한 내용은 위 링크를 통해서 확인 가능하다.
