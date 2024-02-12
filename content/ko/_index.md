@@ -45,13 +45,14 @@ sections:
     color: white
     description:
       Career <br>
+      2024.01~NOW     | LG CNS CX Analytics&Insights팀 <br>
       2023.09~2023.10 | LG생활건강 인턴 (데이터 & 머신러닝 Project) <br>
       2022.07~2022.08 | KT 인턴 (컨버전스연구소 AI Edu Tech Project S-TF) <br>
       2022.03~2023.08 | BK21 데이터사이언스연구소 <br>
       2021.09~2023.08 | DM(Data Mining) Lab (김현중 교수님) <br>
-      2021.09~2023.08 | 연세대 통계데이터사이언스학과(대학원) <br>      
 
       Activity <br> 
+      2021.09~2023.08 | 연세대 통계데이터사이언스학과(대학원) <br>      
       2020.03~2021.08 | 연세대학교 통계학회 ESC 학술부 및 총무 <br>
       2019.03~2019.12 | 통계청 대학생 기자단 <br>
       2017.03~2019.02 | 대한민국 공군 / RAPCON Radar Approach Control <br>
