@@ -33,7 +33,7 @@ landing:
   image: favicon/logo_small.png
   spaceBetweenTitleText: 5
   text:
-  - LG CNS
+  - LG CNS / Yonsei Univ.
   textColor: null
   title:
   - Jiwoo Son
@@ -215,7 +215,7 @@ footer:
     applySinglePageCss: false
     markdown: |
       ## Jiwoo Son
-      Copyright © 2023. All rights reserved.
+      Copyright © 2024. All rights reserved.
   # sections:
   # - links:
   #   - link: https://gohugo.io/
