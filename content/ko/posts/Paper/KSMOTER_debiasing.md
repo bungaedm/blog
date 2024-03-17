@@ -7,7 +7,7 @@ weight: 1
 ---
 
 ## KDE SMOTE for Imbalanced Regression Debiasing
-- 연구기간: 2022 December ~ 2023 June
+- 연구기간: 2023 February ~ 2023 June
 - 석사학위논문의 후속논문
 - 학습데이터와 평가데이터가 다른 상황에서 우수한 성능을 보임
 - 한국데이터마이닝학회 SAS학생논문경진대회 우수상
