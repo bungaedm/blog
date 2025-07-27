@@ -33,7 +33,7 @@ landing:
   image: favicon/logo_small.png
   spaceBetweenTitleText: 5
   text:
-  - LG CNS / Yonsei Univ.
+  - 현대카드 / Yonsei Univ.
   textColor: null
   title:
   - Jiwoo Son
@@ -184,16 +184,16 @@ sections:
   cards:
   - cards:
     color: white
-    image: images/section/r.png
-    subtitle: R
-  - cards:
-    color: white
     image: images/section/python.png
     subtitle: Python
   - cards:
     color: white
     image: images/section/sql.png
     subtitle: SQL
+  - cards:
+    color: white
+    image: images/section/r.png
+    subtitle: R    
   - cards:
     color: white
     image: images/section/tableau.jpg
