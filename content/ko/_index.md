@@ -45,7 +45,8 @@ sections:
     color: white
     description:
       Career <br>
-      2024.01~NOW     | LG CNS CX Analytics&Insights팀 <br>
+      2025.01~NOW     | 현대카드 카드리스크관리팀 모델링p <br>
+      2024.01~2024.12 | LG CNS CX Analytics&Insights팀 <br>
       2023.09~2023.10 | LG생활건강 인턴 (데이터 & 머신러닝 Project) <br>
       2022.07~2022.08 | KT 인턴 (컨버전스연구소 AI Edu Tech Project S-TF) <br>
       2022.03~2023.08 | BK21 데이터사이언스연구소 <br>
